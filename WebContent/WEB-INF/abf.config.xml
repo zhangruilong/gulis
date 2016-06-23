@@ -33,5 +33,27 @@
 	<bean id="Om_empgroupAction" class="com.om.action.Om_empgroupAction" />
 	<bean id="Om_dutyAction" class="com.om.action.Om_dutyAction" />
 	<bean id="Om_busiorgAction" class="com.om.action.Om_busiorgAction" />
-
+	
+	<bean id="AddressAction" class="com.server.action.AddressAction" />
+	<bean id="CcustomerAction" class="com.server.action.CcustomerAction" />
+	<bean id="CityAction" class="com.server.action.CityAction" />
+	<bean id="CollectAction" class="com.server.action.CollectAction" />
+	<bean id="CompanyAction" class="com.server.action.CompanyAction" />
+	<bean id="CustomerAction" class="com.server.action.CustomerAction" />
+	<bean id="EmpAction" class="com.server.action.EmpAction" />
+	<bean id="GoodsAction" class="com.server.action.GoodsAction" />
+	<bean id="GoodsclassAction" class="com.server.action.GoodsclassAction" />
+	<bean id="OrderdAction" class="com.server.action.OrderdAction" />
+	<bean id="OrdermAction" class="com.server.action.OrdermAction" />
+	<bean id="PayAction" class="com.server.action.PayAction" />
+	<bean id="PricesAction" class="com.server.action.PricesAction" />
+	<bean id="ScantAction" class="com.server.action.ScantAction" />
+	<bean id="TimegoodsAction" class="com.server.action.TimegoodsAction" />
+	<bean id="GivegoodsAction" class="com.server.action.GivegoodsAction" />
+	<bean id="FeedbackAction" class="com.server.action.FeedbackAction" />
+	
+	<bean id="OrdermviewAction" class="com.server.action.OrdermviewAction" />
+	<bean id="CompanyviewAction" class="com.server.action.CompanyviewAction" />
+	<bean id="ScantviewAction" class="com.server.action.ScantviewAction" />
+	<bean id="GoodsviewAction" class="com.server.action.GoodsviewAction" />
 </beans>
