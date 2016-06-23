@@ -34,5 +34,4 @@
 	<bean id="Om_dutyAction" class="com.om.action.Om_dutyAction" />
 	<bean id="Om_busiorgAction" class="com.om.action.Om_busiorgAction" />
 
-
 </beans>
