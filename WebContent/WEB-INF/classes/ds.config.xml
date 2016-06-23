@@ -10,8 +10,8 @@
 		<name>oracle</name>
 		<driver>oracle.jdbc.driver.OracleDriver</driver>
 		<url>jdbc:oracle:thin:@127.0.0.1:1521:WIGDBRD</url>
-		<username>abf</username>
-		<password>abf</password>
+		<username>guli</username>
+		<password>guli</password>
 		<maxconn>10</maxconn>
 	</pool>
 </ds-config>
