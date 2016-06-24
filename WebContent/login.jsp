@@ -15,7 +15,7 @@
 if (top != window) top.location.href = window.location.href;
 function check() {
 	if(document.getElementById('username').value==''||document.getElementById('username').value==null){
-		alert("用户名不能为空");
+		alert("用户名不能为空"); 
 		return false;
 	}else if(document.getElementById('password').value==''||document.getElementById('password').value==null){
 		alert("密码不能为空");
