@@ -7,7 +7,7 @@
 <%@ include file="/common/common.jsp"%>
 <script type="text/javascript" src="left.js"></script>
 <script type="text/javascript" src="sysjs/jquery.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript"> 
 	window.onload=function(){
 		var b=document.documentElement.clientHeight-4;  
 		//取得iframe框架的实际宽度
