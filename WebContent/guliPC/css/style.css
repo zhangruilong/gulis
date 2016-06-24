@@ -1,0 +1,51 @@
+.jDiaporama {
+	position: relative;
+}
+.jDiaporama ul {
+	overflow: hidden; -moz-box-shadow: 1px 1px 0.5em #222;
+}
+.jDiaporama li {
+	overflow: hidden; list-style-type: none; position: absolute;
+}
+.jDiaporama li img {
+	display: block;
+}
+.jDiaporama li .desc {
+	background: url("img/back_desc.png"); margin: 0px; padding: 5px; left: 0px; width: 100%; height: 30px; bottom: 0px; color: rgb(255, 255, 255); font-family: Arial; font-size: 12px; display: none; position: absolute; _background-image: none;
+}
+.jDiaporama li .title {
+	margin: 0px; padding: 5px; left: 0px; top: 0px; color: rgb(255, 255, 255); font-family: Arial; font-size: 12px; display: none; position: absolute;
+}
+.jDiaporama li .count {
+	margin: 0px; padding: 5px; top: 0px; right: 0px; color: rgb(255, 255, 255); font-family: Arial; font-size: 12px; display: none; position: absolute;
+}
+.jDiaporama_controls {
+	display: none;
+}
+.jDiaporama_controls a {
+	margin: 0px 3px; width: 10px; height: 13px; text-indent: -9999px; font-weight: normal; display: block; position: absolute;
+}
+.jDiaporama_controls .prev {
+	background: url("img/controls2.png") no-repeat bottom; left: 0px; top: 50%; width: 32px; height: 32px; margin-top: -16px; _background: url(img/controls.gif) no-repeat bottom;
+}
+.jDiaporama_controls .next {
+	background: url("img/controls2.png") no-repeat top; top: 50%; width: 32px; height: 32px; right: 0px; margin-top: -16px; _background: url(img/controls.gif) no-repeat top;
+}
+.jDiaporama_controls .pause {
+	background: url("img/playpause.png") no-repeat top; left: 50%; top: 50%; width: 64px; height: 48px; margin-top: -24px; margin-left: -32px; _background: url(img/playpause.gif) no-repeat top;
+}
+.jDiaporama_controls .play {
+	background: url("img/playpause.png") no-repeat bottom; left: 50%; top: 50%; width: 64px; height: 48px; margin-top: -24px; margin-left: -32px; _background: url(img/playpause.gif) no-repeat bottom;
+}
+.jDiaporama_status {
+	left: 50%; text-align: center; margin-top: 10px; display: none; position: absolute;
+}
+.jDiaporama_status a {
+	background: url("img/bullets.png") no-repeat left; width: 10px; height: 10px; text-indent: -9999px; margin-right: 5px; float: left; _background: url(img/bullets.gif) no-repeat left;
+}
+.jDiaporama_status a.active {
+	background: url("img/bullets.png") no-repeat right; _background: url(img/bullets.gif) no-repeat right;
+}
+.jDiaporama_status a:hover {
+	background: url("img/bullets.png") no-repeat right; _background: url(img/bullets.gif) no-repeat right;
+}

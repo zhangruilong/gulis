@@ -1,0 +1,87 @@
+#shoppingcard-modal-content {
+	display: none;
+}
+#Evaluation-modal-content {
+	display: none;
+}
+#simplemodal-overlay {
+	background-color: rgb(0, 0, 0);
+}
+#simplemodal-container {
+	padding: 0px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 600px; height: 420px; color: rgb(187, 187, 187); background-color: rgb(255, 255, 255);
+}
+#simplemodal-container .simplemodal-data {
+	padding: 0px;
+}
+#simplemodal-container h3 {
+	color: rgb(132, 184, 217);
+}
+#simplemodal-container .Evaluation_bar {
+	background: rgb(246, 246, 246); width: 100%; height: 40px; color: rgb(70, 70, 70); line-height: 40px; float: left; display: inline; white-space: nowrap;
+}
+#simplemodal-container .Evaluation_bar span {
+	padding: 10px; width: auto; height: 20px; color: rgb(70, 70, 70); line-height: 20px; float: left; display: inline;
+}
+#simplemodal-container .Evaluation_content {
+	margin: 40px 0px; width: 100%; height: 50px; float: left; display: inline;
+}
+#simplemodal-container .Evaluation_content img {
+	width: 50px; height: 50px; margin-left: 50px; float: left; display: inline;
+}
+#simplemodal-container .Evaluation_content span {
+	padding: 0px; width: 172px; height: 50px; text-align: center; color: rgb(0, 0, 0); line-height: 50px; font-size: 16px; font-weight: bold; float: left;
+}
+#simplemodal-container .Evaluation_content button {
+	background: url("../../images/qgwcjs.jpg") no-repeat; border: 0px currentColor; border-image: none; width: 141px; height: 37px; margin-top: 6px; float: left; display: inline;
+}
+#simplemodal-container .Evaluation_bar a img {
+	margin: 14px 10px 0px 0px; width: 11px; height: 11px; float: right; display: inline;
+}
+#simplemodal-container .Evaluation_bar a {
+	width: auto; float: right;
+}
+.Evaluationuphkg {
+	width: 560px; height: auto; margin-left: 20px; float: left; display: inline;
+}
+.Evaluationhkgtitle {
+	width: 100%; height: 25px; text-align: left; color: rgb(102, 102, 102); line-height: 25px; font-weight: bold; margin-bottom: 12px; border-bottom-color: rgb(219, 219, 219); border-bottom-width: 1px; border-bottom-style: dashed; float: left; display: inline;
+}
+.Evaluationhkgblock {
+	margin: 0px 9px; width: 130px; height: auto; float: left; display: inline;
+}
+.Evaluationhkgblock img {
+	width: 100%; height: 79px; margin-bottom: 9px; float: left; display: inline;
+}
+.Evaluationhkgblock span {
+	padding: 0px; width: 100%; text-align: left; color: rgb(101, 101, 101); line-height: 18px; font-family: Arial, Helvetica, sans-serif; float: left;
+}
+.Evaluationhkgblock span a {
+	color: rgb(184, 18, 2); float: left;
+}
+.Evaluationblock {
+	width: 98%; height: auto; margin-top: 16px; margin-left: 2%; float: left; display: inline;
+}
+.Evaluationbline {
+	width: 100%; height: 15px; margin-bottom: 10px; float: left; display: inline;
+}
+.Evaluationbline span {
+	width: 150px; text-align: right; color: rgb(0, 0, 0); margin-right: 15px; float: left; display: inline;
+}
+.Evaluationbline img {
+	float: left;
+}
+.Evaluationbline2 {
+	width: 100%; height: 37px; margin-bottom: 10px; float: left; display: inline;
+}
+.Evaluationbline2 label {
+	width: auto; height: 15px; color: rgb(0, 0, 0); margin-top: 11px; float: left; display: inline;
+}
+.Evaluationbline2 label input {
+	width: 15px; height: 15px; margin-right: 5px; float: left; display: inline;
+}
+.Evaluationbline2 span {
+	float: right;
+}
+.Evaluationbline2 span input {
+	border: 0px currentColor; border-image: none; width: 70px; height: 37px; margin-right: 10px; float: left; display: inline;
+}

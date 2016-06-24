@@ -1,0 +1,78 @@
+#shoppingcard-modal-content {
+	display: none;
+}
+#comment-modal-content {
+	display: none;
+}
+#simplemodal-overlay {
+	background-color: rgb(0, 0, 0);
+}
+#simplemodal-container {
+	padding: 0px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 600px; height: 390px; color: rgb(187, 187, 187); background-color: rgb(255, 255, 255);
+}
+#simplemodal-container .simplemodal-data {
+	padding: 0px;
+}
+#simplemodal-container h3 {
+	color: rgb(132, 184, 217);
+}
+#simplemodal-container .popup_bar {
+	background: rgb(246, 246, 246); width: 100%; height: 40px; color: rgb(70, 70, 70); line-height: 40px; float: left; display: inline; white-space: nowrap;
+}
+#simplemodal-container .popup_bar span {
+	padding: 10px; width: auto; height: 20px; color: rgb(70, 70, 70); line-height: 20px; float: left; display: inline;
+}
+#simplemodal-container .popup_content {
+	margin: 40px 0px; width: 100%; height: 50px; float: left; display: inline;
+}
+#simplemodal-container .popup_content img {
+	width: 50px; height: 50px; margin-left: 50px; float: left; display: inline;
+}
+#simplemodal-container .popup_content span {
+	padding: 0px; width: 172px; height: 50px; text-align: center; color: rgb(0, 0, 0); line-height: 50px; font-size: 16px; font-weight: bold; float: left;
+}
+#simplemodal-container .popup_content button {
+	background: url("../../images/qgwcjs.jpg") no-repeat; border: 0px currentColor; border-image: none; width: 141px; height: 37px; margin-top: 6px; float: left; display: inline; cursor: pointer;
+}
+#simplemodal-container .popup_bar a img {
+	margin: 14px 10px 0px 0px; width: 11px; height: 11px; float: right; display: inline;
+}
+#simplemodal-container .popup_bar a {
+	width: auto; float: right;
+}
+.popuphkg {
+	width: 560px; height: auto; margin-left: 20px; float: left; display: inline;
+}
+.popuphkgtitle {
+	width: 100%; height: 25px; text-align: left; color: rgb(102, 102, 102); line-height: 25px; font-weight: bold; margin-bottom: 12px; border-bottom-color: rgb(219, 219, 219); border-bottom-width: 1px; border-bottom-style: dashed; float: left; display: inline;
+}
+.popuphkgblock {
+	margin: 0px 10px 0px 0px; width: 130px; height: auto; float: left; display: inline;
+}
+.popuphkgblock img {
+	width: 100%; height: 79px; margin-bottom: 9px; float: left; display: inline;
+}
+.popuphkgblock span {
+	padding: 0px; width: 100%; text-align: left; color: rgb(101, 101, 101); line-height: 18px; font-family: Arial, Helvetica, sans-serif; float: left;
+}
+.popuphkgblock span a {
+	color: rgb(85, 85, 85); float: left;
+}
+.spms a {
+	color: rgb(102, 102, 102);
+}
+#simplemodal-container .popup-modal {
+	border-radius: 5px; width: auto; height: 100%; visibility: hidden; position: absolute; z-index: 101; background-color: rgb(255, 255, 255); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .4); -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .4); -moz-border-radius: 5px; -webkit-border-radius: 5px; -box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+}
+#simplemodal-container .popup-modal .close-reveal-modal {
+	border-radius: 3em; top: 0.2em; width: 1.5em; height: 1.5em; text-align: center; right: 11px; color: rgb(245, 245, 245); line-height: 1.5em; font-size: 1.5em; font-weight: bold; position: absolute; cursor: pointer;
+}
+#simplemodal-container .popup-modal .close-reveal-modal:hover {
+	background: rgba(255, 134, 4, 1); animation:animationT 1.5s ease-in alternate;
+}
+#simplemodal-container .popup-hd {
+	background: rgb(255, 73, 0); width: 100%; height: 3em; position: relative;
+}
+#simplemodal-container .popup-hd h3 {
+	margin: 0px 0px 0px 1em; color: rgb(255, 255, 255); line-height: 2.5em; font-weight: bold; display: inline-table;
+}

@@ -135,10 +135,10 @@
           					
           					<div class="wzh-shangj-p">
             					<ul>
-				                    <li>
+				                    <!-- <li>
 					                    	<div class="shangj-l">
 					                   	    	<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror="this.src='/images/default-loading.gif'"  /></a>
-					                        </div><!--shangj-l-->
+					                        </div>
 					                        <div class="shangj-l-text">
 					                        	<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" title="海盐天然粮油有限公司" target="_blank" ><h2>海盐天然粮油有限公司</h2></a>
 					                            <div>
@@ -147,8 +147,8 @@
 					                          	</div>
 					                            <p>进店消费人次：0次</p>
 							                    <p title="武原街道农副产品综合批发市场16-18号">地址：武原街道农副产品综合批发市场16-18号</p>
-					                        </div><!--shangj-l-text-->
-				                    	</li>
+					                        </div>
+				                    	</li> -->
 				           			<!-- <li>
 					                    	<div class="shangj-l">
 					                   	    	<a href="/merchant/merchant.html?id=012F10ADC0E46A9FE050A8C0AA81043F" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror="this.src='/images/default-loading.gif'"  /></a>
@@ -165,53 +165,36 @@
 				                    	</li> -->
 				           			</ul>
           					</div>
-          					
- 
-
-<!--页码-->
-<!-- 
-	note:
-		url:请求路径
-		items:记录总数
-		maxPageItems:每页显示数 
-		maxIndexPages:索引显示最大数
- -->
- 
- 	   <script type="text/javascript">
-	 	  jQuery(function(){
-		 		$("#pagerForm").append("<input type='hidden' id='id'"
-		 				+" name='id' value='FF8867F8B453D990E040A8C097817178'/>");
-	 	  });
- 	   </script>
-
- 	   <script type="text/javascript">
-	 	  jQuery(function(){
-		 		$("#pagerForm").append("<input type='hidden' id='category'"
-		 				+" name='category' value=''/>");
-	 	  });
- 	   </script>
-
- 	   <script type="text/javascript">
-	 	  jQuery(function(){
-		 		$("#pagerForm").append("<input type='hidden' id='wzsqid'"
-		 				+" name='wzsqid' value='FF8867F8B453D990E040A8C097817178'/>");
-	 	  });
- 	   </script>
-
- 	   <script type="text/javascript">
-	 	  jQuery(function(){
-		 		$("#pagerForm").append("<input type='hidden' id='name'"
-		 				+" name='name' value='å´å®äºæ´²å¥ä¼¦å¸å¹¿åº'/>");
-	 	  });
- 	   </script>
-
- 	   <script type="text/javascript">
-	 	  jQuery(function(){
-		 		$("#pagerForm").append("<input type='hidden' id='wzsqname'"
-		 				+" name='wzsqname' value='崇安谷粒哥伦布广场'/>");
-	 	  });
- 	   </script>
-
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:"CompanyviewAction.do?method=selAll",
+		type:"post",
+		data:{},
+		success:function(data){
+			var jsonData = JSON.parse(data);
+			$.each(jsonData.root,function(i,item){
+				$(".wzh-shangj-p ul").append('<li>'+
+						'<div class="shangj-l">'+
+	                   	 '<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror=""  /></a>'+
+	                    '</div>'+
+	                   	 '<div class="shangj-l-text">'+
+	                        	'<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" title="'+item.companyshop+'" target="_blank" ><h2>'+item.companyshop+'</h2></a>'+
+	                            '<div>'+
+	                            	'<span>评价<a>0.0</a></span>'+
+	                           		'<span class="vote-star"><i style="width:0.0%"></i></span>'+
+	                          	'</div>'+
+	                            '<p>进店消费人次：0次</p>'+
+			                    '<p title="'+item.companyaddress+'">地址：'+item.companyaddress+'</p>'+
+	                      '</div></li>');
+			});
+		},
+		error:function(data){
+			alert('网络出现问题，请稍后再试');
+		}
+	});
+});
+</script>	
  <form id="pagerForm" name="pagerForm" action="/wzsq/findmerchantById?id=FF8867F8B453D990E040A8C097817178&name=谷粒广场" method="post">
 
 	<div class="pageNum"> 
@@ -239,29 +222,7 @@
 	</div> 	
 
 </form>
-<script type="text/javascript">
-	jQuery(function(){
-		
-		//url:为请求参数后面的键值对
-		//name:欲获取的参数名称
-		function getQueryString(url,name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-			var r = url.match(reg);
-			if(r != null){
-				return unescape(r[2]); 
-			}
-			return null;
-		}
-
-
-		jQuery(".pageNum > a").bind("click",function(){
-			var hrefStr = jQuery(this).attr("href");
-			jQuery("#pagerForm").attr("action",hrefStr);
-			jQuery("#pagerForm").submit();
-			return false;
-		})
-	});
-</script></div>
+</div>
           				<div class="clearD"></div><!--clearD--> 
           			</div>
           			<div id="rightSide">
