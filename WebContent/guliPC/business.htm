@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" >
+	<head>
+		
+		<meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>谷粒商家圈</title>
+        <script type="text/javascript">
+	var ctx = '';
+	var imgCtx = 'http://file.wuzhouhui.com.cn/images';
+	var maxImg = '_550x327';
+	var middleImg = '_300x195';
+	var minImg = '_95x72';
+	
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ab760676cef1d58f4c918b56c939a114";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script><!--[if IE 8]> <link rel="stylesheet" type="text/css" href="/css/ie_old.css" /> <![endif]-->
+<!--[if IE 8]> <script src="/js/vendor/modernizr.js"></script> <![endif]-->
+<!--[if IE 8]> <script src="/js/vendor/respond.min.js"></script> <![endif]-->
+<!--[if lt IE 7]>
+   <p class="browsehappy">您使用的<strong>过时的</strong> 浏览器。 请 <a href="http://browsehappy.com/">升级您的浏览器</a>以提高您的浏览体验！</p>
+<![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/color.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/wzhWeb.css" >
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<script type="text/javascript">
+  $(function(){
+	  var u = navigator.userAgent;
+	  if(u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1)) {
+		window.location.href = ctx+"/m.html";
+	  }
+  });
+</script>
+
+<meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	</head>
+	<body >
+		<div id="ContainerBox"> 
+        	<div class="wzh-top-head">
+            	<div class="wzh-head contentBody">
+                	<div class="whz-headLogo">
+                    	<a href="#" class="whz-head-logo">&nbsp;</a>
+                    </div><!--whz-headLogo-->
+						<div class="wzhHead-login">
+                			Hi你好，请 <a id="index_login_button" href="/user/login.html" class="yellow">登录</a>
+                			</div><!--wzhHead-login-->
+            			<ul>
+	               	  	<li><a href="#" onclick="javascript:history.go(-1)" id="index_button">首页</a></li>
+	                   <!--  <li><a href="/food.html" id="food_button">粮油米面</a></li>
+	                    <li><a href="/fun.html" >调味酱汁</a></li>
+	                    <li><a href="/hotel.html" >南北干货</a></li>
+	                    <li><a href="/life.html" >方便食品</a></li> -->
+	                    <li><a href="/wzsq/searchbypage.html">谷粒商圈</a></li>
+	                    <li><a href="/wzkmerchant.html" target="_blank">谷粒卡</a></li>
+					</ul>
+              </div><!--wzh-head-->
+            </div><!--wzh-top-head-->
+        
+       		<div id="wzkMerchantdiv" class="wzk-top-green2">
+            	<div class="contentBody" >
+            	    <a href="#" title="关闭" onclick="javascript:closeDiv('wzkMerchantdiv');"><img src="images/guanbi.png" class="guanbi"/></a>
+            	    <img src="images/sqbg.jpg" />
+   		    		<div class="cbtext"><span>尽在谷粒广场</span></div>
+                </div>
+            </div><!--wzk-top-banner-->
+            
+            <div class="contentBody">
+        		<div class="screenBox">
+        			<div class="ppsjblock" style="margin-top:80px;position: relative;">品牌商家</div>
+       				<!-- 头部筛选 -->
+                   	<div class="TopScreening online_scr">
+                   		<form id="submitForm" name="submitForm" method="post" action="/wzsq/findmerchantById?id=FF8867F8B453D990E040A8C097817178&name=谷粒广场">
+		                    <ul class="select">
+		                        <li class="select-list">
+		                            <dl id="select1">
+		                                <dt>热门分类：</dt>
+		                                <input type="hidden" id="category" name="category" value="" />
+		                                <input type="hidden" name="wzsqid" value="FF8867F8B453D990E040A8C097817178" />
+		                                <input type="hidden" name="wzsqname" value="谷粒广场" />
+		                                 
+		                                <dd class="select-all selected">
+											<a href="#" onclick="javascript:getForm('','category')">全部</a>
+		                                </dd>
+		                                <input type="hidden" id="food" name="food" value="1002"/>
+											<dd>
+												<a href="#" onclick="javascript:getForm('1002','category')">
+												粮油米面&nbsp;58</a>
+											</dd>
+										<input type="hidden" id="food" name="food" value="1001"/>
+											<dd>
+												<a href="#" onclick="javascript:getForm('1001','category')">
+												调味酱汁&nbsp;56</a>
+											</dd>
+										<input type="hidden" id="food" name="food" value="1005"/>
+											<dd>
+												<a href="#" onclick="javascript:getForm('1005','category')">
+												南北干货&nbsp;9</a>
+											</dd>
+										<input type="hidden" id="food" name="food" value="1003"/>
+											<dd>
+												<a href="#" onclick="javascript:getForm('1003','category')">
+												方便食品&nbsp;5</a>
+											</dd>
+										<!-- <input type="hidden" id="food" name="food" value="1006"/>
+											<dd>
+												<a href="#" onclick="javascript:getForm('1006','category')">
+												丽人&nbsp;2</a>
+											</dd> -->
+										</dl>
+		                        </li>
+		                        
+	                    	</ul>
+	                    </form>
+					</div><!--TopScreening-->
+					
+					<!--分割线-->
+					<div id="leftSubject">
+          				<div class="wzh-merchants">
+          					
+          					<div class="wzh-shangj-p">
+            					<ul>
+				                    <li>
+					                    	<div class="shangj-l">
+					                   	    	<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror="this.src='/images/default-loading.gif'"  /></a>
+					                        </div><!--shangj-l-->
+					                        <div class="shangj-l-text">
+					                        	<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" title="海盐天然粮油有限公司" target="_blank" ><h2>海盐天然粮油有限公司</h2></a>
+					                            <div>
+					                            	<span>评价<a>0.0</a></span>
+					                           		<span class="vote-star"><i style="width:0.0%"></i></span>
+					                          	</div>
+					                            <p>进店消费人次：0次</p>
+							                    <p title="武原街道农副产品综合批发市场16-18号">地址：武原街道农副产品综合批发市场16-18号</p>
+					                        </div><!--shangj-l-text-->
+				                    	</li>
+				           			<!-- <li>
+					                    	<div class="shangj-l">
+					                   	    	<a href="/merchant/merchant.html?id=012F10ADC0E46A9FE050A8C0AA81043F" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror="this.src='/images/default-loading.gif'"  /></a>
+					                        </div>shangj-l
+					                        <div class="shangj-l-text">
+					                        	<a href="/merchant/merchant.html?id=012F10ADC0E46A9FE050A8C0AA81043F" title="D&W与狼共舞" target="_blank" ><h2>D&W与狼共舞</h2></a>
+					                            <div>
+					                            	<span>评价<a>0.0</a></span>
+					                           		<span class="vote-star"><i style="width:0.0%"></i></span>
+					                          	</div>
+					                            <p>进店消费人次：0次</p>
+							                    <p title="无锡崇安区广益哥伦布广场一层116—117号">地址：无锡崇安区广益哥伦布广场一层116—117号</p>
+					                        </div>shangj-l-text
+				                    	</li> -->
+				           			</ul>
+          					</div>
+          					
+ 
+
+<!--页码-->
+<!-- 
+	note:
+		url:请求路径
+		items:记录总数
+		maxPageItems:每页显示数 
+		maxIndexPages:索引显示最大数
+ -->
+ 
+ 	   <script type="text/javascript">
+	 	  jQuery(function(){
+		 		$("#pagerForm").append("<input type='hidden' id='id'"
+		 				+" name='id' value='FF8867F8B453D990E040A8C097817178'/>");
+	 	  });
+ 	   </script>
+
+ 	   <script type="text/javascript">
+	 	  jQuery(function(){
+		 		$("#pagerForm").append("<input type='hidden' id='category'"
+		 				+" name='category' value=''/>");
+	 	  });
+ 	   </script>
+
+ 	   <script type="text/javascript">
+	 	  jQuery(function(){
+		 		$("#pagerForm").append("<input type='hidden' id='wzsqid'"
+		 				+" name='wzsqid' value='FF8867F8B453D990E040A8C097817178'/>");
+	 	  });
+ 	   </script>
+
+ 	   <script type="text/javascript">
+	 	  jQuery(function(){
+		 		$("#pagerForm").append("<input type='hidden' id='name'"
+		 				+" name='name' value='å´å®äºæ´²å¥ä¼¦å¸å¹¿åº'/>");
+	 	  });
+ 	   </script>
+
+ 	   <script type="text/javascript">
+	 	  jQuery(function(){
+		 		$("#pagerForm").append("<input type='hidden' id='wzsqname'"
+		 				+" name='wzsqname' value='崇安谷粒哥伦布广场'/>");
+	 	  });
+ 	   </script>
+
+ <form id="pagerForm" name="pagerForm" action="/wzsq/findmerchantById?id=FF8867F8B453D990E040A8C097817178&name=谷粒广场" method="post">
+
+	<div class="pageNum"> 
+		<!-- 首页 -->
+		
+	    
+	    <!-- 上一页 -->
+		
+		
+		<!-- 查询参数 -->
+	    
+		
+		
+		<!-- 页码 -->
+	    
+                      <a class="pNum numBg">1</a> 
+               
+		<!-- 下一页 -->
+		
+			<!-- <a class="nextPage" href="/wzsq/findmerchantById?id=FF8867F8B453D990E040A8C097817178&name=谷粒广场&pager.size=30&pager.offset=30"><i class="nt-i"></i>下一页</a>  -->
+		
+		<!-- 尾页 -->
+		
+		
+	</div> 	
+
+</form>
+<script type="text/javascript">
+	jQuery(function(){
+		
+		//url:为请求参数后面的键值对
+		//name:欲获取的参数名称
+		function getQueryString(url,name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = url.match(reg);
+			if(r != null){
+				return unescape(r[2]); 
+			}
+			return null;
+		}
+
+
+		jQuery(".pageNum > a").bind("click",function(){
+			var hrefStr = jQuery(this).attr("href");
+			jQuery("#pagerForm").attr("action",hrefStr);
+			jQuery("#pagerForm").submit();
+			return false;
+		})
+	});
+</script></div>
+          				<div class="clearD"></div><!--clearD--> 
+          			</div>
+          			<div id="rightSide">
+					        	<div class="foodxqbright">
+					                <div class="fxqbrtitle">
+					                    <div class="fxqbrtph">热门商品</div>
+					                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015070411440153029" target="_blank"><img class="scrollLoading" src="images/hotGoods/IMG_1663.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="渝方酸辣粉">渝方酸辣粉</div> -->
+						                        <a href="/product.html?goodsno=SP2015070411440153029" title="仅售4.9元！价值6元特色凉面一份" target="_blank">仅售4.9元！价值6元特色凉面一份</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥4.90</q>
+					                        	</span>
+					                        	<span>已售：<i>6</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2014091317200056873" target="_blank"><img class="scrollLoading" src="images/hotGoods/2ce79d23-6657-4aec-ad96-70396934cd13.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="皮之坊">皮之坊</div> -->
+						                        <a href="/product.html?goodsno=SP2014091317200056873" title="品牌包清洗，呵护爱包，靓丽出行" target="_blank">品牌包清洗，呵护爱包，靓丽出行</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥96.00</q>
+					                        	</span>
+					                        	<span>已售：<i>4</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015072715460455324" target="_blank"><img class="scrollLoading" src="images/hotGoods/20150727171547.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="瑞可爷爷的店（广益店）">瑞可爷爷的店（广益店）</div> -->
+						                        <a href="/product.html?goodsno=SP2015072715460455324" title="仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。" target="_blank">仅售32元，价值39元的起司蛋糕一个...</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥32.00</q>
+					                        	</span>
+					                        	<span>已售：<i>2</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015072716320154862" target="_blank"><img class="scrollLoading" src="images/hotGoods/20150727172718.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="瑞可爷爷的店（广益店）">瑞可爷爷的店（广益店）</div> -->
+						                        <a href="/product.html?goodsno=SP2015072716320154862" title="仅售29元，价值35元的曲奇饼干一份，可叠加使用提供免费wifi。" target="_blank">仅售29元，价值35元的曲奇饼干一份...</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥29.00</q>
+					                        	</span>
+					                        	<span>已售：<i>1</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2014091317200084919" target="_blank"><img class="scrollLoading" src="images/hotGoods/9f6f2450-da76-49d4-bf33-bd4486a76c72.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="皮之坊">皮之坊</div> -->
+						                        <a href="/product.html?goodsno=SP2014091317200084919" title="皮鞋翻新1次，呵护爱鞋，靓丽出行" target="_blank">皮鞋翻新1次，呵护爱鞋，靓丽出行</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥64.00</q>
+					                        	</span>
+					                        	<span>已售：<i>0</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015072715374426715" target="_blank"><img class="scrollLoading" src="images/hotGoods/aa7fc42f6172482fbd6d1665fd80eabc.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="宝庆馀堂">宝庆馀堂</div> -->
+						                        <a href="/product.html?goodsno=SP2015072715374426715" title="仅售200元，价值260元的进口西洋参片30克" target="_blank">仅售200元，价值260元的进口西洋...</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥200.00</q>
+					                        	</span>
+					                        	<span>已售：<i>0</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015072708511337078" target="_blank"><img class="scrollLoading" src="images/hotGoods/IMG_3949.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="怡亚通酩酒汇">怡亚通酩酒汇</div> -->
+						                        <a href="/product.html?goodsno=SP2015072708511337078" title="仅售160元，价值248元的瓦尔堡小麦黑啤一桶，可叠加使用。" target="_blank">仅售160元，价值248元的瓦尔堡小...</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥160.00</q>
+					                        	</span>
+					                        	<span>已售：<i>0</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015072715482092460" target="_blank"><img class="scrollLoading" src="images/hotGoods/19300001024098135976986127635.png" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="宝庆馀堂">宝庆馀堂</div> -->
+						                        <a href="/product.html?goodsno=SP2015072715482092460" title="仅售160元！价值200元的虫草（4根1g）" target="_blank">仅售160元！价值200元的虫草（4...</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥160.00</q>
+					                        	</span>
+					                        	<span>已售：<i>0</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015072708511379516" target="_blank"><img class="scrollLoading" src="images/hotGoods/IMG_3961.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="怡亚通酩酒汇">怡亚通酩酒汇</div> -->
+						                        <a href="/product.html?goodsno=SP2015072708511379516" title="仅售55元，价值208元的阿雷佑·维诺干红葡萄酒一瓶，可叠加使用。" target="_blank">仅售55元，价值208元的阿雷佑·维...</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥55.00</q>
+					                        	</span>
+					                        	<span>已售：<i>0</i></span>
+						                    </div>
+						                </div>
+					                <div class="fxqbrline">
+						                    <div class="fxqbrlleftImg"><a href="/product.html?goodsno=SP2015073110405187798" target="_blank"><img class="scrollLoading" src="images/hotGoods/a53ddb81056e4f20b33fb1edcfb4106e.jpg" alt="" onerror="this.src='/images/default-loading.gif'" /></a></div>
+						                    <div class="asideTwxt-sp">
+						                        <!-- <div class="fxqbrlrline1" title="奶茶博士（广益店）">奶茶博士（广益店）</div> -->
+						                        <a href="/product.html?goodsno=SP2015073110405187798" title="仅售7.9元，价值10元的现金抵用券一张，可叠加使用，提供免费wifi。" target="_blank">仅售7.9元，价值10元的现金抵用券...</a>
+					                        	<span>
+					                        	现价：<q style="font-family: Microsoft Yahei;">¥7.90</q>
+					                        	</span>
+					                        	<span>已售：<i>0</i></span>
+						                    </div>
+						                </div>
+					                </div>
+							</div>
+				</div><!--screenBox END-->
+			</div>
+			<div class="bottom" id="food_bottom_container"></div>
+	    </div>
+	    <!--页脚开始-->
+      	<!--页脚开始-->
+<div id="footBot">
+<div class="footBox">
+ <div class="wzh-footer">
+		<ul>
+			<li><a href="/aboutUs.html">关于我们</a></li>
+			<li><a href="/joinUs.html">加入我们</a></li>
+			<li><a href="/tutorial.html">入门教程</a></li>
+			<li><a href="/commitment.html">谷粒汇承诺</a></li>
+			<li><a href="/antiAnnouncement.html">反诈骗公告</a></li>
+			<li><a href="/privacyStatement.html">隐私声明</a></li>
+		</ul>
+		<p style="color: #fff;">©2016 版权所有 上海域链信息科技有限公司 </p>
+	</div>
+ </div><!--headTopBox-->
+</div>
+<!--footer--> 
+ <script type="text/javascript">
+jQuery("a:contains(¥),b:contains(¥),del:contains(¥),strong:contains(¥),td:contains(¥),li:contains(¥),span:contains(¥),p:contains(¥),q:contains(¥),div:contains(¥)").css('font-family', 'Microsoft Yahei');
+</script><!--footer-->
+	    <script type="text/javascript" src="js/jquery.plusslider.js"></script>
+	    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+		<!-- 图片缓存js -->
+		<script type="text/javascript" src="js/jquery.scrollLoading.js"></script>
+        <!--功能js-->
+        <script type="text/javascript" src="js/screening.js"></script>
+	    <script type="text/javascript" src="js/js.js"></script>
+	    <script type="text/javascript" src="js/cookie.js"></script>
+	    <script type="text/javascript">
+			function getForm(id, type) {
+				$("#category").val(id);
+				$("#submitForm").submit();
+			}
+		</script>
+		<script>
+			 $(function() {
+	            $(".scrollLoading").scrollLoading();    
+	        });
+			 $(function(){
+				 var whzHead= getCookieValue("wzkMerchantdiv");
+				 if(whzHead == 'close'){
+					 nonebtn = document.getElementById('wzkMerchantdiv');
+	        		if(nonebtn != null){
+	        			nonebtn.style.display = "none";
+	        		}
+				 }
+			 });
+		</script>
+	</body>
+</html>

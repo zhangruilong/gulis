@@ -1,0 +1,201 @@
+#ContainerBox {
+	width: 100%;
+}
+#headTop {
+	width: 100%; height: 140px;
+}
+#leftSubject {
+	width: 80.83%; height: auto; float: left; position: relative;
+}
+#rightSide {
+	width: 215px; height: auto; float: right;
+}
+#footBot {
+	width: 100%; clear: both; margin-top: 30px; float: left;
+}
+.leftSubject {
+	width: 80.83%; height: auto; overflow: hidden; float: left;
+}
+.rightSide {
+	width: 215px; height: auto; float: right;
+}
+.contentBody {
+	margin: auto; width: 1200px;
+}
+.headTopBox {
+	width: 100%; height: 35px;
+}
+.footBox {
+	width: 100%; height: auto;
+}
+.headCont {
+	width: 100%; float: left;
+}
+.TopLogo {
+	width: 200px; float: left;
+}
+.search-text {
+	width: 75%;
+}
+.btn-search {
+	width: 20%;
+}
+.navBox {
+	width: 100%; height: 40px;
+}
+.deal-sj-info {
+	padding: 1%; width: 98%;
+}
+.deal-sj-map {
+	width: 37.9%; height: 260px;
+}
+.navMenu {
+	width: 75%; margin-right: 1px; display: inline-table;
+}
+.navMenu-all {
+	width: 20%; float: left;
+}
+.nav-tit-all {
+	width: 100%; display: block;
+}
+.siteBannerBox {
+	width: 80%; height: 415px;
+}
+.site-middle {
+	width: 76.04%;
+}
+.site-r-wzk {
+	width: 22.39%;
+}
+.user-leftMenu {
+	width: 17%; margin-right: 1.5em; float: left; display: inline-table;
+}
+.user-rightArea {
+	width: 80%; float: left; display: inline-table;
+}
+#flash {
+	height: 300px;
+}
+#flashLine {
+	height: 300px;
+}
+#flash a {
+	height: 300px;
+}
+.buyButton {
+	width: 40%;
+}
+.cartButton {
+	width: 55%;
+}
+.loginWit {
+	max-width: 1000px;
+}
+.asideTwxt-sp span {
+	width: 100%;
+}
+.sp-dataBox {
+	width: 30.92%; height: 355px; float: left;
+}
+tailThree {
+	margin-right: 0px;
+}
+.sp-Text {
+	width: 100%;
+}
+.sp-zxTag {
+	width: 90px;
+}
+.clearD {
+	width: 0px; height: 0px; overflow: hidden; clear: both; display: block; visibility: hidden;
+}
+.deal-introduce-img {
+	width: 47.42%; height: 330px; overflow: hidden; float: left; display: block;
+}
+.deal-introduce-info {
+	width: 51.03%; float: right;
+}
+.wzh-merchants {
+	margin: auto; width: 100%;
+}
+.wzk-Payment-right {
+	width: 75.4%; float: right;
+}
+@media screen and (max-width:1350px)
+{
+.site-left-menu {
+	display: none;
+}
+.site-qrCode {
+	display: none;
+}
+}
+@media screen and (max-width:1024px)
+{
+#ContainerBox {
+	width: 100%;
+}
+#headTop {
+	width: 100%; height: 140px;
+}
+#leftSubject {
+	padding: 0.5%; width: 80.83%; height: auto; float: left; position: relative;
+}
+.leftSubject {
+	padding: 0.5%; width: 80.83%; height: auto; float: left;
+}
+#rightSide {
+	width: 215px; height: auto; float: right;
+}
+#footBot {
+	width: 100%; clear: both; margin-top: 30px; float: left;
+}
+.rightSide {
+	width: 215px; height: auto; float: right;
+}
+.contentBody {
+	margin: auto; max-width: 1200px;
+}
+.sp-dataBox {
+	width: 30.47%; height: 355px; float: left;
+}
+.search {
+	width: 45%;
+}
+.big-link2 {
+	float: left;
+}
+.wzh-head ul {
+	width: 50.48%;
+}
+.wzh-head ul li a {
+	padding: 0.5em 0.8em;
+}
+.wzh-shangj-p li {
+	width: 47.1%;
+}
+}
+@media screen and (max-width:768px)
+{
+.leftSubject {
+	width: 100%; height: auto; float: left;
+}
+#leftSubject {
+	width: 100%; height: auto; float: left;
+}
+.rightSide {
+	display: none;
+}
+#rightSide {
+	display: none;
+}
+.flash-top-b {
+	width: 22%;
+}
+.search {
+	margin-left: 2%;
+}
+}
+.ensure {
+	width: 200px;
+}

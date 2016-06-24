@@ -1,0 +1,336 @@
+.navBox {
+	background: rgb(255, 73, 0);
+}
+.numBg {
+	background: rgb(255, 73, 0); color: rgb(255, 255, 255);
+}
+.buyButton {
+	background: rgb(255, 73, 0); color: rgb(255, 255, 255);
+}
+.sp-yufu {
+	background: rgb(255, 73, 0); color: rgb(255, 255, 255);
+}
+.steps-bg {
+	background: rgb(255, 73, 0); color: rgb(255, 255, 255);
+}
+.btn-search {
+	background: rgb(255, 73, 0); color: rgb(255, 255, 255);
+}
+.num_c {
+	background: rgb(255, 255, 255); color: rgb(255, 73, 0);
+}
+.search {
+	background: rgb(255, 255, 255);
+}
+.mainMenu-z {
+	background: rgb(255, 255, 255);
+}
+.mainMenu-l ul li:hover {
+	
+}
+.asideBox {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.user-leftMenu {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.user-rightArea {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.no-result {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.leftBox-f {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.wzk-cont {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.deal-box {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.deal-sj-map {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.order-box {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.footBot {
+	border-top-color: rgb(255, 73, 0); border-top-width: 3px; border-top-style: solid;
+}
+.deal-box {
+	border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.deal-wz-text h3 {
+	border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.sp-dataBox {
+	background: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-image: none;
+}
+.deal-sj-info h2 {
+	border-left-color: rgb(255, 73, 0); border-left-width: 3px; border-left-style: solid;
+}
+.search {
+	border: 1px solid rgb(255, 73, 0); border-image: none;
+}
+.mainMenu-z {
+	border: 1px solid rgb(255, 73, 0); border-image: none;
+}
+.condition a {
+	border: 1px solid rgb(255, 73, 0); border-image: none;
+}
+.U-r-connter header {
+	border-bottom-color: rgb(255, 73, 0); border-bottom-width: 3px; border-bottom-style: solid;
+}
+.sp-Title {
+	border-bottom-color: rgb(238, 238, 238); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.num_c:hover {
+	border: 1px solid rgb(255, 73, 0); transition:0.3s ease-in; border-image: none;
+}
+.deal-combo a:hover {
+	border: 1px solid rgb(255, 73, 0); border-image: none; box-shadow: 0px 0px 0px 1px #ff4900;
+}
+.deal-title p {
+	color: rgb(102, 102, 102);
+}
+.sp-tag {
+	color: rgb(255, 73, 0);
+}
+q {
+	color: rgb(255, 73, 0);
+}
+strong {
+	color: rgb(255, 73, 0);
+}
+.original-price {
+	color: rgb(255, 73, 0);
+}
+.botTel {
+	color: rgb(255, 73, 0);
+}
+.sp-tag strong {
+	color: rgb(255, 73, 0);
+}
+.order-prompt b {
+	color: rgb(255, 73, 0);
+}
+.money strong {
+	color: rgb(255, 73, 0);
+}
+.wz-pay-n {
+	color: rgb(255, 73, 0);
+}
+.order-ok span b {
+	color: rgb(255, 73, 0);
+}
+.original-price b {
+	color: rgb(255, 73, 0);
+}
+.total h3 b {
+	color: rgb(255, 73, 0);
+}
+.asideBox ul li p strong {
+	color: rgb(255, 73, 0);
+}
+.total q {
+	color: rgb(255, 73, 0);
+}
+.top-userlogin {
+	color: rgb(255, 73, 0);
+}
+.buy_statistics b {
+	color: rgb(255, 73, 0);
+}
+.user-data-wzk span a {
+	color: rgb(255, 73, 0);
+}
+.buy_statistics span q {
+	color: rgb(255, 73, 0);
+}
+del {
+	color: rgb(201, 201, 201);
+}
+a {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+a:hover {
+	color: rgb(255, 73, 0);
+}
+.navMenu li a {
+	color: rgb(255, 255, 255);
+}
+.mainMenu-l span a {
+	color: rgb(153, 153, 153);
+}
+.navMenu li a:hover {
+	background: rgb(226, 64, 0);
+}
+.ban-FenLei li a {
+	height: 40px; color: rgb(102, 102, 102); line-height: 20px; overflow: hidden;
+}
+.media-fx a {
+	height: 40px; color: rgb(102, 102, 102); line-height: 20px; overflow: hidden;
+}
+.mainMenu-z a {
+	height: 40px; color: rgb(102, 102, 102); line-height: 20px; overflow: hidden;
+}
+.asideBox h6 a {
+	height: 40px; color: rgb(102, 102, 102); line-height: 20px; overflow: hidden;
+}
+.mainMenu-l span a:hover {
+	color: rgb(255, 73, 0);
+}
+.mainMenu-z a:hover {
+	color: rgb(255, 73, 0);
+}
+.ban-FenLei a:hover {
+	color: rgb(255, 73, 0);
+}
+Umenu-area dd a:hover {
+	background: rgb(255, 233, 224); color: rgb(51, 51, 51);
+}
+.deal-dz-view a {
+	color: rgb(255, 73, 0);
+}
+.order-data a {
+	color: rgb(255, 73, 0);
+}
+.deal-wz-text h3 a {
+	color: rgb(255, 73, 0);
+}
+.deal-dz-view a:hover {
+	text-decoration: underline;
+}
+.order-data a:hover {
+	text-decoration: underline;
+}
+.tlrtext li:hover a {
+	color: rgb(255, 73, 0);
+}
+.topMenu-text a {
+	color: rgb(102, 102, 102) !important;
+}
+.topMenu-text a:hover {
+	color: rgb(255, 73, 0) !important;
+}
+.butColor {
+	background: rgb(255, 73, 0); padding: 0.5em 2.5em; border-radius: 3px; border: currentColor; border-image: none; height: 32px; color: rgb(255, 255, 255);
+}
+.button {
+	background: rgb(255, 73, 0); padding: 0px 0.5em; border-radius: 3px; border: currentColor; border-image: none; width: 85px; height: 32px; text-align: center; color: rgb(255, 255, 255); margin-top: 0.5em;
+}
+.button2 {
+	margin-left: 6px;
+}
+.button:hover {
+	background: rgb(255, 102, 0);
+}
+.yellow {
+	background: rgb(255, 134, 4); border-radius: 3px; border: currentColor; border-image: none; width: 85px; height: 35px; text-align: center; color: rgb(255, 255, 255); line-height: 35px; display: inline-block; cursor: pointer;
+}
+.yellow:hover {
+	background: rgb(255, 73, 0); transition:0.3s ease-in; color: rgb(255, 255, 255);
+}
+.gray {
+	background: rgb(202, 202, 202); margin: 0px 0.2em; padding: 0px 0.5em; border-radius: 3px; border: currentColor; border-image: none; width: 85px; height: 32px; text-align: center; color: rgb(255, 255, 255);
+}
+.gray:hover {
+	background: rgb(122, 122, 122); transition:0.3s ease-in;
+}
+.cartButton {
+	background: rgb(237, 237, 237); color: rgb(102, 102, 102);
+}
+.continue-but {
+	background: rgb(250, 134, 12); color: rgb(255, 255, 255);
+}
+.continue-but:hover {
+	background: rgb(255, 73, 0); color: rgb(255, 255, 255);
+}
+input[alt='hoverBut']:hover {
+	background: rgb(226, 64, 0); transition:0.3s ease-in;
+}
+.buttonStyle {
+	height: 38px;
+}
+.buttonS {
+	background: rgb(255, 73, 0); border-radius: 3px; border: currentColor; border-image: none; width: 65px; height: 32px; color: rgb(255, 255, 255); margin-top: 0.5em;
+}
+.buttonM {
+	
+}
+.buttonL {
+	
+}
+.buttonXL {
+	
+}
+.addCartBut {
+	background: rgb(248, 248, 248); border: 1px solid rgb(212, 212, 212); border-image: none; color: rgb(255, 73, 0); box-shadow: 0px 0px 1px rgba(255,255,255,1);
+}
+.addCartBut:hover {
+	background: rgb(234, 234, 234); border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.button-in {
+	background: rgb(204, 204, 204); border-radius: 3px; border: currentColor; border-image: none; width: 100%; height: 3em; color: rgb(102, 102, 102); margin-top: 0.5em; cursor: default !important;
+}
+.button-in:hover {
+	background: rgb(204, 204, 204) !important;
+}
+.orange {
+	background: rgb(243, 116, 100);
+}
+.blue {
+	background: rgb(91, 179, 215);
+}
+.headTopBox {
+	background: rgb(255, 255, 255); border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.footBox {
+	background: rgb(255, 255, 255); clear: both; float: left;
+}
+.bot-info li a {
+	color: rgb(102, 102, 102);
+}
+.botTel ul li i {
+	color: rgb(255, 73, 0);
+}
+.nav-tit-all {
+	background: rgb(226, 64, 0); color: rgb(255, 255, 255);
+}
+.mainMenu-l {
+	background: rgb(255, 255, 255); border: 2px solid rgb(226, 64, 0); border-image: none; color: rgb(255, 255, 255);
+}
+.asideTwxt-sp p {
+	color: rgb(153, 153, 153);
+}
+.asideTwxt-sp span {
+	color: rgb(153, 153, 153);
+}
+.asideTwxt-sp span i {
+	color: rgb(255, 73, 0);
+}
+.sp-info span {
+	color: rgb(102, 102, 102);
+}
+.m-tuan {
+	background-color: rgba(0, 156, 88, 1);
+}
+.sp-info span:hover {
+	color: rgb(51, 51, 51);
+}
+.sp-info h3:hover {
+	color: rgb(51, 51, 51);
+}
+.selected-bg {
+	background: rgb(226, 64, 0); color: rgb(255, 255, 255);
+}
+.Umenu-area-current {
+	background: rgb(255, 244, 239); border-left-color: rgb(255, 73, 0); border-left-width: 3px; border-left-style: solid;
+}
+.Umenu-area-current a {
+	color: rgb(255, 73, 0);
+}
+.selected-bg a {
+	color: rgb(255, 255, 255);
+}
