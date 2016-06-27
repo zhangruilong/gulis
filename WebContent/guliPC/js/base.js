@@ -1,5 +1,11 @@
 // JavaScript Document
-
+//取参数
+function GetQueryString(paramName){
+	var LocString=String(window.document.location.href);
+	var rs=new RegExp("(^|)"+paramName+"=([^\&]*)(\&|$)","gi").exec(LocString),tmp;
+	if(tmp=rs)return tmp[2];
+	return "没有这个参数";
+}
 //搜索框
 $(document).ready(function() {
 	$("#skeyword").val('搜索');

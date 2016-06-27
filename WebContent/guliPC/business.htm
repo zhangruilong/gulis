@@ -176,10 +176,10 @@ $(function(){
 			$.each(jsonData.root,function(i,item){
 				$(".wzh-shangj-p ul").append('<li>'+
 						'<div class="shangj-l">'+
-	                   	 '<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror=""  /></a>'+
+	                   	 '<a href="companyDetail.htm?companyid='+item.companyid+'" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror=""  /></a>'+
 	                    '</div>'+
 	                   	 '<div class="shangj-l-text">'+
-	                        	'<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" title="'+item.companyshop+'" target="_blank" ><h2>'+item.companyshop+'</h2></a>'+
+	                        	'<a href="companyDetail.htm?companyid='+item.companyid+'" title="'+item.companyshop+'" target="_blank" ><h2>'+item.companyshop+'</h2></a>'+
 	                            '<div>'+
 	                            	'<span>评价<a>0.0</a></span>'+
 	                           		'<span class="vote-star"><i style="width:0.0%"></i></span>'+

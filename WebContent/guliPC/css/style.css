@@ -26,16 +26,16 @@
 	margin: 0px 3px; width: 10px; height: 13px; text-indent: -9999px; font-weight: normal; display: block; position: absolute;
 }
 .jDiaporama_controls .prev {
-	background: url("img/controls2.png") no-repeat bottom; left: 0px; top: 50%; width: 32px; height: 32px; margin-top: -16px; _background: url(img/controls.gif) no-repeat bottom;
+	background: blue no-repeat bottom; left: 0px; top: 50%; width: 32px; height: 32px; margin-top: -16px; /* _background: url(img/controls.gif) no-repeat bottom; */
 }
 .jDiaporama_controls .next {
-	background: url("img/controls2.png") no-repeat top; top: 50%; width: 32px; height: 32px; right: 0px; margin-top: -16px; _background: url(img/controls.gif) no-repeat top;
+	background: green no-repeat top; top: 50%; width: 32px; height: 32px; right: 0px; margin-top: -16px; /* _background: url(img/controls.gif) no-repeat top; */
 }
 .jDiaporama_controls .pause {
-	background: url("img/playpause.png") no-repeat top; left: 50%; top: 50%; width: 64px; height: 48px; margin-top: -24px; margin-left: -32px; _background: url(img/playpause.gif) no-repeat top;
+	background: url("img/playpause.png") no-repeat top; left: 50%; top: 50%; width: 64px; height: 48px; margin-top: -24px; margin-left: -32px; /* _background: url(img/playpause.gif) no-repeat top; */
 }
 .jDiaporama_controls .play {
-	background: url("img/playpause.png") no-repeat bottom; left: 50%; top: 50%; width: 64px; height: 48px; margin-top: -24px; margin-left: -32px; _background: url(img/playpause.gif) no-repeat bottom;
+	background: url("img/playpause.png") no-repeat bottom; left: 50%; top: 50%; width: 64px; height: 48px; margin-top: -24px; margin-left: -32px;/*  _background: url(img/playpause.gif) no-repeat bottom; */
 }
 .jDiaporama_status {
 	left: 50%; text-align: center; margin-top: 10px; display: none; position: absolute;
