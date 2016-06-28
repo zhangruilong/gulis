@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.logoline{float:left;width:100%;height:80px;margin:9px 0px 9px 0px;display:inline;}
+.logoline2{float:left;width:100%;height:68px;margin:29px 0px 0px 0px;display:inline;}
+.logoblock{float:left;width:auto;height:80px;}
+.logoicon{float:left;width:193px;cursor: pointer;}
+.logoicon2{float:left;width:450px;}
+.logoicon2 img{float:left;cursor: pointer;}
+.logoicon img{float:left;width:234px;height:80px;}
+.qhcs{float:left;width:70px;height:42px;margin-top:26px;margin-left:22px;display:inline;}
+.qhcsline1{float:left;width:100%;height:26px;line-height:26px;text-align:left;color:#747474;font-weight:bold;font-size:14px;}
+.qhcsline2{float:left;width:100%;text-align:left;color:#b81202;font-weight:bold;}
+.zshlblock{float:left;width:281px;height:68px;margin-left:76px;display:inline;cursor: pointer;}
+.zxfwblock{float:right;width:auto;height:47px;margin-top:12px;display:inline;}
+.navline{float:left;width:100%;height:35px;background-color:#ff4900;}
+.navleft{float:left;width:100%;}
+.navleft span{float:left;width:auto;margin-right:2px;display:inline;height:35px;line-height:35px;}
+.navleft span a{float:left;width:auto;cursor:pointer;font-size:14px;color:white;font-weight:bold;padding:0px 23px 0px 23px;display:inline;text-decoration:none;}
+.navleft span a:hover{float:left;width:auto;line-height:35px;display:block;font-size:14px;color:white;font-weight:bold;text-decoration:none;}
+.logosousuo{float:left;width:600px;height:auto;margin-top:16px;display:inline;margin-left:120px;}
+.nrssk{float:left;width:auto;}
+.nrssk span{float:left;}
+.nrsskinput1{float:left;width:490px;height:34px;margin-top:7px;padding-left:10px;display:inline;border:1px solid #ff4900;outline:medium;}
+.nrsskinput2{float:left;width:82px;height:36px;line-height:36px;text-align:center;font-size:16px;font-weight:bold;color:white;background-color:#ff4900;display:inline;margin-top:7px;border:0px;cursor: pointer;}
+
+.topbanner{width:1100px;margin:0 auto;}
+
+.topbanner img{float:left;width:1100px;height:435px;margin-bottom:18px;display:inline;}
+#page-wrap { margin: 0 auto; max-width: 100%; }
+.banner,.banner_music,.banner_game,.banner_video,.banner_novel { background: url(../images/banner2.jpg) no-repeat center; min-width: 1000px; height:360px; position: relative; }
+.banner_music { background-image: url(../images/banner3.jpg); display:none;}
+.banner_game { background-image: url(../images/banner.jpg); display:none;}
+.banner_video { background-image: url(../images/banner.jpg); display:none;}
+.banner_novel { background-image: url(../images/banner1.jpg); display:none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

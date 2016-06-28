@@ -100,7 +100,7 @@ input[type="text"], input[type="password"] {
 	border-radius: 3px;
 	outline: medium;
 	height: 35px;
-	padding:0 2%;
+	padding:0 0%;
 	line-height: 35px;
 }
 
@@ -802,7 +802,12 @@ order-price {
 	float: left;
 }
 .collection {
-	background-position: -149px -3px
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.collection {
+	/* background-position: -34px -209px; */
+	background-position: -34px -234px;
+	height: 25px;
 }
 .share {
 	background-position: -164px -3px
@@ -1985,6 +1990,7 @@ width200px;
 	padding: 2%;
 	margin-bottom: 1em;
 }
+
 .switchTab .title {
 	height: 20px;
 	border-bottom: 1px solid #FF4900;
@@ -2058,18 +2064,39 @@ width200px;
 }
 .productTab ul {
 	left: 0px;
+	display: inline-block;
 }
 .product-wrap .show {
 	display: block;
+}
+.product-wrap .compDetaG_fenye{
+	text-align: center;
+}
+.product-wrap .compDetaG_fenye a{
+	cursor:pointer;
+}
+.product-wrap .compDetaG_fenye span{
+	color: #666666;
+}
+.product-wrap .compDetaG_fenye input{
+	height: 20px;
+	width: 20px;
+	padding: 0px;
+	line-height: normal;
+	text-align: center;
+}
+.product-wrap .compDetaG_fenye a,span{
+	padding: 0px 2px 0px 2px;
+	margin: 0px 2px 0px 2px;
 }
 .product-wrap .productTab li {
 	float: left;
 	display: inline;
 	color: #000;
-	margin: 0em;
-	margin-left: 0.8em;
-	margin-bottom: 1em;
-	width: 23.8%;
+	margin: 15px 5px 15px 0em;
+	padding: 6px;
+	border: 1px solid #EEEEEE; 
+	height: 240px;
 }
 .product-wrap .productTab li:last-child {
 	margin-right: 0;
@@ -2100,11 +2127,21 @@ width200px;
 }
 .product-wrap .productTab li p {
 	color: #666666;
-	line-height: 22px;
-	height: 22px;
+	height: 29px;
+}
+.product-wrap .productTab li p.mt10UP{
+	line-height: 29px;
+	height: auto;
+}
+.product-wrap .productTab li p.mt10UP strong{
+	font-size: 24px;
+}
+.product-wrap .productTab li p.mt10 a{
+	font-family: 'Microsoft Yahei';
+	font-size: 1.3em;
 }
 .product-wrap .productTab li p a {
-	color: #666;
+	font-family: 'Microsoft Yahei';
 	text-decoration: none;
 }
 .product-wrap .productTab li p a:hover {
@@ -2117,7 +2154,7 @@ width200px;
 	height: 180px;
 }
 .productTab p {
-	overflow: hidden;
+	
 }
 .deal-sj-pingjia-box {
 	float: left;
@@ -2141,10 +2178,15 @@ width200px;
 	margin-bottom: 0em;
 }
 .deal-title .deal-sj-tit {
-	margin-left: -0.5em;
+	margin-left: 1em;
 	font-size: 2.3em;
 	font-weight: bold;
 	font-family: "微软雅黑";
+}
+.deal-title .deal-sj-tit .prs_Unit{
+	color: #666;
+	font-weight: normal;
+	font-size: 18px;
 }
 .deal-title p {
 	font-size: 1.2em;
@@ -2251,13 +2293,14 @@ deal-full a:hover {
 	color: #999;
 }
 .deal-introduce-img img {
-	max-width: 460px;
+	max-width: 450px;
 }
 .big-link2 {
 	float: right;
 	width: auto;
-	margin-top: 8px;
 	display: inline;
+	margin-right: 1.2em;
+	line-height: 25px;
 }
 .big-link2:hover .delete {
 	background-position: -16px -239px;
@@ -2641,7 +2684,7 @@ deal-full a:hover {
 	background-position: -72px -38px;
 }
 .product-wrap .mer-pro ul li {
-	width: 23.92703862%;
+	width: 30.92783505%;
 }
 /* 商品促销倒计时 */
 .kkc-days, .kkc-hours, .kkc-sec, .kkc-min {

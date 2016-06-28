@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+/* ---导航 “热门分类” “地区商圈” “人数” 样式
+---------------------------------------------------------------------------------- */
+.flblock{float:left;width:1048px;padding:15px 25px 13px 25px;height:auto;border:1px solid #cccccc;margin-top:15px;display:inline;background-color:white;}
+.flblock2{float:left;width:1068px;padding:0px 15px 13px 15px;height:auto;border:1px solid #cccccc;margin-top:15px;display:inline;background-color:white;}
+.flblockline{float:left;width:100%;height:auto;border-bottom:1px solid #d6d6d6;padding:10px 0px 10px 0px;display:inline;}
+
+
+.flblockl3title1{float:left;width:auto;height:20px;line-height:20px;background-color:#ff4900;padding:0px 10px 0px 10px;margin-top:8px;display:inline;}
+.flblockl3title1 a{float:left;color:#ffffff;text-decoration:none;}
+
+.flblockl3title2{float:left;width:57px;height:35px;line-height:35px;}
+.flblockl3title2 a{float:left;width:47px;padding:0px 0px 0px 10px;display:block;color:#333333;text-decoration:none;background:url(../images/xlbg.jpg) no-repeat;}
+.flblockl3title2 a:hover{float:left;width:47px;padding:0px 0px 0px 10px;display:block;color:#B81202;text-decoration:none;background:url(../images/xlbg2.jpg) no-repeat;}
+
+
+.flblockl3title3{float:left;width:81px;height:35px;line-height:35px;}
+.flblockl3title3 a{float:left;width:71px;padding:0px 0px 0px 10px;display:block;color:#333333;text-decoration:none;background:url(../images/fbsjbg.jpg) no-repeat;}
+.flblockl3title3 a:hover{float:left;width:71px;padding:0px 0px 0px 10px;display:block;color:#B81202;text-decoration:none;background:url(../images/fbsjbg2.jpg) no-repeat;}
+
+
+.flblockl3title4{float:left;width:57px;height:35px;line-height:35px;}
+.flblockl3title4 a{float:left;width:47px;padding:0px 0px 0px 10px;display:block;color:#333333;text-decoration:none;background:url(../images/jgbg.jpg) no-repeat;}
+.flblockl3title4 a:hover{float:left;width:47px;padding:0px 0px 0px 10px;display:block;color:#B81202;text-decoration:none;background:url(../images/jgbg2.jpg) no-repeat;}
+
+
+.flblockl3title5{float:left;width:auto;height:35px;line-height:35px;padding:0px 15px 0px 15px;display:inline;}
+.flblockl3t5icon{float:left;width:13px;height:13px;margin-top:11px;margin-right:10px;display:inline;}
+.flblockl3t5icon input{float:left;width:13px;height:13px;background:url(../images/dxbg.jpg) no-repeat;background-color:none;}
+.flblockl3t5text{float:left;width:auto;height:35px;line-height:35px;color:#333333;}
+
+
+.flblocklicon{float:left;width:16px;height:16px;margin:13px 8px 0px 10px;display:inline;}
+.flblockltitle{float:left;width:auto;color:#333333;font-weight:bold;height:39px;line-height:39px;}
+.flblockldh{float:left;width:auto;}
+.flblockldh span{float:left;}
+.flblockldh div{float:left;}
+.flbbblock{float:left;width:auto;height:auto;}
+
+
+.flblockldh span a{float:left;width:auto;color:#ffffff;height:39px;line-height:39px;text-decoration:none;margin-top:0px;display:inline;padding:0px 15px 0px 15px;}
+.flblockldh span a:hover{float:left;color:#ffffff;width:auto;text-decoration:underline;display:block;background-color:#ff4900;text-decoration:none;}
+.flblockldh span a:hover span{float:left;color:#ffffff;width:auto;text-decoration:underline;display:block;background-color:#ff4900;text-decoration:none;}
+.flblockldhbx{float:left;width:auto;background-color:#ff4900;color:white;height:20px;line-height:20px;text-decoration:none;margin-top:9px;margin-right:20px;margin-left:10px;display:inline;padding:0px 5px 0px 5px;}
+
+.flblockldhtext1{float:left;color:#676767;font-family:Arial, Helvetica, sans-serif,宋体}
+.flblockldhtext2{float:left;color:#898989;font-family:Arial, Helvetica, sans-serif}
+
+.ppsjblock{float:left;width:1099px;height:58px;margin:25px 0px 15px 0px;display:inline;}
+
+
+
+
+
+
+
+
+
+
+

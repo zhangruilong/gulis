@@ -1,4 +1,12 @@
 // JavaScript Document
+//返回空
+function typeNullFoString(obj){
+	if(obj == null || typeof(obj) == "undefined"){
+		return '';
+	} else {
+		return obj;
+	}
+}
 //取参数
 function GetQueryString(paramName){
 	var LocString=String(window.document.location.href);
