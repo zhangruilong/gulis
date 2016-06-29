@@ -1,19 +1,4 @@
-$(document).ready(function(){/*
-	$(".menus li").hover(function(){
-			$(this).addClass("hover");
-			$(this).children("ul li").attr('class','');
-		},function(){
-			$(this).removeClass("hover");  
-			$(this).children("ul li").attr('class','');
-		}
-	); 
-	$(".menus li.no_sub").hover(function(){
-			$(this).addClass("hover1");
-		},function(){
-			$(this).removeClass("hover1");  
-		}
-	); 
-	*/
+$(document).ready(function(){
 	$("#skeyword").val('搜索');
 	$("#skeyword").focus(function(){
 		$(this).val('');
@@ -27,14 +12,6 @@ $(document).ready(function(){/*
 
 })
 
-// 主导航菜单二级菜单显示
-//$(function(){
-//	$(".mainMenu-l li").hover(function(){
-//		$(this).children(".mainMenu-z").fadeToggle(0);
-//		})
-//	})
-	
-	
 //首页滚动横幅
 var currentindex=1;
 $("#flashBg").css("background-color",$("#flash1").attr("name"));
