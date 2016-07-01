@@ -1,4 +1,19 @@
 // JavaScript Document
+//返回空
+function typeNullFoString(obj){
+	if(obj == null || typeof(obj) == "undefined"){
+		return '';
+	} else {
+		return obj;
+	}
+}
+//取参数
+function GetQueryString(paramName){
+	var LocString=String(window.document.location.href);
+	var rs=new RegExp("(^|)"+paramName+"=([^\&]*)(\&|$)","gi").exec(LocString),tmp;
+	if(tmp=rs)return tmp[2];
+	return "没有这个参数";
+}
 
 //搜索框
 $(document).ready(function() {
@@ -16,7 +31,7 @@ $(document).ready(function() {
 });
 
 // 商家特卖类别,评价Tab切换
-$(function() {
+/*$(function() {
 	// 设计案例切换
 	$('.title-list li').click(
 			function() {
@@ -39,10 +54,10 @@ $(function() {
 		$(this).addClass("orSelected").siblings().removeClass("orSelected");
 		$(this).find('p > a').css('color', '#666666');
 	});
-});
+});*/
 
 // 点击评论弹出评论框
-function anli_sort() {
+/*function anli_sort() {
 	if ($(".sort_c1").is(":visible") == false) {
 		// $("#sort_nav").attr("class","sort_nav_cur");
 		$(".sort_c1").show(400);
@@ -50,7 +65,7 @@ function anli_sort() {
 		// $("#sort_nav").attr("class","sort_nav");
 		$(".sort_c1").hide(400);
 	}
-}
+}*/
 
 // 主导航菜单二级菜单显示
 $(function() {

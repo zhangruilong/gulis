@@ -100,7 +100,7 @@ input[type="text"], input[type="password"] {
 	border-radius: 3px;
 	outline: medium;
 	height: 35px;
-	padding:0 0%;
+	padding:0 2%;
 	line-height: 35px;
 }
 
@@ -3318,7 +3318,7 @@ f1 {
 	width: 43px;
 	border: none !important;
 	border-top: 1px solid #ccc !important;
-	padding-left: 0 !important;
+	padding: 0 !important;
 	height: 32px !important;
 	line-height: 32px;
 	border-bottom: 1px solid #ccc !important;

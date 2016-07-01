@@ -39,7 +39,7 @@ var merchantManaged = function() {
 		merchantManaged.setListener();
 		},
 		setListener:function(){
-			/*查看商家详细图片*/
+			/*查看供应商详细图片*/
 			$("#showMerchantPicture").click(function(){
 				var merchantPictures=$("#merchantPicture").val();
 				$(".diaporama1").html("");
@@ -48,7 +48,9 @@ var merchantManaged = function() {
 					var pictureArray = new Array();
 					pictureArray = merchantPictures.split(",");
 					for (var i = 0; i < pictureArray.length; i++) {
-						$(".diaporama1").append("<li style='height:100%;width:100%;'> <img alt='' title='' width='100%' height='100%' onerror=\"this.src='"+ctx+"/images/default-loading.gif'\" src='"+imgCtx+pictureArray[i]+"' /></li>");
+						$(".diaporama1").append("<li style='height:100%;width:100%;'> <img alt='' title='' width='100%' height='100%'"+
+								//+" onerror=\"this.src='"+ctx+"/images/default-loading.gif'\" "+
+								+"src='"+imgCtx+pictureArray[i]+"' /></li>");
 					}
 				}
 				$(".diaporama1").jDiaporama({

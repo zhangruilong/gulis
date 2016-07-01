@@ -17,6 +17,14 @@
 <SCRIPT src="js/jquery.js" type="text/javascript"></SCRIPT>
 <LINK href="/images/favicon.ico" rel="shortcut icon">
 <SCRIPT type="text/javascript">
+	var ctx = '';
+	var imgCtx = 'http://file.wuzhouhui.com.cn/images';
+	var maxImg = '_550x327';
+	var middleImg = '_300x195';
+	var minImg = '_95x72';
+	
+</SCRIPT>
+<SCRIPT type="text/javascript">
 	$(function() {
 		var u = navigator.userAgent;
 		if (u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
@@ -48,7 +56,7 @@
 							</DIV>
 							<DIV class="menu">
 								<UL class="tlrtext">
-									<LI><SPAN class="topwelcome"><Q>您好， 欢迎来到谷粒汇！</Q> </SPAN></LI>
+									<LI><SPAN class="topwelcome"><Q>您好， 欢迎来到谷粒汇！</Q></SPAN></LI>
 									<LI><A
 										href="#">用户中心<I
 											class="triangleIco"></I></A>
@@ -116,7 +124,7 @@
 											<LI><A title="谷粒网" id="topbar_collect_net"
 												href="javascript:void(0)" rel="sidebar">收藏本站</A></LI>
 											<LI><A id="topbar_question"
-												href="http://www.wuzhouhui.com.cn/commonProblem.html"
+												href="#"
 												target="_blank">常见问题</A></LI>
 										</UL></LI>
 								</UL>
@@ -2148,15 +2156,10 @@
 	</DIV>
 	<!--site-left-menu-->
 	<INPUT id="isClick" type="hidden">
-	<DIV class="UpTop">
+	<DIV class="UpTop" style="width:45px;">
 		<SPAN class="wzhImg site-qrCode"><I class="wzhImg close"
 			onclick="codeClose()"></I></SPAN>
 		<UL>
-			<!-- <li class="Up-help">
-             	<i class="wzhImg r-help"></i>
-                <a class="upTop-text" href="#">帮助中心</a>
-             </li> -->
-
 			<LI class="Up-feedback"><I class="wzhImg r-opinion"></I><A
 				class="upTop-text"
 				href="http://www.wuzhouhui.com.cn/suggestions.html">意见反馈</A></LI>
@@ -2186,4 +2189,24 @@
 
 </BODY>
 <!--框架js-->
+<SCRIPT type="text/javascript">
+		   $("#topbar_collect_net").click(function(){
+			   if(!!window.ActiveXObject || "ActiveXObject" in window) {   
+				    window.external.addFavorite(document.URL,document.title); 
+			   } else if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){   
+				    window.sidebar.addPanel(document.title, document.URL, ""); 
+			   } else {
+				   alert("您的浏览器暂不支持此操作，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+			   }   
+			});
+		   
+		   $(".wzh-app a").click(function(){
+				var u = navigator.userAgent;
+				if(u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1)) {
+					this.href = ctx+"/m.html";
+				}else{
+					this.href = ctx+"/clientDownload.html";
+				}
+		   });
+		</SCRIPT>
 </HTML>

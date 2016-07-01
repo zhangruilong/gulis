@@ -212,7 +212,7 @@
 							</span>
 						</div>
 						<ul class="whz-mainNav-menu">
-							<li><a href="">首页</a></li>
+							<li><a href="homepage.htm">首页</a></li>
 							<li><a href="">美食</a></li>
 							<li><a href="">娱乐</a></li>
 							<li><a href="">酒店</a></li>
@@ -440,7 +440,7 @@
 				goods_date += "."+goodsJSON.goodstype;
 			}
 			$(".goods-date").text(goods_date);
-			$(".buy_statistics").html('<label>品牌</label> <span class="goods-date" style="color:black">'+goodsJSON.goodsbrand+'</span>');
+			$(".buy_statistics").html('<label>品牌</label> <span class="goods-date" style="color:black">'+typeNullFoString(goodsJSON.goodsbrand)+'</span>');
 			$(".scrollLoading").attr("src", "../" + goodsJSON.goodsimage);
 			$(".item-plus").click(function() {
 				var num = parseInt($(".order-num-s").val());

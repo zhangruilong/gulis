@@ -29,11 +29,11 @@
 		<!--引入头部  此头不包含页面全部商品分类下拉列表样式 -->
 		<SCRIPT type="text/javascript">
 			var ctx = '';
-			var imgCtx = 'http://file.wuzhouhui.com.cn/images';
+			var imgCtx = '../imagescompanyDetailImg';
 			var maxImg = '_550x327';
 			var middleImg = '_300x195';
 			var minImg = '_95x72';
-
+			//异步加载script
 			var _hmt = _hmt || [];
 			(function() {
 				var hm = document.createElement("script");
@@ -82,24 +82,24 @@
 											href="">我的订单</A></LI>
 									</UL></LI>
 								<LI style="display: none;"><A id="shopping_card_button"
-									href="http://www.wuzhouhui.com.cn/gwc.html"><I
+									href="#"><I
 										class="triangleIco"></I> 购物车 <Q id="shoppingCart">0</Q> 件</A>
 									<UL>
 										<DIV class="top-cart" id="headerShoppingCart"></DIV>
 										<!--top-cart-->
 									</UL></LI>
 								<LI><A
-									href="http://www.wuzhouhui.com.cn/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436#">联系客服<I
+									href="#">联系客服<I
 										class="triangleIco"></I></A>
 									<UL class="topMenu-text">
 										<LI><A id="topbar_tuikuan"
-											href="http://www.wuzhouhui.com.cn/applyRefund.html"
+											href="#"
 											target="_blank">申请退款</A></LI>
 										<LI><A id="topbar_bangdingshouji"
-											href="http://www.wuzhouhui.com.cn/changeMobile.html"
+											href="#"
 											target="_blank">换绑手机号</A></LI>
 										<LI><A id="topbar_tuanjuan"
-											href="http://www.wuzhouhui.com.cn/viewVoucher.html"
+											href="#"
 											target="_blank">查看谷粒券</A></LI>
 									</UL></LI>
 								<!-- 
@@ -109,17 +109,17 @@
 						 -->
 
 								<LI><A
-									href="http://www.wuzhouhui.com.cn/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436#">我是商家<I
+									href="#">我是商家<I
 										class="triangleIco"></I></A>
 									<UL class="topMenu-text">
 										<LI><A id="topbar_question"
-											href="http://www.wuzhouhui.com.cn/merchantDownload.html"
+											href="#"
 											target="_blank">合作中心</A></LI>
 									</UL></LI>
-								<LI><A href="http://www.hkwzig.com/" target="_blank">谷粒国际<I
+								<LI><A href="#" target="_blank">谷粒国际<I
 										class="triangleIco"></I></A></LI>
 								<LI><A
-									href="http://www.wuzhouhui.com.cn/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436#">更多<I
+									href="#">更多<I
 										class="triangleIco"></I></A>
 									<UL class="topMenu-text">
 										<!-- <li><a id="topbar_email_order" href="javascript:alert('暂未开通,敬请期待')">邮件订阅</a></li> -->
@@ -127,7 +127,7 @@
 										<LI><A title="谷粒网" id="topbar_collect_net"
 											href="javascript:void(0)" rel="sidebar">收藏本站</A></LI>
 										<LI><A id="topbar_question"
-											href="http://www.wuzhouhui.com.cn/commonProblem.html"
+											href="#"
 											target="_blank">常见问题</A></LI>
 									</UL></LI>
 							</UL>
@@ -212,7 +212,7 @@
 							</SPAN>
 						</DIV>
 						<UL class="whz-mainNav-menu">
-							<LI><A href="#">首页</A></LI>
+							<LI><A href="homepage.htm">首页</A></LI>
 							<LI><A href="#">美食</A></LI>
 							<LI><A href="#">娱乐</A></LI>
 							<LI><A href="#">酒店</A></LI>
@@ -373,8 +373,8 @@
 			});
 		</SCRIPT>
 
-		<!-- <SCRIPT type="text/javascript">
-			var pathname = window.location.pathname;//获取url路径
+		<SCRIPT type="text/javascript">
+			/* var pathname = window.location.pathname;//获取url路径
 			jQuery(".whz-mainNav-menu").children("li").each(
 					function() {
 						jQuery(this).children("a").each(
@@ -389,7 +389,7 @@
 										//jQuery("li[menuId='"+jQuery(this).parent().attr("parentId")+"']").addClass("active");
 									}
 								});
-					});
+					}); */
 			//收藏本站的功能(谷歌浏览器不能用,IE可以)
 			$("#topbar_collect_net")
 					.click(
@@ -406,7 +406,7 @@
 									alert("您的浏览器暂不支持此操作，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
 								}
 							});
-		</SCRIPT> -->
+		</SCRIPT>
 
 		<DIV class="contentBody" id="Container">
 			<DIV class="location">
@@ -419,6 +419,7 @@
 			</DIV>
 			<!--sp-Title-->
 			<DIV id="leftSubject">
+				<!-- 查看全部5张图片的图片文件名称放value里面 -->
 				<INPUT name="merchantPicture" id="merchantPicture" type="hidden"
 					value="/eedaca35-6b47-420e-bdf6-ced58426f636.JPG,/8353346c-bfba-4285-8e1f-5c72837bb7d9.JPG,/590a6edc-21eb-4b7e-bd09-6e5c20fa8b9b.JPG,/802de536-9c28-408a-9e8b-784a7effb311.JPG,/800e3faf-99c9-47a2-ac89-73e16eb14e8a.JPG">
 
