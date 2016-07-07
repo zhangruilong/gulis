@@ -5873,16 +5873,6 @@ h2 span {
 	width: 10%;
 	margin-left: 10px;
 }
-.cbtext span {
-	width: auto;
-	font-family: 黑体;
-	font-weight: bold;
-	font-size: 40px;
-	color: #333;
-	top: -350px;
-	left: 65.5%;
-	position: relative;
-}
 select {
 	padding: 5px 0px;
 }
