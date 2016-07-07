@@ -15,7 +15,7 @@
 if (top != window) top.location.href = window.location.href;
 function check() {
 	if(document.getElementById('username').value==''||document.getElementById('username').value==null){
-		alert("用户名不能为空"); 
+		alert("用户名不能为空");
 		return false;
 	}else if(document.getElementById('password').value==''||document.getElementById('password').value==null){
 		alert("密码不能为空");
@@ -72,6 +72,13 @@ function keyLogin(){
 </head>
 
 <body class="login" onkeydown="keyLogin();">
+	<div class="login_top">
+		<div>
+			<img src="sysimages/danonglogo.png" width="154" height="25" class="logo" />
+			<h1>谷粒管理平台</h1>
+			<h6 class="clear"></h6>
+		</div>
+	</div>
 	<div class="login_main">
 		<div>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
