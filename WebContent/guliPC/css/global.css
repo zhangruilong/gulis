@@ -5325,7 +5325,8 @@ hidden {
 }
 .wzk-top-green2 {
 	height: 600px;
-	background: #5DCDE3;
+	background: url("../images/jxs_bg.png") no-repeat;
+	background-size: 100% 100%;
 }
 .wzh-top-head {
 	width: 100%;
