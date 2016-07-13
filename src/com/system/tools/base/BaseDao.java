@@ -70,24 +70,51 @@ public class BaseDao {
 		            Class  c = field[i].getType();  
 		            //得到方法  
 		            Method method= type.getMethod(methodname, c);  
-		            if(c == String.class){  
-		                method.invoke(obj, rs.getString(fieldname));  
+		            if(c == String.class){ 
+		            	try {
+		            		method.invoke(obj, rs.getString(fieldname)); 
+		            	} catch (Exception e) {
+		        		}
 		            }else if(c == int.class){  
+		            	try {
 		                method.invoke(obj, rs.getInt(fieldname));  
+		            	} catch (Exception e) {
+		        		}
 		            }else if(c == float.class){  
+		            	try {
 		                method.invoke(obj, rs.getFloat(fieldname));  
+		            } catch (Exception e) {
+	        		}
 		            }else if(c == double.class){  
+		            	try {
 		                method.invoke(obj, rs.getDouble(fieldname));  
+		            } catch (Exception e) {
+	        		}
 		            }else if(c == java.sql.Date.class){  
+		            	try {
 		                method.invoke(obj, rs.getDate(fieldname));  
+		            } catch (Exception e) {
+	        		}
 		            }else if(c == boolean.class){  
+		            	try {
 		                method.invoke(obj, rs.getBoolean(fieldname));  
-		            }else if(c == byte.class){  
+		            } catch (Exception e) {
+	        		}
+		            }else if(c == byte.class){ 
+		            	try {
 		                method.invoke(obj, rs.getBytes(fieldname));  
+		            } catch (Exception e) {
+	        		}
 		            }else if(c == char.class){  
+		            	try {
 		                method.invoke(obj, rs.getCharacterStream(fieldname));  
+		            } catch (Exception e) {
+	        		}
 		            }else{  
-		                method.invoke(obj, rs.getObject(fieldname));  
+		            	try {
+		                method.invoke(obj, rs.getObject(fieldname));
+		            } catch (Exception e) {
+	        		}
 		            }  
 		        }
 			 return obj;
@@ -635,14 +662,13 @@ public class BaseDao {
 	 * @param TABLE 表名
 	 * @param datasql 指update table set 后面跟的字符串，例如fieldname='test'
 	 * @param wheresql 指where后面跟的字符串，例如fieldname='test'
-	 * @param param 参数集合
 	 * @return 成功CommonConst.SUCCESS,失败CommonConst.FAILURE
 	 */
 	public String updSingle(String DSNAME, String TABLE, String datasql,
-			String wheresql, Object... param) {
+			String wheresql) {
 		String sql = "update " + TABLE + " set " + datasql + " where "
 				+ wheresql;
-		return doSingle(DSNAME, sql, param);
+		return doSingle(DSNAME, sql);
 	}
 
 	/**
@@ -1218,14 +1244,13 @@ public class BaseDao {
 	 * @param TABLE 表名
 	 * @param datasql 指update table set 后面跟的字符串，例如fieldname='test'
 	 * @param wheresql 指where后面跟的字符串，例如fieldname='test'
-	 * @param param 参数集合
 	 * @return 成功CommonConst.SUCCESS,失败CommonConst.FAILURE
 	 */
 	public String updSingle(String TABLE, String datasql,
-			String wheresql, Object... param) {
+			String wheresql) {
 		String sql = "update " + TABLE + " set " + datasql + " where "
 				+ wheresql;
-		return doSingle(sql, param);
+		return doSingle(sql);
 	}
 	/**
 	 * 获取修改TABLE数据的sql
