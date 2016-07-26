@@ -750,7 +750,105 @@ order-price {
 /* =========================
 			图标管理
 ============================ */
-
+.wzhImg {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.refund {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.guo {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.ka {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.collection {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.share {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.sina {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.tencent {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.deal-combo i {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.cartIoc {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.delete {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.prompt-exc {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.sorryIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.TopCartIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.appIoc {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.user-TopIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.com-operation {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.phoneIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.lo-user {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.lo-warningIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.lo-successfulIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.star-dow {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.whz-headLogo {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.in-screen {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.whk-logo-p {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.mem-card {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.directionR-ico {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.leftNavIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.UnderIco {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.gwcwkleft {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.editor {
+	background: url("../images/whz-imgBg.png") no-repeat;
+}
+.close-reveal-modal {
+	background: url("../images/whz-img-sp.png") no-repeat;
+}
+.Umenu-area dd a {
+	background: url("../images/whz-img-sp.png") no-repeat;
+}
 /*导航*/
 .m-meishi, .m-jiudian, .m-yule, .m-liren, .m-fuwu, .m-lvyou, .m-hotgoods {
 	width: 36px;
@@ -2087,8 +2185,9 @@ width200px;
 	text-align: center;
 }
 .product-wrap .compDetaG_fenye a,span{
-	padding: 0px 2px 0px 2px;
-	margin: 0px 2px 0px 2px;
+	/* 这里的样式设置后首页右边 “谷粒汇移动应用”下面两个图标会变成椭圆 */
+	/* padding: 0px 2px 0px 2px; */
+	/* margin: 0px 2px 0px 2px; */
 }
 .product-wrap .productTab li {
 	float: left;
@@ -2656,7 +2755,7 @@ deal-full a:hover {
 	margin-top: 2px;
 }
 .deal-nav-joinCart, .deal-nav-qg {
-	/* background: url(../images/icon/whz-img-sp.png) no-repeat; */
+	background: url(../images/whz-img-sp.png) no-repeat;
 	height: 30px;
 	float: left;
 	display: block;
