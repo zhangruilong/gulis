@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE HTML>
-<!-- saved from url=(0038)http://www.wuzhouhui.com.cn/index.html -->
 <HTML class="no-js">
 <HEAD>
 <META content="IE=11.0000" http-equiv="X-UA-Compatible">
@@ -49,7 +48,7 @@
 
 								<UL>
 									<LI><A class="top-userlogin" id="index_login_button"
-										href="#">请您登录</A></LI>
+										href="login.html">请您登录</A></LI>
 									<LI><A id="index_register_button"
 										href="#">注册有礼</A></LI>
 								</UL>
@@ -719,45 +718,7 @@ $(function(){
 					</DIV>
 					<!--readMore-->
 				</DIV>
-<script type="text/javascript">
-var customer = JSON.parse(window.localStorage.getItem("customer"));
-$(function(){
-	$.ajax({
-		url:"TimegoodsviewAction.do?method=homMSGoods",
-		type:"post",
-		data:{
-			limit:"6",
-			customerid:"G14605254180267282"
-		},
-		success:function(resp){
-			var data = JSON.parse(resp);
-			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
-				'<A class="pro-a-box" href="#" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//此处href的链接地址应该写到商品详情的链接地址
-					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">秒杀</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.timegoodsname+'】'+item.timegoodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.timegoodsname+'】'+item.timegoodsunits+'</H3></SPAN>'+
-				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.timegoodsorgprice+'</STRONG> <SPAN class="stores-jia">原价<DEL>'+item.timegoodsprice+'</DEL></SPAN> </SPAN>'+
-					'</DIV>'+
-				'</A>'+
-				'</DIV>';
-				$(".mf1-ms-tg").prepend(goods);
-			});
-			$(".mf1-ms-tg .sp-dataBox:eq(2)").addClass("tailThree");
-			$(".mf1-ms-tg .sp-dataBox:eq(5)").addClass("tailThree");
-		},
-		error : function(resp){
-			var respText = eval('('+resp+')');
-			alert(respText.msg);
-		}
-	});
-});
-</script>
+
 				<!--sp-contentBox-->
 				<!-------------------------------3F------------------------------------->
 
