@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 <HEAD>
-<META content="IE=11.0000" http-equiv="X-UA-Compatible">
-<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8"/>
 <META http-equiv="X-UA-Compatible" content="IE=edge">
 <META name="description" content="">
 <META name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +12,7 @@
 <LINK href="css/normalize.css" rel="stylesheet">
 <LINK href="css/main.css" rel="stylesheet">
 <LINK href="css/wzhWeb.css" rel="stylesheet">
-<SCRIPT src="js/jquery.js" type="text/javascript"></SCRIPT>
+<script src="js/jquery.js" type="text/javascript"></script>
 <!-- <LINK href="images/favicon.ico" rel="shortcut icon"> -->
 <!-- CSS -->
 <LINK href="css/basic.css" rel="stylesheet" type="text/css">
@@ -27,7 +26,7 @@
 	<DIV class="all">
 		<!--引入头部-->
 		<!--引入头部  此头不包含页面全部商品分类下拉列表样式 -->
-		<SCRIPT type="text/javascript">
+		<script type="text/javascript">
 			var ctx = '';
 			var imgCtx = '../imagescompanyDetailImg';
 			var maxImg = '_550x327';
@@ -41,7 +40,7 @@
 				var s = document.getElementsByTagName("script")[0];
 				s.parentNode.insertBefore(hm, s);
 			})();
-		</SCRIPT>
+		</script>
 
 		<DIV class="headTopBox">
 			<DIV class="contentBody">
@@ -212,7 +211,7 @@
 							</SPAN>
 						</DIV>
 						<UL class="whz-mainNav-menu">
-							<LI><A href="homepage.htm">首页</A></LI>
+							<LI><A href="homepage.html">首页</A></LI>
 							<LI><A href="#">美食</A></LI>
 							<LI><A href="#">娱乐</A></LI>
 							<LI><A href="#">酒店</A></LI>
@@ -242,128 +241,129 @@
 		</DIV>
 		<!--UpTop-->
 
-		<SCRIPT src="js/base.js" type="text/javascript"></SCRIPT>
+		<script src="js/base.js" type="text/javascript"></script>
 
-		<SCRIPT type="text/javascript">
-			var companyid = GetQueryString("companyid"); //得到连接地址中的供应商id
-			var customer = JSON.parse(window.localStorage.getItem("customer"));
-			$(function() {
-				//查询供应商信息
-				$.ajax({
-					url : "CompanyviewAction.do?method=selAll&wheresql=companyid="+companyid,
-					type : "post",
-					data : {},
-					success : function(data) {
-						var jsonData = JSON.parse(data);
-						$("#merchantName").text(jsonData.root[0].companyshop);
-						$(".deal-left-info SPAN:eq(0)").text(jsonData.root[0].companyaddress);
-						$(".deal-left-info SPAN:eq(1)").text(jsonData.root[0].companyphone);
-						$(".deal-left-info SPAN:eq(2)").text(jsonData.root[0].cityname);
-						$(".deal-left-info SPAN:eq(3)").text(jsonData.root[0].companydetail);
-					},
-					error : function() {
-						alert('网络出现问题，请稍后再试');
-					}
-				});
-				loadGoodsData(1);					//加载第一页商品数据
-				//鼠标移动到 全部商品分类 上面时展开菜单
-				$(".wzh-mainNav-tit").hover(
-						function() {
-							$(this).children(".whz-mainNav-hd-cont", "this")
-									.fadeToggle(0);
-						});
+		<script type="text/javascript">
+		var companyid = GetQueryString("companyid"); //得到连接地址中的供应商id
+		var customer = JSON.parse(window.localStorage.getItem("customer"));
+		$(function() {
+			//查询供应商信息
+			$.ajax({
+				url : "CompanyviewAction.do?method=selAll&wheresql=companyid="+companyid,
+				type : "post",
+				data : {},
+				success : function(data) {
+					var jsonData = JSON.parse(data);
+					$("#merchantName").text(jsonData.root[0].companyshop);
+					$(".deal-left-info SPAN:eq(0)").text(jsonData.root[0].companyaddress);
+					$(".deal-left-info SPAN:eq(1)").text(jsonData.root[0].companyphone);
+					$(".deal-left-info SPAN:eq(2)").text(jsonData.root[0].cityname);
+					$(".deal-left-info SPAN:eq(3)").text(jsonData.root[0].companydetail);
+				},
+				error : function() {
+					alert('网络出现问题，请稍后再试');
+				}
 			});
-			//商品分页
-			function fenyeGoods(targetPage){
-				$(".compDetaG_fenye").attr("name",targetPage);
-				loadGoodsData(targetPage);
+			loadGoodsData(1);					//加载第一页商品数据
+			//鼠标移动到 全部商品分类 上面时展开菜单
+			$(".wzh-mainNav-tit").hover(
+					function() {
+						$(this).children(".whz-mainNav-hd-cont", "this")
+								.fadeToggle(0);
+					});
+		});
+		//商品分页
+		function fenyeGoods(targetPage){
+			$(".compDetaG_fenye").attr("name",targetPage);
+			loadGoodsData(targetPage);
+		}
+		//跳转到第X页
+		function goodsPageTo(pageCountGoods){
+			var pagenowGoods = $("#pagenowGoods_INP").val();
+			if(parseInt(pagenowGoods) > parseInt(pageCountGoods)){
+				pagenowGoods = pageCountGoods;
 			}
-			//跳转到第X页
-			function goodsPageTo(pageCountGoods){
-				var pagenowGoods = $("#pagenowGoods_INP").val();
-				if(parseInt(pagenowGoods) > parseInt(pageCountGoods)){
-					pagenowGoods = pageCountGoods;
-				}
-				$(".compDetaG_fenye").attr("name",pagenowGoods);
-				loadGoodsData(pagenowGoods);
+			$(".compDetaG_fenye").attr("name",pagenowGoods);
+			loadGoodsData(pagenowGoods);
+		}
+		//加载商品数据
+		function loadGoodsData(pagenow){
+			if(customer){
+				var customerid = customer.customerid;
+				var customertype = customer.customertype;
+				var customerlevel = customer.customerlevel;
+			} else {
+				var customerid = "G14605261372078093";
+				var customertype = 3;
+				var customerlevel = 3;
 			}
-			//加载商品数据
-			function loadGoodsData(pagenow){
-				if(customer){
-					var customerid = customer.customerid;
-					var customertype = customer.customertype;
-					var customerlevel = customer.customerlevel;
-				} else {
-					var customerid = "G14605261372078093";
-					var customertype = 3;
-					var customerlevel = 3;
-				}
-				var searchclassesvalue = $("#w").val();
-				$.ajax({
-					url:"GoodsviewAction.do",
-					type:"post",
-					data:{
-							method:"mselAll",
-							customerid:customerid,
-							customertype:customertype,
-							customerlevel:customerlevel,
-							goodsclassname:searchclassesvalue,
-							limit:18,
-							start:(pagenow-1)*18,
-							companyid:companyid
-						},
-					success:function(data){
-						var jsonData = JSON.parse(data);
-						var pagenow = $(".compDetaG_fenye").attr("name");				//当前页
-						var total = parseInt(jsonData.total);							//信息总条数
-						var pageCount = 0;
-						if(total%18 == 0){
-							pageCount = parseInt(total / 18);
-						} else {
-							pageCount = (parseInt(total / 18)) +1;
-						}
-						$("#com_goods_ul li").remove();
-						$.each(jsonData.root,function(i,item){
-							$("#com_goods_ul").append('<LI class="ml0"><A title="" class="imgwrap" href="goodsXD.html?goods='+encodeURI(JSON.stringify(item))+'">'+
-										'<IMG onerror="javascript:this.src=\'images/default.jpg\'"'+									//图片加载错误时
-											'src="../'+item.goodsimage+'"></A>'+
-										'<P class="mt10">'+
-											'<a titile="" href="goodsXD.html?goods='+encodeURI(JSON.stringify(item))+'">'+item.goodsname+'</a>'+'<span>('+item.goodsunits+')</span>'+
-										'</P>'+
-										'<P class="mt10">'+
-											'<span>买一箱送380ml海天味极鲜酱油2瓶</span>'+
-										'</P>'+
-										'<P class="price-sj  mt10UP">'+
-											'<STRONG>￥'+item.pricesprice+'/'+item.pricesunit+
-										'</STRONG><A name="add_collect_info" '+
-											  'title="收藏" class="big-link2" id="add_collect_info" href="javascript:void(0);" '+
-												 ' data-animation="fade" data-reveal-id="J-favorite-dialog"><I '+
-												 ' class="collection"></I>收藏          '+                                         
-												            '</A>	</P></LI>');
-						});
-						var goodsfenye = '';
-						if(pagenow > 1){
-							goodsfenye += '<a onclick=fenyeGoods("1")>第一页</a><a onclick=fenyeGoods("'+(parseInt(pagenow)-1)+'")>上一页</a>';
-						} else {
-							goodsfenye += '<span>第一页</span><span>上一页</span>';
-						}
-						goodsfenye += '<span>当前第'+pagenow+'页</span>';
-						if(pagenow < pageCount){
-							goodsfenye += '<a onclick=fenyeGoods("'+(parseInt(pagenow)+1)+'")>下一页</a><a onclick=fenyeGoods("'+pageCount+'")>最后一页</a>';
-						} else {
-							goodsfenye += '<span>下一页</span><span>最后一页&nbsp;</span>';
-						}
-						goodsfenye += '<span>跳转到第<input class="fenyelan_input" size="1" type="text" id="pagenowGoods_INP" value="'+
-							pagenow+'">页</span>'+
-						 	'<input onclick=goodsPageTo("'+pageCount+'") type="button" value="GO" class="fenyelan_button">'+
-					 		'<span>一共 '+total+' 条数据</span>';
-						$(".compDetaG_fenye").html(goodsfenye);
+			var searchclassesvalue = $("#w").val();
+			$.ajax({
+				url:"GoodsviewAction.do",
+				type:"post",
+				data:{
+						method:"mselAll",
+						customerid:customerid,
+						customertype:customertype,
+						customerlevel:customerlevel,
+						goodsclassname:searchclassesvalue,
+						limit:18,
+						start:(pagenow-1)*18,
+						companyid:companyid
 					},
-					error : function() {
-						alert('网络出现问题，请稍后再试');
+				success:function(data){
+					var jsonData = JSON.parse(data);
+					var pagenow = $(".compDetaG_fenye").attr("name");				//当前页
+					var total = parseInt(jsonData.total);							//信息总条数
+					var pageCount = 0;
+					if(total%18 == 0){
+						pageCount = parseInt(total / 18);
+					} else {
+						pageCount = (parseInt(total / 18)) +1;
 					}
-				});
-			}
+					$("#com_goods_ul li").remove();
+					$.each(jsonData.root,function(i,item){
+						$("#com_goods_ul").append('<LI class="ml0"><A title="" class="imgwrap" href="goodsXD.html?goodsid='+item.goodsid+'">'+
+									'<IMG onerror="javascript:this.src=\'images/default.jpg\'"'+									//图片加载错误时
+										'src="'+item.goodsimage+'"></A>'+
+									'<P class="mt10">'+
+										'<a titile="" href="goodsXD.html?goods='+encodeURI(JSON.stringify(item))+'">'+item.goodsname+'</a>'+'<span>('+item.goodsunits+')</span>'+
+									'</P>'+
+									'<P class="mt10">'+
+										'<span>买一箱送380ml海天味极鲜酱油2瓶</span>'+
+									'</P>'+
+									'<P class="price-sj  mt10UP">'+
+										'<STRONG>￥'+item.pricesprice+'/'+item.pricesunit+
+									'</STRONG><A name="add_collect_info" '+
+										  'title="收藏" class="big-link2" id="add_collect_info" href="javascript:void(0);" '+
+											 ' data-animation="fade" data-reveal-id="J-favorite-dialog"><I '+
+											 ' class="collection"></I>收藏          '+                                         
+											            '</A>	</P></LI>');
+					});
+					var goodsfenye = '';
+					if(pagenow > 1){
+						goodsfenye += '<a onclick=fenyeGoods("1")>第一页</a><a onclick=fenyeGoods("'+(parseInt(pagenow)-1)+'")>上一页</a>';
+					} else {
+						goodsfenye += '<span>第一页</span><span>上一页</span>';
+					}
+					goodsfenye += '<span>当前第'+pagenow+'页</span>';
+					if(pagenow < pageCount){
+						goodsfenye += '<a onclick=fenyeGoods("'+(parseInt(pagenow)+1)+'")>下一页</a><a onclick=fenyeGoods("'+pageCount+'")>最后一页</a>';
+					} else {
+						goodsfenye += '<span>下一页</span><span>最后一页&nbsp;</span>';
+					}
+					goodsfenye += '<span>跳转到第<input class="fenyelan_input" size="1" type="text" id="pagenowGoods_INP" value="'+
+						pagenow+'">页</span>'+
+					 	'<input onclick=goodsPageTo("'+pageCount+'") type="button" value="GO" class="fenyelan_button">'+
+				 		'<span>一共 '+total+' 条数据</span>';
+					$(".compDetaG_fenye").html(goodsfenye);
+				},
+				error : function(resp){
+					var respText = eval('('+resp+')');
+					alert(respText.msg);
+				}
+			});
+		}
 			//返回顶部的按钮
 			$("#goTopBtn").click(function() {
 				var sc = $(window).scrollTop();
@@ -371,9 +371,9 @@
 					scrollTop : 0
 				}, 100);
 			});
-		</SCRIPT>
+		</script>
 
-		<SCRIPT type="text/javascript">
+		<script type="text/javascript">
 			/* var pathname = window.location.pathname;//获取url路径
 			jQuery(".whz-mainNav-menu").children("li").each(
 					function() {
@@ -406,7 +406,7 @@
 									alert("您的浏览器暂不支持此操作，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
 								}
 							});
-		</SCRIPT>
+		</script>
 
 		<DIV class="contentBody" id="Container">
 			<DIV class="location">
@@ -694,12 +694,12 @@
 			<!--headTopBox-->
 		</DIV>
 		<!--footer-->
-		<SCRIPT type="text/javascript">
+		<script type="text/javascript">
 			//这里不知道是啥
 			/* jQuery(
 					"a:contains(¥),b:contains(¥),del:contains(¥),strong:contains(¥),td:contains(¥),li:contains(¥),span:contains(¥),p:contains(¥),q:contains(¥),div:contains(¥)")
 					.css('font-family', 'Microsoft Yahei'); */
-		</SCRIPT>
+		</script>
 		<!--插入页脚在这里-->
 		<!--引入底部-->
 		<DIV class="pop-box">
@@ -792,17 +792,18 @@
 	</DIV>
 	<!-- 百度地图js -->
 
-	<SCRIPT src="js/api.js" type="text/javascript"></SCRIPT>
+	<script src="js/api.js" type="text/javascript"></script>
 
-	<SCRIPT src="js/merchant.js" type="text/javascript"></SCRIPT>
+	<script src="js/merchant.js" type="text/javascript"></script>
 
-	<SCRIPT src="js/jquery.jDiaporama.js" type="text/javascript"></SCRIPT>
+	<script src="js/jquery.jDiaporama.js" type="text/javascript"></script>
 	<!--弹窗js (?)-->
-	<SCRIPT src="js/jquery.reveal.js" type="text/javascript"></SCRIPT>
+	<script src="js/jquery.reveal.js" type="text/javascript"></script>
 	<!--功能js-->
-	<SCRIPT src="js/saiTu.js"></SCRIPT>
+	<script src="js/saiTu.js"></script>
 	<!--弹窗js-->
-	<SCRIPT type="text/javascript">
+	<script type="text/javascript">
+	
 		jQuery(document)
 				.ready(
 						function() {
@@ -945,12 +946,12 @@
 								}
 							}
 						});
-	</SCRIPT>
+	</script>
 
-	<SCRIPT type="text/javascript">
+	<script type="text/javascript">
 		$(function() {
 			saiTuManager.init();
 		});
-	</SCRIPT>
+	</script>
 </BODY>
 </HTML>

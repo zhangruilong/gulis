@@ -212,7 +212,7 @@
 							</span>
 						</div>
 						<ul class="whz-mainNav-menu">
-							<li><a href="homepage.htm">首页</a></li>
+							<li><a href="homepage.html">首页</a></li>
 							<li><a href="">美食</a></li>
 							<li><a href="">娱乐</a></li>
 							<li><a href="">酒店</a></li>
@@ -427,32 +427,44 @@
 	</div>
 
 	<script type="text/javascript">
-		var goods = GetQueryString("goods");
-		var goods = decodeURI(goods);
-		var goodsJSON = JSON.parse(goods);
-		var companyid = GetQueryString("companyid"); //得到连接地址中的供应商id
+		var goodsid = getQueryString("goodsid");
 		var customer = JSON.parse(window.localStorage.getItem("customer"));
 		$(function() {
-			$(".deal-sj-tit").html(goodsJSON.goodsname + '<span class="prs_Unit">('+ goodsJSON.goodsunits + ')</span>');
-			$("#yufu").text("￥" + goodsJSON.pricesprice + "/" + goodsJSON.pricesunit);
-			var goods_date = goodsJSON.companydetail;
-			if(goodsJSON.goodstype){
-				goods_date += "."+goodsJSON.goodstype;
-			}
-			$(".goods-date").text(goods_date);
-			$(".buy_statistics").html('<label>品牌</label> <span class="goods-date" style="color:black">'+typeNullFoString(goodsJSON.goodsbrand)+'</span>');
-			$(".scrollLoading").attr("src", "../" + goodsJSON.goodsimage);
-			$(".item-plus").click(function() {
-				var num = parseInt($(".order-num-s").val());
-				$(".order-num-s").val(num + 1);
-			});
-			$(".item-minus").click(function() {
-				var num = parseInt($(".order-num-s").val());
-				if (num > 1) {
-					$(".order-num-s").val(num - 1);
+			$.ajax({
+				url:"GoodsviewAction.do?method=selAll",
+				type:"post",
+				data:{
+					wheresql:"goodsid='"+goodsid+"'"
+				},
+				success:function(resp){
+					var goodsJSON = JSON.parse(resp).root[0];
+					$(".deal-sj-tit").html(goodsJSON.goodsname + '<span class="prs_Unit">('+ goodsJSON.goodsunits + ')</span>');
+					$("#yufu").text("￥" + goodsJSON.pricesprice + "/" + goodsJSON.pricesunit);
+					var goods_date = goodsJSON.companydetail;
+					if(goodsJSON.goodstype){
+						goods_date += "."+goodsJSON.goodstype;
+					}
+					$(".goods-date").text(goods_date);
+					$(".buy_statistics").html('<label>品牌</label> <span class="goods-date" style="color:black">'+typeNullFoString(goodsJSON.goodsbrand)+'</span>');
+					$(".scrollLoading").attr("src", goodsJSON.goodsimage);
+					$(".item-plus").click(function() {
+						var num = parseInt($(".order-num-s").val());
+						$(".order-num-s").val(num + 1);
+					});
+					$(".item-minus").click(function() {
+						var num = parseInt($(".order-num-s").val());
+						if (num > 1) {
+							$(".order-num-s").val(num - 1);
+						}
+					});
+					$("#to_shopping").click(doCart);
+				},
+				error : function(resp){
+					var respText = eval('('+resp+')');
+					alert(respText.msg);
 				}
 			});
-			$("#to_shopping").click(doCart);
+			
 		});
 		//加入购物车
 		function doCart() {
