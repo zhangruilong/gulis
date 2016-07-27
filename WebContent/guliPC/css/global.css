@@ -1989,13 +1989,14 @@ width200px;
 	top: 0;
 	height: 40px;
 }
+/*首页商品去掉了这个高度*/
 .pro-label li {
-	height: 40px;
+	/* height: 40px; */
 	float: left;
 }
+/*首页商品*/
 .m-tuan, .discount {
 	min-width: 12%;
-	height: 40px;
 	display: block;
 	text-align: center;
 	padding: 5px;

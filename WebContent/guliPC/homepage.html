@@ -657,12 +657,14 @@ $(function(){
 					<!--readMore-->
 				</DIV>
 <script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function(){
 	$.ajax({
-		url:"TimegoodsAction.do?method=selQuery",
+		url:"TimegoodsviewAction.do?method=homMSGoods",
 		type:"post",
 		data:{
-			limit:"6"
+			limit:"6",
+			customerid:"G14605254180267282"
 		},
 		success:function(resp){
 			var data = JSON.parse(resp);
@@ -671,19 +673,14 @@ $(function(){
 				'<A class="pro-a-box" href="#" target="_blank">'+
 				'<SPAN class="spImg" href="" target="_blank">'+					//此处href的链接地址应该写到商品详情的链接地址
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><LI class="discount">享<BR>6.0折</LI></DIV></SPAN>'+
-				'<SPAN title="【谷粒国际小商品城】玛丽莲" class="sp-info" href="/product.html?goodsno=SP2015070411495963033" target="_blank">'+
-						'<H3>【谷粒国际小商品城】玛丽莲</H3></SPAN>'+
-				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="/product.html?goodsno=SP2015070411495963033" target="_blank">'+
+					'<DIV class="pro-label"><li class="discount">秒杀</li></DIV></SPAN>'+
+				'<SPAN title="【'+item.timegoodsname+'】'+item.timegoodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.timegoodsname+'】'+item.timegoodsunits+'</H3></SPAN>'+
+				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
 				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</SPAN></SPAN>'+
 					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥9.00</STRONG> <SPAN class="stores-jia">门店价<DEL>15.00</DEL></SPAN> </SPAN>'+
+						'<SPAN class="sp-tag"><STRONG>¥'+item.timegoodsorgprice+'</STRONG> <SPAN class="stores-jia">原价<DEL>'+item.timegoodsprice+'</DEL></SPAN> </SPAN>'+
 					'</DIV>'+
-					//'sp-price'+
-					'<DIV class="sp-sold">'+
-						'<SPAN class="sold-num">已售<STRONG>3</STRONG></SPAN>'+
-					'</DIV>'+
-					//'sp-sold '+
 				'</A>'+
 				'</DIV>';
 				$(".mf1-ms-tg").prepend(goods);
@@ -711,7 +708,7 @@ $(function(){
 					</H2>
 				</DIV>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox">
+				<DIV class="sp-contentBox mf2-mz-gg">
 					<!--商品数据插入到这里-->
 					<DIV class="clearD"></DIV>
 					<!--clearD-->
@@ -722,6 +719,45 @@ $(function(){
 					</DIV>
 					<!--readMore-->
 				</DIV>
+<script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
+$(function(){
+	$.ajax({
+		url:"TimegoodsviewAction.do?method=homMSGoods",
+		type:"post",
+		data:{
+			limit:"6",
+			customerid:"G14605254180267282"
+		},
+		success:function(resp){
+			var data = JSON.parse(resp);
+			$.each(data.root,function(i,item){
+				var goods = '<DIV class="sp-dataBox">'+
+				'<A class="pro-a-box" href="#" target="_blank">'+
+				'<SPAN class="spImg" href="" target="_blank">'+					//此处href的链接地址应该写到商品详情的链接地址
+					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" data-url="">'+
+					'<DIV class="pro-label"><li class="discount">秒杀</li></DIV></SPAN>'+
+				'<SPAN title="【'+item.timegoodsname+'】'+item.timegoodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.timegoodsname+'】'+item.timegoodsunits+'</H3></SPAN>'+
+				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
+				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</SPAN></SPAN>'+
+					'<DIV class="sp-priceTit">'+
+						'<SPAN class="sp-tag"><STRONG>¥'+item.timegoodsorgprice+'</STRONG> <SPAN class="stores-jia">原价<DEL>'+item.timegoodsprice+'</DEL></SPAN> </SPAN>'+
+					'</DIV>'+
+				'</A>'+
+				'</DIV>';
+				$(".mf1-ms-tg").prepend(goods);
+			});
+			$(".mf1-ms-tg .sp-dataBox:eq(2)").addClass("tailThree");
+			$(".mf1-ms-tg .sp-dataBox:eq(5)").addClass("tailThree");
+		},
+		error : function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+});
+</script>
 				<!--sp-contentBox-->
 				<!-------------------------------3F------------------------------------->
 
