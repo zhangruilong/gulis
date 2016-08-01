@@ -373,9 +373,9 @@
 		</HEADER>
 		<!--header-->
 <script type="text/javascript">
-$(function(){
+/* $(function(){
 	
-})
+}) */
 </script>
 		<!--主体开始-->
 		<DIV class="contentBody" id="Container">
@@ -663,14 +663,14 @@ $(function(){
 		type:"post",
 		data:{
 			limit:"6",
-			customerid:"G14605254180267282"
+			customerid:'G14605254180267282'/* customer.customerid */
 		},
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<DIV class="sp-dataBox">'+
 				'<A class="pro-a-box" href="#" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//此处href的链接地址应该写到商品详情的链接地址
+				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" data-url="">'+
 					'<DIV class="pro-label"><li class="discount">秒杀</li></DIV></SPAN>'+
 				'<SPAN title="【'+item.timegoodsname+'】'+item.timegoodsunits+'" class="sp-info" href="" target="_blank">'+
@@ -718,7 +718,44 @@ $(function(){
 					</DIV>
 					<!--readMore-->
 				</DIV>
-
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:"GivegoodsviewAction.do?method=homMZGoods",
+		type:"post",
+		data:{
+			limit:"6",
+			customerid:'G14605254180267282'/* customer.customerid */
+		},
+		success:function(resp){
+			var data = JSON.parse(resp);
+			$.each(data.root,function(i,item){
+				var goods = '<DIV class="sp-dataBox">'+
+				'<A class="pro-a-box" href="#" target="_blank">'+
+				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.givegoodsimage+'" data-url="">'+
+					'<DIV class="pro-label"><li class="discount">秒杀</li></DIV></SPAN>'+
+				'<SPAN title="【'+item.givegoodsname+'】'+item.givegoodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.givegoodsname+'】'+item.givegoodsunits+'</H3></SPAN>'+
+				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
+				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</SPAN></SPAN>'+
+					'<DIV class="sp-priceTit">'+
+						'<SPAN class="sp-tag"><STRONG>¥'+item.givegoodsprice+'</STRONG></SPAN>'+
+					'</DIV>'+
+				'</A>'+
+				'</DIV>';
+				$(".mf1-ms-tg").prepend(goods);
+			});
+			$(".mf1-ms-tg .sp-dataBox:eq(2)").addClass("tailThree");
+			$(".mf1-ms-tg .sp-dataBox:eq(5)").addClass("tailThree");
+		},
+		error : function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+});
+</script>
 				<!--sp-contentBox-->
 				<!-------------------------------3F------------------------------------->
 

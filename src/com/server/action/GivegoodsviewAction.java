@@ -2,6 +2,7 @@ package com.server.action;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,8 +11,10 @@ import com.google.gson.reflect.TypeToken;
 import com.server.poco.GivegoodsviewPoco;
 import com.server.poco.GoodsviewPoco;
 import com.server.pojo.Ccustomer;
+import com.server.pojo.Customer;
 import com.server.pojo.Givegoodsview;
 import com.server.pojo.Goodsview;
+import com.server.pojo.Timegoodsview;
 import com.system.tools.CommonConst;
 import com.system.tools.base.BaseActionDao;
 import com.system.tools.pojo.Pageinfo;
@@ -69,6 +72,35 @@ public class GivegoodsviewAction extends BaseActionDao {
 		queryinfo.setOrder(GivegoodsviewPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//首页的买赠商品
+	@SuppressWarnings("unchecked")
+	public void homMZGoods(HttpServletRequest request, HttpServletResponse response){
+		String customerid = request.getParameter("customerid");
+		String wheresql = null;
+		List<Customer> cusli = selAll(Customer.class, "select * from customer where customerid='"+customerid+"'");			//根据客户id查询客户
+		if(cusli.size() ==1){
+			Queryinfo Ccustomerqueryinfo = getQueryinfo();
+			Ccustomerqueryinfo.setType(Ccustomer.class);
+			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
+			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);						//查询客户的客户关系
+			if(Ccustomercuss.size()!=0){																		//如果有客户关系
+				wheresql = "givegoodsstatue='启用' and givegoodsscope like '%"+cusli.get(0).getCustomertype()+"%' and ";
+				for (Ccustomer ccustomer : Ccustomercuss) {
+					wheresql += "(givegoodscompany='"+ccustomer.getCcustomercompany()+"' or";
+				}
+				wheresql = wheresql.substring(0, wheresql.length()-2) + ")";
+				Queryinfo queryinfo = getQueryinfo(request);
+				queryinfo.setType(Timegoodsview.class);
+				queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
+				queryinfo.setWheresql(wheresql);
+				queryinfo.setOrder("givegoodsseq");
+				cuss = (ArrayList<Givegoodsview>) selQuery(queryinfo);
+				Pageinfo pageinfo = new Pageinfo(0, cuss);
+				result = CommonConst.GSON.toJson(pageinfo);
+			}
+		}
 		responsePW(response, result);
 	}
 	//买赠页
