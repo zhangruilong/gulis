@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.server.pojo.Address;
 import com.server.pojo.Customer;
 import com.server.poco.CustomerPoco;
 import com.system.tools.CommonConst;
@@ -13,6 +14,7 @@ import com.system.tools.base.BaseActionDao;
 import com.system.tools.pojo.Fileinfo;
 import com.system.tools.pojo.Queryinfo;
 import com.system.tools.util.CommonUtil;
+import com.system.tools.util.DateUtils;
 import com.system.tools.util.FileUtil;
 import com.system.tools.pojo.Pageinfo;
 
@@ -110,6 +112,46 @@ public class CustomerAction extends BaseActionDao {
 		queryinfo.setOrder(CustomerPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//注册
+	@SuppressWarnings("unchecked")
+	public void regCustomerPC(HttpServletRequest request, HttpServletResponse response){
+		json2cuss(request);
+		for(Customer temp:cuss){
+			ArrayList<String> sqlList = new ArrayList<String>();							//sql语句的list集合
+			ArrayList<Customer> cusList = (ArrayList<Customer>) selAll(Customer.class, "select * from customer c where c.customerphone='"+temp.getCustomerphone()+"'");
+			if(cusList != null && cusList.size() > 0){
+				result = "{'success':false,'code':400,'msg':'手机已经注册过了。'}";
+			}else{
+				String newId = CommonUtil.getNewId();
+				temp.setCustomerid(newId);		//设置新id
+				temp.setCustomerstatue("启用");
+				temp.setCustomerlevel(3);							//默认等级
+				temp.setCustomertype("3");							//默认类型
+				temp.setCreatetime(DateUtils.getDateTime());
+				String sqlCustomer = getInsSingleSql(temp);
+				sqlList.add(sqlCustomer);
+				//添加新地址
+				Address address = new Address();
+				address.setAddressture(1);							//自动设为默认地址
+				address.setAddressid(newId);		//设置新id
+				address.setAddressaddress(temp.getCustomercity()+temp.getCustomerxian()+temp.getCustomeraddress());
+				address.setAddresscustomer(newId);					//客户id
+				address.setAddressphone(temp.getCustomerphone());
+				address.setAddressconnect(temp.getCustomername());
+				String sqlAddress = getInsSingleSql(address);
+				sqlList.add(sqlAddress);
+				result = doAll(sqlList);
+				if(CommonConst.SUCCESS.equals(result)){
+					ArrayList<Customer> retCust = new ArrayList<Customer>();
+					retCust.add(temp);
+					Pageinfo pageinfo = new Pageinfo(0, retCust);
+					result = CommonConst.GSON.toJson(pageinfo);
+				}
+			}
+			
+		}
 		responsePW(response, result);
 	}
 }

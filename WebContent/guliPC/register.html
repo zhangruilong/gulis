@@ -34,55 +34,55 @@
         <div class="zhucecbleft">
             <div class="zhucecbleftline">
                 <div class="zhucecbleftltext">店铺名称：</div>
-                <div class="zhucecbleftlinput"><input name="textfield" type="text"   placeholder="请输入手机号" /></div>
+                <div class="zhucecbleftlinput"><input name="customershop" type="text"   placeholder="请输入店铺名称" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
           	</div>
           	<div class="zhucecbleftline">
                 <div class="zhucecbleftltext">联系人：</div>
-                <div class="zhucecbleftlinput"><input name="textfield" type="text"   placeholder="请输入手机号" /></div>
+                <div class="zhucecbleftlinput"><input name="customername" type="text"   placeholder="请输入联系人" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
           	</div>
           	<div class="zhucecbleftline">
                 <div class="zhucecbleftltext">联系电话：</div>
-                <div class="zhucecbleftlinput"><input name="textfield" type="text"   placeholder="请输入手机号" /></div>
+                <div class="zhucecbleftlinput"><input name="customerphone" type="text"   placeholder="请输入联系电话" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
           	</div>
           	<div class="zhucecbleftline">
                 <div class="zhucecbleftltext">所在城市：</div>
-                <div class="zhucecbleftlinput"><input name="textfield" type="text"   placeholder="请输入手机号" /></div>
+                <div class="zhucecbleftlinput"><input name="customercity" type="text"   placeholder="请输入城市" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
           	</div>
           	<div class="zhucecbleftline">
                 <div class="zhucecbleftltext">所在地区：</div>
-                <div class="zhucecbleftlinput"><input name="textfield" type="text"   placeholder="请输入手机号" /></div>
+                <div class="zhucecbleftlinput"><input name="customerxian" type="text"   placeholder="请输入地区" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
           	</div>
           	<div class="zhucecbleftline">
                 <div class="zhucecbleftltext">店铺地址：</div>
-                <div class="zhucecbleftlinput"><input name="textfield" type="text"   placeholder="请输入手机号" /></div>
+                <div class="zhucecbleftlinput"><input name="customeraddress" type="text"   placeholder="请输入地址" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
           	</div>
             
-            <!-- <div class="zhucecbleftline">
+            <div class="zhucecbleftline">
                 <div class="zhucecbleftltext">请设置密码：</div>
-                <div class="zhucecbleftlinput"><input type="text" name="textfield" /></div>
+                <div class="zhucecbleftlinput"><input type="password" name="customerpsw" placeholder="请输入密码" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
             </div>
             
             <div class="zhucecbleftline">
                 <div class="zhucecbleftltext">请确认密码：</div>
-                <div class="zhucecbleftlinput"><input type="text" name="textfield" /></div>
+                <div class="zhucecbleftlinput"><input type="password" name="recustomerpsw" placeholder="请再次输入密码" /></div>
                 <div class="zhucecbleftlxh"><img src="images/xhicon.jpg" width="7" height="8"></div>
-            </div> -->
+            </div>
             
             <div class="zhucecbleftline">
                 <div class="zhucecbleftltext"></div>
-                <div class="zhucecbleftlinput2"> <input type="checkbox" name="CheckboxGroup1" value="" /></div>
+                <div class="zhucecbleftlinput2"> <input type="checkbox" name="CheckboxGroup1" value="" checked="checked"/></div>
                 <div class="zhucecbleftltext3">我已阅读并同意<a href="#">《谷粒网用户注册协议》</a></div>
             </div>
              <div class="zhucecbleftline">
                 <div class="zhucecbleftltext"></div>
-                <div class="zhucecbleftlinput3"> <input type="button" name="button" id="register_commit" value="" /></div>
+                <div class="zhucecbleftlinput3"> <input type="button" name="button" id="register_commit" value="" onclick="savecus();" /></div>
             </div>
         </div>
         <div class="zhucecbright"><img src="images/sjkszc.jpg" width="180" height="180"></div>
@@ -96,12 +96,82 @@ Copyright©2016  谷粒网 版权所有
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	
+	$(".zhucecbleftline .zhucecbleftlxh").css("display","none");
+	$(":text,:password").blur(function(){
+		if(!$(this).val()){
+			$(this).parent().next().css("display","block");
+		} else {
+			$(this).parent().next().css("display","none");
+		}
+	});
+	$("[name='CheckboxGroup1']").change(function(){
+		if(this.checked){
+			$("#register_commit").removeAttr("disabled");
+		} else {
+			$("#register_commit").attr("disabled","disabled");
+		}
+	});
+	$("[name='recustomerpsw']").blur(function(){
+		if($(this).val() != $("[name='customerpsw']").val()){
+			alert("两次输入的密码不一致!");
+			return;
+		}
+	});
+	$("[name='customerpsw']").blur(function({
+		if($(this).val().length < 6){
+			alert("密码不能少于6位!");
+			$(this).val("");
+		}
+	}));
 });
 
 //保存用户
 function savecus(){
-	
+	if($("[name='CheckboxGroup1']").get(0).checked == false){
+		return;
+	}
+	if($("[name='recustomerpsw']").val() != $("[name='customerpsw']").val()){
+		alert("两次输入的密码不一致!");
+		return;
+	}
+	var flag = 0;
+	$(":text,:password").each(function(i,item){
+		if(!$(item).val()){
+			flag++;
+			alert($(item).attr("placeholder")+"!");
+			return false;
+		}
+	});
+	if(flag == 0){
+		$.ajax({
+			url:"CustomerAction.do?method=regCustomerPC",
+			type:"post",
+			data:{
+				json:'[{'+
+				'"openid":"PC",'+
+				'"customercity":"'+$("[name='customercity']").val()+'",'+
+				'"customerphone":"'+$("[name='customerphone']").val()+'",'+
+				'"customerxian":"'+$("[name='customerxian']").val()+'",'+
+				'"customershop":"'+$("[name='customershop']").val()+'",'+
+				'"customername":"'+$("[name='customername']").val()+'",'+
+				'"customeraddress":"'+$("[name='customeraddress']").val()+'",'+
+				'"customerpsw":"'+$("[name='customerpsw']").val()+'"'+
+				'}]'
+			},
+			success:function(resp){
+				var data = eval('('+resp+')');
+				if(data.code == '202'){
+					alert("注册成功!");
+				} else {
+					alert(data.msg);
+				}
+			},
+			error : function(resp){
+				var respText = eval('('+resp+')');
+				alert(respText.msg);
+			}
+		});
+	}
 }
 </script>
 </body>
