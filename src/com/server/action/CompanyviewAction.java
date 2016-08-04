@@ -3,9 +3,12 @@ package com.server.action;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.server.pojo.Ccustomer;
 import com.server.pojo.Companyview;
 import com.server.poco.CompanyviewPoco;
 import com.system.tools.CommonConst;
@@ -66,6 +69,31 @@ public class CompanyviewAction extends BaseActionDao {
 		queryinfo.setOrder(CompanyviewPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//查询我的供应商
+	@SuppressWarnings("unchecked")
+	public void bdCityCom(HttpServletRequest request, HttpServletResponse response){
+		Queryinfo queryinfo = getQueryinfo(request);
+		queryinfo.setType(Companyview.class);
+		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
+		queryinfo.setOrder(CompanyviewPoco.ORDER);
+		List<Companyview> comvList = selAll(queryinfo);
+		String customerid = request.getParameter("customerid");
+		if(comvList.size() >0 && CommonUtil.isNotEmpty(customerid) && !customerid.equals("undefined")){
+			List<Ccustomer> ccustomers = selAll(Ccustomer.class, "select * from ccustomer where ccustomercustomer='"+customerid+"'");
+			if(ccustomers.size() >0){
+				for (Ccustomer cc : ccustomers) {
+					for (Companyview company : comvList) {
+						if(company.getCompanyid().equals(cc.getCcustomercompany())){
+							company.setCreatetime("已绑定");;
+						}
+					}
+				}
+			}
+			Pageinfo pageinfo = new Pageinfo(0, comvList);
+			result = CommonConst.GSON.toJson(pageinfo);
+		}
 		responsePW(response, result);
 	}
 }

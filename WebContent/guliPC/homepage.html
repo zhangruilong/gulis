@@ -21,7 +21,10 @@
 	var maxImg = '_550x327';
 	var middleImg = '_300x195';
 	var minImg = '_95x72';
-	
+	var customer = JSON.parse(window.localStorage.getItem("customer"));
+	if(!window.localStorage.getItem("customer")){
+		window.location.href = "login.html";
+	}
 </SCRIPT>
 <SCRIPT type="text/javascript">
 	$(function() {
@@ -46,16 +49,16 @@
 							<DIV class="toplineleft">
 								<SPAN class="wzh-won">谷粒汇·惠精彩</SPAN>
 
-								<UL>
+								<!-- <UL>
 									<LI><A class="top-userlogin" id="index_login_button"
 										href="login.html">请您登录</A></LI>
 									<LI><A id="index_register_button"
 										href="register.html">注册有礼</A></LI>
-								</UL>
+								</UL> -->
 							</DIV>
 							<DIV class="menu">
 								<UL class="tlrtext">
-									<LI><SPAN class="topwelcome"><Q>您好， 欢迎来到谷粒汇！</Q></SPAN></LI>
+									<LI><SPAN class="topwelcome"><Q>您好， 欢迎来到谷粒网！</Q></SPAN></LI>
 									<LI><A
 										href="#">用户中心<I
 											class="triangleIco"></I></A>
@@ -373,9 +376,11 @@
 		</HEADER>
 		<!--header-->
 <script type="text/javascript">
-/* $(function(){
-	
-}) */
+$(function(){
+	/* if(customer){
+		$(".toplineleft ul").html('<li>欢迎您：'+customer.customershop+'</li>');
+	} */
+})
 </script>
 		<!--主体开始-->
 		<DIV class="contentBody" id="Container">
@@ -555,19 +560,19 @@
 						<UL class="sp-tit-categories">
 							<LI><A
 								onclick="javascript:this.href=encodeURI('/food.html?w=蛋糕&amp;categoryId=10021057');"
-								href="http://www.wuzhouhui.com.cn/index.html#" target="_blank">蛋糕</A></LI>
+								href="#" target="_blank">蛋糕</A></LI>
 							<LI><A
 								onclick="javascript:this.href=encodeURI('/food.html?w=甜点饮品&amp;categoryId=10021060');"
-								href="http://www.wuzhouhui.com.cn/index.html#" target="_blank">甜点饮品</A></LI>
+								href="#" target="_blank">甜点饮品</A></LI>
 							<LI><A
 								onclick="javascript:this.href=encodeURI('/food.html?w=其他美食&amp;categoryId=10021081');"
-								href="http://www.wuzhouhui.com.cn/index.html#" target="_blank">其他美食</A></LI>
+								href="#" target="_blank">其他美食</A></LI>
 							<LI><A
 								onclick="javascript:this.href=encodeURI('/food.html?w=家常菜&amp;categoryId=10021082');"
-								href="http://www.wuzhouhui.com.cn/index.html#" target="_blank">家常菜</A></LI>
+								href="#" target="_blank">家常菜</A></LI>
 							<LI><A
 								onclick="javascript:this.href=encodeURI('/food.html?w=小吃快餐&amp;categoryId=10021096');"
-								href="http://www.wuzhouhui.com.cn/index.html#" target="_blank">小吃快餐</A></LI>
+								href="#" target="_blank">小吃快餐</A></LI>
 							<LI><A href="http://www.wuzhouhui.com.cn/food.html"
 								target="_blank">更多&gt;</A></LI>
 						</UL>
@@ -650,20 +655,22 @@
 					<!--clearD-->
 					<!--查看更多-->
 					<DIV class="readMore">
-						<A href="http://www.wuzhouhui.com.cn/food.html" target="_blank">更多购物，请点击查看
+						<A href="#" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
 					</DIV>
 					<!--readMore-->
 				</DIV>
 <script type="text/javascript">
-var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function(){
+	if(!customer){
+		return;
+	}
 	$.ajax({
 		url:"TimegoodsviewAction.do?method=homMSGoods",
 		type:"post",
 		data:{
 			limit:"6",
-			customerid:'G14605254180267282'/* customer.customerid */
+			customerid:customer.customerid
 		},
 		success:function(resp){
 			var data = JSON.parse(resp);
@@ -701,7 +708,7 @@ $(function(){
 					<H2>
 						<I class="wzhImg m-yule"></I>买赠专区
 						<UL class="sp-tit-categories">
-							<LI><A href="http://www.wuzhouhui.com.cn/fun.html"
+							<LI><A href="#"
 								target="_blank">更多&gt;</A></LI>
 						</UL>
 					</H2>
@@ -713,19 +720,22 @@ $(function(){
 					<!--clearD-->
 					<!--查看更多-->
 					<DIV class="readMore">
-						<A href="http://www.wuzhouhui.com.cn/fun.html" target="_blank">更多购物，请点击查看
+						<A href="#" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
 					</DIV>
 					<!--readMore-->
 				</DIV>
 <script type="text/javascript">
 $(function(){
+	if(!customer){
+		return;
+	}
 	$.ajax({
 		url:"GivegoodsviewAction.do?method=homMZGoods",
 		type:"post",
 		data:{
 			limit:"6",
-			customerid:'G14605254180267282'/* customer.customerid */
+			customerid:customer.customerid
 		},
 		success:function(resp){
 			var data = JSON.parse(resp);
@@ -734,20 +744,20 @@ $(function(){
 				'<A class="pro-a-box" href="#" target="_blank">'+
 				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.givegoodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">秒杀</li></DIV></SPAN>'+
+					'<DIV class="pro-label"><li class="discount">买赠</li></DIV></SPAN>'+
 				'<SPAN title="【'+item.givegoodsname+'】'+item.givegoodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<H3>【'+item.givegoodsname+'】'+item.givegoodsunits+'</H3></SPAN>'+
-				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</SPAN></SPAN>'+
+				'<SPAN title="'+item.givegoodsdetail+'" class="sp-info" href="" target="_blank">'+
+				'<SPAN title="'+item.givegoodsdetail+'" class="sp-Text">'+item.givegoodsdetail+'</SPAN></SPAN>'+
 					'<DIV class="sp-priceTit">'+
 						'<SPAN class="sp-tag"><STRONG>¥'+item.givegoodsprice+'</STRONG></SPAN>'+
 					'</DIV>'+
 				'</A>'+
 				'</DIV>';
-				$(".mf1-ms-tg").prepend(goods);
+				$(".mf2-mz-gg").prepend(goods);
 			});
-			$(".mf1-ms-tg .sp-dataBox:eq(2)").addClass("tailThree");
-			$(".mf1-ms-tg .sp-dataBox:eq(5)").addClass("tailThree");
+			$(".mf2-mz-gg .sp-dataBox:eq(2)").addClass("tailThree");
+			$(".mf2-mz-gg .sp-dataBox:eq(5)").addClass("tailThree");
 		},
 		error : function(resp){
 			var respText = eval('('+resp+')');
@@ -780,6 +790,47 @@ $(function(){
 					</DIV>
 					<!--readMore-->
 				</DIV>
+<script type="text/javascript">
+$(function(){
+	if(!customer){
+		return;
+	}
+	$.ajax({
+		url:"GivegoodsviewAction.do?method=mselAll",
+		type:"post",
+		data:{
+			limit:"6",
+			customerid:customer.customerid
+		},
+		success:function(resp){
+			var data = JSON.parse(resp);
+			$.each(data.root,function(i,item){
+				var goods = '<DIV class="sp-dataBox">'+
+				'<A class="pro-a-box" href="#" target="_blank">'+
+				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.givegoodsimage+'" data-url="">'+
+					'<DIV class="pro-label"><li class="discount">买赠</li></DIV></SPAN>'+
+				'<SPAN title="【'+item.givegoodsname+'】'+item.givegoodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.givegoodsname+'】'+item.givegoodsunits+'</H3></SPAN>'+
+				'<SPAN title="'+item.givegoodsdetail+'" class="sp-info" href="" target="_blank">'+
+				'<SPAN title="'+item.givegoodsdetail+'" class="sp-Text">'+item.givegoodsdetail+'</SPAN></SPAN>'+
+					'<DIV class="sp-priceTit">'+
+						'<SPAN class="sp-tag"><STRONG>¥'+item.givegoodsprice+'</STRONG></SPAN>'+
+					'</DIV>'+
+				'</A>'+
+				'</DIV>';
+				$(".mf2-mz-gg").prepend(goods);
+			});
+			$(".mf2-mz-gg .sp-dataBox:eq(2)").addClass("tailThree");
+			$(".mf2-mz-gg .sp-dataBox:eq(5)").addClass("tailThree");
+		},
+		error : function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+});
+</script>
 				<!--sp-contentBox-->
 				<!-------------------------------4F------------------------------------->
 
@@ -2028,8 +2079,6 @@ $(function(){
 	<SCRIPT src="js/index-left.js"></SCRIPT>
 
 	<SCRIPT src="js/zebra_pin.js"></SCRIPT>
-
-	<SCRIPT src="js/jquery.min.js"></SCRIPT>
 
 	<SCRIPT src="js/wzhwebui.min.js"></SCRIPT>
 

@@ -83,11 +83,11 @@ public class TimegoodsviewAction extends BaseActionDao {
 			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
 			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);						//查询客户的客户关系
 			if(Ccustomercuss.size()!=0){																		//如果有客户关系
-				wheresql = "timegoodsstatue='启用' and timegoodsscope like '%"+cusli.get(0).getCustomertype()+"%' and ";
+				wheresql = "timegoodsstatue='启用' and timegoodsscope like '%"+cusli.get(0).getCustomertype()+"%' and (";
 				for (Ccustomer ccustomer : Ccustomercuss) {
-					wheresql += "(timegoodscompany='"+ccustomer.getCcustomercompany()+"' or";
+					wheresql += "timegoodscompany='"+ccustomer.getCcustomercompany()+"' or ";
 				}
-				wheresql = wheresql.substring(0, wheresql.length()-2) + ")";
+				wheresql = wheresql.substring(0, wheresql.length()-3) + ")";
 				Queryinfo queryinfo = getQueryinfo(request);
 				queryinfo.setType(Timegoodsview.class);
 				queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));

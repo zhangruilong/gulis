@@ -117,12 +117,12 @@ $(function(){
 			return;
 		}
 	});
-	$("[name='customerpsw']").blur(function({
+	$("[name='customerpsw']").blur(function(){
 		if($(this).val().length < 6){
 			alert("密码不能少于6位!");
 			$(this).val("");
 		}
-	}));
+	});
 });
 
 //保存用户
@@ -140,6 +140,9 @@ function savecus(){
 			flag++;
 			alert($(item).attr("placeholder")+"!");
 			return false;
+			if($(item).attr("name") == 'customerpsw' && $(item).val().length < 6){
+				alert('密码不能少于6位!');
+			}
 		}
 	});
 	if(flag == 0){
@@ -160,8 +163,9 @@ function savecus(){
 			},
 			success:function(resp){
 				var data = eval('('+resp+')');
-				if(data.code == '202'){
-					alert("注册成功!");
+				if(data.msg == '操作成功'){
+					alert("注册成功!请登录。");
+					window.location.href = "login.html";
 				} else {
 					alert(data.msg);
 				}

@@ -3,10 +3,13 @@ package com.server.action;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.server.pojo.Address;
+import com.server.pojo.Ccustomer;
 import com.server.pojo.Customer;
 import com.server.poco.CustomerPoco;
 import com.system.tools.CommonConst;
@@ -151,6 +154,28 @@ public class CustomerAction extends BaseActionDao {
 				}
 			}
 			
+		}
+		responsePW(response, result);
+	}
+	//登录
+	@SuppressWarnings("unchecked")
+	public void uslgcf(HttpServletRequest request, HttpServletResponse response){
+		Queryinfo queryinfo = getQueryinfo(request);
+		String customerphone = request.getParameter("customerphone");
+		String customerpsw = request.getParameter("customerpsw");
+		String wheresql = "customerphone='"+customerphone+"' and customerpsw='"+customerpsw+"'";
+		queryinfo.setWheresql(wheresql);
+		queryinfo.setType(Customer.class);
+		List<Customer> cusList = selAll(queryinfo);
+		if(cusList.size() == 1){
+			List<Ccustomer> ccustomers = selAll(Ccustomer.class, "select * from ccustomer where ccustomercustomer='"+cusList.get(0).getCustomerid()+"'");
+			if(ccustomers.size() >0){
+				result = CommonConst.GSON.toJson(cusList);
+			} else {
+				result = "{'success':false,'code':400,'msg':'请绑定供货商。'}";
+			}
+		} else {
+			result = "{'success':false,'code':400,'msg':'密码或账号不正确!'}";
 		}
 		responsePW(response, result);
 	}

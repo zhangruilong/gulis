@@ -86,13 +86,13 @@ public class GivegoodsviewAction extends BaseActionDao {
 			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
 			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);						//查询客户的客户关系
 			if(Ccustomercuss.size()!=0){																		//如果有客户关系
-				wheresql = "givegoodsstatue='启用' and givegoodsscope like '%"+cusli.get(0).getCustomertype()+"%' and ";
+				wheresql = "givegoodsstatue='启用' and givegoodsscope like '%"+cusli.get(0).getCustomertype()+"%' and (";
 				for (Ccustomer ccustomer : Ccustomercuss) {
-					wheresql += "(givegoodscompany='"+ccustomer.getCcustomercompany()+"' or";
+					wheresql += "givegoodscompany='"+ccustomer.getCcustomercompany()+"' or ";
 				}
-				wheresql = wheresql.substring(0, wheresql.length()-2) + ")";
+				wheresql = wheresql.substring(0, wheresql.length()-3) + ")";
 				Queryinfo queryinfo = getQueryinfo(request);
-				queryinfo.setType(Timegoodsview.class);
+				queryinfo.setType(Givegoodsview.class);
 				queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
 				queryinfo.setWheresql(wheresql);
 				queryinfo.setOrder("givegoodsseq");
