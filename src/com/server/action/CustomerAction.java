@@ -172,7 +172,9 @@ public class CustomerAction extends BaseActionDao {
 			if(ccustomers.size() >0){
 				result = CommonConst.GSON.toJson(cusList);
 			} else {
-				result = "{'success':false,'code':400,'msg':'请绑定供货商。'}";
+				Pageinfo pageinfo = new Pageinfo(cusList);
+				pageinfo.setMsg("请先绑定供应商");
+				result = CommonConst.GSON.toJson(pageinfo);
 			}
 		} else {
 			result = "{'success':false,'code':400,'msg':'密码或账号不正确!'}";

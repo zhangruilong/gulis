@@ -101,42 +101,33 @@ public class TimegoodsviewAction extends BaseActionDao {
 		responsePW(response, result);
 	}
 	//秒杀页
-	/*@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public void cusTimeG(HttpServletRequest request, HttpServletResponse response){
-		String companyid = request.getParameter("companyid");
 		String customerid = request.getParameter("customerid");
 		String customertype = request.getParameter("customertype");
-		String timegoodscode = request.getParameter("timegoodscode");
 		String wheresql = null;
-		if(CommonUtil.isEmpty(companyid)){
-			//如果不是业务员补单
-			Queryinfo Ccustomerqueryinfo = getQueryinfo();
-			Ccustomerqueryinfo.setType(Ccustomer.class);
-			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
-			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
-			if(Ccustomercuss.size()!=0){
-				wheresql = "timegoodsstatue='启用' and timegoodsscope like '%"+customertype+"%' ";
-				for (Ccustomer ccustomer : Ccustomercuss) {
-					wheresql += "and timegoodscompany='"+ccustomer.getCcustomercompany()+"' ";
-				}
+		Queryinfo Ccustomerqueryinfo = getQueryinfo();
+		Ccustomerqueryinfo.setType(Ccustomer.class);
+		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
+		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
+		if(Ccustomercuss.size()!=0){
+			wheresql = "timegoodsstatue='启用' and timegoodsscope like '%"+customertype+"%'  and (";
+			for (Ccustomer ccustomer : Ccustomercuss) {
+				wheresql += "timegoodscompany='"+ccustomer.getCcustomercompany()+"' or ";
 			}
-		} else {
-			//如果是业务员补单
-			wheresql = "timegoodsstatue='启用' and timegoodsscope like '%"+customertype+"%' and timegoodscompany='"+companyid+"' ";
+			wheresql = wheresql.substring(0, wheresql.length()-3) +") ";
+			Queryinfo queryinfo = getQueryinfo(request);
+			queryinfo.setType(Timegoodsview.class);
+			queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
+			queryinfo.setWheresql(wheresql);
+			queryinfo.setOrder("timegoodsseq");
+			cuss = (ArrayList<Timegoodsview>) selAll(queryinfo);
+			Pageinfo pageinfo = new Pageinfo(0, cuss);
+			result = CommonConst.GSON.toJson(pageinfo);
 		}
-		if(CommonUtil.isNotEmpty(timegoodscode)){
-			wheresql += "and timegoodscode='"+timegoodscode+"'";
-		}
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Timegoodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setWheresql(wheresql);
-		queryinfo.setOrder("timegoodsseq");
-		cuss = (ArrayList<Timegoodsview>) selAll(queryinfo);
-		Pageinfo pageinfo = new Pageinfo(0, cuss);
-		result = CommonConst.GSON.toJson(pageinfo);
+		
 		responsePW(response, result);
-	}*/
+	}
 }
 
 

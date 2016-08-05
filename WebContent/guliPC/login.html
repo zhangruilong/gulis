@@ -82,11 +82,12 @@ function uslog(){
 		},
 		success:function(resp){
 			var data = eval('('+resp+')');
-			if(typeof(data.code) == "undefined"){
-				window.localStorage.setItem(JSON.stringify(data[0]),0);
+			if(typeof(data.msg) == "undefined"){
+				window.localStorage.setItem("customer",JSON.stringify(data[0]));
 				window.location.href = "homepage.html";
-			} else if(data.msg == '请绑定供货商。'){
-				alert("请先绑定供货商。");
+			} else if(data.msg == '请先绑定供应商'){
+				window.localStorage.setItem("customer",JSON.stringify(data.root[0]));
+				alert("先绑定供应商才能购买商品。");
 				window.location.href = "bindingcom.html";
 			} else {
 				alert(data.msg);

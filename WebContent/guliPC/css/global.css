@@ -5388,6 +5388,21 @@ hidden {
 	background: #fff;
 	display: block;
 }
+.glw-combinding li{
+	width: 47.25%;
+	height: 120px;
+	border: 1px solid #dedede;
+	padding: 1%;
+	position: relative;
+	float: left;
+	margin: 0 5px 5px 0;
+	overflow: hidden;
+	background: #fff;
+	display: block;
+}
+.glw-combinding li:HOVER{
+	cursor:pointer;
+}
 .shangj-l {
 	width: 45%;
 	height: 100%;

@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>谷粒网</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+<link href="css/global.css" rel="stylesheet"/>
+<link href="css/layout.css" rel="stylesheet"/>
+<link href="css/color.css" rel="stylesheet"/>
+<link href="css/normalize.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<link href="css/wzhWeb.css" rel="stylesheet"/>
+<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<SCRIPT type="text/javascript">
+	var customer = JSON.parse(window.localStorage.getItem("customer"));
+	if(!window.localStorage.getItem("customer")){
+		window.location.href = "login.html";
+	}
+</SCRIPT>
+</head>
+<BODY>
+	<DIV id="ContainerBox">
+		<!--头部开始-->
+		<DIV class="headTopBox">
+			<DIV class="contentBody">
+				<DIV class="topline">
+					<DIV class="top">
+						<DIV class="toplineleft">
+							<SPAN class="wzh-won">谷粒网·惠精彩</SPAN>
+						</DIV>
+						<DIV class="menu">
+							<UL class="tlrtext">
+								<LI><SPAN class="topwelcome"><Q>您好， 欢迎来到谷粒网！</Q> </SPAN></LI>
+								<LI><A
+									href="#">用户中心<I
+										class="triangleIco"></I></A>
+									<UL class="topMenu-text">
+
+										<LI><A id="topbar_userinfo"
+											href="#">个人资料</A></LI>
+										<LI><A id="user_accountinfo"
+											href="#">基本信息</A></LI>
+										<LI><A id="topbar_bindwzk"
+											href="#">我的谷粒卡</A></LI>
+										<LI><A id="topbar_collect"
+											href="#">我的收藏</A></LI>
+										<LI><A id="topbar_jifen"
+											href="#">我的积分</A></LI>
+										<LI><A
+											href="#">我的评价</A></LI>
+										<LI><A id="topbar_order"
+											href="#">我的订单</A></LI>
+									</UL></LI>
+								<LI style="display: none;"><A id="shopping_card_button"
+									href="#"><I
+										class="triangleIco"></I> 购物车 <Q id="shoppingCart">0</Q> 件</A>
+									<UL>
+										<div class="top-cart" id="headerShoppingCart"></div>
+										<!--top-cart-->
+									</UL></LI>
+								<LI><A href="#">联系客服<I
+										class="triangleIco"></I></A>
+
+									<UL class="topMenu-text">
+										<LI><A id="topbar_tuikuan"
+											href="#"
+											target="_blank">申请退款</A></LI>
+										<LI><A id="topbar_bangdingshouji"
+											href="#"
+											target="_blank">换绑手机号</A></LI>
+										<LI><A id="topbar_tuanjuan"
+											href="#"
+											target="_blank">查看谷粒券</A></LI>
+									</UL></LI>
+
+								<LI><A href="#">我是商家<I
+										class="triangleIco"></I></A>
+
+									<UL class="topMenu-text">
+										<LI><A id="topbar_question"
+											href="#"
+											target="_blank">合作中心</A></LI>
+									</UL></LI>
+								<LI><A href="#" target="_blank">谷粒国际<I
+										class="triangleIco"></I></A></LI>
+								<LI><A href="#">更多<I
+										class="triangleIco"></I></A>
+									<UL class="topMenu-text">
+
+										<LI><A title="谷粒网" id="topbar_collect_net"
+											href="javascript:void(0)" rel="sidebar">收藏本站</A></LI>
+										<LI><A id="topbar_question"
+											href="#"
+											target="_blank">常见问题</A></LI>
+									</UL></LI>
+							</UL>
+						</DIV>
+					</DIV>
+				</DIV>
+				<!--topline-->
+				<!--头部、LOGO、搜索栏-->
+
+				<DIV class="headCont">
+					<!--LOGO-->
+					<DIV class="TopLogo">
+						<A href="#"><IMG
+							title="谷粒网" src="images/wzh-logo.png"></A>
+					</DIV>
+					<!--搜索栏-->
+					<FORM action="/s/" method="get">
+						<DIV class="search">
+							<INPUT name="w" class="search-text" id="w" type="text"
+								placeholder="请输入商品名称、地址等" value="" autocomplete="off"
+								x-webkit-speech="x-webkit-speech">
+
+							<DIV class="search-button">
+								<A href="#"
+									target="ifm"><BUTTON class="btn-search" type="submit"
+										value="搜索">搜索</BUTTON> </A>
+							</DIV>
+						</DIV>
+					</FORM>
+					<!--保证-->
+					<DIV class="ensure">
+						<A class="wzhImg refund"
+							href="#"></A><A
+							class="wzhImg guo"
+							href="#"></A><A
+							class="wzhImg ka" href="#"></A>
+					</DIV>
+					<!--主导航菜单-->
+
+					<DIV class="whz-mainNav wzh-container">
+						<DIV class="whz-mainNav-hd">
+							<SPAN class="wzh-mainNav-tit">全部商品分类
+								<DIV class="whz-mainNav-hd-cont">
+									<UL>
+										<LI><A href="#">美食</A>
+											<DIV class="wzh-mainNav-three">
+												<H4>美食</H4>
+												<UL>
+													<LI><A
+														href="#">蛋糕</A></LI>
+													<LI><A
+														href="#">甜点饮品</A></LI>
+													<LI><A
+														href="#">其他美食</A></LI>
+													<LI><A
+														href="#">家常菜</A></LI>
+													<LI><A
+														href="#">小吃快餐</A></LI>
+													<LI><A
+														href="#">韩国料理</A></LI>
+												</UL>
+											</DIV></LI>
+										<LI><A href="#">娱乐</A>
+											<DIV class="wzh-mainNav-three">
+												<H4>娱乐</H4>
+												<UL></UL>
+											</DIV></LI>
+										<LI><A href="#">酒店</A>
+											<DIV class="wzh-mainNav-three">
+												<H4>酒店</H4>
+												<UL></UL>
+											</DIV></LI>
+										<LI><A href="#">生活</A>
+											<DIV class="wzh-mainNav-three">
+												<H4>生活</H4>
+												<UL>
+													<LI><A
+														href="#">其他生活</A></LI>
+													<LI><A
+														href="#">体检保健</A></LI>
+													<LI><A
+														href="#">培训课程</A></LI>
+												</UL>
+											</DIV></LI>
+										<LI><A href="#">丽人</A>
+											<DIV class="wzh-mainNav-three">
+												<H4>丽人</H4>
+												<UL>
+													<LI><A
+														href="#">美容美体</A></LI>
+													<LI><A
+														href="#">美甲</A></LI>
+												</UL>
+											</DIV></LI>
+										<LI><A href="#">旅游</A>
+											<DIV class="wzh-mainNav-three">
+												<H4>旅游</H4>
+												<UL></UL>
+											</DIV></LI>
+									</UL>
+								</DIV>
+							</SPAN>
+						</DIV>
+						<UL class="whz-mainNav-menu">
+							<LI><A href="#">首页</A></LI>
+							<LI><A href="#">美食</A></LI>
+							<LI><A href="#">娱乐</A></LI>
+							<LI><A href="#">酒店</A></LI>
+							<LI><A href="#">生活</A></LI>
+							<LI><A href="#">谷粒卡</A></LI>
+							<LI><A
+								href="#"
+								target="_blank">集采中心</A></LI>
+						</UL>
+					</DIV>
+				</DIV>
+			</DIV>
+			<!-- headTopBox -->
+		</DIV>
+		<!--contentBody-->
+		<!-- headTop -->
+		<!-- navBox -->
+		<DIV class="UpTop">
+
+			<UL>
+
+				<LI class="Up-feedback"><I class="wzhImg r-opinion"></I><A
+					class="upTop-text"
+					href="#">意见反馈</A></LI>
+				<LI class="goTopBtn"><I class="wzhImg UpTop-fx"></I><A
+					class="upTop-text" href="#">返回顶部</A></LI>
+			</UL>
+		</DIV>
+		<!--UpTop-->
+
+		<SCRIPT src="js/base.js" type="text/javascript"></SCRIPT>
+
+		<SCRIPT type="text/javascript">
+			$(function() {
+				//part1
+				$(".wzh-mainNav-tit").hover(
+						function() {
+							$(this).children(".whz-mainNav-hd-cont", "this")
+									.fadeToggle(0);
+						})
+
+			});
+			$(window).scroll(function() {
+				var sc = $(window).scrollTop();
+				var rwidth = $(window).width()
+				if (sc > 0) {
+					$("#goTopBtn").css("display", "block");
+					$("#goTopBtn").css("left", (rwidth - 36) + "px");
+				} else {
+					$("#goTopBtn").css("display", "none");
+				}
+			});
+			$("#goTopBtn").click(function() {
+				var sc = $(window).scrollTop();
+				$('body,html').animate({
+					scrollTop : 0
+				}, 100);
+			});
+		</SCRIPT>
+
+		<!--主体开始-->
+		<DIV class="contentBody">
+			<!--sp-Title-->
+			<FORM name="submitForm" id="submitForm" action="/food.html"
+				method="post">
+				<DIV class="screenBox">
+					<!-- 头部筛选 -->
+					<DIV class="TopScreening online_scr">
+						<UL class="select">
+							<LI class="select-list">
+								<DL>
+									<DT>热门分类：</DT>
+
+									<DD class="select-all selected">
+										<A id="AllCategory"
+											onclick="javascript:getForm('','','category')"
+											href="#">全部</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('10021057','蛋糕','category')"
+											href="#">蛋糕&nbsp; 5</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('10021060','甜点饮品','category')"
+											href="#">甜点饮品&nbsp;
+											7</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('10021081','其他美食','category')"
+											href="#">其他美食&nbsp;
+											6</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('10021096','小吃快餐','category')"
+											href="#">小吃快餐&nbsp;
+											6</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('10021101','韩国料理','category')"
+											href="#">韩国料理&nbsp;
+											4</A>
+									</DD>
+								</DL>
+							</LI>
+							<LI class="select-list">
+								<DL>
+									<DT>全部区域：</DT>
+									<DD class="select-all selected">
+										<A onclick="javascript:getForm('','','areaAll')"
+											href="#">全部</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('100110031024','崇安区','area')"
+											href="#">崇安区&nbsp;14</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('100110031203','锡山区','area')"
+											href="#">锡山区&nbsp;4</A>
+									</DD>
+									<DD>
+										<A onclick="javascript:getForm('100110031235','惠山区','area')"
+											href="#">惠山区&nbsp;10</A>
+									</DD>
+								</DL>
+							</LI>
+							<LI class="select-result">
+								<DL>
+									<DT>已选条件：</DT>
+									<DD class="select-no">暂时没有选择过滤条件</DD>
+								</DL>
+							</LI>
+						</UL>
+						<!--online_sorting-->
+					</DIV>
+					<!-- <DIV class="select_sorting">
+						<UL>
+							<LI><A class="select-all selected"
+								onclick="javascript:getForm('默认','','default')"
+								href="#">默认</A></LI>
+							<LI><A onclick="javascript:getForm(0,'','salesCount')"
+								href="#">销量 <I
+									class="wzhImg SelUp-sorting"></I></A></LI>
+
+							<LI><A onclick="javascript:getForm(0,'','startDate')"
+								href="#">发布时间 <I
+									class="wzhImg SelUp-sorting"></I></A></LI>
+
+							<LI><A onclick="javascript:getForm(0,'','memberPrice')"
+								href="#">价格 <I
+									class="wzhImg SelUp-sorting"></I></A></LI>
+
+							<LI><INPUT width="13" height="13" disabled="disabled"
+								type="checkbox">只看新单</LI>
+						</UL>
+					</DIV> -->
+					<!--TopScreening-->
+				</DIV>
+				<!--screenBox END-->
+			</FORM>
+			<DIV class="clearD"></DIV>
+			<!--clearD 清除浮动-->
+			<!-- <div class="sp-Title">
+				<h1>商品精选</h1>
+			</div> -->
+			<!--sp-Title-->
+			<DIV id="leftSubject">
+				<DIV class="sp-dataBox tailThree">
+					<A class="pro-a-box"
+						href="#"
+						target="_blank"><SPAN class="spImg" href="#" target="_blank">
+						<IMG class="scrollLoading" alt="" src="images/bf1b34ce-3cb7-4c91-bcf1-44e8ac2337d1.jpg">
+
+							<DIV class="pro-label">
+								<LI class="discount">享<BR>
+								<SPAN id="comment314" style="color: white;">8.9</SPAN>折
+								</LI>
+							</DIV></SPAN><SPAN class="sp-info">
+							<H3 title="【广益哥伦布广场】奶茶博士（广益店）">【广益哥伦布广场】奶茶博士（广益店）</H3>
+					</SPAN><SPAN title="仅售8.9元，价值10元的奶茶一杯，可叠加使用，提供免费wifi。" class="sp-Text"
+						id="title14"></SPAN>
+						<DIV class="sp-priceTit">
+							<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG
+								id="memberPrice14" style="color: rgb(255, 73, 0);">8.90</STRONG>
+								<SPAN class="stores-jia">门店价<DEL id="originalPrice14">10.00</DEL></SPAN>
+							</SPAN>
+						</DIV>
+						<DIV class="sp-sold">
+							<SPAN class="sold-num">已售<STRONG>0</STRONG></SPAN>
+						</DIV>
+						</A>
+				</DIV>
+			</DIV>
+<script type="text/javascript">
+var smzq = getQueryString('smzq');
+$(function(){
+	if(smzq == 'miaoshazhuanqu'){
+		$(".sp-dataBox").remove();
+		$.ajax({
+			url:"TimegoodsviewAction.do?method=cusTimeG",
+			type:"post",
+			data:{
+				customerid:customer.customerid,
+				customertype:customer.customertype
+				},
+			success:function(resp){
+				var data = eval('('+resp+')');
+				if(data.msg=='操作成功'){
+					$.each(data.root,function(i,item){
+						if(i % 3 == 2){
+							var goods = '<DIV class="sp-dataBox tailThree">';
+						} else {
+							var goods = '<DIV class="sp-dataBox">';
+						}
+						
+						goods += '<A class="pro-a-box"'+
+								'href="#"'+
+								'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+								'<IMG class="scrollLoading" alt="" src="images/bf1b34ce-3cb7-4c91-bcf1-44e8ac2337d1.jpg">'+
+		
+									'<DIV class="pro-label">'+
+										'<LI class="discount">享<BR>'+
+										'<SPAN id="comment314" style="color: white;">8.9</SPAN>折'+
+										'</LI>'+
+									'</DIV></SPAN><SPAN class="sp-info">'+
+									'<H3 title="【广益哥伦布广场】奶茶博士（广益店）">【广益哥伦布广场】奶茶博士（广益店）</H3>'+
+							'</SPAN><SPAN title="仅售8.9元，价值10元的奶茶一杯，可叠加使用，提供免费wifi。" class="sp-Text"'+
+								'id="title14"></SPAN>'+
+								'<DIV class="sp-priceTit">'+
+									'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG'+
+										'id="memberPrice14" style="color: rgb(255, 73, 0);">8.90</STRONG>'+
+										'<SPAN class="stores-jia">门店价<DEL id="originalPrice14">10.00</DEL></SPAN>'+
+									'</SPAN>'+
+								'</DIV>'+
+								'<DIV class="sp-sold">'+
+									'<SPAN class="sold-num">已售<STRONG>0</STRONG></SPAN>'+
+								'</DIV>'+
+								'</A>'+
+						'</DIV>';
+						$("#leftSubject").append(goods);
+					});
+				}
+			},
+			error:function(resp){
+				var data = eval('('+resp+')');
+				alert(data.msg);
+			}
+		});
+	}
+});
+</script>
+				<!--foodxqbright-->
+
+				<DIV class="clearD"></DIV>
+				<!--clearD-->
+			</DIV>
+			<!--rightSide END-->
+		</DIV>
+		<!--Container END-->
+		<!--页脚开始-->
+		<DIV class="bottom" id="food_bottom_container"></DIV>
+	</DIV>
+	<!--footer-->
+	<!--页脚开始-->
+	<DIV id="footBot">
+		<DIV class="footBox">
+			<DIV class="wzh-footer">
+				<UL>
+					<LI><A href="#">关于我们</A></LI>
+					<LI><A href="#">加入我们</A></LI>
+					<LI><A href="#">入门教程</A></LI>
+					<LI><A href="#">谷粒网承诺</A></LI>
+					<LI><A
+						href="#">反诈骗公告</A></LI>
+					<LI><A
+						href="#">隐私声明</A></LI>
+				</UL>
+				<P style="color: rgb(255, 255, 255);">©2016 版权所有 上海域链信息科技有限公司</P>
+			</DIV>
+		</DIV>
+		<!--headTopBox-->
+	</DIV>
+	<!--ContainerBox END-->
+	<!-- 加速图片加载 -->
+	<SCRIPT src="js/jquery.scrollLoading.js"
+		type="text/javascript"></SCRIPT>
+	<!--图片加速js-->
+	<SCRIPT>
+		$(function() {
+			$(".scrollLoading").scrollLoading();
+		});
+	</SCRIPT>
+</BODY>
+<!--功能js-->
+</HTML>

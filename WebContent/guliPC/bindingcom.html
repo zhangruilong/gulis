@@ -53,7 +53,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
             
             <div class="contentBody">
         		<div class="screenBox">
-        			<div class="ppsjblock" style="margin-top:80px;position: relative;">品牌商家</div>
+        			<div class="ppsjblock" style="margin-top:80px;position: relative;">我的供货商</div>
        				<!-- 头部筛选 -->
                    	<div class="TopScreening online_scr">
                    		<form id="submitForm" name="submitForm" method="post" action="#">
@@ -99,70 +99,78 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
 					<div id="leftSubject">
           				<div class="wzh-merchants">
           					
-          					<div class="wzh-shangj-p">
+          					<div class="glw-combinding">
             					<ul>
-				                    <!-- <li>
-					                    	<div class="shangj-l">
-					                   	    	<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror="this.src='/images/default-loading.gif'"  /></a>
-					                        </div>
-					                        <div class="shangj-l-text">
-					                        	<a href="/merchant/merchant.html?id=011837CD5D24D873E050A8C0AA810436" title="海盐天然粮油有限公司" target="_blank" ><h2>海盐天然粮油有限公司</h2></a>
-					                            <div>
-					                            	<span>评价<a>0.0</a></span>
-					                           		<span class="vote-star"><i style="width:0.0%"></i></span>
-					                          	</div>
-					                            <p>进店消费人次：0次</p>
-							                    <p title="武原街道农副产品综合批发市场16-18号">地址：武原街道农副产品综合批发市场16-18号</p>
-					                        </div>
-				                    	</li> -->
-				           			<!-- <li>
-					                    	<div class="shangj-l">
-					                   	    	<a href="/merchant/merchant.html?id=012F10ADC0E46A9FE050A8C0AA81043F" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror="this.src='/images/default-loading.gif'"  /></a>
-					                        </div>shangj-l
-					                        <div class="shangj-l-text">
-					                        	<a href="/merchant/merchant.html?id=012F10ADC0E46A9FE050A8C0AA81043F" title="D&W与狼共舞" target="_blank" ><h2>D&W与狼共舞</h2></a>
-					                            <div>
-					                            	<span>评价<a>0.0</a></span>
-					                           		<span class="vote-star"><i style="width:0.0%"></i></span>
-					                          	</div>
-					                            <p>进店消费人次：0次</p>
-							                    <p title="无锡崇安区广益哥伦布广场一层116—117号">地址：无锡崇安区广益哥伦布广场一层116—117号</p>
-					                        </div>shangj-l-text
-				                    	</li> -->
 				           			</ul>
           					</div>
 <script type="text/javascript">
 $(function(){
+	var data = { wheresql:"cityparentname='"+customer.customercity+"'",customerid:customer.customerid };
 	$.ajax({
 		url:"CompanyviewAction.do?method=bdCityCom",
 		type:"post",
-		data:{
-			wheresql:"cityparentname='"+customer.customercity+"'",
-			customerid:customer.customerid
-		},
-		success:function(data){
-			var jsonData = JSON.parse(data);
-			$.each(jsonData.root,function(i,item){
-				$(".wzh-shangj-p ul").append('<li>'+
+		data:data,
+		success:function(resp){
+			var data = eval('('+resp+')');
+			$(".bincompage ul li").remove();
+			var bdstr = '未绑定';
+			
+			$.each(data.root,function(i,item){
+				if(typeof(item.createtime) != "undefined" && item.createtime == '已绑定'){
+					bdstr = item.createtime;
+				}
+				$(".glw-combinding ul").append('<li name="'+item.companyid+'">'+
 						'<div class="shangj-l">'+
-	                   	 '<a href="companyDetail.html?companyid='+item.companyid+'" target="_blank"><img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror=""  /></a>'+
+	                   	 '<img class="scrollLoading" src="images/58ee3d6d55fbb2fb4300595e4d4a20a44623dc56.jpg" alt="" onerror=""  />'+
 	                    '</div>'+
 	                   	 '<div class="shangj-l-text">'+
-	                        	'<a href="companyDetail.html?companyid='+item.companyid+'" title="'+item.companyshop+'" target="_blank" ><h2>'+item.companyshop+'</h2></a>'+
+	                        	'<h2>'+item.companyshop+'</h2>'+
 	                            '<div>'+
-	                            	'<span>评价<a>0.0</a></span>'+
+	                            	'<span>联系人：<a>'+item.username+'</a></span>'+
 	                           		'<span class="vote-star"><i style="width:0.0%"></i></span>'+
 	                          	'</div>'+
-	                            '<p>进店消费人次：0次</p>'+
+	                            '<p>联系电话：'+item.companyphone+'</p>'+
 			                    '<p title="'+item.companyaddress+'">地址：'+item.companyaddress+'</p>'+
+			                    '<p>是否绑定：'+bdstr+'</p>'+
 	                      '</div></li>');
 			});
+			$(".glw-combinding ul li").click(bindcom);
+			
 		},
-		error:function(data){
-			alert('网络出现问题，请稍后再试');
+		error : function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
 		}
 	});
 });
+//绑定
+var bindcom = function(){
+	var spobj = $(this).find(".shangj-l-text p:eq(2)");
+	if(spobj.text() != '是否绑定：未绑定'){
+		alert("已经绑定过了,不能重复绑定!");
+		return;
+	}
+	$.ajax({
+		
+		url:"CcustomerAction.do?method=insAll",
+		type:"post",
+		data:{
+			json:'[{"ccustomercompany":"'+$(this).attr("name")+'","ccustomercustomer":"'+customer.customerid+'","ccustomerdetail":"3","creator":"0"}]',
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			if(data.code == '202'){
+				alert("已成功绑定经销商!");
+				//location.reload();
+				window.location.href="homepage.html";
+			}
+		},
+		error : function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+}
 </script>	
  <form id="pagerForm" name="pagerForm" action="/wzsq/findmerchantById?id=FF8867F8B453D990E040A8C097817178&name=谷粒广场" method="post">
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.server.pojo.Ccustomer;
 import com.server.pojo.Collect;
 import com.server.pojo.Goodsview;
 import com.server.poco.GoodsviewPoco;
@@ -69,44 +70,94 @@ public class GoodsviewAction extends BaseActionDao {
 		result = CommonConst.GSON.toJson(pageinfo);
 		responsePW(response, result);
 	}
-	//查询
+	//查询首页品牌专区
+	@SuppressWarnings("unchecked")
 	public void mselAll(HttpServletRequest request, HttpServletResponse response){
-		String companyid = request.getParameter("companyid");
 		String customerid = request.getParameter("customerid");
 		String customertype = request.getParameter("customertype");
 		String customerlevel = request.getParameter("customerlevel");
-		String goodsclassname = request.getParameter("goodsclassname");
-		String wheresql = "goodsstatue ='上架' and pricesclass='"+customertype+"' and priceslevel='"+customerlevel+"'";
-		if(CommonUtil.isNotEmpty(companyid)){
-			wheresql += " and goodscompany='"+companyid+"'";
-		}
-		if(CommonUtil.isNotEmpty(goodsclassname)){
-			wheresql += " and (goodsclassname='"+goodsclassname+
-					"' or goodsbrand='"+goodsclassname+
-					"' or goodstype='"+goodsclassname+
-					"')";
-		}
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Goodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setWheresql(wheresql);
-		queryinfo.setOrder(GoodsviewPoco.ORDER);
-		cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
-		
-		Queryinfo collectqueryinfo = getQueryinfo();
-		collectqueryinfo.setType(Collect.class);
-		collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
-		ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
-		for(Goodsview mGoodsview:cuss){
-			for(Collect mCollect:cussCollect){
-				if(mGoodsview.getGoodsid().equals(mCollect.getCollectgoods())){
-					mGoodsview.setGoodsdetail("checked");										//如果收藏的商品就吧goodsdetail设置为checked
+		String goodsbrand = request.getParameter("goodsbrand");
+		//查询该客户的供应商关系表
+		Queryinfo Ccustomerqueryinfo = getQueryinfo();
+		Ccustomerqueryinfo.setType(Ccustomer.class);
+		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
+		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
+		if(Ccustomercuss.size()!=0){
+			String wheresql = "goodsstatue ='上架' and pricesclass='"+customertype+"' and priceslevel='"+customerlevel+"'";
+			wheresql += " and (";
+			for(Ccustomer mCcustomer:Ccustomercuss){
+				wheresql += "goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
+			}
+			wheresql = wheresql.substring(0, wheresql.length()-3) +")";
+			if(CommonUtil.isNotEmpty(goodsbrand)){
+				wheresql += " and goodsbrand='"+goodsbrand+"'";
+			} else {
+				wheresql += " and goodsbrand is not null";
+			}
+			Queryinfo queryinfo = getQueryinfo(request);
+			queryinfo.setType(Goodsview.class);
+			queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
+			queryinfo.setWheresql(wheresql);
+			queryinfo.setOrder(GoodsviewPoco.ORDER);
+			cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
+			//检查是否已经收藏了这个商品
+			Queryinfo collectqueryinfo = getQueryinfo();
+			collectqueryinfo.setType(Collect.class);
+			collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
+			ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
+			for(Goodsview mGoodsview:cuss){
+				for(Collect mCollect:cussCollect){
+					if(mGoodsview.getGoodsid().equals(mCollect.getCollectgoods())){
+						mGoodsview.setGoodsdetail("checked");
+					}
 				}
 			}
+		
+			Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), cuss);
+			result = CommonConst.GSON.toJson(pageinfo);
 		}
-	
-		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), cuss);
-		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//查询首页裸价专区
+	@SuppressWarnings("unchecked")
+	public void selljgv(HttpServletRequest request, HttpServletResponse response){
+		String customerid = request.getParameter("customerid");
+		String customertype = request.getParameter("customertype");
+		String customerlevel = request.getParameter("customerlevel");
+		String goodsclassparent = request.getParameter("parent");
+		//查询该客户的供应商关系表
+		Queryinfo Ccustomerqueryinfo = getQueryinfo();
+		Ccustomerqueryinfo.setType(Ccustomer.class);
+		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
+		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
+		if(Ccustomercuss.size()!=0){
+			String wheresql = "goodsstatue ='上架' and pricesclass='"+customertype+"' and priceslevel='"+customerlevel+"' and goodsclassparent='"+goodsclassparent+"' and (";
+			for(Ccustomer mCcustomer:Ccustomercuss){
+				wheresql += "goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
+			}
+			wheresql = wheresql.substring(0, wheresql.length()-3) +")";
+			Queryinfo queryinfo = getQueryinfo(request);
+			queryinfo.setType(Goodsview.class);
+			queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
+			queryinfo.setWheresql(wheresql);
+			queryinfo.setOrder(GoodsviewPoco.ORDER);
+			cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
+			//检查是否已经收藏了这个商品
+			Queryinfo collectqueryinfo = getQueryinfo();
+			collectqueryinfo.setType(Collect.class);
+			collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
+			ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
+			for(Goodsview mGoodsview:cuss){
+				for(Collect mCollect:cussCollect){
+					if(mGoodsview.getGoodsid().equals(mCollect.getCollectgoods())){
+						mGoodsview.setGoodsdetail("checked");
+					}
+				}
+			}
+		
+			Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), cuss);
+			result = CommonConst.GSON.toJson(pageinfo);
+		}
 		responsePW(response, result);
 	}
 }
