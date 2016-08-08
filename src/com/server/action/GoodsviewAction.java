@@ -81,6 +81,7 @@ public class GoodsviewAction extends BaseActionDao {
 		String customertype = request.getParameter("customertype");
 		String customerlevel = request.getParameter("customerlevel");
 		String goodsbrand = request.getParameter("goodsbrand");
+		String limit = request.getParameter("limit");
 		//查询该客户的供应商关系表
 		Queryinfo Ccustomerqueryinfo = getQueryinfo();
 		Ccustomerqueryinfo.setType(Ccustomer.class);
@@ -92,17 +93,34 @@ public class GoodsviewAction extends BaseActionDao {
 				wheresql += "goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
 			}
 			wheresql = wheresql.substring(0, wheresql.length()-3) +")";
-			if(CommonUtil.isNotEmpty(goodsbrand)){
-				wheresql += " and goodsbrand='"+goodsbrand+"'";
-			} else {
-				wheresql += " and goodsbrand is not null";
+			
+			
+			String sql2 = "select count(g.goodsbrand) goodsid,g.goodsbrand from goodsview g "+
+				"where g.goodsbrand is not null "+
+				"and g.goodsstatue = '上架' "+
+				"and g.pricesclass='"+customertype+"' "+
+				"and g.priceslevel="+customerlevel +
+				" and g.goodsbrand in (select gs.goodsclassname from goodsclass gs) "+
+				"and (";
+			for(Ccustomer mCcustomer:Ccustomercuss){
+				sql2 += "g.goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
 			}
+			sql2 = sql2.substring(0, sql2.length()-3) +")";
+			List<Goods> goclList = selAll(Goods.class, sql2+" group by g.goodsbrand");
+			if(CommonUtil.isEmpty(goodsbrand) && goclList.size()>0){
+				goodsbrand = goclList.get(0).getGoodsbrand();
+			}
+			wheresql += " and goodsbrand='"+goodsbrand+"'";
 			Queryinfo queryinfo = getQueryinfo(request);
 			queryinfo.setType(Goodsview.class);
 			queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
 			queryinfo.setWheresql(wheresql);
 			queryinfo.setOrder(GoodsviewPoco.ORDER);
-			cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
+			if(CommonUtil.isEmpty(limit)){
+				cuss = (ArrayList<Goodsview>) selAll(queryinfo);
+			} else {
+				cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
+			}
 			//检查是否已经收藏了这个商品
 			Queryinfo collectqueryinfo = getQueryinfo();
 			collectqueryinfo.setType(Collect.class);
@@ -115,22 +133,10 @@ public class GoodsviewAction extends BaseActionDao {
 					}
 				}
 			}
-			String sql2 = "select count(g.goodsbrand) goodsid,g.goodsbrand from goodsview g "+
-				"where g.goodsbrand is not null "+
-				"and g.goodsstatue = '上架' "+
-				"and g.pricesclass='3' "+
-				"and g.priceslevel='3' "+
-				"and g.goodsbrand in (select gs.goodsclassname from goodsclass gs) "+
-				"and (";
-			for(Ccustomer mCcustomer:Ccustomercuss){
-				sql2 += "g.goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
-			}
-			sql2 = sql2.substring(0, sql2.length()-3) +")";
-			List<Goods> goclList = selAll(Goods.class, sql2+" group by g.goodsbrand");
 			List<Object> objList = new ArrayList<Object>();
 			objList.add(cuss);
 			objList.add(goclList);
-			Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), objList);
+			Pageinfo pageinfo = new Pageinfo(objList);
 			result = CommonConst.GSON.toJson(pageinfo);
 		}
 		responsePW(response, result);
@@ -173,6 +179,68 @@ public class GoodsviewAction extends BaseActionDao {
 			}
 		
 			Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), cuss);
+			result = CommonConst.GSON.toJson(pageinfo);
+		}
+		responsePW(response, result);
+	}
+	//裸价专区
+	@SuppressWarnings("unchecked")
+	public void ljgvgoods(HttpServletRequest request, HttpServletResponse response){
+		String customerid = request.getParameter("customerid");
+		String customertype = request.getParameter("customertype");
+		String customerlevel = request.getParameter("customerlevel");
+		String parent = request.getParameter("parent");
+		String goodsclass = request.getParameter("goodsclass");
+		//查询该客户的供应商关系表
+		Queryinfo Ccustomerqueryinfo = getQueryinfo();
+		Ccustomerqueryinfo.setType(Ccustomer.class);
+		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
+		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
+		if(Ccustomercuss.size()!=0){
+			String wheresql = "goodsstatue ='上架' and pricesclass='"+customertype+"' and priceslevel='"+customerlevel+"' and (";
+			for(Ccustomer mCcustomer:Ccustomercuss){
+				wheresql += "goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
+			}
+			wheresql = wheresql.substring(0, wheresql.length()-3) +")";
+			
+			
+			String sql2 = "select count(g.goodsclassname) goodsid,g.goodsclassname from goodsview g "+
+					"where g.goodsclassparent='"+parent+"' "+
+					"and g.pricesclass='"+customertype+"' "+
+					"and g.priceslevel="+customerlevel+
+					" and g.goodsstatue='上架' "+
+					"and (";
+			for(Ccustomer mCcustomer:Ccustomercuss){
+				sql2 += "g.goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
+			}
+			sql2 = sql2.substring(0, sql2.length()-3) +")";
+			List<Goodsview> goclList = selAll(Goodsview.class, sql2+" group by g.goodsclassname ");
+			if(CommonUtil.isEmpty(goodsclass) && goclList.size()>0){
+				goodsclass = goclList.get(0).getGoodsclassname();
+			}
+			wheresql += " and goodsclassname='"+goodsclass+"'";
+			Queryinfo queryinfo = getQueryinfo(request);
+			queryinfo.setType(Goodsview.class);
+			queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
+			queryinfo.setWheresql(wheresql);
+			queryinfo.setOrder(GoodsviewPoco.ORDER);
+			cuss = (ArrayList<Goodsview>) selAll(queryinfo);
+			//检查是否已经收藏了这个商品
+			Queryinfo collectqueryinfo = getQueryinfo();
+			collectqueryinfo.setType(Collect.class);
+			collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
+			ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
+			for(Goodsview mGoodsview:cuss){
+				for(Collect mCollect:cussCollect){
+					if(mGoodsview.getGoodsid().equals(mCollect.getCollectgoods())){
+						mGoodsview.setGoodsdetail("checked");
+					}
+				}
+			}
+			List<Object> objList = new ArrayList<Object>();
+			objList.add(cuss);
+			objList.add(goclList);
+			Pageinfo pageinfo = new Pageinfo(objList);
 			result = CommonConst.GSON.toJson(pageinfo);
 		}
 		responsePW(response, result);

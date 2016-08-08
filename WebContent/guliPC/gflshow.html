@@ -267,23 +267,23 @@
 								<DL name="populargroup">
 									<DT>热门分类：</DT>
 
-									<DD class="select-all selected">
+									<!-- <DD class="select-all selected">
 										<A id="AllCategory"
 											onclick="querycondition(null,this)"
 											href="javascript:void(0)">全部</A>
-									</DD>
+									</DD> -->
 									<!-- <DD>
 										<A onclick="javascript:getForm('10021057','蛋糕','category')"
 											href="http://www.wuzhouhui.com.cn/food.html#">蛋糕&nbsp; 5</A>
 									</DD> -->
 								</DL>
 							</LI>
-							<LI class="select-result">
+							<!-- <LI class="select-result">
 								<DL>
 									<DT>已选条件：</DT>
 									<DD class="select-no">暂时没有选择过滤条件</DD>
 								</DL>
-							</LI>
+							</LI> -->
 						</UL>
 						<!--online_sorting-->
 					</DIV>
@@ -331,6 +331,7 @@
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript">
 var smzq = getQueryString('smzq');
+var parent = '';
 $(function(){
 	if(smzq == 'miaoshazhuanqu'){
 		mspage();
@@ -338,11 +339,80 @@ $(function(){
 		mzpage();
 	} else if(smzq == 'pingpaizhuanqu'){
 		goodspage(0);
+	} else if(smzq == 'luojiazhuanqu'){
+		parent=getQueryString('parent');
+		ljzuddpage(parent);
 	}
 });
-//条件查询
-function querycondition(con,obj){
+//裸价专区条件查询
+function ljcond(obj){
 	$(obj).parent().addClass('selected').siblings().removeClass('selected');//此处添加了class后在goodspage方法中整个class被remove掉了,应该查询条件只查询一次,而商品多次更新
+	ljzuddpage(parent,$(obj).attr("name"));
+}
+//裸价专区
+function ljzuddpage(parent,goodsclass){
+	$(".sp-dataBox").remove();
+	$.ajax({
+		url:'GoodsviewAction.do?method=ljgvgoods',
+		type:"post",
+		data:{
+			customerid:customer.customerid,
+			customertype:customer.customertype,
+			customerlevel:customer.customerlevel,
+			parent:parent,
+			goodsclass:goodsclass
+			},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			if(data.msg=='操作成功'){
+				if(typeof(goodsclass) == "undefined" && !goodsclass){				//如果没有条件就初始化导航搜索栏
+					$("dl[name='populargroup'] dd").remove();
+					$.each(data.root[1],function(i,item){
+						if(i==0){
+							$("dl[name='populargroup']").append('<DD class="selected"><A name="'+item.goodsclassname+'" onclick="ljcond(this);" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+item.goodsid+'</A></DD>');
+						} else {
+							$("dl[name='populargroup']").append('<DD><A name="'+item.goodsclassname+'" onclick="ljcond(this);" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+item.goodsid+'</A></DD>');
+						}
+					});
+				}
+				$.each(data.root[0],function(i,item){
+					if(i % 3 == 2){
+						var goods = '<DIV class="sp-dataBox tailThree">';
+					} else {
+						var goods = '<DIV class="sp-dataBox">';
+					}
+					
+					goods += '<A class="pro-a-box" '+
+							'href="#" '+
+							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'<IMG class="scrollLoading" alt="" src="'+item.goodsimage+'">'+
+	
+								'<DIV class="pro-label">'+
+									'<LI class="discount">'+item.goodsclassname+'</LI>'+
+								'</DIV></SPAN><SPAN class="sp-info">'+
+								'<H3 title="【'+item.goodsname+'】'+item.goodsunits+'">【'+item.goodsname+'】'+item.goodsunits+'</H3>'+
+						'</SPAN><SPAN title="'+item.companydetail+'" class="sp-Text" '+
+							'id="title14"></SPAN>'+
+							'<DIV class="sp-priceTit">'+
+								'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
+									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.pricesprice+'</STRONG>'+
+								'</SPAN>'+
+							'</DIV>'+
+							'</A>'+
+					'</DIV>';
+					$("#leftSubject").append(goods);
+				});
+			}
+		},
+		error:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+}
+//条件查询(品牌专区)
+function querycondition(con,obj){
+	$(obj).parent().addClass('selected').siblings().removeClass('selected');
 	goodspage(0,con);
 }
 //品牌专区商品
@@ -352,8 +422,6 @@ function goodspage(pagenow,goodsbrand){
 		url:'GoodsviewAction.do?method=mselAll&goodsbrand='+typeNullFoString(goodsbrand),
 		type:"post",
 		data:{
-			limit:"15",
-			start:pagenow * 15,
 			customerid:customer.customerid,
 			customertype:customer.customertype,
 			customerlevel:customer.customerlevel,
@@ -362,10 +430,14 @@ function goodspage(pagenow,goodsbrand){
 		success:function(resp){
 			var data = eval('('+resp+')');
 			if(data.msg=='操作成功'){
-				if(typeof(goodsbrand) == "undefined" && !goodsbrand){
-					$("dl[name='populargroup'] dd:gt(0)[class!='selected']").remove();
+				if(typeof(goodsbrand) == "undefined" && !goodsbrand){				//如果没有条件就初始化导航搜索栏
+					$("dl[name='populargroup'] dd").remove();
 					$.each(data.root[1],function(i,item){
-						$("dl[name='populargroup']").append('<DD><A name="'+item.goodsbrand+'" onclick="querycondition(\''+item.goodsbrand+'\',this);" href="javascript:void(0);">'+item.goodsbrand+'&nbsp; '+item.goodsid+'</A></DD>');
+						if(i==0){
+							$("dl[name='populargroup']").append('<DD class="selected"><A name="'+item.goodsbrand+'" onclick="querycondition(\''+item.goodsbrand+'\',this);" href="javascript:void(0);">'+item.goodsbrand+'&nbsp; '+item.goodsid+'</A></DD>');
+						} else {
+							$("dl[name='populargroup']").append('<DD><A name="'+item.goodsbrand+'" onclick="querycondition(\''+item.goodsbrand+'\',this);" href="javascript:void(0);">'+item.goodsbrand+'&nbsp; '+item.goodsid+'</A></DD>');
+						}
 					});
 				}
 				$.each(data.root[0],function(i,item){
@@ -506,7 +578,9 @@ function mspage(){
 				<!--sp-dataBox-->
 				<DIV class="clearD"></DIV>
 				<!--clearD-->
+				
 			</DIV>
+			
 			<!--leftSubject END-->
 			<DIV id="rightSide">
 				<DIV class="asideBox">

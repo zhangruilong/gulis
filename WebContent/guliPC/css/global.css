@@ -2929,7 +2929,8 @@ f1 {
 	display: inline;
 }
 .select .select-list {
-	border-bottom: #ccc 1px dotted;
+	/*这里去掉的是 首页-> 更多商品 的导航栏内的虚线*/
+	/* border-bottom: #ccc 1px dotted; */
 }
 .select dl {
 	zoom: 1;
