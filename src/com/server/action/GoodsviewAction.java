@@ -3,11 +3,15 @@ package com.server.action;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.server.pojo.Ccustomer;
 import com.server.pojo.Collect;
+import com.server.pojo.Goods;
+import com.server.pojo.Goodsclass;
 import com.server.pojo.Goodsview;
 import com.server.poco.GoodsviewPoco;
 import com.system.tools.CommonConst;
@@ -83,8 +87,7 @@ public class GoodsviewAction extends BaseActionDao {
 		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
 		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
 		if(Ccustomercuss.size()!=0){
-			String wheresql = "goodsstatue ='上架' and pricesclass='"+customertype+"' and priceslevel='"+customerlevel+"'";
-			wheresql += " and (";
+			String wheresql = "goodsstatue ='上架' and pricesclass='"+customertype+"' and priceslevel='"+customerlevel+"' and (";
 			for(Ccustomer mCcustomer:Ccustomercuss){
 				wheresql += "goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
 			}
@@ -112,8 +115,22 @@ public class GoodsviewAction extends BaseActionDao {
 					}
 				}
 			}
-		
-			Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), cuss);
+			String sql2 = "select count(g.goodsbrand) goodsid,g.goodsbrand from goodsview g "+
+				"where g.goodsbrand is not null "+
+				"and g.goodsstatue = '上架' "+
+				"and g.pricesclass='3' "+
+				"and g.priceslevel='3' "+
+				"and g.goodsbrand in (select gs.goodsclassname from goodsclass gs) "+
+				"and (";
+			for(Ccustomer mCcustomer:Ccustomercuss){
+				sql2 += "g.goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
+			}
+			sql2 = sql2.substring(0, sql2.length()-3) +")";
+			List<Goods> goclList = selAll(Goods.class, sql2+" group by g.goodsbrand");
+			List<Object> objList = new ArrayList<Object>();
+			objList.add(cuss);
+			objList.add(goclList);
+			Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), objList);
 			result = CommonConst.GSON.toJson(pageinfo);
 		}
 		responsePW(response, result);

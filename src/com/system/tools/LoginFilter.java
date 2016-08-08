@@ -34,7 +34,7 @@ public class LoginFilter implements Filter {
         //System.out.println(path);
         
         // 从session里取员工工号信息
-        Object username =  session.getAttribute("userid");
+        Object cusid =  session.getAttribute("cusid");
 
         /*创建类Constants.java，里面写的是无需过滤的页面
         for (int i = 0; i < Constants.NoFilter_Pages.length; i++) {
@@ -46,19 +46,19 @@ public class LoginFilter implements Filter {
         }*/
         
         // 登陆页面无需过滤
-        if(path.indexOf("/login.jsp") > -1) {
-        	if(username == null || "".equals(username)) {
+        if(path.indexOf("/login.html") > -1) {
+        	if(cusid == null || "".equals(cusid)) {
         		chain.doFilter(servletRequest, servletResponse);
         	}else{
-                servletResponse.sendRedirect(basepath+"/main.jsp");
+                servletResponse.sendRedirect(basepath+"/guliPC/homepage.html");
         	}
             return;
         }
 
         // 判断如果没有取到员工信息,就跳转到登陆页面
-        if (username == null || "".equals(username)) {
+        if (cusid == null || "".equals(cusid)) {
             // 跳转到登陆页面
-            servletResponse.sendRedirect(basepath+"/login.jsp");
+            servletResponse.sendRedirect(basepath+"/guliPC/login.html");
         } else {
             // 已经登陆,继续此次请求
             chain.doFilter(request, response);

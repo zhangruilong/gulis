@@ -151,7 +151,6 @@ var bindcom = function(){
 		return;
 	}
 	$.ajax({
-		
 		url:"CcustomerAction.do?method=insAll",
 		type:"post",
 		data:{
@@ -161,7 +160,6 @@ var bindcom = function(){
 			var data = eval('('+resp+')');
 			if(data.code == '202'){
 				alert("已成功绑定经销商!");
-				//location.reload();
 				window.location.href="homepage.html";
 			}
 		},

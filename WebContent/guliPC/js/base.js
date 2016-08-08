@@ -152,36 +152,36 @@ function add_address() {
 }
 
 /* 首页导航点击选择后 */
-$(function() {
+/*$(function() {
 	var $div_li = $(".navMenu li");
 	$div_li.click(function() {
 		$(this).addClass("selected") // 当前<li>元素高亮
 		.siblings().removeClass("selected"); // 去掉其他同辈<li>元素的高亮
 	});
-});
+});*/
 
 /* 用户中心左侧导航点击后 标签 */
-$(function() {
+/*$(function() {
 	var $menu_h = $(".Umenu-area dd");
 	$menu_h.click(function() {
 		$(this).addClass("selected").siblings().removeClass("selected");
 	});
-});
+});*/
 
 /* 支付选择点击后 标签 */
-$(function() {
+/*$(function() {
 	var $wz_pay = $(".wz_pay span");
 	$wz_pay.click(function() {
 		$(this).addClass("orSelected").siblings().removeClass("orSelected");
 	});
-});
+});*/
 /* 支付选择点击后 标签 */
-$(function() {
+/*$(function() {
 	var $wz_pay = $(".order-payWay li");
 	$wz_pay.click(function() {
 		$(this).addClass("orSelected").siblings().removeClass("orSelected");
 	});
-});
+});*/
 /* 返回顶部 */
 
 var vh = $(window).height();
@@ -228,7 +228,7 @@ $("#goTopBtn").click(function() {
 	}, 500);
 });
 
-var isMemberLogin = false;
+/*var isMemberLogin = false;
 function isLogin(url) {
 	if (isMemberLogin) {
 		window.location.href = url;
@@ -254,8 +254,8 @@ function isLogin(url) {
 	});
 
 }
-
-// 评论晒图多张滚动
+*/
+/*// 评论晒图多张滚动
 var Speed_1 = 0; // 速度(毫秒)
 var Space_1 = 20; // 每次移动(px)
 var PageWidth_1 = 900; // 翻页宽度
@@ -384,4 +384,4 @@ function picrun_ini() {
 		AutoPlay_1()
 	}
 	AutoPlay_1();
-}
+}*/

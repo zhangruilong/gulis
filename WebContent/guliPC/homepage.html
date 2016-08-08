@@ -621,7 +621,7 @@ $(function(){
 					<H2>
 						<I class="wzhImg m-yule"></I>买赠专区
 						<UL class="sp-tit-categories">
-							<LI><A href="#"
+							<LI><A href="gflshow.html?smzq=maizengzhuanqu"
 								target="_blank">更多&gt;</A></LI>
 						</UL>
 					</H2>
@@ -633,7 +633,7 @@ $(function(){
 					<!--clearD-->
 					<!--查看更多-->
 					<DIV class="readMore">
-						<A href="#" target="_blank">更多购物，请点击查看
+						<A href="gflshow.html?smzq=maizengzhuanqu" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
 					</DIV>
 					<!--readMore-->
@@ -686,7 +686,7 @@ $(function(){
 					<H2>
 						<I class="wzhImg m-jiudian"></I>品牌专区
 						<UL class="sp-tit-categories">
-							<LI><A href="http://www.wuzhouhui.com.cn/hotel.html"
+							<LI><A href="gflshow.html?smzq=pingpaizhuanqu"
 								target="_blank">更多&gt;</A></LI>
 						</UL>
 					</H2>
@@ -698,7 +698,7 @@ $(function(){
 					<!--clearD-->
 					<!--查看更多-->
 					<DIV class="readMore">
-						<A href="http://www.wuzhouhui.com.cn/hotel.html" target="_blank">更多购物，请点击查看
+						<A href="gflshow.html?smzq=pingpaizhuanqu" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
 					</DIV>
 					<!--readMore-->
@@ -719,7 +719,7 @@ $(function(){
 		},
 		success:function(resp){
 			var data = JSON.parse(resp);
-			$.each(data.root,function(i,item){
+			$.each(data.root[0],function(i,item){
 				var goods = '<DIV class="sp-dataBox">'+
 				'<A class="pro-a-box" href="#" target="_blank">'+
 				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情

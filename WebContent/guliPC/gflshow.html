@@ -16,9 +16,6 @@
 <script type="text/javascript" src="js/base.js"></script>
 <SCRIPT type="text/javascript">
 	var customer = JSON.parse(window.localStorage.getItem("customer"));
-	if(!window.localStorage.getItem("customer")){
-		window.location.href = "login.html";
-	}
 </SCRIPT>
 </head>
 <BODY>
@@ -35,8 +32,7 @@
 							<UL class="tlrtext">
 								<LI><SPAN class="topwelcome"><Q>您好， 欢迎来到谷粒网！</Q> </SPAN></LI>
 								<LI><A
-									href="#">用户中心<I
-										class="triangleIco"></I></A>
+									href="#">用户中心<I class="triangleIco"></I></A>
 									<UL class="topMenu-text">
 
 										<LI><A id="topbar_userinfo"
@@ -198,7 +194,7 @@
 							</SPAN>
 						</DIV>
 						<UL class="whz-mainNav-menu">
-							<LI><A href="#">首页</A></LI>
+							<LI><A href="homepage.html">首页</A></LI>
 							<LI><A href="#">美食</A></LI>
 							<LI><A href="#">娱乐</A></LI>
 							<LI><A href="#">酒店</A></LI>
@@ -259,8 +255,7 @@
 			});
 		</SCRIPT>
 
-		<!--主体开始-->
-		<DIV class="contentBody">
+<DIV class="contentBody">
 			<!--sp-Title-->
 			<FORM name="submitForm" id="submitForm" action="/food.html"
 				method="post">
@@ -269,59 +264,18 @@
 					<DIV class="TopScreening online_scr">
 						<UL class="select">
 							<LI class="select-list">
-								<DL>
+								<DL name="populargroup">
 									<DT>热门分类：</DT>
 
 									<DD class="select-all selected">
 										<A id="AllCategory"
-											onclick="javascript:getForm('','','category')"
-											href="#">全部</A>
+											onclick="querycondition(null,this)"
+											href="javascript:void(0)">全部</A>
 									</DD>
-									<DD>
+									<!-- <DD>
 										<A onclick="javascript:getForm('10021057','蛋糕','category')"
-											href="#">蛋糕&nbsp; 5</A>
-									</DD>
-									<DD>
-										<A onclick="javascript:getForm('10021060','甜点饮品','category')"
-											href="#">甜点饮品&nbsp;
-											7</A>
-									</DD>
-									<DD>
-										<A onclick="javascript:getForm('10021081','其他美食','category')"
-											href="#">其他美食&nbsp;
-											6</A>
-									</DD>
-									<DD>
-										<A onclick="javascript:getForm('10021096','小吃快餐','category')"
-											href="#">小吃快餐&nbsp;
-											6</A>
-									</DD>
-									<DD>
-										<A onclick="javascript:getForm('10021101','韩国料理','category')"
-											href="#">韩国料理&nbsp;
-											4</A>
-									</DD>
-								</DL>
-							</LI>
-							<LI class="select-list">
-								<DL>
-									<DT>全部区域：</DT>
-									<DD class="select-all selected">
-										<A onclick="javascript:getForm('','','areaAll')"
-											href="#">全部</A>
-									</DD>
-									<DD>
-										<A onclick="javascript:getForm('100110031024','崇安区','area')"
-											href="#">崇安区&nbsp;14</A>
-									</DD>
-									<DD>
-										<A onclick="javascript:getForm('100110031203','锡山区','area')"
-											href="#">锡山区&nbsp;4</A>
-									</DD>
-									<DD>
-										<A onclick="javascript:getForm('100110031235','惠山区','area')"
-											href="#">惠山区&nbsp;10</A>
-									</DD>
+											href="http://www.wuzhouhui.com.cn/food.html#">蛋糕&nbsp; 5</A>
+									</DD> -->
 								</DL>
 							</LI>
 							<LI class="select-result">
@@ -333,27 +287,6 @@
 						</UL>
 						<!--online_sorting-->
 					</DIV>
-					<!-- <DIV class="select_sorting">
-						<UL>
-							<LI><A class="select-all selected"
-								onclick="javascript:getForm('默认','','default')"
-								href="#">默认</A></LI>
-							<LI><A onclick="javascript:getForm(0,'','salesCount')"
-								href="#">销量 <I
-									class="wzhImg SelUp-sorting"></I></A></LI>
-
-							<LI><A onclick="javascript:getForm(0,'','startDate')"
-								href="#">发布时间 <I
-									class="wzhImg SelUp-sorting"></I></A></LI>
-
-							<LI><A onclick="javascript:getForm(0,'','memberPrice')"
-								href="#">价格 <I
-									class="wzhImg SelUp-sorting"></I></A></LI>
-
-							<LI><INPUT width="13" height="13" disabled="disabled"
-								type="checkbox">只看新单</LI>
-						</UL>
-					</DIV> -->
 					<!--TopScreening-->
 				</DIV>
 				<!--screenBox END-->
@@ -365,90 +298,451 @@
 			</div> -->
 			<!--sp-Title-->
 			<DIV id="leftSubject">
-				<DIV class="sp-dataBox tailThree">
+				<!-- <DIV style="display: none;">
+					<INPUT name="checkbox" id="check0" type="checkbox">
+				</DIV>
+				<DIV class="sp-dataBox">
 					<A class="pro-a-box"
-						href="#"
-						target="_blank"><SPAN class="spImg" href="#" target="_blank">
-						<IMG class="scrollLoading" alt="" src="images/bf1b34ce-3cb7-4c91-bcf1-44e8ac2337d1.jpg">
+						href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015101315412529181"
+						target="_blank"><SPAN class="spImg"
+						href="/product.html?goodsno=SP2015101315412529181" target="_blank"><IMG
+							class="scrollLoading"
+							onerror="this.src='/images/default-loading.gif'" alt=""
+							data-url="http://file.wuzhouhui.com.cn/images/2015/10/71fb17c2db984c89a10987dc153d9d5a_300x195.jpg">
 
 							<DIV class="pro-label">
 								<LI class="discount">享<BR>
-								<SPAN id="comment314" style="color: white;">8.9</SPAN>折
+								<SPAN id="comment30" style="color: white;">7.1</SPAN>折
 								</LI>
 							</DIV></SPAN><SPAN class="sp-info">
-							<H3 title="【广益哥伦布广场】奶茶博士（广益店）">【广益哥伦布广场】奶茶博士（广益店）</H3>
-					</SPAN><SPAN title="仅售8.9元，价值10元的奶茶一杯，可叠加使用，提供免费wifi。" class="sp-Text"
-						id="title14"></SPAN>
+							<H3 title="【洛社五洲哥伦布广场】韩国雪花冰">【洛社五洲哥伦布广场】韩国雪花冰</H3>
+					</SPAN><SPAN title="单人套餐，不限时段通用，免费WiFi！" class="sp-Text" id="title0"></SPAN>
 						<DIV class="sp-priceTit">
 							<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG
-								id="memberPrice14" style="color: rgb(255, 73, 0);">8.90</STRONG>
-								<SPAN class="stores-jia">门店价<DEL id="originalPrice14">10.00</DEL></SPAN>
+								id="memberPrice0" style="color: rgb(255, 73, 0);">19.80</STRONG>
+								<SPAN class="stores-jia">门店价<DEL id="originalPrice0">28.00</DEL></SPAN>
 							</SPAN>
 						</DIV>
 						<DIV class="sp-sold">
-							<SPAN class="sold-num">已售<STRONG>0</STRONG></SPAN>
+							<SPAN class="sold-num">已售<STRONG>1</STRONG></SPAN>
 						</DIV>
 						</A>
-				</DIV>
-			</DIV>
+				</DIV> -->
+<script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript">
 var smzq = getQueryString('smzq');
 $(function(){
 	if(smzq == 'miaoshazhuanqu'){
-		$(".sp-dataBox").remove();
-		$.ajax({
-			url:"TimegoodsviewAction.do?method=cusTimeG",
-			type:"post",
-			data:{
-				customerid:customer.customerid,
-				customertype:customer.customertype
-				},
-			success:function(resp){
-				var data = eval('('+resp+')');
-				if(data.msg=='操作成功'){
-					$.each(data.root,function(i,item){
-						if(i % 3 == 2){
-							var goods = '<DIV class="sp-dataBox tailThree">';
-						} else {
-							var goods = '<DIV class="sp-dataBox">';
-						}
-						
-						goods += '<A class="pro-a-box"'+
-								'href="#"'+
-								'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
-								'<IMG class="scrollLoading" alt="" src="images/bf1b34ce-3cb7-4c91-bcf1-44e8ac2337d1.jpg">'+
-		
-									'<DIV class="pro-label">'+
-										'<LI class="discount">享<BR>'+
-										'<SPAN id="comment314" style="color: white;">8.9</SPAN>折'+
-										'</LI>'+
-									'</DIV></SPAN><SPAN class="sp-info">'+
-									'<H3 title="【广益哥伦布广场】奶茶博士（广益店）">【广益哥伦布广场】奶茶博士（广益店）</H3>'+
-							'</SPAN><SPAN title="仅售8.9元，价值10元的奶茶一杯，可叠加使用，提供免费wifi。" class="sp-Text"'+
-								'id="title14"></SPAN>'+
-								'<DIV class="sp-priceTit">'+
-									'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG'+
-										'id="memberPrice14" style="color: rgb(255, 73, 0);">8.90</STRONG>'+
-										'<SPAN class="stores-jia">门店价<DEL id="originalPrice14">10.00</DEL></SPAN>'+
-									'</SPAN>'+
-								'</DIV>'+
-								'<DIV class="sp-sold">'+
-									'<SPAN class="sold-num">已售<STRONG>0</STRONG></SPAN>'+
-								'</DIV>'+
-								'</A>'+
-						'</DIV>';
-						$("#leftSubject").append(goods);
-					});
-				}
-			},
-			error:function(resp){
-				var data = eval('('+resp+')');
-				alert(data.msg);
-			}
-		});
+		mspage();
+	} else if(smzq == 'maizengzhuanqu'){
+		mzpage();
+	} else if(smzq == 'pingpaizhuanqu'){
+		goodspage(0);
 	}
 });
+//条件查询
+function querycondition(con,obj){
+	$(obj).parent().addClass('selected').siblings().removeClass('selected');//此处添加了class后在goodspage方法中整个class被remove掉了,应该查询条件只查询一次,而商品多次更新
+	goodspage(0,con);
+}
+//品牌专区商品
+function goodspage(pagenow,goodsbrand){
+	$(".sp-dataBox").remove();
+	$.ajax({
+		url:'GoodsviewAction.do?method=mselAll&goodsbrand='+typeNullFoString(goodsbrand),
+		type:"post",
+		data:{
+			limit:"15",
+			start:pagenow * 15,
+			customerid:customer.customerid,
+			customertype:customer.customertype,
+			customerlevel:customer.customerlevel,
+			goodsbrand:goodsbrand
+			},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			if(data.msg=='操作成功'){
+				if(typeof(goodsbrand) == "undefined" && !goodsbrand){
+					$("dl[name='populargroup'] dd:gt(0)[class!='selected']").remove();
+					$.each(data.root[1],function(i,item){
+						$("dl[name='populargroup']").append('<DD><A name="'+item.goodsbrand+'" onclick="querycondition(\''+item.goodsbrand+'\',this);" href="javascript:void(0);">'+item.goodsbrand+'&nbsp; '+item.goodsid+'</A></DD>');
+					});
+				}
+				$.each(data.root[0],function(i,item){
+					if(i % 3 == 2){
+						var goods = '<DIV class="sp-dataBox tailThree">';
+					} else {
+						var goods = '<DIV class="sp-dataBox">';
+					}
+					
+					goods += '<A class="pro-a-box" '+
+							'href="#" '+
+							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'<IMG class="scrollLoading" alt="" src="'+item.goodsimage+'">'+
+	
+								'<DIV class="pro-label">'+
+									'<LI class="discount">'+item.goodsclassname+'</LI>'+
+								'</DIV></SPAN><SPAN class="sp-info">'+
+								'<H3 title="【'+item.goodsname+'】'+item.goodsunits+'">【'+item.goodsname+'】'+item.goodsunits+'</H3>'+
+						'</SPAN><SPAN title="'+item.companydetail+'" class="sp-Text" '+
+							'id="title14"></SPAN>'+
+							'<DIV class="sp-priceTit">'+
+								'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
+									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.pricesprice+'</STRONG>'+
+								'</SPAN>'+
+							'</DIV>'+
+							'</A>'+
+					'</DIV>';
+					$("#leftSubject").append(goods);
+				});
+			}
+		},
+		error:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+}
+//买赠页
+function mzpage(){
+	$.ajax({
+		url:'GivegoodsviewAction.do?method=cusGiveG',
+		type:"post",
+		data:{
+			customerid:customer.customerid,
+			customertype:customer.customertype,
+			customerlevel:customer.customerlevel
+			},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			if(data.msg=='操作成功'){
+				$("dl[name='populargroup']").append('<DD><A onclick="" href="">买赠商品&nbsp; '+data.root.length+'</A></DD>');
+				$.each(data.root,function(i,item){
+					if(i % 3 == 2){
+						var goods = '<DIV class="sp-dataBox tailThree">';
+					} else {
+						var goods = '<DIV class="sp-dataBox">';
+					}
+					
+					goods += '<A class="pro-a-box" '+
+							'href="#" '+
+							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'<IMG class="scrollLoading" alt="" src="'+item.givegoodsimage+'">'+
+	
+								'<DIV class="pro-label">'+
+									'<LI class="discount">'+item.givegoodsclass+'</LI>'+
+								'</DIV></SPAN><SPAN class="sp-info">'+
+								'<H3 title="【'+item.givegoodsname+'】'+item.givegoodsunits+'">【'+item.givegoodsname+'】'+item.givegoodsunits+'</H3>'+
+						'</SPAN><SPAN title="'+item.companydetail+'" class="sp-Text" '+
+							'id="title14"></SPAN>'+
+							'<DIV class="sp-priceTit">'+
+								'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
+									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.givegoodsprice+'</STRONG>'+
+								'</SPAN>'+
+							'</DIV>'+
+							'</A>'+
+					'</DIV>';
+					$("#leftSubject").append(goods);
+				});
+			}
+		},
+		error:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+}
+//秒杀页
+function mspage(){
+	$.ajax({
+		url:'TimegoodsviewAction.do?method=cusTimeG',
+		type:"post",
+		data:{
+			customerid:customer.customerid,
+			customertype:customer.customertype,
+			customerlevel:customer.customerlevel
+			},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			if(data.msg=='操作成功'){
+				$("dl[name='populargroup']").append('<DD><A onclick="" href="">秒杀商品&nbsp; '+data.root.length+'</A></DD>');
+				$.each(data.root,function(i,item){
+					if(i % 3 == 2){
+						var goods = '<DIV class="sp-dataBox tailThree">';
+					} else {
+						var goods = '<DIV class="sp-dataBox">';
+					}
+					
+					goods += '<A class="pro-a-box" '+
+							'href="#" '+
+							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'<IMG class="scrollLoading" alt="" src="'+item.timegoodsimage+'">'+
+	
+								'<DIV class="pro-label">'+
+									'<LI class="discount">'+item.timegoodsclass+'</LI>'+
+								'</DIV></SPAN><SPAN class="sp-info">'+
+								'<H3 title="【'+item.timegoodsname+'】'+item.timegoodsunits+'">【'+item.timegoodsname+'】'+item.timegoodsunits+'</H3>'+
+						'</SPAN><SPAN title="'+item.companydetail+'" class="sp-Text" '+
+							'id="title14"></SPAN>'+
+							'<DIV class="sp-priceTit">'+
+								'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
+									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.timegoodsorgprice+'</STRONG>'+
+									'<SPAN class="stores-jia">原价<DEL id="originalPrice14">'+item.timegoodsprice+'</DEL></SPAN>'+
+								'</SPAN>'+
+							'</DIV>'+
+							'</A>'+
+					'</DIV>';
+					$("#leftSubject").append(goods);
+				});
+			}
+		},
+		error:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+}
 </script>
+				<!--sp-dataBox-->
+				<DIV class="clearD"></DIV>
+				<!--clearD-->
+			</DIV>
+			<!--leftSubject END-->
+			<DIV id="rightSide">
+				<DIV class="asideBox">
+					<DIV class="fxqbrtitle">
+						<DIV class="fxqbrtph">美食排行榜</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check0" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072715460455324"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/20150727171547_300x195.jpg">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072715460455324">仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。</A>
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment20">32.00</Q>
+								</SPAN> <SPAN>已售：<Q>2</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check1" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015101315412529181"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/2015/10/71fb17c2db984c89a10987dc153d9d5a_300x195.jpg">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="单人套餐，不限时段通用，免费WiFi！" id="titleType1"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015101315412529181"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment21">19.80</Q>
+								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check2" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072716320154862"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/20150727172718_300x195.jpg">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="仅售29元，价值35元的曲奇饼干一份，可叠加使用提供免费wifi。" id="titleType2"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072716320154862"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment22">29.00</Q>
+								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check3" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072814443712379"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/CqgBHlRZ3guAUKWNAACmsXlA5Zs187-440x280_300x195.jpg">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="仅售15元，价值16元的黄焖鸡米饭一份，可叠加使用，提供免费wifi。" id="titleType3"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072814443712379"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment23">15.00</Q>
+								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check4" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072815331483285"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/IMG_3826_300x195.JPG">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="仅售40.5元，价值50元的双人超值套餐一份，提供免费wifi。" id="titleType4"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072815331483285"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment24">40.50</Q>
+								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check5" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015101314094317454"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/2015/10/f57cd8b468e94edb9b4fc9aea8059583_300x195.jpg">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="冻柠茶单人套餐，不限时段通用，免费WiFi！" id="titleType5"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015101314094317454"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment25">17.00</Q>
+								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check6" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072715374426715"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/aa7fc42f6172482fbd6d1665fd80eabc_300x195.jpg">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="仅售200元，价值260元的进口西洋参片30克" id="titleType6"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072715374426715"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment26">200.00</Q>
+								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check7" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072815203694551"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/IMG_3824_300x195.JPG">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="仅售40元，价值48元的双人套餐一份，可叠加使用，提供免费wifi。" id="titleType7"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072815203694551"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment27">40.00</Q>
+								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check8" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072708511337078"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/IMG_3949_300x195.JPG">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="仅售160元，价值248元的瓦尔堡小麦黑啤一桶，可叠加使用。" id="titleType8"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015072708511337078"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment28">160.00</Q>
+								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+					<DIV style="display: none;">
+						<INPUT name="checkboxType" id="check9" type="checkbox">
+					</DIV>
+					<DIV class="fxqbrline">
+						<DIV class="fxqbrlleftImg">
+							<A onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015101315382794928"><IMG
+								width="95" height="72" class="scrollLoading"
+								onerror="this.src='/images/default-loading.gif'"
+								data-url="http://file.wuzhouhui.com.cn/images/2015/10/551ed69f582f4daaa6a4ba2abad06972_300x195.jpg">
+							</A>
+						</DIV>
+						<DIV class="asideTwxt-sp">
+							<A title="单人套餐，不限时段通用，免费WiFi！" id="titleType9"
+								onclick="window.open(this.href,'_blank');return   false"
+								href="http://www.wuzhouhui.com.cn/product.html?goodsno=SP2015101315382794928"></A>
+
+							<DIV class="yufu">
+								<SPAN>现价：<Q>¥</Q><Q id="payment29">32.00</Q>
+								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
+							</DIV>
+						</DIV>
+					</DIV>
+				</DIV>
 				<!--foodxqbright-->
 
 				<DIV class="clearD"></DIV>
@@ -456,12 +750,10 @@ $(function(){
 			</DIV>
 			<!--rightSide END-->
 		</DIV>
-		<!--Container END-->
-		<!--页脚开始-->
-		<DIV class="bottom" id="food_bottom_container"></DIV>
-	</DIV>
 	<!--footer-->
 	<!--页脚开始-->
+	<!--页脚开始-->
+		<DIV class="bottom" id="food_bottom_container"></DIV>
 	<DIV id="footBot">
 		<DIV class="footBox">
 			<DIV class="wzh-footer">

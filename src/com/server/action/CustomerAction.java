@@ -168,6 +168,7 @@ public class CustomerAction extends BaseActionDao {
 		queryinfo.setType(Customer.class);
 		List<Customer> cusList = selAll(queryinfo);
 		if(cusList.size() == 1){
+			request.getSession().setAttribute("cusid", cusList.get(0).getCustomerid());
 			List<Ccustomer> ccustomers = selAll(Ccustomer.class, "select * from ccustomer where ccustomercustomer='"+cusList.get(0).getCustomerid()+"'");
 			if(ccustomers.size() >0){
 				result = CommonConst.GSON.toJson(cusList);
