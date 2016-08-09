@@ -10,16 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.reflect.TypeToken;
 import com.server.poco.GivegoodsviewPoco;
 import com.server.poco.GoodsviewPoco;
+import com.server.poco.TimegoodsviewPoco;
 import com.server.pojo.Ccustomer;
 import com.server.pojo.Customer;
 import com.server.pojo.Givegoodsview;
 import com.server.pojo.Goodsview;
+import com.server.pojo.Orderd;
 import com.server.pojo.Timegoodsview;
 import com.system.tools.CommonConst;
 import com.system.tools.base.BaseActionDao;
 import com.system.tools.pojo.Pageinfo;
 import com.system.tools.pojo.Queryinfo;
 import com.system.tools.util.CommonUtil;
+import com.system.tools.util.DateUtils;
 import com.system.tools.util.FileUtil;
 
 /**
@@ -72,6 +75,39 @@ public class GivegoodsviewAction extends BaseActionDao {
 		queryinfo.setOrder(GivegoodsviewPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//买赠商品下单
+	@SuppressWarnings("unchecked")
+	public void mzGoodsxd(HttpServletRequest request, HttpServletResponse response){
+		String cusid = request.getParameter("customerid");
+		String givegoodsid = request.getParameter("givegoodsid");
+		Pageinfo pageinfo = null;
+		List<Customer> customers = selAll(Customer.class, "select * from customer where customerid='"+cusid+"'");
+		if(customers.size() == 1){
+			Customer cus = customers.get(0);
+			Queryinfo queryinfo = getQueryinfo(request);
+			queryinfo.setType(Givegoodsview.class);
+			queryinfo.setWheresql("givegoodsid='"+givegoodsid+"' and givegoodsstatue='启用' and givegoodsscope like '%"+cus.getCustomertype()+"%'");
+			queryinfo.setOrder(GivegoodsviewPoco.ORDER);
+			List<Givegoodsview> mzgoodss = selAll(queryinfo);
+			if(mzgoodss.size()==1){
+				Givegoodsview gg = mzgoodss.get(0);
+				List<Orderd> orderds = selAll(Orderd.class, "select od.orderdcode,od.orderdtype,od.orderdunits,sum(od.orderdnum) as orderdclass from orderm om "+
+						"left join orderd od on od.orderdorderm = om.ordermid where om.ordermcustomer = '"+request.getParameter("customerid")+
+						"' and od.orderdtype = '买赠' and orderdcode='"+gg.getGivegoodscode()+"' and om.ordermtime >= '"+DateUtils.getDate()+
+						" 00:00:00' and om.ordermtime <= '"+DateUtils.getDate()+" 23:59:59'  group by od.orderdcode,od.orderdtype,od.orderdunits");
+				Integer odNum = gg.getGivegoodsnum();
+				if(orderds.size() > 0){
+					for (Orderd od : orderds) {
+						odNum -= od.getOrderdnum();
+					}
+				}
+				gg.setCreator(odNum.toString());
+				pageinfo = new Pageinfo(mzgoodss);
+				result = CommonConst.GSON.toJson(pageinfo);
+			}
+		}
 		responsePW(response, result);
 	}
 	//首页的买赠商品

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.server.pojo.Ccustomer;
 import com.server.pojo.Collect;
+import com.server.pojo.Customer;
 import com.server.pojo.Goods;
 import com.server.pojo.Goodsclass;
 import com.server.pojo.Goodsview;
@@ -72,6 +73,23 @@ public class GoodsviewAction extends BaseActionDao {
 		queryinfo.setOrder(GoodsviewPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//商品下单
+	@SuppressWarnings("unchecked")
+	public void goodsxd(HttpServletRequest request, HttpServletResponse response){
+		String cusid = request.getParameter("customerid");
+		String goodsid = request.getParameter("goodsid");
+		List<Customer> customers = selAll(Customer.class, "select * from customer where customerid='"+cusid+"'");
+		if(customers.size() == 1){
+			Customer cus = customers.get(0);
+			Queryinfo queryinfo = getQueryinfo(request);
+			queryinfo.setType(Goodsview.class);
+			queryinfo.setWheresql("goodsid='"+goodsid+"' and goodsstatue='上架' and pricesclass='"+cus.getCustomertype()+"' and priceslevel="+cus.getCustomerlevel());
+			queryinfo.setOrder(GoodsviewPoco.ORDER);
+			Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
+			result = CommonConst.GSON.toJson(pageinfo);
+		}
 		responsePW(response, result);
 	}
 	//查询首页品牌专区

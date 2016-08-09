@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="">
+<title>谷粒网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 <link rel="stylesheet" href="css/global.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/color.css">
@@ -14,10 +14,6 @@
 <link rel="stylesheet" href="css/wzhWeb.css">
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 
-<meta charset="utf-8">
-<title>谷粒</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/top1.css">
 <link rel="stylesheet" type="text/css" href="css/news.css">
 <link rel="stylesheet" type="text/css" href="css/details.css">
@@ -345,9 +341,9 @@
 									<!-- 这里是原价 -->
 										<del style="font-family: &amp; amp; #39;Microsoft Yahei&amp;amp;#39;;">￥998</del>
 									</div>
-									<div class="now-pay" style="font-family: &amp; amp; #39;Microsoft Yahei&amp;amp;#39;;">
+									<!-- <div class="now-pay" style="font-family: &amp; amp; #39;Microsoft Yahei&amp;amp;#39;;">
 										买一箱，送5kg恒大珍珠米一号4袋，送900ml恒大葵花籽油4瓶！
-									</div>
+									</div> -->
 								</div>
 							</li>
 							<li>
@@ -358,7 +354,7 @@
 							<li><label>物流</label> <span class="goods-date"></span></li>
 							<li class="order-number"><label>数量</label>
 								<button type="button" class="item-minus" value="-" max="300">-</button>
-								<input type="text" class="order-num-s" name="orderNumber"
+								<input type="text" class="order-num-s" name="orderNumber" readonly="readonly"
 								value="1" max="300">
 								<button type="button" class="item-plus" value="+" max="300">+</button>
 								
@@ -429,82 +425,271 @@
 	<script type="text/javascript">
 		var goodsid = getQueryString("goodsid");
 		var customer = JSON.parse(window.localStorage.getItem("customer"));
+		var type = getQueryString("type");
 		$(function() {
-			$.ajax({
-				url:"GoodsviewAction.do?method=selAll",
-				type:"post",
-				data:{
-					wheresql:"goodsid='"+goodsid+"'"
-				},
-				success:function(resp){
-					var goodsJSON = JSON.parse(resp).root[0];
-					$("#span-gdata").text(JSON.stringify(goodsJSON));
-					$(".deal-sj-tit").html(goodsJSON.goodsname + '<span class="prs_Unit">('+ goodsJSON.goodsunits + ')</span>');
-					$("#yufu").text("￥" + goodsJSON.pricesprice + "/" + goodsJSON.pricesunit);
-					var goods_date = goodsJSON.companydetail;
-					if(goodsJSON.goodstype){
-						goods_date += "."+goodsJSON.goodstype;
-					}
-					$(".goods-date").text(goods_date);
-					$(".buy_statistics").html('<label>品牌</label> <span class="goods-date" style="color:black">'+typeNullFoString(goodsJSON.goodsbrand)+'</span>');
-					$(".scrollLoading").attr("src", goodsJSON.goodsimage);
-					$(".item-plus").click(function() {
-						var num = parseInt($(".order-num-s").val());
-						$(".order-num-s").val(num + 1);
-					});
-					$(".item-minus").click(function() {
-						var num = parseInt($(".order-num-s").val());
-						if (num > 1) {
-							$(".order-num-s").val(num - 1);
+			if(type == 'sp'){
+				$.ajax({
+					url:"GoodsviewAction.do?method=goodsxd",
+					type:"post",
+					data:{
+						customerid:customer.customerid,
+						goodsid:goodsid
+					},
+					success:function(resp){
+						var goodsJSON = JSON.parse(resp).root[0];
+						$("#span-gdata").text(JSON.stringify(goodsJSON));
+						$(".deal-sj-tit").html(goodsJSON.goodsname + '<span class="prs_Unit">('+ goodsJSON.goodsunits + ')</span>');
+						$("#yufu").text("￥" + goodsJSON.pricesprice + "/" + goodsJSON.pricesunit);
+						$("#yufu").next().remove();
+						var goods_date = goodsJSON.companydetail;
+						if(goodsJSON.goodstype){
+							goods_date += "."+goodsJSON.goodstype;
 						}
-					});
-					$("#to_shopping").click(function (){
-						doCart(this);
-					});
-				},
-				error : function(resp){
-					var respText = eval('('+resp+')');
-					alert(respText.msg);
-				}
-			});
-			
+						$(".goods-date").text(goods_date);
+						$(".buy_statistics").html('<label>经销商</label> <span class="goods-date" style="color:black">'+goodsJSON.companyshop+'</span>');
+						$(".scrollLoading").attr("src", goodsJSON.goodsimage);
+						$(".item-plus").click(function() {
+							var num = parseInt($(".order-num-s").val());
+							$(".order-num-s").val(num + 1);
+						});
+						$(".item-minus").click(function() {
+							var num = parseInt($(".order-num-s").val());
+							if (num > 1) {
+								$(".order-num-s").val(num - 1);
+							}
+						});
+						$("#to_shopping").click(function (){
+							doCart(this);
+						});
+					},
+					error : function(resp){
+						var respText = eval('('+resp+')');
+						alert(respText.msg);
+					}
+				});
+			} else if(type=='ms'){
+				$.ajax({
+					url:"TimegoodsviewAction.do?method=msGoodsxd",
+					type:"post",
+					data:{
+						customerid:customer.customerid,
+						timegoodsid:goodsid
+					},
+					success:function(resp){
+						var goodsJSON = eval('('+resp+')').root[0];
+						var xlnum = parseInt(goodsJSON.timegoodsdetail);
+						if(xlnum <= 0){
+							$(".order-num-s").val(0);
+						}
+						$("#span-gdata").text(JSON.stringify(goodsJSON));
+						$(".deal-sj-tit").html(goodsJSON.timegoodsname + '<span class="prs_Unit">('+ goodsJSON.timegoodsunits + ')</span>');
+						$("#yufu").text("￥" + goodsJSON.timegoodsorgprice + "/" + goodsJSON.timegoodsunit);
+						$("#yufu").next().text('￥'+ goodsJSON.timegoodsprice );
+						$(".goods-date").text(goodsJSON.companydetail);
+						$('#alreadySold').text(goodsJSON.allnum - goodsJSON.surplusnum);
+						if(goodsJSON.allnum == -1){
+							$('.buy_statistics span').remove();
+						} else {
+							$('.buy_statistics strong:eq(1)').text(goodsJSON.surplusnum);
+						}
+						$(".scrollLoading").attr("src", goodsJSON.timegoodsimage);
+						$(".item-plus").attr("name",xlnum);
+						$(".item-plus").click(function() {
+							var num = parseInt($(".order-num-s").val());
+							var nxlnum = parseInt($(".item-plus").attr("name"));
+							if(nxlnum <= num){
+								alert("您今天的购买数量已到达限购数量了哦。");
+							} else if(goodsJSON.surplusnum <= num){
+								alert("商品的剩余数量不足。");
+							} else {
+								$(".order-num-s").val(num + 1);
+							}
+						});
+						$(".item-minus").click(function() {
+							var num = parseInt($(".order-num-s").val());
+							if (num > 1) {
+								$(".order-num-s").val(num - 1);
+							}
+						});
+						$("#to_shopping").click(function (){
+							doCart(this);
+						});
+					},
+					error : function(resp){
+						var respText = eval('('+resp+')');
+						alert(respText.msg);
+					}
+				});
+			} else if(type=='mz'){
+				$.ajax({
+					url:"GivegoodsviewAction.do?method=mzGoodsxd",
+					type:"post",
+					data:{
+						customerid:customer.customerid,
+						givegoodsid:goodsid
+					},
+					success:function(resp){
+						var goodsJSON = eval('('+resp+')').root[0];
+						var xlnum = parseInt(goodsJSON.creator);
+						if(xlnum <= 0){
+							$(".order-num-s").val(0);
+						}
+						$("#span-gdata").text(JSON.stringify(goodsJSON));
+						$(".deal-sj-tit").html(goodsJSON.givegoodsname + '<span class="prs_Unit">('+ goodsJSON.givegoodsunits + ')</span>');
+						$("#yufu").text("￥" + goodsJSON.givegoodsprice + "/" + goodsJSON.givegoodsunit);
+						$("#yufu").next().remove();
+						$(".goods-date").text(goodsJSON.companydetail);
+						$(".buy_statistics").html('<label>经销商</label> <span class="goods-date" style="color:black">'+goodsJSON.companyshop+'</span>');
+						$(".scrollLoading").attr("src", goodsJSON.givegoodsimage);
+						$(".item-plus").attr("name",xlnum);
+						$(".item-plus").click(function() {
+							var num = parseInt($(".order-num-s").val());
+							var nxlnum = parseInt($(".item-plus").attr("name"));
+							if(nxlnum <= num ){
+								alert("您今天的购买数量已到达限购数量了哦。");
+							} else {
+								$(".order-num-s").val(num + 1);
+							}
+						});
+						$(".item-minus").click(function() {
+							var num = parseInt($(".order-num-s").val());
+							if (num > 1) {
+								$(".order-num-s").val(num - 1);
+							}
+						});
+						$("#to_shopping").click(function (){
+							doCart(this);
+						});
+					},
+					error : function(resp){
+						var respText = eval('('+resp+')');
+						alert(respText.msg);
+					}
+				});
+			}
 		});
 		//加入购物车
 		function doCart(obj) {
 			var goodsJSON = JSON.parse($("#span-gdata").text());
+			var price = 0.0;
+			var goodsid = '';
+			var goodsclassname = '';
+			if(type=='sp'){
+				price = goodsJSON.pricesprice;
+				goodsid = goodsJSON.goodsid;
+				goodsclassname = goodsJSON.goodsclassname;
+			} else if(type=='ms'){
+				price = goodsJSON.timegoodsorgprice;
+				goodsid = goodsJSON.timegoodsid;
+				goodsclassname = goodsJSON.timegoodsclass;
+			} else if(type=='mz'){
+				price = goodsJSON.givegoodsprice;
+				goodsid = goodsJSON.givegoodsid;
+				goodsclassname = goodsJSON.givegoodsclass;
+			}
 			var num = parseInt($(".order-num-s").val());
+			var flag = false;
 			if (window.localStorage.getItem("sdishes") == null || window.localStorage.getItem("sdishes") == "[]") { //判断有没有购物车
-				window.localStorage.setItem("sdishes", "[]"); //创建一个购物车
-				addMdishes(goodsJSON);
-				window.localStorage.setItem("totalnum", 1); //设置缓存中的种类数量等于一 
-				window.localStorage.setItem("totalmoney",(parseFloat(goodsJSON.pricesprice) * num).toFixed(2)); //总金额等于商品价
-				var cartnum = parseInt(window.localStorage.getItem("cartnum")); //商品总数
+				window.localStorage.setItem("sdishes", "[]"); 														//创建一个购物车
+				if(type=='sp'){
+					flag = addMdishes(goodsJSON);						//加入购物车
+				} else if(type=='ms'){
+					flag = addMMSdishes(goodsJSON);
+				} else if(type=='mz'){
+					flag = addMMZdishes(goodsJSON);
+				}
+				if(flag == false){
+					return;
+				}
+				window.localStorage.setItem("totalnum", 1); 														//设置缓存中的种类数量等于一 
+				window.localStorage.setItem("totalmoney",(parseFloat(price) * num).toFixed(2)); 	//总金额等于商品价
+				var cartnum = parseInt(window.localStorage.getItem("cartnum")); 									//商品总数
 				window.localStorage.setItem("cartnum", $(".order-num-s").val());
 			} else {
-				var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); //将缓存中的sdishes(字符串)转换为json对象
-				var tnum = parseInt(window.localStorage.getItem("totalnum")); //取出商品的总类数
-				$.each(sdishes,function(i, item) { //遍历购物车中的商品
-									if (item.goodsid == goodsJSON.goodsid&& item.goodsclassname == goodsJSON.goodsclassname) {
-										sdishes[i].orderdetnum = parseInt(item.orderdetnum)+ num;
+				var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); 									//将缓存中的sdishes(字符串)转换为json对象
+				var tnum = parseInt(window.localStorage.getItem("totalnum")); 										//取出商品的总类数
+				$.each(sdishes,function(i, item) { 																	//遍历购物车中的商品
+									if (item.goodsid == goodsid && item.goodsclassname == goodsclassname) {
+										item.orderdetnum = parseInt(item.orderdetnum)+ num;
 										window.localStorage.setItem("sdishes",JSON.stringify(sdishes));
-										var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); //从缓存中取出总金额
-										var newtmoney = (tmoney + parseFloat(goodsJSON.pricesprice)* num).toFixed(2);
+										var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); 		//从缓存中取出总金额
+										var newtmoney = (tmoney + parseFloat(price)* num).toFixed(2);
 										window.localStorage.setItem("totalmoney", newtmoney);
 										var cartnum = parseInt(window.localStorage.getItem("cartnum"));
 										window.localStorage.setItem("cartnum",cartnum + num);
 										return false;
 									} else if (i == (tnum - 1)) {
-										addMdishes(goodsJSON);
-										window.localStorage.setItem("totalnum",tnum + 1); //商品种类数加一
-										var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); //从缓存中取出总金额
-										var newtmoney = (tmoney + parseFloat(goodsJSON.pricesprice)* num).toFixed(2);
+										if(type=='sp'){
+											flag = addMdishes(goodsJSON);						//加入购物车
+										} else if(type=='ms'){
+											flag = addMMSdishes(goodsJSON);
+										} else if(type=='mz'){
+											flag = addMMZdishes(goodsJSON);
+										}
+										if(flag == false){
+											return;
+										}
+										window.localStorage.setItem("totalnum",tnum + 1); 							//商品种类数加一
+										var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); 		//从缓存中取出总金额
+										var newtmoney = (tmoney + parseFloat(price)* num).toFixed(2);
 										window.localStorage.setItem("totalmoney", newtmoney);
 										var cartnum = parseInt(window.localStorage.getItem("cartnum"));
 										window.localStorage.setItem("cartnum",cartnum + num);
 									}
 								})
 			}
-			alert("成功加入购物车!");
+			if(flag){
+				alert("成功加入购物车!");
+			} else {
+				alert("加入购物车失败。");
+			}
+		}
+		//新增买赠商品
+		function addMMZdishes(goodsJSON){
+			var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); 					//将缓存中的sdishes(字符串)转换为json对象
+			var mdishes = new Object();
+			mdishes.goodsid = goodsJSON.givegoodsid;
+			mdishes.goodsdetail = goodsJSON.givegoodsdetail;
+			mdishes.goodscompany = goodsJSON.givegoodscompany;
+			mdishes.companyshop = goodsJSON.companyshop;
+			mdishes.companydetail = goodsJSON.companydetail;
+			mdishes.goodsclassname = goodsJSON.givegoodsclass;
+			mdishes.goodscode = goodsJSON.givegoodscode;
+			mdishes.pricesprice = goodsJSON.givegoodsprice;
+			mdishes.pricesunit = goodsJSON.givegoodsunit;
+			mdishes.goodsname = goodsJSON.givegoodsname;
+			mdishes.goodsunits = goodsJSON.givegoodsunits;
+			mdishes.orderdetnum = $(".order-num-s").val();
+			mdishes.goodsimage = goodsJSON.givegoodsimage;
+			mdishes.orderdtype = '买赠';
+			mdishes.timegoodsnum = goodsJSON.givegoodsnum;
+			sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
+			window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
+			return true;
+		}
+		//新增秒杀商品
+		function addMMSdishes(goodsJSON){
+			var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); 					//将缓存中的sdishes(字符串)转换为json对象
+			var mdishes = new Object();
+			mdishes.goodsid = goodsJSON.timegoodsid;
+			mdishes.goodsdetail = 'miaosha';
+			mdishes.goodscompany = goodsJSON.timegoodscompany;
+			mdishes.companyshop = goodsJSON.companyshop;
+			mdishes.companydetail = goodsJSON.companydetail;
+			mdishes.goodsclassname = goodsJSON.timegoodsclass;
+			mdishes.goodscode = goodsJSON.timegoodscode;
+			mdishes.pricesprice = goodsJSON.timegoodsorgprice;
+			mdishes.pricesunit = goodsJSON.timegoodsunit;
+			mdishes.goodsname = goodsJSON.timegoodsname;
+			mdishes.goodsunits = goodsJSON.timegoodsunits;
+			mdishes.orderdetnum = $(".order-num-s").val();
+			mdishes.goodsimage = goodsJSON.timegoodsimage;
+			mdishes.orderdtype = '秒杀';
+			mdishes.surplusnum = goodsJSON.surplusnum;
+			mdishes.timegoodsnum = goodsJSON.timegoodsnum;
+			sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
+			window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
+			return true;
 		}
 		//新增商品订单
 		function addMdishes(goodsJSON) {
@@ -526,6 +711,7 @@
 			mdishes.orderdetnum = $(".order-num-s").val();
 			sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
 			window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
+			return true;
 		}
 	</script>
 </body>
