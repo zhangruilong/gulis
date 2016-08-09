@@ -46,7 +46,7 @@ public class LoginFilter implements Filter {
         }*/
         
         // 登陆页面无需过滤
-        if(path.indexOf("/login.html") > -1) {
+        if(path.indexOf("/login.html") > -1 || path.indexOf("/register.html") >-1) {
         	if(cusid == null || "".equals(cusid)) {
         		chain.doFilter(servletRequest, servletResponse);
         	}else{

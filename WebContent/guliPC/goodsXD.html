@@ -307,10 +307,9 @@
 			style="font-family: &amp; amp; #39;Microsoft Yahei&amp;amp;#39;;">
 
 			<div class="location">
-				<a href="javascript:void(0)">首页</a> » <a
-					href="javascript:void(0)" categoryid="1002">
-					美食</a> » <a href="javascript:void(0)"
-					categoryid="10021057" id="footCate">蛋糕</a>
+				<a href="homepage.html">首页</a> » 
+				<a href="javascript:void(0)" categoryid="1002">美食</a> » 
+				<a href="javascript:void(0)" categoryid="10021057" id="footCate">蛋糕</a>
 			</div>
 			<!--sp-Title-->
 			<div class="clearD"></div>
@@ -362,13 +361,14 @@
 								<input type="text" class="order-num-s" name="orderNumber"
 								value="1" max="300">
 								<button type="button" class="item-plus" value="+" max="300">+</button>
-
+								
 								<span class="order-number-msg" style="display: none">仅可购买<strong>300</strong>件商品
 							</span></li>
 							<li><span class="buy-area"> <input type="button"
 									class="button" id="to_NOWshopping" value="立即购买" alt="snapBut">
 									<input type="button"
 									class="button" id="to_shopping" value="加入购物车" alt="snapBut">
+									<span hidden="true" id="span-gdata"></span>
 									<a href="javascript:void(0);" title="收藏" id="add_collect_info"
 									name="add_collect_info" class="big-link2"
 									data-reveal-id="J-favorite-dialog" data-animation="fade"> <i
@@ -438,6 +438,7 @@
 				},
 				success:function(resp){
 					var goodsJSON = JSON.parse(resp).root[0];
+					$("#span-gdata").text(JSON.stringify(goodsJSON));
 					$(".deal-sj-tit").html(goodsJSON.goodsname + '<span class="prs_Unit">('+ goodsJSON.goodsunits + ')</span>');
 					$("#yufu").text("￥" + goodsJSON.pricesprice + "/" + goodsJSON.pricesunit);
 					var goods_date = goodsJSON.companydetail;
@@ -457,7 +458,9 @@
 							$(".order-num-s").val(num - 1);
 						}
 					});
-					$("#to_shopping").click(doCart);
+					$("#to_shopping").click(function (){
+						doCart(this);
+					});
 				},
 				error : function(resp){
 					var respText = eval('('+resp+')');
@@ -467,11 +470,12 @@
 			
 		});
 		//加入购物车
-		function doCart() {
+		function doCart(obj) {
+			var goodsJSON = JSON.parse($("#span-gdata").text());
 			var num = parseInt($(".order-num-s").val());
 			if (window.localStorage.getItem("sdishes") == null || window.localStorage.getItem("sdishes") == "[]") { //判断有没有购物车
 				window.localStorage.setItem("sdishes", "[]"); //创建一个购物车
-				addMdishes();
+				addMdishes(goodsJSON);
 				window.localStorage.setItem("totalnum", 1); //设置缓存中的种类数量等于一 
 				window.localStorage.setItem("totalmoney",(parseFloat(goodsJSON.pricesprice) * num).toFixed(2)); //总金额等于商品价
 				var cartnum = parseInt(window.localStorage.getItem("cartnum")); //商品总数
@@ -490,7 +494,7 @@
 										window.localStorage.setItem("cartnum",cartnum + num);
 										return false;
 									} else if (i == (tnum - 1)) {
-										addMdishes();
+										addMdishes(goodsJSON);
 										window.localStorage.setItem("totalnum",tnum + 1); //商品种类数加一
 										var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); //从缓存中取出总金额
 										var newtmoney = (tmoney + parseFloat(goodsJSON.pricesprice)* num).toFixed(2);
@@ -503,7 +507,7 @@
 			alert("成功加入购物车!");
 		}
 		//新增商品订单
-		function addMdishes() {
+		function addMdishes(goodsJSON) {
 			var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); 					//将缓存中的sdishes(字符串)转换为json对象
 			var mdishes = new Object();
 			mdishes.goodsid = goodsJSON.goodsid;
