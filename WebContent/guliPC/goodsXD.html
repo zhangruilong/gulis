@@ -624,6 +624,10 @@
 				goodsclassname = goodsJSON.givegoodsclass;
 			}
 			var num = parseInt($(".order-num-s").val());
+			if(num == 0){
+				alert('请选择购买的数量。');
+				return;
+			}
 			var flag = false;
 			if (window.localStorage.getItem("sdishes") == null || window.localStorage.getItem("sdishes") == "[]") { //判断有没有购物车
 				window.localStorage.setItem("sdishes", "[]"); 														//创建一个购物车
@@ -646,13 +650,13 @@
 				var tnum = parseInt(window.localStorage.getItem("totalnum")); 										//取出商品的总类数
 				$.each(sdishes,function(i, item) { 																	//遍历购物车中的商品
 									if (item.goodsid == goodsid && item.goodsclassname == goodsclassname) {			//如果有这个商品
-										item.orderdetnum = num;														//把商品数量修改为新的数量
 										window.localStorage.setItem("sdishes",JSON.stringify(sdishes));
-										var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); 		//从缓存中取出总金额
-										var newtmoney = (tmoney + parseFloat(price)* num).toFixed(2);
+										//var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); 		//从缓存中取出总金额 
+										var newtmoney = (parseFloat(price)* num).toFixed(2);
 										window.localStorage.setItem("totalmoney", newtmoney);
 										var cartnum = parseInt(window.localStorage.getItem("cartnum"));
-										window.localStorage.setItem("cartnum",cartnum + num);
+										window.localStorage.setItem("cartnum",(cartnum - item.orderdetnum) + num);
+										item.orderdetnum = num;														//把商品数量修改为新的数量
 										flag = true;
 										return false;
 									} else if (i == (tnum - 1)) {
@@ -701,6 +705,7 @@
 			mdishes.goodsimage = goodsJSON.givegoodsimage;
 			mdishes.orderdtype = '买赠';
 			mdishes.timegoodsnum = goodsJSON.givegoodsnum;
+			mdishes.todayxg = goodsJSON.creator;												//今日剩余的限购数量
 			sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
 			window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
 			return true;
@@ -725,6 +730,7 @@
 			mdishes.orderdtype = '秒杀';
 			mdishes.surplusnum = goodsJSON.surplusnum;
 			mdishes.timegoodsnum = goodsJSON.timegoodsnum;
+			mdishes.todayxg = goodsJSON.timegoodsdetail;										//今日剩余的限购数量
 			sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
 			window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
 			return true;

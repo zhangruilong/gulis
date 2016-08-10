@@ -26,16 +26,16 @@
             
                                 <div class="topline">
     <div class="top">
-                    <div class="toplineleft">
+                    <!-- <div class="toplineleft">
                         <a href="#"><img src="images/wjxt.jpg" width="12" height="11">收藏我们</a>
                         <span>中国消费增值示范企业</span>
-                    </div>
+                    </div> -->
                     <div class="menu">
                         <ul class="tlrtext">
                         <li><span class="topwelcome" id="index_login_button" style="color:#666666">欢迎来到谷粒网！</span></li>
-                          <li><a  href="login.html" id="index_login_button">登陆</a><span>|</span></li>
+                          <!-- <li><a  href="login.html" id="index_login_button">登陆</a><span>|</span></li>
                           
-                          <li><a href="register.html"  id="index_register_button">注册</a><span>|</span></li>
+                          <li><a href="register.html"  id="index_register_button">注册</a><span>|</span></li> -->
                           
                           <li >
                           <a class="hide"><span style="color:#666666;">用户中心</span>
@@ -228,26 +228,149 @@ $(function(){
 		$('.buybltjddltline1').text(item.companyshop);
 		$(".buyblxml3right").append('<br><span class="buyblxml3text1">'+item.companydetail+'</span>');
 	});
-	$('.buyblxml3right span:eq(1)').text(window.localStorage.getItem("totalnum"));
-	$('.buyblxml3right span:eq(4)').text('¥'+window.localStorage.getItem("totalmoney"));
+	showgszmoney();															//显示商品种类和总金额
 	$.each(sdishes,function(i,item){
 		$('.buyblxmline1').after('<div class="buyblxmline2">'+
                     '<div class="buyblxml1text4bb"><input type="checkbox" name="CheckboxGroup1" value="" id="checkbox2" /></div>'+
                     '<div class="buyblxml1text1bb"><img src="'+item.goodsimage+'" width="63" height="39"><span>'+item.goodsname+'</span></div>'+
                     '<div class="buyblxml1text2bb">可购买</div>'+
-                    '<div class="buyblxml1text2bb">'+
-                    	'<img src="images/jhicon.jpg" width="13" height="13" class="recue">'+
+                    '<div class="buyblxml1text2bb" name="'+item.goodsid+'">'+
+                    	'<img onclick="subnum(this,'+item.pricesprice+',\''+item.goodsclassname+'\')" src="images/jhicon.jpg" width="13" height="13" class="recue">'+
                     	'<input type="text" name="textfield" class="amount_input" id="input_two" value="'+item.orderdetnum+'"/>'+
-                    	'<img src="images/jhicon.png" width="13" height="13" style="margin-left:0px;margin-top:46px;width:13px;height:13px;" class="add">'+
+                    	'<img onclick="addnum(this,'+item.pricesprice+',\''+item.goodscode+'\',\''+item.goodsclassname+'\')" name="'+item.todayxg+'" src="images/jhicon.png" width="13" height="13" style="margin-left:0px;margin-top:46px;width:13px;height:13px;" class="add">'+
                     '</div>'+
                     '<div class="buyblxml1text3bb">¥'+item.pricesprice+'</div>'+
                     '<div class="buyblxml1text3bb">'+item.pricesunit+'</div>'+
                     '<div class="buyblxml1text3bb">¥'+(item.pricesprice * item.orderdetnum)+'</div>'+
-                    '<div class="buyblxml1text3bb"><img src="images/scicon.jpg" width="19" height="20" class="shoppingcard_delete"></div>'+
+                    '<div class="buyblxml1text3bb"><img onclick="delorderGoods(this,\''+item.goodsid+'\',\''+item.goodsclassname+'\')" src="images/scicon.jpg" width="19" height="20" class="shoppingcard_delete"></div>'+
                 '</div>');
 	});
-	bind_shoppingcard_event()
+	
 });
+//删除购物车中的订单商品
+function delorderGoods(obj,goodsid,goodsclassname){
+	var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
+	var ordernum = 0;
+	var dishesmoney = 0;
+	$.each(sdishes,function(i,item){
+		if(item.goodsid==goodsid && item.goodsclassname==goodsclassname){
+			ordernum = item.orderdetnum;
+			dishesmoney = item.pricesprice * item.orderdetnum;
+			sdishes.splice(i,1);											//删除订单
+			return false;
+		}
+	});
+	//种类数
+	var tnum = parseInt(window.localStorage.getItem("totalnum"));
+	window.localStorage.setItem("totalnum",tnum-1);
+	//商品数
+	var cartnum = parseInt(window.localStorage.getItem("cartnum"));
+	window.localStorage.setItem("cartnum",cartnum-ordernum);
+	//总金额
+	var tmoney = parseFloat(window.localStorage.getItem("totalmoney"));
+	var newtmoney = (tmoney-dishesmoney).toFixed(2);
+	window.localStorage.setItem("totalmoney",newtmoney);
+	window.localStorage.setItem("sdishes",JSON.stringify(sdishes));			//购物车
+	$(obj).parent().parent().remove();
+	if(JSON.stringify(sdishes) == "[]"){
+		//如果是空购物车
+		alert("购物车已清空。");
+		window.location.href = "homepage.html";
+	}
+}
+//显示商品种类和总金额
+function showgszmoney(){
+	$('.buyblxml3right span:eq(1)').text(window.localStorage.getItem("totalnum"));							//页面商品种类
+	$('.buyblxml3right span:eq(4)').text('¥'+window.localStorage.getItem("totalmoney"));					//商品总金额
+}
+//加号
+function addnum(obj,dishesprice,goodscode,goodsclassname){
+	var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
+	var cusMSOrderNum = parseInt($(obj).attr("name"));
+	var numt = $(obj).prev(); 
+	var num = parseInt(numt.val());
+	var xjobj = $(obj).parent().nextAll('div:eq(2)');							//小计金额的对象
+	if((parseInt(cusMSOrderNum) - num) <= 0){
+		alert('您购买的商品超过了限购数量。');
+	} else {
+		//总价
+		var tmoney = parseFloat(window.localStorage.getItem("totalmoney"));
+		var newtmoney = (tmoney+dishesprice).toFixed(2);
+		$("#totalmoney").text(newtmoney);
+		window.localStorage.setItem("totalmoney",newtmoney);
+		//数量
+		numt.val(num+1);
+		//订单
+		if(window.localStorage.getItem("sdishes")==null){
+			window.localStorage.setItem("sdishes","[]");
+		}
+		var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
+		//修改订单
+		$.each(sdishes, function(i, item) {
+			if(item.goodsid==$(obj).parent().attr('name')
+					&&item.goodsclassname==goodsclassname){
+				item.orderdetnum++;
+				xjobj.text("¥"+(item.orderdetnum * item.pricesprice));				//修改小计金额
+				return false;
+			}
+		});
+		window.localStorage.setItem("sdishes",JSON.stringify(sdishes));
+		var cartnum = parseInt(window.localStorage.getItem("cartnum"));
+		window.localStorage.setItem("cartnum",cartnum+1);
+		showgszmoney();															//显示商品种类和总金额
+	}
+}
+//减号
+function subnum(obj,dishesprice,goodsclassname){
+	var numt = $(obj).next(); 
+	var num = parseInt(numt.val());
+	var xjobj = $(obj).parent().nextAll('div:eq(2)');				//小计金额的对象
+	if(num > 0){
+		//总价
+		var tmoney = parseFloat(window.localStorage.getItem("totalmoney"));
+		var newtmoney = (tmoney-dishesprice).toFixed(2);
+		$("#totalmoney").text(newtmoney);
+		window.localStorage.setItem("totalmoney",newtmoney);
+		//数量
+		numt.val(num-1);
+		//订单
+		var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
+		var scompany = JSON.parse(window.localStorage.getItem("scompany"));
+		var delgoodsid = '-1';
+		if(num == 1){
+			//删除订单
+			$.each(sdishes,function(i,item){
+				if(item.goodsid==$(obj).parent().attr('name')){
+					sdishes.splice(i,1);
+					return false;
+				};
+			});
+			//种类数
+			var tnum = parseInt(window.localStorage.getItem("totalnum"));
+			window.localStorage.setItem("totalnum",tnum-1);
+			$(obj).parent().parent().remove();
+		}else{
+			//修改订单
+			$.each(sdishes, function(i, item) {
+				if(item.goodsid==$(obj).parent().attr('name')
+						&&item.goodsclassname==goodsclassname){
+					item.orderdetnum--;
+					xjobj.text("¥"+(item.orderdetnum * item.pricesprice));				//修改小计金额
+					return false;
+				}
+			});
+		}
+		window.localStorage.setItem("sdishes",JSON.stringify(sdishes));
+		var cartnum = parseInt(window.localStorage.getItem("cartnum"));
+		window.localStorage.setItem("cartnum",cartnum-1);
+		showgszmoney();															//显示商品种类和总金额
+		if(window.localStorage.getItem("sdishes") == "[]"){
+			//如果是空购物车
+			alert("购物车已清空。");
+			window.location.href = "homepage.html";
+		}
+	}
+}
 //设置供应商信息
 function setscompany(){
 	var data = JSON.parse(window.localStorage.getItem("sdishes"));
