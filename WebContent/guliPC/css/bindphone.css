@@ -1,0 +1,45 @@
+/*
+ * SimpleModal Basic Modal Dialog
+ * http://www.ericmmartin.com/projects/simplemodal/
+ * http://code.google.com/p/simplemodal/
+ *
+ * Copyright (c) 2010 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Revision: $Id: basic.css 257 2010-07-27 23:06:56Z emartin24 $
+ */
+
+#bindnewphone-modal-content {display:none;}
+
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000;}
+
+/* Container */
+#simplemodal-container {height:390px; width:600px; color:#bbb; background-color:#fff; border:1px solid #ccc; padding:0px;}
+#simplemodal-container .simplemodal-data {padding:0px;}
+
+#simplemodal-container h3 {color:#84b8d9;}
+
+
+#simplemodal-container .popup_bar{float:left;height:40px;background: #f6f6f6;width:100%;display:inline;color:#464646;line-height:40px;white-space:nowrap}
+#simplemodal-container .popup_bar span{float:left;width:auto;display:inline;padding:10px;color:#464646;height:20px;line-height:20px;}
+#simplemodal-container .popup_content{float:left;width:100%;height: 50px;margin:40px 0px 40px 0px;display:inline;}
+#simplemodal-container .popup_content img{float:left;width:50px;height:50px;margin-left:50px;display:inline;}
+#simplemodal-container .popup_content span{float:left;width:172px;color:#000000;text-align:center;height:50px;line-height:50px;font-size:16px;font-weight:bold;padding:0px;}
+#simplemodal-container .popup_content button{float:left;width:141px;height:37px;margin-top:6px;display:inline;background:url(../../images/qgwcjs.jpg) no-repeat;border:0px;cursor: pointer;}
+#simplemodal-container .popup_bar a img{float:right;width:11px;height:11px;margin:14px 10px 0px 0px;display:inline;}
+#simplemodal-container .popup_bar a{float:right;width:auto;}
+.popuphkg{float:left;width:560px;height:auto;margin-left:20px;display:inline;}
+.popuphkgtitle{float:left;width:100%;text-align:left;height:25px;line-height:25px;color:#666666;font-weight:bold;border-bottom:1px dashed #dbdbdb;margin-bottom:12px;display:inline;}
+.popuphkgblock{float:left;width:130px;height:auto;margin:0px 9px 0px 9px;display:inline;}
+.popuphkgblock img{float:left;width:100%;height:79px;margin-bottom:9px;display:inline;}
+.popuphkgblock span{float:left;width:100%;text-align:left;line-height:18px;color:#656565;font-family:Arial, Helvetica, sans-serif;padding:0px;}
+.popuphkgblock span a{float:left;color:#B81202;}
+
+
+.shopline{float:left;width:588px;height: 32px;margin:20px 0px 5px 0px;display:inline;}
+.shopline span{float:left;width:140px;height:32px;line-height:32px;text-align:right;color:#333333;font-size:14px;margin-right:15px;display:inline;}
+.shopline input{float:left;width:200px;height:22px;padding:5px;line-height:22px;border:1px solid #cccccc;}

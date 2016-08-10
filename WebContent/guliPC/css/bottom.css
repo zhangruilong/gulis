@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+.bottom{float:left;width:100%;height:auto;border-top:3px solid #ff4900;margin-top:60px;display:inline;}
+.botcon{width:1100px;margin:0 auto;}
+.botconblock{float:left;width:1000px;margin-top:13px;margin-bottom:50px;display:inline;}
+.botconbtextblock{float:left;width:130px;height:auto;margin-left:65px;display:inline;border-right:1px solid #cccccc;}
+.botconbtextblock span{float:left;width:100%;}
+.botconbtextblock span a{float:left;width:100%;text-align:left;color:#555555;line-height:30px;height:50px;text-decoration:none;font-family:Arial, Helvetica, sans-serif,宋体;font-size:16px;white-space:nowrap}
+.botconbtextblock div a{float:left;width:100%;text-align:left;color:#555555;line-height:24px;height:24px;text-decoration:none;font-family:Arial, Helvetica, sans-serif,宋体;font-size:12px;white-space:nowrap}
+.botconbtextblock span img{float:left;width:41px;height:44px;}
+.botconbtextblock span a:hover{float:left;color:#B81202;line-height:30px;height:30px;text-decoration:none;font-size:14px;}
+.botconbtextbline{float:left;height:auto;width:100%;}
+.botconbtextbline span{float:left;width:auto;}
+.bottomthk{float:left;width:230px;height:32px;margin-bottom:38px;display:inline;}
+.bottomthk img{float:left;width:29px;height:32px;margin-right:20px;display:inline;}
+.bottomthk span{float:left;width:auto;color:#555555;font-size:16px;font-weight:bold;height:32px;line-height:40px;}

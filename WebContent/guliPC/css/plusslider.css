@@ -1,0 +1,102 @@
+/**
+	plusslider Version 1.4.6
+	By Jamy Golden
+	http://css-plus.com
+**/
+
+/* plusslider Styling */
+.plusslider-container { position: relative; left: 0; }
+
+.plusslider {
+	background-color: #666;
+	/*border: 15px solid rgba(255, 255, 255, 0.3);*/
+	height: 250px;
+	margin: 0 auto;
+/*	padding-bottom: 40px;*/
+	overflow: hidden;
+	position: relative;
+}
+
+.plusslider .child { float: left; }
+
+/* Controls */
+.plusslider-pagination-wrapper {
+	height: 40px;
+	width: auto;
+	position: absolute;
+	left:49%;
+	bottom: 0;
+	z-index: 500;
+}
+
+.plusslider-pagination {
+	display: table;
+	margin: 0 auto;
+	padding: 15px 0;
+	_width:100px;
+}
+
+.plusslider-pagination li {
+	background: url(../images/dian.png) no-repeat left top;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 0;
+	height: 13px;
+	margin: 0 3px;
+	text-indent: -9999px; /*IE6 fix */
+	width: 13px;
+	position: relative;
+}
+
+.plusslider-pagination .current, .plusslider-pagination li:hover {
+	background: url(../images/dian.png) no-repeat; background-position: -17px 0;
+}
+
+.plusslider-arrows li {
+	background: url(../images/plus-sprite.png) no-repeat left top;
+	cursor: pointer;
+	display: block;
+	height: 32px;
+	margin-top: -16px;
+	opacity: 0;
+	width: 32px;
+	position: absolute;
+	top: 50%;
+	z-index: 200;
+	text-indent: -9999px;
+
+	/* Fade in/out .arrows on hover */
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-in;
+	   -moz-transition-property: opacity;
+	   -moz-transition-duration: 0.2s;
+	   -moz-transition-timing-function: ease-in;
+		-ms-transition-property: opacity;
+		-ms-transition-duration: 0.2s;
+		-ms-transition-timing-function: ease-in;
+		 -o-transition-property: opacity;
+		 -o-transition-duration: 0.2s;
+		 -o-transition-timing-function: ease-in;
+			transition-property: opacity;
+			transition-duration: 0.2s;
+			transition-timing-function: ease-in;
+}
+
+.plusslider:hover .plusslider-arrows li {opacity: 1; }
+.plusslider-arrows .prev {background-position: 0 -10px; left: 10px; }
+.plusslider-arrows .prev:hover {background-position: 0 -17px; left: 10px; }
+.plusslider-arrows .next {background-position: -33px -10px; right: 10px; }
+.plusslider-arrows .next:hover {background-position: -33px -42px; }
+
+/* PlusFader Specific */
+.plustype-fader .child { display: none; position: absolute; left: 0; top: 0; }
+.plustype-fader .current { z-index: 2; }
+.plustype-fader .plusslider-pagination { position: relative; z-index: 200; }
+
+/* no-javascript fallback */
+	.plusslider-container > * { display: none; }
+	.plusslider-container > *:first-child { display: block; }
+/* End no-javascript fallback */
+.plusslider-container .child { display: block; } /* Counter no-js fallback for cloned elements. Necessary for infiniteSlide. Without this the DOM doesn't know the position of the element */

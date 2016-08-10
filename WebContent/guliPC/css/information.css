@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+.infall{float:left;width:100%;height:auto;}
+.infcon{width:1100px;margin:0 auto;}
+.infconblock{float:left;width:1098px;height:auto;margin-top:45px;display:inline;border:1px solid #cccccc;background-color:#ffffff;}
+.infconleft{float:left;width:219px;padding-bottom:20px;display:inline;height:805px;border-right:1px solid #cccccc;}
+.infconltitle{float:left;width:193px;text-align:center;padding:13px 0px 0px 13px;display:inline;line-height:38px;}
+.infconltitle img{float:left;width:66px;height:66px;margin:0px 0px 6px 65px;display:inline;}
+.infconltitle span{float:left;width:100%;line-height:22px;text-align:center;color:#666666;}
+.infconltitle a{color:#ff4900;}
+.infconlcon{float:left;width:219px;height:auto;padding-bottom:15px;display:inline;}
+.infconlctitle2{float:left;width:70%;height:52px;line-height:52px;font-size:16px;color:#666666;font-weight:bold;font-family:微软雅黑,宋体,黑体;padding-left:30%;margin-top:13px;display:inline;border-top:1px solid #ebebeb;}
+.infconlctitle3{float:left;background-color:#e9e9e9;width:100%;height:38px;line-height:38px;font-size:14px;color:#666666;font-weight:bold;margin-bottom:8px;margin-top:10px;display:inline;}
+.infconlctitle2 img{float:left;width:9px;height:9px;margin:14px 8px 0px 32px;display:inline;}
+.infconlctitle3 img{float:left;width:9px;height:9px;margin:14px 8px 0px 32px;display:inline;}
+.infconlclist{float:left;width:100%;height:30px;}
+.infconlclist img{float:left;width:2px;height:4px;margin:13px 11px 0px 37px;display:inline;}
+.infconlcon ul li{list-style-type:none;}
+.infconlcon ul li a{float:left;width:68%;height:30px;line-height:30px;color:#666666;font-size:12px;text-decoration:none;padding-left:32%;display:inline;background:url(../images/dianicon.png) no-repeat;background-position:29% 50%;}
+.infconlcon ul li a:hover{color:#ffffff;background:url(../images/dianicon2.png) no-repeat #ff4900;background-position:29% 50%;}
+.infconright{float:right;width:800px;height:auto;padding:12px 39px 12px 39px;display:inline;}
+.infconrtitle{float:left;height:40px;line-height:40px;border-bottom:1px dashed #e3e3e3;padding-left:36px;margin-bottom:10px;width:764px;display:inline;color:#454545;font-weight:bold;font-size:14px;}
+.infconrline{float:left;width:100%;height:25px;margin:11px 0px 11px 0px;display:inline;}
+.infconrltext{float:left;width:775px;padding:0px 0px 38px 25px;display:inline;height:auto;border-bottom:1px solid #cccccc;}
+.infconrltext3{float:left;width:800px;padding:0px 0px 38px 0px;display:inline;height:auto;}
+.infconrltext div{float:left;width:100%;text-align:left;color:#555555;font-size:16px;font-weight:bold;line-height:66px;}
+
+.infconrltext3 a{float:left;width:100%;text-align:left;color:#555555;font-size:16px;font-weight:bold;line-height:66px;}
+.infconrltext3 a div{color:#ff4900;float:left;width:auto;}
+.infconrltext3 span{float:left;}
+.infconrltext span{float:left;width:360px;text-align:left;color:#666666;line-height:38px;}
+.infconrltext a{color:#ff4900;}
+.infconrltext1{float:left;width:auto;text-align:right;height:20px;line-height:20px;color:#9a9a9a;font-size:12px;margin-right:15px;display:inline;}
+.infconrlinput{float:left;width:auto;}
+.infconrlinput input{float:left;width:254px;height:23px;border:1px solid #cccccc;margin-right:5px;display:inline;}
+.infconrltext2{float:left;width:auto;height:25px;line-height:25px;}
+.infconrltext2 a{color:#0054c6;text-decoration:underline;}
+
+/*---标题样式
+	-------------------------------------------------------------------------------------------*/
+.infconrtitlea{float:left;height:50px;line-height:50px;border-bottom:2px solid #ff4900;margin-bottom:5px;width:800px;display:inline;font-weight:bold;font-size:17px;color:#666666;font-family:微软雅黑,宋体,黑体;}
+.infconrtitlea2{float:left;height:50px;line-height:50px;border-bottom:2px solid #ff4900;margin-bottom:5px;width:772px;padding-left:28px;display:inline;font-weight:bold;font-size:17px;color:#666666;font-family:微软雅黑,宋体,黑体;background:url(../images/renicon.png) no-repeat;background-position:0 50%;}
+.infconrltext a{color:#B81202;text-decoration:none;}
+
+
+
+.personrleft{float:left;width:400px;height:auto;}
+.personrright{float:right;width:222px;border:1px solid #cccccc;padding:20px;display:inline;height:auto;text-align:center;}
+.personrright2{float:right;width:384px;height:224;margin-top:50px;display:inline;}
+.personrright span{color:#343434;font-weight:bold;}
+.personrright img{width:136px;height:136px;border:0px;background:url(../images/scimg.png) no-repeat;margin-top:15px;}
+.personrright input{width:110px;height:35px;border:0px;background:url(../images/scan.png) no-repeat;margin:15px 0px 20px 0px;}
+.personrright div{color:#989898;font-size:12px;font-weight:normal;}
+.personrline{float:left;width:100%;line-height:20px;margin:11px 0px 11px 0px;display:inline;}
+.personrline span{float:left;width:auto;margin-right:15px;display:inline;color:#9a9a9a;font-size:12px;line-height:20px;}
+.personrline span div{float:right;color:#ff4900}
+.personrline span input{float:left;width:auto;margin:6px 8px 0px 0px;display:inline;}
+.personrline2{float:left;width:100%;height:25px;margin:25px 0px 11px 0px;display:inline;}
+.personrline2 input{float:left;width:123px;height:36px;border:0px;background:url(../images/bcbdan.png) no-repeat;}
+.personrline3 input{float:left;width:123px;height:36px;border:0px;background:url(../images/bcan.png) no-repeat;}
+.personrline  span a{color:#B81202;text-decoration:none;}
+
+.addressline{float:left;width:85%;margin-left:4%;height:44px;line-height:44px;padding-left:2%;background-color:#f4f4f4;border:1px solid #e8e8e8;font-size:14px;color:#B81202;}
+.addressline a{font-size:14px;color:#B81202;text-decoration:none;}
+
+/*---表格细线
+	-------------------------------------------------------------------------------------------*/
+#mdA table,#mdA table td,#mdA table th{border:1px solid #cccccc;border-collapse:collapse;}
+.mdA{float:left;width:100%;height:auto;}
+.mdAtitle{color:#999999;font-size:14px;font-weight:bold;text-align:center;background-color:#ededed;line-height:42px;}
+.mdAtext{color:#999999;font-size:12px;text-align:center;line-height:40px;}}
