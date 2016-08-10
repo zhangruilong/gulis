@@ -1,6 +1,5 @@
 package com.server.pojo;
 
-import java.sql.Date;
 /**
  * 客户反馈意见 实体类
  *@author ZhangRuiLong
