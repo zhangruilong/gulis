@@ -1,20 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="styles/index.css"/>
-<link rel="stylesheet" type="text/css" href="styles/top1.css"/>
-<link rel="stylesheet" type="text/css" href="styles/news.css"/>
-<link rel="stylesheet" type="text/css" href="styles/bottom.css"/>
-<link rel="stylesheet" type="text/css" href="styles/plusslider.css"/>
-<link rel="stylesheet" type="text/css" href="styles/buy.css"/>
-<link rel="stylesheet" type="text/css" href="styles/pay.css"/>
-<link rel="stylesheet" type="text/css" href="styles/information.css"/>
-<link rel="stylesheet" type="text/css" href="styles/order.css"/>
-<link rel="stylesheet" type="text/css" href="styles/details.css"/>
 
-
-<title>五洲汇</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+<title>谷粒网</title>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<link rel="stylesheet" type="text/css" href="css/top1.css"/>
+<link rel="stylesheet" type="text/css" href="css/news.css"/>
+<link rel="stylesheet" type="text/css" href="css/bottom.css"/>
+<link rel="stylesheet" type="text/css" href="css/plusslider.css"/>
+<link rel="stylesheet" type="text/css" href="css/buy.css"/>
+<link rel="stylesheet" type="text/css" href="css/pay.css"/>
+<link rel="stylesheet" type="text/css" href="css/information.css"/>
+<link rel="stylesheet" type="text/css" href="css/order.css"/>
+<link rel="stylesheet" type="text/css" href="css/details.css"/>
+<script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
+</script>
 </head>
 
 <body>
@@ -29,10 +33,7 @@
                     </div>
                     <div class="menu">
                         <ul class="tlrtext">
-                        <li><span class="topwelcome" id="index_login_button" style="color:#666666">欢迎来到五洲汇！</span></li>
-                          <li><a  href="login.html" id="index_login_button">登陆</a><span>|</span></li>
-                          
-                          <li><a href="register.html"  id="index_register_button">注册</a><span>|</span></li>
+                        <li><span class="topwelcome" id="index_login_button" style="color:#666666">欢迎来到谷粒网！</span></li>
                           
                           <li >
                           <a class="hide"><span style="color:#666666;">用户中心</span>
@@ -103,7 +104,7 @@
                         
                         <span><a href="food.html" >生活</a></span>
                         <span><a href="food.html" >购物</a></span>
-                        <span><a href="sjdp.html" >五洲卡</a></span>
+                        <span><a href="sjdp.html" >谷粒卡</a></span>
                         <span><a href="sjdp.html" >银行卡</a></span>
                     </div>
                     
@@ -122,20 +123,20 @@
                 </div>
             </div>
             <div class="cardblblock4">
-                <div class="cardblb4line"><span>商品清单</span><a href="#">返回购物车</a></div>
+                <div class="cardblb4line"><span>商品清单</span><a onclick="javascript:history.go(-1)" style="cursor:pointer;">返回购物车</a></div>
                 
                 <div class="cardblxm">
-                <div class="buyblxmline1">
+                <div class="buyblxmline1" name="pay-TBheader">
                     
                     <div class="buyblxml1text1ba">商品名称</div>
                     
                     <div class="buyblxml1text2ba">数量</div>
-                    <div class="buyblxml1text3ba">预付金额</div>
+                    <div class="buyblxml1text3ba">规格</div>
                     <div class="buyblxml1text3ba">单价</div>
                     <div class="buyblxml1text3ba">小计</div>
                     
                 </div>
-                <div class="buyblxmline2">
+                <!-- <div class="buyblxmline2">
                    
                     <div class="buyblxml1text1bba"><img src="images/xmimg.jpg" width="63" height="39"><span>猫眼电影【限手机选座】选座票一张。中影/金逸/和平6店通兑</span></div>
                     
@@ -154,80 +155,29 @@
                     <div class="buyblxml1text3bba">¥480</div>
                     <div class="buyblxml1text3bba">¥180</div>
                     
-                </div>
+                </div> -->
                 <div class="buyblxmline3">
                 <div class="buybltjddltext2">
-                    <div class="buybltjddltline1">将发送五洲汇券密码至手机号：</div>
-                    <div class="buybltjddltline2"><span>换号了？ </span> <span>绑定新手机号</span></div>
+                    <div class="buybltjddltline1">将发送谷粒网券密码至手机号：</div>
+                    <!-- <div class="buybltjddltline2"><span>换号了？ </span> <span>绑定新手机号</span></div> -->
                 </div>
                 <div class="buyblxml3right"><span>已选</span><span class="buyblxml3text1">2</span><span>件商品</span><span class="buyblxml3text2">&nbsp;&nbsp;应付总额：</span><span class="buyblxml3text3">¥167.9</span>
-                <br><span>温馨提示：到店还需支付</span><span class="buyblxml3text1">¥300</span><span>现金</span>
+                <!-- <br><span>温馨提示：到店还需支付</span><span class="buyblxml3text1">¥300</span><span>现金</span> -->
                 </div>
                 </div>
             </div>
             
             </div>
-            
             <div class="cardblblock4">
-              <div class="cardblb4line"><span>五洲卡支付</span></div>
-              <div class="cardblb4line2"><input type="checkbox" value="" id="all_checkbox" />
-              <span>用五洲卡余额付款 <a>180元</a> ，剩下不足余额可选择其他支付方式</span>
+              <div class="cardblb4line"><span>送货地址</span></div>
+              <div class="cardblb4line2">
+              <input type="checkbox" value="" id="all_checkbox" />
+              <span>联系人： </span><span>陶璃超</span><span>&nbsp;18207194276&nbsp;</span>
+              <span>地址： </span><span>嘉兴市海盐县元通兔业专业合作社凤凰八组凤凰大道东8号</span>
               </div>
             </div>
-            <div class="cardblblock4">
-            <div class="cardblb4line"><span>银联支付</span></div>
-            <div class="payzffsblock">
-                 
-                 <div class="payzffsbline"><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><span>全额支付</span></div>
-                 <div class="payzffsbline"><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><span>预付订金</span></div>
-                 <div class="payzffsblock2">
-                     <div class="payzffsb2line"  id="online_pay_button"> <img src="images/jticon.jpg" width="9" height="7" id="online_pay_bank_img">网上银行支付&nbsp;<span>（支持储蓄卡和信用卡）</span></div>
-                     
-                     <div class="payzffsblock3">
-                         <div class="payzffsb3line">
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                         </div>
-                         <div class="payzffsb3line">
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                         </div>
-                         <div class="payzffsb3line">
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                         </div>
-                         <div class="payzffsb3line">
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                         </div>
-                         <div class="payzffsb3line">
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                         </div>
-                         <div class="payzffsb3line">
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             <span><input type="radio" name="RadioGroup1" value="" id="RadioGroup1_0" /><img src="images/gsyhimg.jpg" width="147" height="34"></span>
-                             
-                         </div>
-                     </div>
-                     
-                     <div class="payzffsb2linea"> <img src="images/jticon.jpg" width="7" height="9">网上银行支付&nbsp;<span>（支持储蓄卡和信用卡）</span></div>
-                     </div>
-            </div>
-            </div>
-            
             <div class="payxyblinez">
-            <div class="payxybline">
-            <div class="buyblxml3right"><span class="buyblxml3text2">&nbsp;&nbsp;应付总额：</span><span class="buyblxml3text3">¥167.9</span>
-                <br><span>温馨提示：到店还需支付</span><span class="buyblxml3text1">¥300</span><span>现金</span>
-                </div>
-              </div>
-             <input type="submit" name="button" id="pay_next_button" value="" /></div>
+             <input type="button" name="button" id="pay_next_button" value="" onclick="sortingData()" /></div>
             <!--<div class="payxybline2"><a href="#">返回修改订单&nbsp;&nbsp;&nbsp;</a></div>-->
             
             
@@ -240,14 +190,200 @@
         
     </div>
 
-    
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.plusslider.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    
+    <script type="text/javascript" src="js/cart-pay.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
-    <script type="text/javascript" src="wzhjs/pay.js"></script>
-    
+    <script type="text/javascript" src="js/pay.js"></script>
+<script type="text/javascript">
+$(function(){
+	var scompany = setscompany();
+	var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
+	$.each(scompany,function(i,item){
+		$('.buybltjddltline1').text(item.companyshop);
+		$(".buyblxml3right").append('<br><span class="buyblxml3text1">'+item.companydetail+'</span>');
+	});
+	showgszmoney();															//显示商品种类和总金额
+	$.each(sdishes,function(i,item){
+		$(".buyblxmline1[name='pay-TBheader']").after('<div class="buyblxmline2">'+
+                '<div class="buyblxml1text1bba">'+
+                	'<img src="'+item.goodsimage+'" width="63" height="39">'+
+                	'<span>'+item.goodsname+'</span>'+
+                '</div>'+
+                '<div class="buyblxml1text2bba">'+item.orderdetnum+'</div>'+
+                '<div class="buyblxml1text3bba">'+item.pricesunit+'</div>'+
+                '<div class="buyblxml1text3bba">¥'+item.pricesprice+'</div>'+
+                '<div class="buyblxml1text3bba">¥'+(item.pricesprice * item.orderdetnum)+'</div>'+
+            '</div>');
+	});
+	$.ajax({
+		url:"AddressAction.do?method=selAll",
+		type:"post",
+		data:{
+			wheresql:"addresscustomer='"+customer.customerid+"'",
+			order : "addressture desc"
+		},
+		success : function(resp){
+			var data = JSON.parse(resp);
+			var item = data.root[0];
+			$(".shouhuo-wrap a span:eq(0)").text('收货人：'+item.addressconnect+' '+item.addressphone);
+			$(".shouhuo-wrap a span:eq(1)").text('收货地址: '+item.addressaddress);
+			$("#addressconnect").text(item.addressconnect);
+			$("#addressphone").text(item.addressphone);
+			$("#addressaddress").text(item.addressaddress);
+		},
+		error : function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+});
+//将购物车写入订单表
+function buy(){
+	$("#buyall").attr('onclick','');											//禁用按钮
+	var scompany = JSON.parse(window.localStorage.getItem("scompany"));
+	var flag = 0;
+	$.each(scompany, function(y, mcompany) {
+		//alert(JSON.stringify(mcompany));
+		var ordermjson = '[{"ordermcustomer":"' + customer.customerid
+				+ '","ordermcompany":"' + mcompany.ordermcompany 
+				+ '","ordermnum":"' + mcompany.ordermnum
+				+ '","ordermmoney":"' + mcompany.ordermmoney
+				+ '","ordermconnect":"' + $("#addressconnect").text()
+				+ '","ordermphone":"' + $("#addressphone").text()
+				+ '","ordermaddress":"' + $("#addressaddress").text()
+				+ '","ordermway":"货到付款"}]';
+		var orderdetjson = '[';
+		var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
+		$.each(sdishes, function(i, item) {
+			//alert(JSON.stringify(item));
+			if(item.orderdtype == '秒杀' && item.orderdetnum > item.surplusnum){
+				$(".meg").text("您购买的秒杀商品卖完了.......");
+				$(".cd-popup-ok").attr("onclick","javascript:window.location.href = 'cart.jsp'");
+				$('.cd-popup').addClass('is-visible');			//弹窗
+				flag++;
+				return false;
+			}
+			if(mcompany.ordermcompany == item.goodscompany)
+				orderdetjson += '{"orderdid":"' + item.goodsid
+						+ '","orderdcode":"' + item.goodscode
+						+ '","orderdtype":"' + item.orderdtype
+						+ '","orderdname":"' + item.goodsname
+						+ '","orderddetail":"' + item.goodsdetail
+						+ '","orderdunits":"' + item.goodsunits
+						+ '","orderdprice":"' + item.pricesprice
+						+ '","orderdunit":"' + item.pricesunit
+						+ '","orderdclass":"' + item.goodsclassname
+						+ '","orderdnum":"' + item.orderdetnum
+						+ '","orderdmoney":"' + (item.pricesprice * item.orderdetnum).toFixed(2)
+						+ '"},';
+		});
+		if(flag > 0){
+			return false;
+		}
+		orderdetjson = orderdetjson.substr(0, orderdetjson.length - 1) + ']';
+		saveOrder(ordermjson,orderdetjson);
+     });
+}
+//保存订单和订单详情
+function saveOrder(ordermjson,orderdetjson){
+	$.ajax({
+		url : 'OrdermAction.do?method=addOrder',
+		type:"post",
+		data : {
+			json : ordermjson,
+			orderdetjson : orderdetjson
+		},
+		success : function(resp) {
+			var respText = eval('('+resp+')'); 
+			if(respText.success == false) {
+				alert(respText.msg);
+			} else {
+				window.localStorage.setItem("sdishes", "[]");
+				window.localStorage.setItem("totalnum", 0);
+				window.localStorage.setItem("totalmoney", 0);
+				window.localStorage.setItem("cartnum", 0);
+				alert("下单成功！");
+				window.location.href = "payOK.html";
+			}
+		},
+		error : function(resp) {
+			$("#buyall").attr('onclick','sortingData();');//启用按钮
+			alert('网络出现问题，请稍后再试');
+		}
+	});
+}
+//整理购物车数据
+function sortingData(){
+	if(confirm('确认货到付款么?') == false){
+		return;
+	}
+	$("#pay_next_button").attr('onclick','');											//禁用按钮
+	$.ajax({
+		url:"OrderdAction.do?method=sortingSdiData",
+		type:"post",
+		data:{
+			json:window.localStorage.getItem("sdishes"),
+			customerid:customer.customerid
+		},
+		success:function(resp){
+			var respText = eval('('+resp+')');
+			if(respText.msg == '您购买的：'){
+				var jsds = respText.root;										//sdishes的json
+				window.localStorage.setItem("sdishes",JSON.stringify(jsds));
+				var newcartnum = 0;
+				var totalmoney = 0.00;
+				var totalnum = 0;
+				$.each(jsds,function(i,item){
+					var money = parseFloat(parseFloat(item.pricesprice) * parseFloat(item.orderdetnum)).toFixed(2);
+					newcartnum += parseInt(item.orderdetnum);
+					totalmoney = parseFloat(money) + totalmoney;
+					totalnum++;
+				});
+				window.localStorage.setItem("cartnum",newcartnum);
+				window.localStorage.setItem("totalmoney",totalmoney.toFixed(2));
+				window.localStorage.setItem("totalnum",totalnum);
+				setscompany();		//设置供应商信息
+				buy();
+			} else {
+				alert(respText.msg);
+				var jsds = respText.root;										//sdishes的json
+				window.localStorage.setItem("sdishes",JSON.stringify(jsds));
+				var newcartnum = 0;
+				var totalmoney = 0.00;
+				var totalnum = 0;
+				$.each(jsds,function(i,item){
+					var money = parseFloat(parseFloat(item.pricesprice) * parseFloat(item.orderdetnum)).toFixed(2);
+					newcartnum += parseInt(item.orderdetnum);
+					totalmoney = parseFloat(money) + totalmoney;
+					totalnum++;
+				});
+				window.localStorage.setItem("cartnum",newcartnum);
+				window.localStorage.setItem("totalmoney",totalmoney.toFixed(2));
+				window.localStorage.setItem("totalnum",totalnum);
+				setscompany();		//设置供应商信息
+				if(respText.root.length == 0){
+					alert("购物车中没有商品.");
+					window.location.href = "homepage.html";
+					return;
+				}
+				buy();
+			}
+		},
+		error : function(resp) {
+			$("#buyall").attr('pay_next_button','sortingData()');								//启用按钮
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+}
+//显示商品种类和总金额
+function showgszmoney(){
+	$('.buyblxml3right span:eq(1)').text(window.localStorage.getItem("totalnum"));							//页面商品种类
+	$('.buyblxml3right span:eq(4)').text('¥'+window.localStorage.getItem("totalmoney"));					//商品总金额
+}
+</script>
 
 </body>
 </html>

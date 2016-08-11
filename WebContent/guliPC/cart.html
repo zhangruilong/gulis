@@ -17,7 +17,9 @@
 <link rel="stylesheet" type="text/css" href="css/order.css"/>
 <link rel="stylesheet" type="text/css" href="css/details.css"/>
 <link rel="stylesheet" type="text/css" href="css/bindphone.css">
-
+<script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
+</script>
 </head>
 
 <body>
@@ -170,7 +172,7 @@
                     <div class="buybltjddltline1">将发送谷粒网券密码至手机号：</div>
                     <!-- <div class="buybltjddltline2"><span>换号了？ </span> <span>绑定新手机号</span></div> -->
                 </div>
-                <div class="buyblxml3right"><span>共有</span><span class="buyblxml3text1">2</span><span>种商品</span><span class="buyblxml3text2">&nbsp;&nbsp;应付总额：</span><span class="buyblxml3text3">¥167.9</span>
+                <div class="buyblxml3right"><span>共有</span><span class="buyblxml3text1"></span><span>种商品</span><span class="buyblxml3text2">&nbsp;&nbsp;</span><span class="buyblxml3text3"></span>
                 <!-- <br><span>温馨提示：到店还需支付</span><span class="buyblxml3text1">¥300</span><span>现金</span> -->
                 </div>
                 </div>
@@ -178,7 +180,7 @@
             
             <div class="buybltjddline">
                 
-                <div class="buybltjddlbt"><input type="submit" name="button" value="" id="shopping_card_submit_order_button"/></div>
+                <div class="buybltjddlbt"><input type="button" name="button" onclick="nextpage()" value="" id="shopping_card_submit_order_button"/></div>
             </div>
         </div>
         
@@ -216,11 +218,10 @@
     <script type="text/javascript" src="js/jquery.simplemodal.js"></script>
     <script type="text/javascript" src="js/jquery.plusslider.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    
+    <script type="text/javascript" src="js/cart-pay.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
     <script type="text/javascript" src="js/shoppingcard.js"></script>
 <script type="text/javascript">
-var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function(){
 	var scompany = setscompany();
 	var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
@@ -247,6 +248,69 @@ $(function(){
 	});
 	
 });
+
+//点击结算时执行的方法
+function nextpage(){
+	//整理购物车数据
+	$("#shopping_card_submit_order_button").attr('onclick','');											//禁用按钮
+	$.ajax({
+		url:"OrderdAction.do?method=sortingSdiData",
+		type:"post",
+		data:{
+			json:window.localStorage.getItem("sdishes"),
+			customerid:customer.customerid
+		},
+		success:function(resp){
+			var respText = eval('('+resp+')');
+			if(respText.msg == '您购买的：'){
+				var jsds = respText.root;										//sdishes的json
+				window.localStorage.setItem("sdishes",JSON.stringify(jsds));
+				var newcartnum = 0;
+				var totalmoney = 0.00;
+				var totalnum = 0;
+				$.each(jsds,function(i,item){
+					var money = parseFloat(parseFloat(item.pricesprice) * parseFloat(item.orderdetnum)).toFixed(2);
+					newcartnum += parseInt(item.orderdetnum);
+					totalmoney = parseFloat(money) + totalmoney;
+					totalnum++;
+				});
+				window.localStorage.setItem("cartnum",newcartnum);
+				window.localStorage.setItem("totalmoney",totalmoney.toFixed(2));
+				window.localStorage.setItem("totalnum",totalnum);
+				setscompany();		//设置供应商信息
+				window.location.href = "pay.html";
+			} else {
+				alert(respText.msg);
+				var jsds = respText.root;										//sdishes的json
+				window.localStorage.setItem("sdishes",JSON.stringify(jsds));
+				var newcartnum = 0;
+				var totalmoney = 0.00;
+				var totalnum = 0;
+				$.each(jsds,function(i,item){
+					var money = parseFloat(parseFloat(item.pricesprice) * parseFloat(item.orderdetnum)).toFixed(2);
+					newcartnum += parseInt(item.orderdetnum);
+					totalmoney = parseFloat(money) + totalmoney;
+					totalnum++;
+				});
+				window.localStorage.setItem("cartnum",newcartnum);
+				window.localStorage.setItem("totalmoney",totalmoney.toFixed(2));
+				window.localStorage.setItem("totalnum",totalnum);
+				setscompany();		//设置供应商信息
+				if(respText.root.length == 0){
+					alert("购物车中没有商品.");
+					window.location.href = "homepage.html";
+					return;
+				}
+				window.location.href = "pay.html";
+			}
+		},
+		error : function(resp) {
+			$("#shopping_card_submit_order_button").attr('onclick','nextpage()');								//启用按钮
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+}
 //删除购物车中的订单商品
 function delorderGoods(obj,goodsid,goodsclassname){
 	var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
@@ -371,40 +435,7 @@ function subnum(obj,dishesprice,goodsclassname){
 		}
 	}
 }
-//设置供应商信息
-function setscompany(){
-	var data = JSON.parse(window.localStorage.getItem("sdishes"));
-	var scompany = new Array();
-	$.each(data, function(i, item) {
-		if(scompany.length==0){
-			var mcompany = new Object();
-			mcompany.ordermcompany = item.goodscompany;
-			mcompany.companyshop = item.companyshop;
-			mcompany.companydetail = item.companydetail;
-			mcompany.ordermnum = 1;
-			mcompany.ordermmoney = (item.pricesprice * item.orderdetnum).toFixed(2);
-			scompany.push(mcompany);
-		}else{
-			$.each(scompany, function(y, item2) {
-				if(item2.ordermcompany == item.goodscompany){
-					item2.ordermnum += 1;
-					item2.ordermmoney = (parseFloat(item2.ordermmoney) + item.pricesprice * item.orderdetnum).toFixed(2);
-					return false;
-				}else if(y==scompany.length-1){
-					var mcompany = new Object();
-					mcompany.ordermcompany = item.goodscompany;
-					mcompany.companyshop = item.companyshop;
-					mcompany.companydetail = item.companydetail;
-					mcompany.ordermnum = 1;
-					mcompany.ordermmoney = (item.pricesprice * item.orderdetnum).toFixed(2);
-					scompany.push(mcompany);
-				}
-			});
-		}
-	});
-	window.localStorage.setItem("scompany",JSON.stringify(scompany));
-	return scompany;
-}
+
 </script>
 
 </body>

@@ -309,6 +309,7 @@ public class BaseActionDao extends BaseDao {
 		String end = TypeUtil.intToString(endtemp);
 		String wheresql = request.getParameter("wheresql");
 		String query = request.getParameter("query");
+		String order = request.getParameter("order");
 		Queryinfo queryinfo = new Queryinfo(null, start, end, wheresql, query, null);
 		return queryinfo;
 	}
