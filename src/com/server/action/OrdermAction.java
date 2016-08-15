@@ -164,7 +164,11 @@ public class OrdermAction extends BaseActionDao {
 		}
 		if(result.equals(CommonConst.FAILURE)){
 			result = "{success:false,msg:'服务器异常,操作失败'}";
-		}/* else {
+		} else {
+			result = "{success:true,code:202,msg:'操作成功',mOrdermid:'"+mOrdermid+"'}";
+		}
+		
+		/* else {
 			result = updSingle(cuss.get(0),TimegoodsPoco.KEYCOLUMN);
 			//updSingle(TimegoodsPoco.TABLE, "statue=0", "id!=1 and");			//这是修改
 			//doSingle("update a =1");											//这是执行一条sql语句

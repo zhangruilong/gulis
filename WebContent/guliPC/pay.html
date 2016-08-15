@@ -168,13 +168,13 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
             </div>
             
             </div>
-            <div class="cardblblock4">
+            <div class="cardblblock4" name="pay-address">
               <div class="cardblb4line"><span>送货地址</span></div>
-              <div class="cardblb4line2">
+              <!-- <div class="cardblb4line2">
               <input type="checkbox" value="" id="all_checkbox" />
-              <span>联系人： </span><span>陶璃超</span><span>&nbsp;18207194276&nbsp;</span>
-              <span>地址： </span><span>嘉兴市海盐县元通兔业专业合作社凤凰八组凤凰大道东8号</span>
-              </div>
+              <span>联系人： </span><span name="pay-addcontact">陶璃超</span><span class="pay-addphone">18207194276</span>
+              <span>地址： </span><span name="pay-addaddress">嘉兴市海盐县元通兔业专业合作社凤凰八组凤凰大道东8号</span>
+              </div> -->
             </div>
             <div class="payxyblinez">
              <input type="button" name="button" id="pay_next_button" value="" onclick="sortingData()" /></div>
@@ -226,12 +226,14 @@ $(function(){
 		},
 		success : function(resp){
 			var data = JSON.parse(resp);
-			var item = data.root[0];
-			$(".shouhuo-wrap a span:eq(0)").text('收货人：'+item.addressconnect+' '+item.addressphone);
-			$(".shouhuo-wrap a span:eq(1)").text('收货地址: '+item.addressaddress);
-			$("#addressconnect").text(item.addressconnect);
-			$("#addressphone").text(item.addressphone);
-			$("#addressaddress").text(item.addressaddress);
+			$.each(data.root,function(i,item){
+				$('div[name="pay-address"]').append('<div style="width:100%" class="cardblb4line2">'+
+              '<input type="radio"/>'+
+              '<span>联系人： </span><span name="pay-addcontact">'+item.addressconnect+'</span><span class="pay-addphone">'+item.addressphone+'</span>'+
+              '<span>地址： </span><span name="pay-addaddress">'+item.addressaddress+'</span>'+
+              '</div>');
+			});
+			$('div[name="pay-address"] input:eq(0)').attr("checked",true);
 		},
 		error : function(resp){
 			var respText = eval('('+resp+')');
@@ -243,6 +245,9 @@ $(function(){
 function buy(){
 	$("#buyall").attr('onclick','');											//禁用按钮
 	var scompany = JSON.parse(window.localStorage.getItem("scompany"));
+	var ordermconnect = $('div[name="pay-address"] input:checked').nextAll('[name="pay-addcontact"]').text();
+	var ordermphone = $('div[name="pay-address"] input:checked').nextAll('.pay-addphone').text();
+	var ordermaddress = $('div[name="pay-address"] input:checked').nextAll('[name="pay-addaddress"]').text();
 	var flag = 0;
 	$.each(scompany, function(y, mcompany) {
 		//alert(JSON.stringify(mcompany));
@@ -250,9 +255,9 @@ function buy(){
 				+ '","ordermcompany":"' + mcompany.ordermcompany 
 				+ '","ordermnum":"' + mcompany.ordermnum
 				+ '","ordermmoney":"' + mcompany.ordermmoney
-				+ '","ordermconnect":"' + $("#addressconnect").text()
-				+ '","ordermphone":"' + $("#addressphone").text()
-				+ '","ordermaddress":"' + $("#addressaddress").text()
+				+ '","ordermconnect":"' + ordermconnect
+				+ '","ordermphone":"' + ordermphone
+				+ '","ordermaddress":"' + ordermaddress
 				+ '","ordermway":"货到付款"}]';
 		var orderdetjson = '[';
 		var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
@@ -288,6 +293,7 @@ function buy(){
 }
 //保存订单和订单详情
 function saveOrder(ordermjson,orderdetjson){
+	var odjs = eval('('+ordermjson+')');
 	$.ajax({
 		url : 'OrdermAction.do?method=addOrder',
 		type:"post",
@@ -305,7 +311,7 @@ function saveOrder(ordermjson,orderdetjson){
 				window.localStorage.setItem("totalmoney", 0);
 				window.localStorage.setItem("cartnum", 0);
 				alert("下单成功！");
-				window.location.href = "payOK.html";
+				window.location.href = "payOK.html?odmmy="+odjs[0].ordermmoney+"&odmid="+respText.mOrdermid;
 			}
 		},
 		error : function(resp) {
