@@ -68,4 +68,40 @@ public class OrdermviewAction extends BaseActionDao {
 		result = CommonConst.GSON.toJson(pageinfo);
 		responsePW(response, result);
 	}
+	//分页查询
+	public void mselQuery(HttpServletRequest request, HttpServletResponse response){
+		Queryinfo queryinfo = getQueryinfo(request);
+		queryinfo.setType(Ordermview.class);
+		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
+		queryinfo.setOrder(OrdermviewPoco.ORDER);
+		String customerid = request.getParameter("customerid");
+		String begindate = request.getParameter("begindate");
+		String enddate = request.getParameter("enddate");
+		String beginmoney = request.getParameter("beginmoney");
+		String endmoney = request.getParameter("endmoney");
+		String companyname = request.getParameter("companyname");
+		String wheresql = "ordermcustomer='"+customerid+"'";
+		if(CommonUtil.isNotNull(begindate)){
+			wheresql += " and ordermtime>='"+begindate+"'";
+		}
+		if(CommonUtil.isNotNull(enddate)){
+			wheresql += " and ordermtime<='"+enddate+" 24'";
+		}
+		if(CommonUtil.isNotNull(beginmoney)){
+			wheresql += " and ordermmoney>='"+beginmoney+"'";
+		}
+		if(CommonUtil.isNotNull(endmoney)){
+			wheresql += " and ordermmoney<='"+endmoney+"'";
+		}
+		if(CommonUtil.isNotNull(companyname)){
+			wheresql += " and companyshop like '%"+companyname+"%'";
+		}
+//			if(CommonUtil.isNotNull(wheresql)){
+//				wheresql = wheresql.substring(5,wheresql.length());
+//			}
+		queryinfo.setWheresql(wheresql);
+		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
+		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
 }

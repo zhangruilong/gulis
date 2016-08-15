@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+<title>谷粒网</title>
+<link rel="stylesheet" type="text/css" href="css/top1.css"/>
+<link rel="stylesheet" type="text/css" href="css/information.css"/>
+<link rel="stylesheet" type="text/css" href="css/order.css"/>
+<link rel="stylesheet" type="text/css" href="css/bottom.css"/>
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+
+</script>
+</head>
+
+<body>
+        <!--标题-->
+        <div class="infconrtitlea">我的订单</div>
+        <div class="infconrltext3">
+        <a>我的商品订单</a>
+        <div class="orderblock">
+            
+            <!--订单表格-->
+            <div class="orderbconblock">
+                <div class="orderbcbtitleline">
+                    <div class="orderbcbtltext1">订单和供应商</div>
+                    <div class="orderbcbtltext2">品种数量数量</div>
+                    <div class="orderbcbtltext2">支付方式</div>
+                    <div class="orderbcbtltext2">下单金额</div>
+                    <div class="orderbcbtltext2">实际金额</div>
+                    <div class="orderbcbtltext2">订单状态</div>
+                    <div class="orderbcbtltext2">下单时间</div>
+                    <div class="orderbcbtltext2">操作</div>
+                </div>
+                <!-- <div class="orderbcbconline">
+                    <div class="orderbcbcltext1">
+                    <div class="orderbcbclt1line"><a>订单号：G2012123301011234001</a></div>
+                    <div class="orderbcbclt1line"><img src="images/schg.jpg" width="75" height="46"><span>四川火锅代金券1张,美味四川火锅</span></div></div>
+                    <div class="orderbcbcltext2">1</div>
+                    <div class="orderbcbcltext2">ferw56k</div>
+                    <div class="orderbcbcltext2">¥82</div>
+                    <div class="orderbcbcltext2">¥10</div>
+                    <div class="orderbcbcltext3">未付款<br><a href="#" class="userinfo_orderinfo">订单详情</a></div> 
+                    <div class="orderbcbcltext2">2014-12-30</div>
+                    <div class="orderbcbcltext3" >
+                    <a href="#">退款</a><br>
+                    <a>查看密码</a><br>
+                    <a href="#" class="userinfo_orderinfo">订单详情</a></div>
+                </div> -->
+            </div>
+        </div>
+        </div>  
+
+<script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
+	$.ajax({
+		url:"OrdermviewAction.do?method=mselQuery",
+		type:"post",
+		data:{
+			customerid:customer.customerid
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			$.each(data.root,function(i,item){
+				$('.orderbconblock').append('<div class="orderbcbconline">'+
+	                    '<div class="orderbcbcltext1">'+
+	                    '<div class="orderbcbclt1line"><a>订单号：'+item.ordermcode+'</a></div>'+
+	                    '<div class="orderbcbclt1line"><span>'+item.companyshop+'</span></div></div>'+
+	                    '<div class="orderbcbcltext2">'+item.ordermnum+'</div>'+
+	                    '<div class="orderbcbcltext2">货到付款</div>'+
+	                    '<div class="orderbcbcltext2">¥'+item.ordermmoney+'</div>'+
+	                    '<div class="orderbcbcltext2">¥'+item.ordermrightmoney+'</div>'+
+	                    '<div class="orderbcbcltext3">'+item.ordermstatue+'<br><a href="#" class="userinfo_orderinfo">订单详情</a></div> '+
+	                    '<div class="orderbcbcltext2">'+item.ordermtime.substring(0,10)+'</div>'+
+	                    '<div class="orderbcbcltext3" >'+
+	                    '<a href="#">退款</a><br>'+
+	                    '<a>查看密码</a><br>'+
+	                    '<a href="#" class="userinfo_orderinfo">订单详情</a></div>'+
+	                '</div>');
+			});
+		},
+		error : function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+		}
+	});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
