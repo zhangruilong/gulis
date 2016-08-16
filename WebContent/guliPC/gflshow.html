@@ -34,21 +34,8 @@
 								<LI><A
 									href="#">用户中心<I class="triangleIco"></I></A>
 									<UL class="topMenu-text">
-
-										<LI><A id="topbar_userinfo"
-											href="#">个人资料</A></LI>
-										<LI><A id="user_accountinfo"
-											href="#">基本信息</A></LI>
-										<LI><A id="topbar_bindwzk"
-											href="#">我的谷粒卡</A></LI>
-										<LI><A id="topbar_collect"
-											href="#">我的收藏</A></LI>
-										<LI><A id="topbar_jifen"
-											href="#">我的积分</A></LI>
-										<LI><A
-											href="#">我的评价</A></LI>
 										<LI><A id="topbar_order"
-											href="#">我的订单</A></LI>
+											href="myorder.html">我的订单</A></LI>
 									</UL></LI>
 								<LI style="display: none;"><A id="shopping_card_button"
 									href="#"><I
@@ -278,12 +265,6 @@
 									</DD> -->
 								</DL>
 							</LI>
-							<!-- <LI class="select-result">
-								<DL>
-									<DT>已选条件：</DT>
-									<DD class="select-no">暂时没有选择过滤条件</DD>
-								</DL>
-							</LI> -->
 						</UL>
 						<!--online_sorting-->
 					</DIV>
@@ -298,56 +279,37 @@
 			</div> -->
 			<!--sp-Title-->
 			<DIV id="leftSubject">
-				<!-- <DIV style="display: none;">
-					<INPUT name="checkbox" id="check0" type="checkbox">
-				</DIV>
-				<DIV class="sp-dataBox">
-					<A class="pro-a-box"
-						href="javascript:void(0)"
-						target="_blank"><SPAN class="spImg"
-						href="/product.html?goodsno=SP2015101315412529181" target="_blank"><IMG
-							class="scrollLoading"
-							onerror="this.src='/images/default-loading.gif'" alt=""
-							data-url="">
-
-							<DIV class="pro-label">
-								<LI class="discount">享<BR>
-								<SPAN id="comment30" style="color: white;">7.1</SPAN>折
-								</LI>
-							</DIV></SPAN><SPAN class="sp-info">
-							<H3 title="【洛社五洲哥伦布广场】韩国雪花冰">【洛社五洲哥伦布广场】韩国雪花冰</H3>
-					</SPAN><SPAN title="单人套餐，不限时段通用，免费WiFi！" class="sp-Text" id="title0"></SPAN>
-						<DIV class="sp-priceTit">
-							<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG
-								id="memberPrice0" style="color: rgb(255, 73, 0);">19.80</STRONG>
-								<SPAN class="stores-jia">门店价<DEL id="originalPrice0">28.00</DEL></SPAN>
-							</SPAN>
-						</DIV>
-						<DIV class="sp-sold">
-							<SPAN class="sold-num">已售<STRONG>1</STRONG></SPAN>
-						</DIV>
-						</A>
-				</DIV> -->
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript">
+//获取url中的参数
+function getQueryString2(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+    	alert(window.location);
+        return unescape(r[2]);
+    }
+    return null;
+}
 var smzq = getQueryString('smzq');
+var qucon = getQueryString2('qucon');
 var parent = '';
+alert(qucon);
 $(function(){
 	if(smzq == 'miaoshazhuanqu'){
 		mspage();
 	} else if(smzq == 'maizengzhuanqu'){
 		mzpage();
 	} else if(smzq == 'pingpaizhuanqu'){
-		goodspage(0);
+		goodspage(qucon);
 	} else if(smzq == 'luojiazhuanqu'){
 		parent=getQueryString('parent');
-		ljzuddpage(parent);
+		ljzuddpage(parent,qucon);
 	}
 });
 //裸价专区条件查询
-function ljcond(obj){
-	$(obj).parent().addClass('selected').siblings().removeClass('selected');//此处添加了class后在goodspage方法中整个class被remove掉了,应该查询条件只查询一次,而商品多次更新
-	ljzuddpage(parent,$(obj).attr("name"));
+function ljcond(classname){
+	ljzuddpage(parent,classname);
 }
 //裸价专区
 function ljzuddpage(parent,goodsclass){
@@ -365,16 +327,18 @@ function ljzuddpage(parent,goodsclass){
 		success:function(resp){
 			var data = eval('('+resp+')');
 			if(data.msg=='操作成功'){
-				if(typeof(goodsclass) == "undefined" && !goodsclass){				//如果没有条件就初始化导航搜索栏
+				//if(typeof(goodsclass) == "undefined" || !goodsclass){				//如果没有条件就初始化导航搜索栏
 					$("dl[name='populargroup'] dd").remove();
 					$.each(data.root[1],function(i,item){
 						if(i==0){
-							$("dl[name='populargroup']").append('<DD class="selected"><A name="'+item.goodsclassname+'" onclick="ljcond(this);" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+item.goodsid+'</A></DD>');
+							$("dl[name='populargroup']").append('<DD class="selected"><A name="'+item.goodsclassname+'" onclick="ljcond(\''+item.goodsclassname+'\');" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+item.goodsid+'</A></DD>');
 						} else {
-							$("dl[name='populargroup']").append('<DD><A name="'+item.goodsclassname+'" onclick="ljcond(this);" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+item.goodsid+'</A></DD>');
+							$("dl[name='populargroup']").append('<DD><A name="'+item.goodsclassname+'" onclick="ljcond(\''+item.goodsclassname+'\');" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+item.goodsid+'</A></DD>');
 						}
 					});
-				}
+					//alert(goodsclass);
+					$("dl[name='populargroup'] dd a[name='"+goodsclass+"']").parent().addClass('selected').siblings().removeClass('selected');
+				//}
 				$.each(data.root[0],function(i,item){
 					if(i % 3 == 2){
 						var goods = '<DIV class="sp-dataBox tailThree">';
@@ -413,10 +377,10 @@ function ljzuddpage(parent,goodsclass){
 //条件查询(品牌专区)
 function querycondition(con,obj){
 	$(obj).parent().addClass('selected').siblings().removeClass('selected');
-	goodspage(0,con);
+	goodspage(con);
 }
 //品牌专区商品
-function goodspage(pagenow,goodsbrand){
+function goodspage(goodsbrand){
 	$(".sp-dataBox").remove();
 	$.ajax({
 		url:'GoodsviewAction.do?method=mselAll&goodsbrand='+typeNullFoString(goodsbrand),
@@ -439,6 +403,7 @@ function goodspage(pagenow,goodsbrand){
 							$("dl[name='populargroup']").append('<DD><A name="'+item.goodsbrand+'" onclick="querycondition(\''+item.goodsbrand+'\',this);" href="javascript:void(0);">'+item.goodsbrand+'&nbsp; '+item.goodsid+'</A></DD>');
 						}
 					});
+					$("dl[name='populargroup'] dd a[name='"+goodsbrand+"']").parent().addClass('selected').siblings().removeClass('selected');
 				}
 				$.each(data.root[0],function(i,item){
 					if(i % 3 == 2){

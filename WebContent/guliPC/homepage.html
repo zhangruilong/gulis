@@ -6,164 +6,160 @@
 <title>谷粒网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-<LINK href="css/global.css" rel="stylesheet">
-<LINK href="css/layout.css" rel="stylesheet">
-<LINK href="css/color.css" rel="stylesheet">
-<LINK href="css/normalize.css" rel="stylesheet">
-<LINK href="css/main.css" rel="stylesheet">
-<LINK href="css/wzhWeb.css" rel="stylesheet">
+<liNK href="css/global.css" rel="stylesheet">
+<liNK href="css/layout.css" rel="stylesheet">
+<liNK href="css/color.css" rel="stylesheet">
+<liNK href="css/normalize.css" rel="stylesheet">
+<liNK href="css/main.css" rel="stylesheet">
+<liNK href="css/wzhWeb.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<SCRIPT type="text/javascript">
+<script type="text/javascript">
 	var customer = JSON.parse(window.localStorage.getItem("customer"));
 	if(!window.localStorage.getItem("customer")){
 		window.location.href = "login.html";
 	}
-</SCRIPT>
+</script>
 
 </HEAD>
-<BODY>
-	<DIV id="ContainerBox">
+<body>
+	<div id="ContainerBox">
 		<!--头部开始-->
 		<HEADER id="headTop">
-			<DIV class="headTopBox">
-				<DIV class="contentBody">
-					<DIV class="topline">
-						<DIV class="top">
-							<DIV class="toplineleft">
-								<SPAN class="wzh-won">谷粒汇·惠精彩</SPAN>
+			<div class="headTopBox">
+				<div class="contentBody">
+					<div class="topline">
+						<div class="top">
+							<div class="toplineleft">
+								<span class="wzh-won">谷粒汇·惠精彩</span>
 
-								<!-- <UL>
-									<LI><A class="top-userlogin" id="index_login_button"
-										href="login.html">请您登录</A></LI>
-									<LI><A id="index_register_button"
-										href="register.html">注册有礼</A></LI>
-								</UL> -->
-							</DIV>
-							<DIV class="menu">
-								<UL class="tlrtext">
-									<LI><SPAN class="topwelcome"><Q>您好， 欢迎来到谷粒网！</Q></SPAN></LI>
-									<LI><A
+								<!-- <ul>
+									<li><A class="top-userlogin" id="index_login_button"
+										href="login.html">请您登录</A></li>
+									<li><A id="index_register_button"
+										href="register.html">注册有礼</A></li>
+								</ul> -->
+							</div>
+							<div class="menu">
+								<ul class="tlrtext">
+									<li><span class="topwelcome"><Q>您好， 欢迎来到谷粒网！</Q></span></li>
+									<li><A
 										href="#">用户中心<I
 											class="triangleIco"></I></A>
-										<UL class="topMenu-text">
-											<!--    <li><a href="/user/userBasicinfoPage.html" id="user_accountinfo">谷粒汇信息</a></li>-->
-
-											<LI><A id="topbar_userinfo"
-												href="#">个人资料</A></LI>
-											<LI><A id="user_accountinfo"
-												href="#">基本信息</A></LI>
-											<LI><A id="topbar_bindwzk"
+										<ul class="topMenu-text">
+											<!-- <li><A id="topbar_userinfo"
+												href="#">个人资料</A></li>
+											<li><A id="user_accountinfo"
+												href="#">基本信息</A></li>
+											<li><A id="topbar_bindwzk"
 												onclick="javascript:this.href=encodeURI('/user/user_bdyhk_page')"
-												href="#">我的谷粒卡</A></LI>
-											<!-- <li><a href="/user/information/topbar_receive_address" id="topbar_receive_address">收货地址</a></li> -->
-
-											<LI><A id="topbar_collect"
-												href="#">我的收藏</A></LI>
-											<LI><A id="topbar_jifen"
-												href="#">我的积分</A></LI>
-											<LI><A id="topbar_comment"
-												href="#">我的评价</A></LI>
-											<LI><A id="topbar_order"
-												href="myorder.html">我的订单</A></LI>
-										</UL></LI>
-									<LI style="display: none;"><A id="shopping_card_button"
+												href="#">我的谷粒卡</A></li>
+											<li><A id="topbar_collect"
+												href="#">我的收藏</A></li>
+											<li><A id="topbar_jifen"
+												href="#">我的积分</A></li>
+											<li><A id="topbar_comment"
+												href="#">我的评价</A></li> -->
+											<li><A id="topbar_order"
+												href="myorder.html">我的订单</A></li>
+										</ul></li>
+									<li style="display: none;"><A id="shopping_card_button"
 										href="#"><I
 											class="triangleIco"></I> 购物车 <Q id="shoppingCart">0</Q> 件</A>
-										<UL>
+										<ul>
 											<div class="top-cart" id="headerShoppingCart"></div>
-										</UL></LI>
-									<LI><A href="#">联系客服<I
+										</ul></li>
+									<li><A href="#">联系客服<I
 											class="triangleIco"></I></A>
 
-										<UL class="topMenu-text">
-											<LI><A id="topbar_tuikuan"
+										<ul class="topMenu-text">
+											<li><A id="topbar_tuikuan"
 												href="#"
-												target="_blank">申请退款</A></LI>
-											<LI><A id="topbar_bangdingshouji"
+												target="_blank">申请退款</A></li>
+											<li><A id="topbar_bangdingshouji"
 												href="#"
-												target="_blank">换绑手机号</A></LI>
-											<LI><A id="topbar_tuanjuan"
+												target="_blank">换绑手机号</A></li>
+											<li><A id="topbar_tuanjuan"
 												href="#"
-												target="_blank">查看谷粒券</A></LI>
-										</UL></LI>
-									<LI><A href="#">我是商家<I
+												target="_blank">查看谷粒券</A></li>
+										</ul></li>
+									<li><A href="#">我是商家<I
 											class="triangleIco"></I></A>
 
-										<UL class="topMenu-text">
-											<LI><A id="topbar_question"
+										<ul class="topMenu-text">
+											<li><A id="topbar_question"
 												href="#"
-												target="_blank">合作中心</A></LI>
-										</UL></LI>
-									<LI><A href="#" target="_blank">谷粒国际<I
-											class="triangleIco"></I></A></LI>
+												target="_blank">合作中心</A></li>
+										</ul></li>
+									<li><A href="#" target="_blank">谷粒国际<I
+											class="triangleIco"></I></A></li>
 									<!--  
                             <li><a href="/apply/applyWZCardInitPage.html"  id="index_register_button">谷粒卡申请</a><ul class="topMenu-text"></ul></li>
                             -->
 
-									<LI><A id="more_button"
+									<li><A id="more_button"
 										href="#">更多</A>
 
-										<UL class="topMenu-text">
+										<ul class="topMenu-text">
 											<!--<li><a id="topbar_email_order" href="javascript:alert('暂未开通,敬请期待')">邮件订阅</a></li>-->
 
-											<LI><A title="谷粒网" id="topbar_collect_net"
-												href="javascript:void(0)" rel="sidebar">收藏本站</A></LI>
-											<LI><A id="topbar_question"
+											<li><A title="谷粒网" id="topbar_collect_net"
+												href="javascript:void(0)" rel="sidebar">收藏本站</A></li>
+											<li><A id="topbar_question"
 												href="#"
-												target="_blank">常见问题</A></LI>
-										</UL></LI>
-								</UL>
-							</DIV>
-						</DIV>
-					</DIV>
+												target="_blank">常见问题</A></li>
+										</ul></li>
+								</ul>
+							</div>
+						</div>
+					</div>
 					<!--topline-->
 					<!--头部、LOGO、搜索栏-->
-					<DIV class="headCont">
+					<div class="headCont">
 						<!--LOGO-->
-						<DIV class="TopLogo">
+						<div class="TopLogo">
 							<A href="#"><IMG
 								title="" src=""></A>
-						</DIV>
+						</div>
 						<!--搜索栏-->
 						<FORM action="/s/" method="get">
-							<DIV class="search">
+							<div class="search">
 								<INPUT name="w" class="search-text" id="w" type="text"
 									placeholder="请输入商品名称、地址等" value="" autocomplete="off"
 									x-webkit-speech="x-webkit-speech">
 
-								<DIV class="search-button">
+								<div class="search-button">
 									<A href="#"
 										target="ifm"><BUTTON class="btn-search" type="submit"
 											value="搜索">搜索</BUTTON></A>
-								</DIV>
-							</DIV>
+								</div>
+							</div>
 						</FORM>
 						<!--保证-->
-						<DIV class="ensure">
+						<div class="ensure">
 							<A class="wzhImg refund"
 								href="#"></A><A
 								class="wzhImg guo"
 								href="#"></A><A
 								class="wzhImg ka" href="#"></A>
-						</DIV>
-					</DIV>
+						</div>
+					</div>
 					<!--headCont-->
-				</DIV>
+				</div>
 				<!--contentBody-->
-				<DIV class="navBox">
+				<div class="navBox">
 					<NAV class="contentBody">
-						<DIV class="navMenu-all menu-all">
-							<DIV class="nav-tit-all">全部商品分类</DIV>
-							<DIV class="mainMenu-l">
-								<UL>
-									<LI>
+						<div class="navMenu-all menu-all">
+							<div class="nav-tit-all">全部商品分类</div>
+							<div class="mainMenu-l">
+								<ul>
+									<li>
 										<OL>
 											<I class="wzhImg m-meishi"></I>
-											<A href="#">
+											<A href="gflshow.html?smzq=pingpaizhuanqu">
 												<STRONG>品牌专区</STRONG>
 											</A>
-											<SPAN>
-												<A href="#">厨邦</A>
+											<span>
+												<A href="gflshow.html?smzq=pingpaizhuanqu&qucon">厨邦</A>
 												<A href="#">李锦记</A>
 												<A href="#">海天</A>
 												<A href="#">代代红</A>
@@ -173,10 +169,10 @@
 												<A href="#">恒大</A>
 												<A href="#">冉龙</A>
 												<A href="#">多力</A>
-											</SPAN>
+											</span>
 											<I class="directionR-ico"></I>
 										</OL>
-										<DIV class="mainMenu-z">
+										<div class="mainMenu-z">
 											<DL>
 												<DT>
 													<HEADER>品牌专区</HEADER>
@@ -192,46 +188,46 @@
 													<A href="#">多力</A>
 												</DT>
 											</DL>
-										</DIV>
+										</div>
 										<!--mainMenu-z-->
-									</LI>
-									<LI>
+									</li>
+									<li>
 										<OL>
 											<I class="wzhImg m-yule"></I>
-											<A href="#">
+											<A href="gflshow.html?smzq=luojiazhuanqu&parent=G14630381061319232">
 												<STRONG>裸价专区</STRONG>
 											</A>
-											<SPAN>
-												<A href="#">裸价商品</A>
-											</SPAN>
+											<span>
+												<A href="gflshow.html?smzq=luojiazhuanqu&parent=G14630381061319232">裸价商品</A>
+											</span>
 											<I class="directionR-ico"></I>
 										</OL>
-										<DIV class="mainMenu-z">
+										<div class="mainMenu-z">
 											<DL>
 												<DT>
 													<HEADER>裸价专区</HEADER>
-													<A href="#">裸价商品</A>
+													<A href="gflshow.html?smzq=luojiazhuanqu&parent=G14630381061319232">裸价商品</A>
 												</DT>
 											</DL>
-										</DIV>
+										</div>
 										<!--mainMenu-z-->
-									</LI>
-									<LI>
+									</li>
+									<li>
 										<OL>
 											<I class="wzhImg m-jiudian"></I>
 											<A href="#">
 												<STRONG>粮油米面</STRONG>
 											</A>
-											<SPAN>
+											<span>
 												<A href="#">食用油</A>
 												<A href="#">大米</A>
 												<A href="#">面粉米粉</A>
 												<A href="#">杂粮</A>
 												<A href="#">面条</A>
-											</SPAN>
+											</span>
 											<I class="directionR-ico"></I>
 										</OL>
-										<DIV class="mainMenu-z">
+										<div class="mainMenu-z">
 											<DL>
 												<DT>
 													<HEADER>粮油米面</HEADER>
@@ -242,16 +238,16 @@
 													<A href="#">面条</A>
 												</DT>
 											</DL>
-										</DIV>
+										</div>
 										<!--mainMenu-z-->
-									</LI>
-									<LI>
+									</li>
+									<li>
 										<OL>
 											<I class="wzhImg m-fuwu"></I>
 											<A href="#">
 												<STRONG>调味酱汁</STRONG>
 											</A>
-											<SPAN>
+											<span>
 													<A href="#">生抽酱油</A>
 													<A href="#">老抽</A>
 													<A href="#">耗油</A>
@@ -265,10 +261,10 @@
 													<A href="#">酱菜泡菜</A>
 													<A href="#">面食辅料</A>
 													<A href="#">淀粉</A> -->
-											</SPAN>
+											</span>
 											<I class="directionR-ico"></I>
 										</OL>
-										<DIV class="mainMenu-z">
+										<div class="mainMenu-z">
 											<DL>
 												<DT>
 													<HEADER>调味酱汁</HEADER>
@@ -287,71 +283,74 @@
 													<A href="#">淀粉</A>
 												</DT>
 											</DL>
-										</DIV>
+										</div>
 										<!--mainMenu-z-->
-									</LI>
-									<LI>
+									</li>
+									<li>
 										<OL>
 											<I class="wzhImg m-liren"></I>
 											<A href="#">
 												<STRONG>南北干货</STRONG>
 											</A>
-											<SPAN>
+											<span>
 												<A href="#">干货类</A>
-											</SPAN>
+											</span>
 											<I class="directionR-ico"></I>
 										</OL>
-										<DIV class="mainMenu-z">
+										<div class="mainMenu-z">
 											<DL>
 												<DT>
 													<HEADER>南北干货</HEADER>
 													<A href="#">干货类</A>
 												</DT>
 											</DL>
-										</DIV>
+										</div>
 										<!--mainMenu-z-->
-									</LI>
-									<LI>
+									</li>
+									<li>
 										<OL>
 											<I class="wzhImg m-lvyou"></I>
 											<A href="#">
 												<STRONG>方便食品</STRONG>
 											</A>
-											<SPAN>
+											<span>
 												<A href="#">休闲食品</A>
-											</SPAN>
+											</span>
 											<I class="directionR-ico"></I>
 										</OL>
-										<DIV class="mainMenu-z">
+										<div class="mainMenu-z">
 											<DL>
 												<DT>
 													<HEADER>方便食品</HEADER>
 													<A href="#">休闲食品</A>
 												</DT>
 											</DL>
-										</DIV>
+										</div>
 										<!--mainMenu-z-->
-									</LI>
-								</UL>
-							</DIV>
+									</li>
+								</ul>
+							</div>
 							<!--leftMenu-->
-						</DIV>
+<script type="text/javascript">
+
+</script>
+						</div>
 						<!--menu-all-->
 
-						<UL class="navMenu">
-							<LI><A href="gflshow.html?smzq=miaoshazhuanqu">秒杀专区</A></LI>
-							<LI><A href="gflshow.html?smzq=maizengzhuanqu">买赠专区</A></LI>
-							<LI><A href="gflshow.html?smzq=pingpaizhuanqu">品牌专区</A></LI>
-							<LI><A href="gflshow.html?smzq=luojiazhuanqu&parent=G14630381061319232">裸价专区</A></LI>
-							<LI><A href="gflshow.html?smzq=luojiazhuanqu&parent=43">粮油米面</A></LI>
-							<LI><A href="gflshow.html?smzq=luojiazhuanqu&parent=42">调味酱汁</A></LI>
-							<LI><A href="gflshow.html?smzq=luojiazhuanqu&parent=41">南北干货</A></LI>
-							<LI><A href="gflshow.html?smzq=luojiazhuanqu&parent=39">餐厨用品</A></LI>
-						</UL>
+						<ul class="navMenu">
+							<li><A href="gflshow.html?smzq=miaoshazhuanqu">秒杀专区</A></li>
+							<li><A href="gflshow.html?smzq=maizengzhuanqu">买赠专区</A></li>
+							<li><A href="gflshow.html?smzq=pingpaizhuanqu">品牌专区</A></li>
+							<li><A href="gflshow.html?smzq=luojiazhuanqu&parent=G14630381061319232">裸价专区</A></li>
+							<li><A href="gflshow.html?smzq=luojiazhuanqu&parent=43">粮油米面</A></li>
+							<li><A href="gflshow.html?smzq=luojiazhuanqu&parent=42">调味酱汁</A></li>
+							<li><A href="gflshow.html?smzq=luojiazhuanqu&parent=41">南北干货</A></li>
+							<li><A href="gflshow.html?smzq=luojiazhuanqu&parent=39">餐厨用品</A></li>
+						</ul>
 					</NAV>
-				</DIV>
+				</div>
 				<!--navBox-->
-			</DIV>
+			</div>
 			<!--headTopBox-->
 		</HEADER>
 		<!--header-->
@@ -363,23 +362,23 @@ $(function(){
 })
 </script>
 		<!--主体开始-->
-		<DIV class="contentBody" id="Container">
+		<div class="contentBody" id="Container">
 			<!--横幅区域-->
-			<DIV class="siteBannerBox">
-				<DIV class="site-middle">
-					<DIV class="flash_bar">
+			<div class="siteBannerBox">
+				<div class="site-middle">
+					<div class="flash_bar">
 						<H2 class="flash_title">
 							<I class="in-screen flashTop-pre"></I>优惠活动
 						</H2>
-						<SPAN class="flash-top-b">
-							<DIV class="no" id="f1" onclick="changeflash(1)"></DIV>
-							<DIV class="no" id="f2" onclick="changeflash(2)"></DIV>
-							<DIV class="no" id="f3" onclick="changeflash(3)"></DIV>
-							<!-- <DIV class="no" id="f4" onclick="changeflash(4)"></DIV>
-							<DIV class="no" id="f5" onclick="changeflash(5)"></DIV> -->
-						</SPAN>
-					</DIV>
-					<DIV id="flash">
+						<span class="flash-top-b">
+							<div class="no" id="f1" onclick="changeflash(1)"></div>
+							<div class="no" id="f2" onclick="changeflash(2)"></div>
+							<div class="no" id="f3" onclick="changeflash(3)"></div>
+							<!-- <div class="no" id="f4" onclick="changeflash(4)"></div>
+							<div class="no" id="f5" onclick="changeflash(5)"></div> -->
+						</span>
+					</div>
+					<div id="flash">
 						<A id="flash1" style="display: block;"><IMG
 							class="scrollLoading"
 							onerror=""
@@ -396,135 +395,135 @@ $(function(){
 						<A id="flash5"><IMG class="scrollLoading"
 							onerror=""
 							src="images/homepageImg/pc_banner0416.jpg"></A> -->
-					</DIV>
+					</div>
 					<!--flash-->
-					<DIV class="ban-FenLei">
-						<UL>
+					<div class="ban-FenLei">
+						<ul>
 							<H3>
 								<I class="in-screen ban-hotIoc"></I>热门商品
 							</H3>
-							<LI><A
-								href="javascript:void(0)" target="_blank">其他生活</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">小吃快餐</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">甜点饮品</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">美容美体</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">美甲</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">其他美食</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">蛋糕</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">韩国料理</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">体检保健</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">培训课程</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">家常菜</A></LI>
-						</UL>
-						<UL>
+							<li><A
+								href="javascript:void(0)" target="_blank">其他生活</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">小吃快餐</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">甜点饮品</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">美容美体</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">美甲</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">其他美食</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">蛋糕</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">韩国料理</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">体检保健</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">培训课程</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">家常菜</A></li>
+						</ul>
+						<ul>
 							<H3>
 								<I class="in-screen ban-allAreaIoc"></I>全部区域
 							</H3>
-							<LI><A
-								href="javascript:void(0)" target="_blank">崇安区</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">滨湖区</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">南长区</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">北塘区</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">新区</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">锡山区</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">惠山区</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">江阴市</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">宜兴市</A></LI>
-						</UL>
-						<UL>
+							<li><A
+								href="javascript:void(0)" target="_blank">崇安区</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">滨湖区</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">南长区</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">北塘区</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">新区</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">锡山区</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">惠山区</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">江阴市</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">宜兴市</A></li>
+						</ul>
+						<ul>
 							<H3>
 								<I class="in-screen ban-BusinessIoc"></I>热门商圈
 							</H3>
-							<LI><A
-								href="javascript:void(0)" target="_blank">崇安谷粒哥伦布广场</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">谷粒国际小商品城</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">洛社谷粒哥伦布广场</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">梅村谷粒国际广场</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">谷粒国际银河城/中华美食城</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">羊尖谷粒国际广场</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">新区谷粒哥伦布广场</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">谷粒国际工业博览城</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">广瑞街道</A></LI>
-							<LI><A
-								href="javascript:void(0)" target="_blank">火车站</A></LI>
-						</UL>
-					</DIV>
+							<li><A
+								href="javascript:void(0)" target="_blank">崇安谷粒哥伦布广场</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">谷粒国际小商品城</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">洛社谷粒哥伦布广场</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">梅村谷粒国际广场</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">谷粒国际银河城/中华美食城</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">羊尖谷粒国际广场</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">新区谷粒哥伦布广场</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">谷粒国际工业博览城</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">广瑞街道</A></li>
+							<li><A
+								href="javascript:void(0)" target="_blank">火车站</A></li>
+						</ul>
+					</div>
 					<!--banner-->
-				</DIV>
+				</div>
 				<!--site-middle-->
 
-				<DIV class="site-r-wzk">
-					<SPAN class="site-wzkImg"><SPAN class="wzk-apply">
+				<div class="site-r-wzk">
+					<span class="site-wzkImg"><span class="wzk-apply">
 							<!--<a href="/apply/applyWZCardInitPage.html">立即申请->></a> -->
-					</SPAN> </SPAN>
-					<DIV class="wzh-app">
+					</span> </span>
+					<div class="wzh-app">
 						<H2>谷粒汇移动应用</H2>
-						<A href="javascript:void(0);" target="_blank"><SPAN><I
-								class="appIoc wzh-ios"></I></SPAN>iPhone </A> <A href="javascript:void(0);"
-							target="_blank"><SPAN><I class="appIoc wzh-android"></I></SPAN>
+						<A href="javascript:void(0);" target="_blank"><span><I
+								class="appIoc wzh-ios"></I></span>iPhone </A> <A href="javascript:void(0);"
+							target="_blank"><span><I class="appIoc wzh-android"></I></span>
 							Android </A>
-					</DIV>
-				</DIV>
+					</div>
+				</div>
 				<!--site-r-wzk-->
-			</DIV>
+			</div>
 			<!--siteBannerBox END-->
 			<!--主体活动首页入口-->
-			<DIV id="leftSubject">
+			<div id="leftSubject">
 				<!-------------------------------1F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF1">
+				<div class="sp-Title" id="menuF1">
 					<H2>
-						<SPAN class="sp-floor f1"><I class="wzhImg m-meishi"></I></SPAN>秒杀专区
+						<span class="sp-floor f1"><I class="wzhImg m-meishi"></I></span>秒杀专区
 
-						<UL class="sp-tit-categories">
-							<!-- <LI><A
-								href="#" target="_blank">蛋糕</A></LI> -->
-							<LI><A href="gflshow.html?smzq=miaoshazhuanqu"
-								target="_blank">更多&gt;</A></LI>
-						</UL>
+						<ul class="sp-tit-categories">
+							<!-- <li><A
+								href="#" target="_blank">蛋糕</A></li> -->
+							<li><A href="gflshow.html?smzq=miaoshazhuanqu"
+								target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf1-ms-tg">
+				<div class="sp-contentBox mf1-ms-tg">
 					<!--商品三组一个-->
 					<!--sp-dataBox-->
 
 
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A href="gflshow.html?smzq=miaoshazhuanqu" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 <script type="text/javascript">
 $(function(){
 	if(!customer){
@@ -540,20 +539,20 @@ $(function(){
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.timegoodsid+'&type=ms" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">秒杀</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.timegoodsname+'】'+item.timegoodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.timegoodsname+'】'+item.timegoodsunits+'</H3></SPAN>'+
-				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.timegoodsorgprice+'</STRONG> <SPAN class="stores-jia">原价<DEL>'+item.timegoodsprice+'</DEL></SPAN> </SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">秒杀</li></div></span>'+
+				'<span title="【'+item.timegoodsname+'】'+item.timegoodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.timegoodsname+'】'+item.timegoodsunits+'</H3></span>'+
+				'<span title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
+				'<span title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.timegoodsorgprice+'</STRONG> <span class="stores-jia">原价<DEL>'+item.timegoodsprice+'</DEL></span> </span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf1-ms-tg").prepend(goods);
 			});
 			$(".mf1-ms-tg .sp-dataBox:eq(2)").addClass("tailThree");
@@ -569,27 +568,27 @@ $(function(){
 				<!--sp-contentBox-->
 				<!-------------------------------2F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF3">
+				<div class="sp-Title" id="menuF3">
 					<H2>
 						<I class="wzhImg m-yule"></I>买赠专区
-						<UL class="sp-tit-categories">
-							<LI><A href="gflshow.html?smzq=maizengzhuanqu"
-								target="_blank">更多&gt;</A></LI>
-						</UL>
+						<ul class="sp-tit-categories">
+							<li><A href="gflshow.html?smzq=maizengzhuanqu"
+								target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf2-mz-gg">
+				<div class="sp-contentBox mf2-mz-gg">
 					<!--商品数据插入到这里-->
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A href="gflshow.html?smzq=maizengzhuanqu" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 <script type="text/javascript">
 $(function(){
 	if(!customer){
@@ -605,20 +604,20 @@ $(function(){
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.givegoodsid+'&type=mz" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.givegoodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">买赠</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.givegoodsname+'】'+item.givegoodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.givegoodsname+'】'+item.givegoodsunits+'</H3></SPAN>'+
-				'<SPAN title="'+item.givegoodsdetail+'" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="'+item.givegoodsdetail+'" class="sp-Text">'+item.givegoodsdetail+'</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.givegoodsprice+'</STRONG></SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">买赠</li></div></span>'+
+				'<span title="【'+item.givegoodsname+'】'+item.givegoodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.givegoodsname+'】'+item.givegoodsunits+'</H3></span>'+
+				'<span title="'+item.givegoodsdetail+'" class="sp-info" href="" target="_blank">'+
+				'<span title="'+item.givegoodsdetail+'" class="sp-Text">'+item.givegoodsdetail+'</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.givegoodsprice+'</STRONG></span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf2-mz-gg").prepend(goods);
 			});
 			$(".mf2-mz-gg .sp-dataBox:eq(2)").addClass("tailThree");
@@ -634,27 +633,27 @@ $(function(){
 				<!--sp-contentBox-->
 				<!-------------------------------3F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF2">
+				<div class="sp-Title" id="menuF2">
 					<H2>
 						<I class="wzhImg m-jiudian"></I>品牌专区
-						<UL class="sp-tit-categories">
-							<LI><A href="gflshow.html?smzq=pingpaizhuanqu"
-								target="_blank">更多&gt;</A></LI>
-						</UL>
+						<ul class="sp-tit-categories">
+							<li><A href="gflshow.html?smzq=pingpaizhuanqu"
+								target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf3-pt-gg">
+				<div class="sp-contentBox mf3-pt-gg">
 					<!--商品数据插入到这里-->
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A href="gflshow.html?smzq=pingpaizhuanqu" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 <script type="text/javascript">
 $(function(){
 	if(!customer){
@@ -672,20 +671,20 @@ $(function(){
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root[0],function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">品牌</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></SPAN>'+
-				'<SPAN title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">品牌</li></div></span>'+
+				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></span>'+
+				'<span title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
+				'<span title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf3-pt-gg").prepend(goods);
 			});
 			$(".mf3-pt-gg .sp-dataBox:eq(2)").addClass("tailThree");
@@ -701,26 +700,26 @@ $(function(){
 				<!--sp-contentBox-->
 				<!-------------------------------4F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF5">
+				<div class="sp-Title" id="menuF5">
 					<H2>
 						<I class="wzhImg m-fuwu"></I>裸价专区
-						<UL class="sp-tit-categories">
-							<!-- <LI><A
+						<ul class="sp-tit-categories">
+							<!-- <li><A
 								onclick="javascript:this.href=encodeURI('/life.html?w=其他生活&amp;categoryId=10051114');"
-								href="javascript:void(0)" target="_blank">其他生活</A></LI>
-							<LI><A
+								href="javascript:void(0)" target="_blank">其他生活</A></li>
+							<li><A
 								onclick="javascript:this.href=encodeURI('/life.html?w=体检保健&amp;categoryId=10051130');"
-								href="javascript:void(0)" target="_blank">体检保健</A></LI>
-							<LI><A
+								href="javascript:void(0)" target="_blank">体检保健</A></li>
+							<li><A
 								onclick="javascript:this.href=encodeURI('/life.html?w=培训课程&amp;categoryId=10051131');"
-								href="javascript:void(0)" target="_blank">培训课程</A></LI> -->
-							<LI><A href="javascript:void(0)"
-								target="_blank">更多&gt;</A></LI>
-						</UL>
+								href="javascript:void(0)" target="_blank">培训课程</A></li> -->
+							<li><A href="javascript:void(0)"
+								target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf4-lj-g">
+				<div class="sp-contentBox mf4-lj-g">
 					<!--商品数据插入到这里-->
 <script type="text/javascript">
 $(function(){
@@ -741,20 +740,20 @@ $(function(){
 			var data = JSON.parse(resp);
 			$(".mf4-lj-g .sp-dataBox").remove();
 			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">裸价</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></SPAN>'+
-				'<SPAN title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">裸价</li></div></span>'+
+				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></span>'+
+				'<span title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
+				'<span title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf4-lj-g").prepend(goods);
 			});
 			$(".mf4-lj-g .sp-dataBox:eq(2)").addClass("tailThree");
@@ -767,30 +766,30 @@ $(function(){
 	});
 });
 </script>
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A href="gflshow.html?smzq=luojiazhuanqu&parent=G14630381061319232" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 
 				<!--sp-contentBox-->
 				<!-------------------------------5F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF4">
+				<div class="sp-Title" id="menuF4">
 					<H2>
 						<I class="wzhImg m-liren"></I>粮油米面
-						<UL class="sp-tit-categories">
-							<LI><A onclick=""
-								href="gflshow.html?smzq=luojiazhuanqu&parent=43" target="_blank">更多&gt;</A></LI>
-						</UL>
+						<ul class="sp-tit-categories">
+							<li><A onclick=""
+								href="gflshow.html?smzq=luojiazhuanqu&parent=43" target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf5-lymm-g">
+				<div class="sp-contentBox mf5-lymm-g">
 					<!--商品数据插入到这里-->
 <script type="text/javascript">
 $(function(){
@@ -810,20 +809,20 @@ $(function(){
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">粮油米面</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></SPAN>'+
-				'<SPAN title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">粮油米面</li></div></span>'+
+				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></span>'+
+				'<span title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
+				'<span title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf5-lymm-g").prepend(goods);
 			});
 			$(".mf5-lymm-g .sp-dataBox:eq(2)").addClass("tailThree");
@@ -836,41 +835,41 @@ $(function(){
 	});
 });
 </script>
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A onclick=""
 							href="gflshow.html?smzq=luojiazhuanqu&parent=43" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 				<!--sp-contentBox-->
 				<!-------------------------------6F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF6">
+				<div class="sp-Title" id="menuF6">
 					<H2>
 						<I class="wzhImg m-lvyou"></I>调味酱汁
-						<UL class="sp-tit-categories">
-							<LI><A onclick=""
-								href="gflshow.html?smzq=luojiazhuanqu&parent=42" target="_blank">更多&gt;</A></LI>
-						</UL>
+						<ul class="sp-tit-categories">
+							<li><A onclick=""
+								href="gflshow.html?smzq=luojiazhuanqu&parent=42" target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf6-twjj-g">
+				<div class="sp-contentBox mf6-twjj-g">
 					<!--商品数据插入到这里-->
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A onclick=""
 							href="gflshow.html?smzq=luojiazhuanqu&parent=42" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 <script type="text/javascript">
 $(function(){
 	if(!customer){
@@ -889,20 +888,20 @@ $(function(){
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">调味酱汁</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></SPAN>'+
-				'<SPAN title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">调味酱汁</li></div></span>'+
+				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></span>'+
+				'<span title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
+				'<span title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf6-twjj-g").prepend(goods);
 			});
 			$(".mf6-twjj-g .sp-dataBox:eq(2)").addClass("tailThree");
@@ -918,28 +917,28 @@ $(function(){
 				<!--sp-contentBox-->
 				<!-------------------------------7F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF6">
+				<div class="sp-Title" id="menuF6">
 					<H2>
 						<I class="wzhImg m-lvyou"></I>南北干货
-						<UL class="sp-tit-categories">
-							<LI><A
-								href="gflshow.html?smzq=luojiazhuanqu&parent=41" target="_blank">更多&gt;</A></LI>
-						</UL>
+						<ul class="sp-tit-categories">
+							<li><A
+								href="gflshow.html?smzq=luojiazhuanqu&parent=41" target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf7-nbgh-g">
+				<div class="sp-contentBox mf7-nbgh-g">
 					<!--商品数据插入到这里-->
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A onclick=""
 							href="gflshow.html?smzq=luojiazhuanqu&parent=41" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 <script type="text/javascript">
 $(function(){
 	if(!customer){
@@ -958,20 +957,20 @@ $(function(){
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">南北干货</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></SPAN>'+
-				'<SPAN title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">南北干货</li></div></span>'+
+				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></span>'+
+				'<span title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
+				'<span title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf7-nbgh-g").prepend(goods);
 			});
 			$(".mf7-nbgh-g .sp-dataBox:eq(2)").addClass("tailThree");
@@ -987,28 +986,28 @@ $(function(){
 				<!--sp-contentBox-->
 				<!-------------------------------8F------------------------------------->
 
-				<DIV class="sp-Title" id="menuF6">
+				<div class="sp-Title" id="menuF6">
 					<H2>
 						<I class="wzhImg m-lvyou"></I>餐厨用品
-						<UL class="sp-tit-categories">
-							<LI><A onclick=""
-								href="gflshow.html?smzq=luojiazhuanqu&parent=39" target="_blank">更多&gt;</A></LI>
-						</UL>
+						<ul class="sp-tit-categories">
+							<li><A onclick=""
+								href="gflshow.html?smzq=luojiazhuanqu&parent=39" target="_blank">更多&gt;</A></li>
+						</ul>
 					</H2>
-				</DIV>
+				</div>
 				<!--sp-Title-->
-				<DIV class="sp-contentBox mf8-fbsp-g">
+				<div class="sp-contentBox mf8-fbsp-g">
 					<!--商品数据插入到这里-->
-					<DIV class="clearD"></DIV>
+					<div class="clearD"></div>
 					<!--clearD-->
 					<!--查看更多-->
-					<DIV class="readMore">
+					<div class="readMore">
 						<A onclick=""
 							href="gflshow.html?smzq=luojiazhuanqu&parent=39" target="_blank">更多购物，请点击查看
 							&gt;&gt;</A>
-					</DIV>
+					</div>
 					<!--readMore-->
-				</DIV>
+				</div>
 <script type="text/javascript">
 $(function(){
 	if(!customer){
@@ -1027,20 +1026,20 @@ $(function(){
 		success:function(resp){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
-				var goods = '<DIV class="sp-dataBox">'+
+				var goods = '<div class="sp-dataBox">'+
 				'<A class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-				'<SPAN class="spImg" href="" target="_blank">'+					//商品详情
+				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<IMG class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
-					'<DIV class="pro-label"><li class="discount">餐厨用品</li></DIV></SPAN>'+
-				'<SPAN title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
-						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></SPAN>'+
-				'<SPAN title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
-				'<SPAN title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</SPAN></SPAN>'+
-					'<DIV class="sp-priceTit">'+
-						'<SPAN class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></SPAN>'+
-					'</DIV>'+
+					'<div class="pro-label"><li class="discount">餐厨用品</li></div></span>'+
+				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
+						'<H3>【'+item.goodsname+'】'+item.goodsunits+'</H3></span>'+
+				'<span title="'+item.companydetail+'" class="sp-info" href="" target="_blank">'+
+				'<span title="'+item.companydetail+'" class="sp-Text">'+item.companydetail+'</span></span>'+
+					'<div class="sp-priceTit">'+
+						'<span class="sp-tag"><STRONG>¥'+item.pricesprice+'</STRONG></span>'+
+					'</div>'+
 				'</A>'+
-				'</DIV>';
+				'</div>';
 				$(".mf8-fbsp-g").prepend(goods);
 			});
 			$(".mf8-fbsp-g .sp-dataBox:eq(2)").addClass("tailThree");
@@ -1055,167 +1054,167 @@ $(function(){
 </script>
 				<!--sp-contentBox-->
 				<!-------------------------------楼层到此结束------------------------------------->
-			</DIV>
+			</div>
 			<!--leftSubject END-->
 			<!------------------------------------右边栏开始----------------------------------------------------->
 
-			<DIV class="rightSide" id="pin2">
-				<DIV class="asideBox">
+			<div class="rightSide" id="pin2">
+				<div class="asideBox">
 					<H2>谷粒卡特惠商户</H2>
-					<UL>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+					<ul>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/e210d2fe-2e90-4452-85bd-9f8be6ee4b41_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="珑安百货"
 									href="javascript:void(0)"
-									target="_blank"> 珑安百货</A><SPAN>进店消费人次：4446次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 珑安百货</A><span>进店消费人次：4446次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/4f029223-d5a9-4216-a91f-8f8dad2117d5_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="新区木槿花餐饮店"
 									href="javascript:void(0)"
-									target="_blank"> 新区木槿花餐饮店</A><SPAN>进店消费人次：6次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 新区木槿花餐饮店</A><span>进店消费人次：6次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/dfd911c8-74e5-4b5a-8584-ffa3ce6c08d7_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="鑫源记"
 									href="javascript:void(0)"
-									target="_blank"> 鑫源记</A><SPAN>进店消费人次：13次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 鑫源记</A><span>进店消费人次：13次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/a80264b3-f1eb-40ae-a7ad-07c3b6b00287_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="惠山区钱桥惠来阀门经营部"
 									href="javascript:void(0)"
-									target="_blank"> 惠山区钱桥惠来阀门经营部</A><SPAN>进店消费人次：0次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 惠山区钱桥惠来阀门经营部</A><span>进店消费人次：0次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/738b63f4-1a36-4748-a010-36618b824020_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="钱桥丰延百货商行（瑞丰地毯百货）"
 									href="javascript:void(0)"
-									target="_blank"> 钱桥丰延百货商行（瑞丰地毯百货）</A><SPAN>进店消费人次：35次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 钱桥丰延百货商行（瑞丰地毯百货）</A><span>进店消费人次：35次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/3b717f62-acdf-4d53-8dc4-ee66afd85791_95x72.jpg"">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="惠山区钱桥锦曦建材经营部"
 									href="javascript:void(0)"
-									target="_blank"> 惠山区钱桥锦曦建材经营部</A><SPAN>进店消费人次：0次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 惠山区钱桥锦曦建材经营部</A><span>进店消费人次：0次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/41726774-820d-418b-9b82-421e16128e1a_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="哥伦布烟酒店"
 									href="javascript:void(0)"
-									target="_blank"> 哥伦布烟酒店</A><SPAN>进店消费人次：225次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 哥伦布烟酒店</A><span>进店消费人次：225次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/43c9da60-259c-4f42-b362-69d3c93a154b_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="无锡市钱桥伟龙装潢材料经营部"
 									href="javascript:void(0)"
-									target="_blank"> 无锡市钱桥伟龙装潢材料经营部</A><SPAN>进店消费人次：0次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 无锡市钱桥伟龙装潢材料经营部</A><span>进店消费人次：0次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/3477e439-1add-4abb-ae40-da61f9344b7f_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="惠山区钱桥小金汽车配件商行"
 									href="javascript:void(0)"
-									target="_blank"> 惠山区钱桥小金汽车配件商行</A><SPAN>进店消费人次：1次</SPAN>
-							</DIV>
-						</LI>
-						<LI>
-							<DIV class="fxqbrlleftImg">
+									target="_blank"> 惠山区钱桥小金汽车配件商行</A><span>进店消费人次：1次</span>
+							</div>
+						</li>
+						<li>
+							<div class="fxqbrlleftImg">
 								<A
 									href="javascript:void(0)"><IMG
 									class="scrollLoading"
 									onerror="" alt=""
 									src="images/homepageImg/95415e15-1a8d-4514-a138-eab2724e7f54_95x72.jpg">
 								</A>
-							</DIV>
-							<DIV class="asideTwxt-sp">
+							</div>
+							<div class="asideTwxt-sp">
 								<A title="食诺客(新区)"
 									href="javascript:void(0)"
-									target="_blank"> 食诺客(新区)</A><SPAN>进店消费人次：2677次</SPAN>
-							</DIV>
-						</LI>
-					</UL>
-				</DIV>
-			</DIV>
+									target="_blank"> 食诺客(新区)</A><span>进店消费人次：2677次</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 			<!-- <div class="rightSide" id="pin2">
             <div class="foodxqbright" >
 	            <div class="fxqbrtitle" id="zuiJinliuLan" >
@@ -1235,113 +1234,113 @@ $(function(){
             </div>
          </div> -->
 			<!--  rightSide END-->
-		</DIV>
+		</div>
 		<!--Container END-->
 		<!--页脚开始-->
 		<!--页脚开始-->
-		<DIV id="footBot">
-			<DIV class="footBox">
-				<DIV class="wzh-footer">
-					<UL>
-						<LI><A href="javascript:void(0)">关于我们</A></LI>
-						<LI><A href="javascript:void(0)">加入我们</A></LI>
-						<LI><A href="javascript:void(0)">入门教程</A></LI>
-						<LI><A href="javascript:void(0)">谷粒汇承诺</A></LI>
-						<LI><A
-							href="javascript:void(0)">反诈骗公告</A></LI>
-						<LI><A
-							href="javascript:void(0)">隐私声明</A></LI>
-					</UL>
+		<div id="footBot">
+			<div class="footBox">
+				<div class="wzh-footer">
+					<ul>
+						<li><A href="javascript:void(0)">关于我们</A></li>
+						<li><A href="javascript:void(0)">加入我们</A></li>
+						<li><A href="javascript:void(0)">入门教程</A></li>
+						<li><A href="javascript:void(0)">谷粒汇承诺</A></li>
+						<li><A
+							href="javascript:void(0)">反诈骗公告</A></li>
+						<li><A
+							href="javascript:void(0)">隐私声明</A></li>
+					</ul>
 					<P style="color: rgb(255, 255, 255);">©2016 版权所有 上海域链信息科技有限公司</P>
-				</DIV>
-			</DIV>
+				</div>
+			</div>
 			<!--headTopBox-->
-		</DIV>
+		</div>
 		<!--footer-->
-		<SCRIPT type="text/javascript">
+		<script type="text/javascript">
 			jQuery(
 					"a:contains(¥),b:contains(¥),del:contains(¥),strong:contains(¥),td:contains(¥),li:contains(¥),span:contains(¥),p:contains(¥),q:contains(¥),div:contains(¥)")
 					.css('font-family', 'Microsoft Yahei');
-		</SCRIPT>
+		</script>
 		<!--footer-->
-	</DIV>
+	</div>
 	<!--ContainerBox END-->
-	<DIV class="site-left-menu">
-		<UL>
-			<LI class="nav_floor1">
+	<div class="site-left-menu">
+		<ul>
+			<li class="nav_floor1">
 				<A class="l-menu-f1 current" href="#" data-scroll-nav="0"><I class="leftNavIco m-meishi-g"></I>秒杀专区</A>
-			</LI>
-			<LI class="nav_floor3">
+			</li>
+			<li class="nav_floor3">
 			<A class="l-menu-f3"
 				href="#"
 				data-scroll-nav="2"><I class="leftNavIco m-yule-g"></I>买赠专区</A>
-			</LI>
-			<LI class="nav_floor2">
+			</li>
+			<li class="nav_floor2">
 			<A class="l-menu-f2 "
 				href="#"
 				data-scroll-nav="1"><I class="leftNavIco m-jiudian-g"></I>品牌专区</A>
-			</LI>
-			<LI class="nav_floor5">
+			</li>
+			<li class="nav_floor5">
 			<A class="l-menu-f5"
 				href="#"
 				data-scroll-nav="4"><I class="leftNavIco m-fuwu-g"></I>裸价专区</A>
-			</LI>
-			<LI class="nav_floor4">
+			</li>
+			<li class="nav_floor4">
 			<A class="l-menu-f4"
 				href="#"
 				data-scroll-nav="3"><I class="leftNavIco m-liren-g"></I>粮油米面</A>
-			</LI>
-			<LI class="nav_floor6">
+			</li>
+			<li class="nav_floor6">
 			<A class="l-menu-f6"
 				href="#"
 				data-scroll-nav="5"><I class="leftNavIco m-lvyou-g"></I>调味酱汁</A>
-			</LI>
-			<LI class="nav_floor7">
+			</li>
+			<li class="nav_floor7">
 			<A class="l-menu-f6"
 				href="#"
 				data-scroll-nav="5"><I class="leftNavIco m-lvyou-g"></I>南北干货</A>
-			</LI>
-			<LI class="nav_floor8">
+			</li>
+			<li class="nav_floor8">
 			<A class="l-menu-f6"
 				href="#"
 				data-scroll-nav="5"><I class="leftNavIco m-lvyou-g"></I>餐厨用品</A>
-			</LI>
-		</UL>
-	</DIV>
+			</li>
+		</ul>
+	</div>
 	<!--site-left-menu-->
 	<INPUT id="isClick" type="hidden">
-	<DIV class="UpTop" style="">
-		<SPAN class="wzhImg site-qrCode"><I class="wzhImg close"
-			onclick="codeClose()"></I></SPAN>
-		<UL>
-			<LI class="Up-feedback"><I class="wzhImg r-opinion"></I><A
+	<div class="UpTop" style="">
+		<span class="wzhImg site-qrCode"><I class="wzhImg close"
+			onclick="codeClose()"></I></span>
+		<ul>
+			<li class="Up-feedback"><I class="wzhImg r-opinion"></I><A
 				class="upTop-text"
-				href="javascript:void(0)">意见反馈</A></LI>
-			<LI class="goTopBtn"><I class="wzhImg UpTop-fx"></I><A
+				href="javascript:void(0)">意见反馈</A></li>
+			<li class="goTopBtn"><I class="wzhImg UpTop-fx"></I><A
 				class="upTop-text" href="javascript:void(0)">返回顶部</A>
-			</LI>
-		</UL>
-	</DIV>
+			</li>
+		</ul>
+	</div>
 	<!--UpTop-->
-	<SCRIPT src="js/plugins.js"></SCRIPT>
+	<script src="js/plugins.js"></script>
 
-	<SCRIPT src="js/main.js"></SCRIPT>
+	<script src="js/main.js"></script>
 
-	<SCRIPT src="js/jquery.scrollLoading.js"></SCRIPT>
+	<script src="js/jquery.scrollLoading.js"></script>
 
-	<SCRIPT src="js/jquery.cookie.min.js" type="text/javascript"></SCRIPT>
+	<script src="js/jquery.cookie.min.js" type="text/javascript"></script>
 	<!--功能js-->
-	<SCRIPT src="js/base.js"></SCRIPT>
+	<script src="js/base.js"></script>
 
-	<SCRIPT src="js/index-left.js"></SCRIPT>
+	<script src="js/index-left.js"></script>
 
-	<SCRIPT src="js/zebra_pin.js"></SCRIPT>
+	<script src="js/zebra_pin.js"></script>
 
-	<SCRIPT src="js/wzhwebui.min.js"></SCRIPT>
+	<script src="js/wzhwebui.min.js"></script>
 
-</BODY>
+</body>
 <!--框架js-->
-<SCRIPT type="text/javascript">
+<script type="text/javascript">
 		   $("#topbar_collect_net").click(function(){
 			   if(!!window.ActiveXObject || "ActiveXObject" in window) {   
 				    window.external.addFavorite(document.URL,document.title); 
@@ -1360,5 +1359,5 @@ $(function(){
 					this.href = ctx+"/clientDownload.html";
 				}
 		   });
-		</SCRIPT>
+		</script>
 </HTML>
