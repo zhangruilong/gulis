@@ -3,9 +3,14 @@ package com.server.action;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.server.pojo.Ccustomer;
+import com.server.pojo.Ccustomerview;
+import com.server.pojo.Customer;
 import com.server.pojo.Goodsclass;
 import com.server.poco.GoodsclassPoco;
 import com.system.tools.CommonConst;
@@ -112,4 +117,34 @@ public class GoodsclassAction extends BaseActionDao {
 		result = CommonConst.GSON.toJson(pageinfo);
 		responsePW(response, result);
 	}
+	//查询主页左边的goodsclass
+	@SuppressWarnings("unchecked")
+	public void selPCHomeGC(HttpServletRequest request, HttpServletResponse response){
+		String cusid = request.getParameter("cusid");
+		String sql = "select count(g.goodsclassname) goodsid, g.goodsclassname,g.goodsclassparent ";
+		List<Ccustomerview> cusli = selAll(Ccustomerview.class,"select * from ccustomerview where customerid='"+cusid+"'");
+		if(cusli.size() > 0){
+			Ccustomerview cus = cusli.get(0);
+			sql += "from goodsview g where g.pricesclass = '"+cus.getCustomertype()+"' "+
+					"and g.priceslevel = "+cus.getCustomerlevel()+" and g.goodsstatue = '上架' and (";
+			for (Ccustomerview ccitem : cusli) {
+				sql += "g.goodscompany='"+ccitem.getCcustomercompany()+"' or ";
+			}
+			sql = sql.substring(0,sql.length()-3) + ") group by g.goodsclassname,g.goodsclassparent";
+			Pageinfo pageinfo = new Pageinfo(0, selAll(Goodsclass.class, sql));
+			result = CommonConst.GSON.toJson(pageinfo);
+		}
+		responsePW(response, result);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

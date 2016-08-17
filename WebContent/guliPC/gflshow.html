@@ -281,20 +281,11 @@
 			<DIV id="leftSubject">
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript">
-//获取url中的参数
-function getQueryString2(name) {
-    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-    var r = window.location.search.substr(1).match(reg);
-    if (r != null) {
-    	alert(window.location);
-        return unescape(r[2]);
-    }
-    return null;
-}
 var smzq = getQueryString('smzq');
-var qucon = getQueryString2('qucon');
+var qucon = getQueryString('qucon');
 var parent = '';
-alert(qucon);
+//alert(qucon['qucon']);
+//alert(qucon);
 $(function(){
 	if(smzq == 'miaoshazhuanqu'){
 		mspage();
@@ -347,8 +338,8 @@ function ljzuddpage(parent,goodsclass){
 					}
 					
 					goods += '<A class="pro-a-box" '+
-							'href="#" '+
-							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" '+
+							'target="_blank"><SPAN class="spImg" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
 							'<IMG class="scrollLoading" alt="" src="'+item.goodsimage+'">'+
 	
 								'<DIV class="pro-label">'+
@@ -413,8 +404,8 @@ function goodspage(goodsbrand){
 					}
 					
 					goods += '<A class="pro-a-box" '+
-							'href="#" '+
-							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" '+
+							'target="_blank"><SPAN class="spImg" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
 							'<IMG class="scrollLoading" alt="" src="'+item.goodsimage+'">'+
 	
 								'<DIV class="pro-label">'+
@@ -462,8 +453,8 @@ function mzpage(){
 					}
 					
 					goods += '<A class="pro-a-box" '+
-							'href="#" '+
-							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'href="goodsXD.html?goodsid='+item.givegoodsid+'&type=mz" '+
+							'target="_blank"><SPAN class="spImg" href="goodsXD.html?goodsid='+item.givegoodsid+'&type=mz" target="_blank">'+
 							'<IMG class="scrollLoading" alt="" src="'+item.givegoodsimage+'">'+
 	
 								'<DIV class="pro-label">'+
@@ -511,8 +502,8 @@ function mspage(){
 					}
 					
 					goods += '<A class="pro-a-box" '+
-							'href="#" '+
-							'target="_blank"><SPAN class="spImg" href="#" target="_blank">'+
+							'href="goodsXD.html?goodsid='+item.timegoodsid+'&type=ms" '+
+							'><SPAN class="spImg" href="goodsXD.html?goodsid='+item.timegoodsid+'&type=ms">'+
 							'<IMG class="scrollLoading" alt="" src="'+item.timegoodsimage+'">'+
 	
 								'<DIV class="pro-label">'+
