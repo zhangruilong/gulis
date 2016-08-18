@@ -652,13 +652,13 @@ function doCart() {
 		var tnum = parseInt(window.localStorage.getItem("totalnum")); 										//取出商品的总类数
 		$.each(sdishes,function(i, item) { 																	//遍历购物车中的商品
 							if (item.goodsid == goodsid && item.goodsclassname == goodsclassname) {			//如果有这个商品
-								window.localStorage.setItem("sdishes",JSON.stringify(sdishes));
 								//var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); 		//从缓存中取出总金额 
 								var newtmoney = (parseFloat(price)* num).toFixed(2);
 								window.localStorage.setItem("totalmoney", newtmoney);
 								var cartnum = parseInt(window.localStorage.getItem("cartnum"));
 								window.localStorage.setItem("cartnum",(cartnum - item.orderdetnum) + num);
 								item.orderdetnum = num;														//把商品数量修改为新的数量
+								window.localStorage.setItem("sdishes",JSON.stringify(sdishes));
 								flag = true;
 								return false;
 							} else if (i == (tnum - 1)) {
@@ -749,7 +749,7 @@ function addMdishes(goodsJSON) {
 	mdishes.goodsclassname = goodsJSON.goodsclassname;
 	mdishes.goodscode = goodsJSON.goodscode;
 	mdishes.pricesprice = goodsJSON.pricesprice;
-	mdishes.pricesunit = goodsJSON.goodsunit;
+	mdishes.pricesunit = goodsJSON.pricesunit;
 	mdishes.goodsname = goodsJSON.goodsname;
 	mdishes.goodsimage = goodsJSON.goodsimage;
 	mdishes.orderdtype = '商品';
