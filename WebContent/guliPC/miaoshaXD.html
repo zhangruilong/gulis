@@ -304,9 +304,8 @@
 			style="font-family: &amp; amp; #39;Microsoft Yahei&amp;amp;#39;;">
 
 			<div class="location" name="cb-nowposi">
-				<!-- <a href="homepage.html">首页</a> » 
-				<a href="javascript:void(0)" categoryid="1002" id="g-parent">美食</a> » 
-				<a href="javascript:void(0)" categoryid="10021057" id="g-children">蛋糕</a> -->
+				<a href="homepage.html">首页</a> » 
+				<a href="gflshow.html?smzq=maizengzhuanqu" categoryid="1002" id="g-parent">秒杀专区</a>
 			</div>
 			<!--sp-Title-->
 			<div class="clearD"></div>
@@ -441,8 +440,6 @@ $(function() {
 				if(xlnum <= 0){
 					$(".order-num-s").val(0);
 				}
-				$('.contentBody div[name="cb-nowposi"]').html('<a href="homepage.html">首页</a> » '+
-				'<a href="gflshow.html?smzq=maizengzhuanqu" categoryid="1002" id="g-parent">秒杀商品</a>');
 				$("#span-gdata").text(JSON.stringify(goodsJSON));
 				$(".deal-sj-tit").html(goodsJSON.timegoodsname + '<span class="prs_Unit">('+ goodsJSON.timegoodsunits + ')</span>');
 				$("#yufu").text("￥" + goodsJSON.timegoodsorgprice + "/" + goodsJSON.timegoodsunit);

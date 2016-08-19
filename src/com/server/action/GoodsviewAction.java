@@ -80,6 +80,7 @@ public class GoodsviewAction extends BaseActionDao {
 	public void goodsxd(HttpServletRequest request, HttpServletResponse response){
 		String cusid = request.getParameter("customerid");
 		String goodsid = request.getParameter("goodsid");
+		String goodsclassparent = request.getParameter("goodsclassparent");
 		List<Customer> customers = selAll(Customer.class, "select * from customer where customerid='"+cusid+"'");
 		if(customers.size() == 1){
 			Customer cus = customers.get(0);
@@ -87,8 +88,15 @@ public class GoodsviewAction extends BaseActionDao {
 			queryinfo.setType(Goodsview.class);
 			queryinfo.setWheresql("goodsid='"+goodsid+"' and goodsstatue='上架' and pricesclass='"+cus.getCustomertype()+"' and priceslevel="+cus.getCustomerlevel());
 			queryinfo.setOrder(GoodsviewPoco.ORDER);
-			Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
-			result = CommonConst.GSON.toJson(pageinfo);
+			List<Goodsview> gvli = selAll(queryinfo);
+			if(gvli.size()>0){
+				Goodsclass gc = (Goodsclass) selAll(Goodsclass.class, "select * from goodsclass where goodsclassid='"+goodsclassparent+"'").get(0);
+				for (Goodsview gv : gvli) {
+					gv.setGoodsclassdetail(gc.getGoodsclassname());				//用Goodsview中的Goodsclassdetail储存父类的名称
+				}
+				Pageinfo pageinfo = new Pageinfo(0, gvli);
+				result = CommonConst.GSON.toJson(pageinfo);
+			}
 		}
 		responsePW(response, result);
 	}

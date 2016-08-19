@@ -489,7 +489,7 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="miaoshaXD.html?goodsid='+item.timegoodsid+'&type=ms" target="_blank">'+
+				'<a class="pro-a-box" href="miaoshaXD.html?goodsid='+item.timegoodsid+'" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">秒杀</li></div></span>'+
@@ -554,7 +554,7 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="maizengXD.html?goodsid='+item.givegoodsid+'&type=mz" target="_blank">'+
+				'<a class="pro-a-box" href="maizengXD.html?goodsid='+item.givegoodsid+'" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.givegoodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">买赠</li></div></span>'+
@@ -621,8 +621,8 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root[0],function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" onclick="dogoodsxdpage(\''+item.goodsclassparent+'\',\''+
-						item.goodsclassname+'\',\''+item.goodsid+'\')" href="javascript:void(0)" target="_blank">'+
+				'<a class="pro-a-box" onclick="dogoodsxdpage(\'G14630381061319233\',\''+item.goodsbrand+'\',\''
+						+item.goodsid+'\')" href="javascript:void(0)" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">品牌</li></div></span>'+
@@ -647,9 +647,9 @@ $(function(){
 	});
 });
 function dogoodsxdpage(parent,classname,goodsid){
-	window.localStore.setItem("goodsclassparent",parent);
-	window.localStore.setItem("goodsclassname",classname);
-	window.location.href= "goodsXD.html?goodsid="+goodsid+"&type=sp"
+	window.localStorage.setItem("goodsclassparent",parent);
+	window.localStorage.setItem("goodsclassname",classname);
+	window.location.href= "goodsXD.html?goodsid="+goodsid
 }
 </script>
 				<!--sp-contentBox-->
@@ -696,7 +696,7 @@ $(function(){
 			$(".mf4-lj-g .sp-dataBox").remove();
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
+				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">裸价</li></div></span>'+
@@ -765,7 +765,7 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
+				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">粮油米面</li></div></span>'+
@@ -844,7 +844,7 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
+				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">调味酱汁</li></div></span>'+
@@ -913,7 +913,7 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
+				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">南北干货</li></div></span>'+
@@ -982,7 +982,7 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
+				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
 					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">餐厨用品</li></div></span>'+
