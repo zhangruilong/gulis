@@ -426,59 +426,8 @@
 <script type="text/javascript">
 var goodsid = getQueryString("goodsid");
 var customer = JSON.parse(window.localStorage.getItem("customer"));
-var type = getQueryString("type");
 $(function() {
-	if(type == 'sp'){
-		$.ajax({
-			url:"GoodsviewAction.do?method=goodsxd",
-			type:"post",
-			data:{
-				customerid:customer.customerid,
-				goodsid:goodsid
-			},
-			success:function(resp){
-				var goodsJSON = JSON.parse(resp).root[0];
-				$('.contentBody div[name="cb-nowposi"]').html('<a href="homepage.html">首页</a> » '+
-						'<a href="javascript:void(0)" categoryid="1002" id="g-parent">'+goodsJSON.goodsclassparent+'</a> » '+
-						'<a href="javascript:void(0)" categoryid="10021057" id="g-children">'+goodsJSON.goodsclassname+'</a>');
-				$('.contentBody div[name="cb-nowposi"] a:eq(1)').attr('href','');
-				$("#span-gdata").text(JSON.stringify(goodsJSON));
-				$(".deal-sj-tit").html(goodsJSON.goodsname + '<span class="prs_Unit">('+ goodsJSON.goodsunits + ')</span>');
-				$("#yufu").text("￥" + goodsJSON.pricesprice + "/" + goodsJSON.pricesunit);
-				$("#yufu").next().remove();
-				var goods_date = goodsJSON.companydetail;
-				if(goodsJSON.goodstype){
-					goods_date += "."+goodsJSON.goodstype;
-				}
-				$(".goods-date").text(goods_date);
-				$(".buy_statistics").html('<label>经销商</label> <span class="goods-date" style="color:black">'+goodsJSON.companyshop+'</span>');
-				$(".scrollLoading").attr("src", goodsJSON.goodsimage);
-				$(".order-num-s").val(getcurrennum(goodsJSON.goodsid,goodsJSON.goodsclassname));
-				$(".item-plus").click(function() {
-					var num = parseInt($(".order-num-s").val());
-					$(".order-num-s").val(num + 1);
-				});
-				$(".item-minus").click(function() {
-					var num = parseInt($(".order-num-s").val());
-					if (num > 0) {
-						$(".order-num-s").val(num - 1);
-					}
-				});
-				$("#to_shopping").click(function (){
-					doCart();
-				});
-				$("#to_NOWshopping").click(function(){
-					if(doCart()){
-						window.location.href = 'cart.html';
-					}
-				});
-			},
-			error : function(resp){
-				var respText = eval('('+resp+')');
-				alert(respText.msg);
-			}
-		});
-	} else if(type=='ms'){
+	
 		$.ajax({
 			url:"TimegoodsviewAction.do?method=msGoodsxd",
 			type:"post",
@@ -539,66 +488,11 @@ $(function() {
 				alert(respText.msg);
 			}
 		});
-	} else if(type=='mz'){
-		$.ajax({
-			url:"GivegoodsviewAction.do?method=mzGoodsxd",
-			type:"post",
-			data:{
-				customerid:customer.customerid,
-				givegoodsid:goodsid
-			},
-			success:function(resp){
-				var goodsJSON = eval('('+resp+')').root[0];
-				var xlnum = parseInt(goodsJSON.creator);				//今天还可以购买的数量
-				if(xlnum <= 0){
-					$(".order-num-s").val(0);
-				}
-				$('.contentBody div[name="cb-nowposi"]').html('<a href="homepage.html">首页</a> » '+
-				'<a href="gflshow.html?smzq=maizengzhuanqu" categoryid="1002" id="g-parent">买赠商品</a>');
-				$('#g-parent').text('买赠商品');
-				$("#span-gdata").text(JSON.stringify(goodsJSON));
-				$(".deal-sj-tit").html(goodsJSON.givegoodsname + '<span class="prs_Unit">('+ goodsJSON.givegoodsunits + ')</span>');
-				$("#yufu").text("￥" + goodsJSON.givegoodsprice + "/" + goodsJSON.givegoodsunit);
-				$("#yufu").next().remove();
-				$(".goods-date").text(goodsJSON.companydetail);
-				$(".buy_statistics").html('<label>经销商</label> <span class="goods-date" style="color:black">'+goodsJSON.companyshop+'</span>');
-				$(".scrollLoading").attr("src", goodsJSON.givegoodsimage);
-				$(".item-plus").attr("name",xlnum);								//今天还可以购买的数量
-				$(".order-num-s").val(getcurrennum(goodsJSON.givegoodsid,goodsJSON.givegoodsclass));				//输入框的值
-				$(".item-plus").click(function() {
-					var num = parseInt($(".order-num-s").val());
-					var nxlnum = parseInt($(".item-plus").attr("name"));
-					if(nxlnum <= num ){
-						alert("您今天的购买数量已到达限购数量了哦。");
-					} else {
-						$(".order-num-s").val(num + 1);
-					}
-				});
-				$(".item-minus").click(function() {
-					var num = parseInt($(".order-num-s").val());
-					if (num > 0) {
-						$(".order-num-s").val(num - 1);
-					}
-				});
-				$("#to_shopping").click(function (){
-					doCart();
-				});
-				$("#to_NOWshopping").click(function(){
-					if(doCart()){
-						window.location.href = 'cart.html';
-					}
-				});
-			},
-			error : function(resp){
-				var respText = eval('('+resp+')');
-				alert(respText.msg);
-			}
-		});
-	}
+	
 });
 
 //得到商品数量
-function getcurrennum(dishesid,goodsclassname){
+function getcurrennum(timegoodsid,goodsclassname){
 	//订单
 	if(window.localStorage.getItem("sdishes")==null){
 		return 0;
@@ -606,7 +500,7 @@ function getcurrennum(dishesid,goodsclassname){
 		var orderdetnum = 0;
 		var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));
 		$.each(sdishes, function(i, item) {
-			if(item.goodsid==dishesid
+			if(item.goodsid==timegoodsid
 					&&item.goodsclassname==goodsclassname){
 				orderdetnum = item.orderdetnum;
 				return false;
@@ -621,19 +515,9 @@ function doCart() {
 	var price = 0.0;
 	var goodsid = '';
 	var goodsclassname = '';
-	if(type=='sp'){
-		price = goodsJSON.pricesprice;
-		goodsid = goodsJSON.goodsid;
-		goodsclassname = goodsJSON.goodsclassname;
-	} else if(type=='ms'){
 		price = goodsJSON.timegoodsorgprice;
 		goodsid = goodsJSON.timegoodsid;
 		goodsclassname = goodsJSON.timegoodsclass;
-	} else if(type=='mz'){
-		price = goodsJSON.givegoodsprice;
-		goodsid = goodsJSON.givegoodsid;
-		goodsclassname = goodsJSON.givegoodsclass;
-	}
 	var num = parseInt($(".order-num-s").val());
 	if(num == 0){
 		alert('请选择购买的数量。');
@@ -642,13 +526,7 @@ function doCart() {
 	var flag = false;
 	if (window.localStorage.getItem("sdishes") == null || window.localStorage.getItem("sdishes") == "[]") { //判断有没有购物车
 		window.localStorage.setItem("sdishes", "[]"); 														//创建一个购物车
-		if(type=='sp'){
-			flag = addMdishes(goodsJSON);						//加入购物车
-		} else if(type=='ms'){
-			flag = addMMSdishes(goodsJSON);
-		} else if(type=='mz'){
-			flag = addMMZdishes(goodsJSON);
-		}
+		flag = addMMSdishes(goodsJSON);							//新增秒杀商品订单
 		if(flag == false){
 			return;
 		}
@@ -671,13 +549,7 @@ function doCart() {
 								flag = true;
 								return false;
 							} else if (i == (tnum - 1)) {
-								if(type=='sp'){
-									flag = addMdishes(goodsJSON);						//加入购物车
-								} else if(type=='ms'){
-									flag = addMMSdishes(goodsJSON);
-								} else if(type=='mz'){
-									flag = addMMZdishes(goodsJSON);
-								}
+								flag = addMMSdishes(goodsJSON);
 								if(flag == false){
 									return;
 								}
@@ -696,30 +568,6 @@ function doCart() {
 		alert("加入购物车失败。");
 	}
 	return flag;
-}
-//新增买赠商品
-function addMMZdishes(goodsJSON){
-	var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); 					//将缓存中的sdishes(字符串)转换为json对象
-	var mdishes = new Object();
-	mdishes.goodsid = goodsJSON.givegoodsid;
-	mdishes.goodsdetail = goodsJSON.givegoodsdetail;
-	mdishes.goodscompany = goodsJSON.givegoodscompany;
-	mdishes.companyshop = goodsJSON.companyshop;
-	mdishes.companydetail = goodsJSON.companydetail;
-	mdishes.goodsclassname = goodsJSON.givegoodsclass;
-	mdishes.goodscode = goodsJSON.givegoodscode;
-	mdishes.pricesprice = goodsJSON.givegoodsprice;
-	mdishes.pricesunit = goodsJSON.givegoodsunit;
-	mdishes.goodsname = goodsJSON.givegoodsname;
-	mdishes.goodsunits = goodsJSON.givegoodsunits;
-	mdishes.orderdetnum = $(".order-num-s").val();
-	mdishes.goodsimage = goodsJSON.givegoodsimage;
-	mdishes.orderdtype = '买赠';
-	mdishes.timegoodsnum = goodsJSON.givegoodsnum;
-	mdishes.todayxg = goodsJSON.creator;												//今日剩余的限购数量
-	sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
-	window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
-	return true;
 }
 //新增秒杀商品
 function addMMSdishes(goodsJSON){
@@ -742,28 +590,6 @@ function addMMSdishes(goodsJSON){
 	mdishes.surplusnum = goodsJSON.surplusnum;
 	mdishes.timegoodsnum = goodsJSON.timegoodsnum;
 	mdishes.todayxg = goodsJSON.timegoodsdetail;										//今日剩余的限购数量
-	sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
-	window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
-	return true;
-}
-//新增商品订单
-function addMdishes(goodsJSON) {
-	var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); 					//将缓存中的sdishes(字符串)转换为json对象
-	var mdishes = new Object();
-	mdishes.goodsid = goodsJSON.goodsid;
-	mdishes.goodsdetail = goodsJSON.goodsdetail;
-	mdishes.goodscompany = goodsJSON.goodscompany;
-	mdishes.companyshop = goodsJSON.companyshop;
-	mdishes.companydetail = goodsJSON.companydetail;
-	mdishes.goodsclassname = goodsJSON.goodsclassname;
-	mdishes.goodscode = goodsJSON.goodscode;
-	mdishes.pricesprice = goodsJSON.pricesprice;
-	mdishes.pricesunit = goodsJSON.pricesunit;
-	mdishes.goodsname = goodsJSON.goodsname;
-	mdishes.goodsimage = goodsJSON.goodsimage;
-	mdishes.orderdtype = '商品';
-	mdishes.goodsunits = goodsJSON.goodsunits;
-	mdishes.orderdetnum = $(".order-num-s").val();
 	sdishes.push(mdishes); 																//往json对象中添加一个新的元素(订单)
 	window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
 	return true;

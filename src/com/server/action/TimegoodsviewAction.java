@@ -91,10 +91,10 @@ public class TimegoodsviewAction extends BaseActionDao {
 			List<Timegoodsview> msgoodss = selAll(queryinfo);
 			if(msgoodss.size()==1){
 				Timegoodsview tg = msgoodss.get(0);
-				List<Orderd> orderds = selAll(Orderd.class, "select od.orderdcode,od.orderdtype,od.orderdunits,sum(od.orderdnum) as orderdclass from orderm om "+
+				List<Orderd> orderds = selAll(Orderd.class, "select od.orderdcode,od.orderdtype,od.orderdnum,od.orderdunits,sum(od.orderdnum) as orderdclass from orderm om "+
 						"left join orderd od on od.orderdorderm = om.ordermid where om.ordermcustomer = '"+request.getParameter("customerid")+
 						"' and od.orderdtype = '秒杀' and orderdcode='"+tg.getTimegoodscode()+"' and om.ordermtime >= '"+DateUtils.getDate()+
-						" 00:00:00' and om.ordermtime <= '"+DateUtils.getDate()+" 23:59:59'  group by od.orderdcode,od.orderdtype,od.orderdunits");
+						" 00:00:00' and om.ordermtime <= '"+DateUtils.getDate()+" 23:59:59'  group by od.orderdcode,od.orderdtype,od.orderdunits,od.orderdnum");
 				Integer odNum = tg.getTimegoodsnum();
 				if(orderds.size()>0){
 					for (Orderd od : orderds) {

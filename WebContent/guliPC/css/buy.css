@@ -123,7 +123,7 @@
 .buyblxml1text1bb span{float:left;width:130px;line-height:18px;text-align:left;margin-top:15px;display:inline;}
 .buyblxml1text3bb img{float:left;width:auto;margin-right:12px;margin-left:55px;display:inline;margin-top:40px;cursor: pointer;}
 
-.buyblxml1text2bb input{float:left;width:60px;height:28px;border:1px solid #cccccc;margin-right:6px;margin-top:36px;display:inline;}
+.buyblxml1text2bb input{float:left;width:60px;height:28px;border:1px solid #cccccc;margin-right:6px;margin-top:36px;display:inline;text-align: center;}
 .buyblxml1text4bb{float:left;width:12%;height:100px;text-align:center;}
 .buyblxml1text4bb input{float:left;width:14px;height:14px;margin:40px 6px 0px 45px;display:inline;}
 .wzkleft{float:left;width:571px;height:auto;margin-left:60px;display:inline;}

@@ -41,7 +41,7 @@
 
 	/*横幅*/
 	#flash ,#flashLine
-	,#flash a 				{ height:300px;}
+	,#flash a 				{ height:382px;}
 	
 	/*按钮Button*/
 	.buyButton				{ width:40%;}
@@ -59,7 +59,7 @@
 	/* 清除浮动 */
 	.clearD					{clear: both;display: block;overflow: hidden;visibility: hidden; width: 0; height: 0;}
 	
-	.deal-introduce-img		{ width:47.42268041%; height:330px; display:block; float:left; overflow:hidden;}/*W460px*/
+	.deal-introduce-img		{ width:47.42268041%; height:330px; display:block; float:left; overflow:hidden;text-align: center;}/*W460px*/
 	.deal-introduce-info	{ width:51.03092784%; float:right;}/*W495px*/
 	
 	.wzh-merchants			{ width:100%; margin:auto;}

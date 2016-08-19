@@ -408,13 +408,13 @@ $(function(){
 						<a id="flash1" style="display: block;"><img
 							class="scrollLoading"
 							onerror=""
-							src="images/homepageImg/banner1.jpg"></a>
+							src="images/homepageImg/banner1.jpg" width="100%" height="382px"></a>
 						<a id="flash2"><img class="scrollLoading"
 							onerror=""
-							src="images/homepageImg/banner2.jpg"></a>
+							src="images/homepageImg/banner2.jpg" width="100%" height="382px"></a>
 						<a id="flash3"><img class="scrollLoading"
 							onerror=""
-							src="images/homepageImg/youhui.jpg"></a>
+							src="images/homepageImg/youhui.jpg" width="100%" height="382px"></a>
 						<!-- <a id="flash4"><img class="scrollLoading"
 							onerror=""
 							src="images/homepageImg/dd73c090-d721-4f84-966b-3bc3db7cde48.jpg"></a>
@@ -423,83 +423,6 @@ $(function(){
 							src="images/homepageImg/pc_banner0416.jpg"></a> -->
 					</div>
 					<!--flash-->
-					<!-- <div class="ban-FenLei">
-						<ul>
-							<h3>
-								<i class="in-screen ban-hotIoc"></i>热门商品
-							</h3>
-							<li><a
-								href="javascript:void(0)" target="_blank">其他生活</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">小吃快餐</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">甜点饮品</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">美容美体</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">美甲</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">其他美食</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">蛋糕</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">韩国料理</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">体检保健</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">培训课程</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">家常菜</a></li>
-						</ul>
-						<ul>
-							<h3>
-								<i class="in-screen ban-allAreaIoc"></i>全部区域
-							</h3>
-							<li><a
-								href="javascript:void(0)" target="_blank">崇安区</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">滨湖区</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">南长区</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">北塘区</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">新区</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">锡山区</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">惠山区</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">江阴市</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">宜兴市</a></li>
-						</ul>
-						<ul>
-							<h3>
-								<i class="in-screen ban-BusinessIoc"></i>热门商圈
-							</h3>
-							<li><a
-								href="javascript:void(0)" target="_blank">崇安谷粒哥伦布广场</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">谷粒国际小商品城</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">洛社谷粒哥伦布广场</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">梅村谷粒国际广场</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">谷粒国际银河城/中华美食城</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">羊尖谷粒国际广场</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">新区谷粒哥伦布广场</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">谷粒国际工业博览城</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">广瑞街道</a></li>
-							<li><a
-								href="javascript:void(0)" target="_blank">火车站</a></li>
-						</ul>
-					</div> -->
 					<!--banner-->
 				</div>
 				<!--site-middle-->
@@ -566,14 +489,14 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.timegoodsid+'&type=ms" target="_blank">'+
+				'<a class="pro-a-box" href="miaoshaXD.html?goodsid='+item.timegoodsid+'&type=ms" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.timegoodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">秒杀</li></div></span>'+
 				'<span title="【'+item.timegoodsname+'】'+item.timegoodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.timegoodsname+'】'+item.timegoodsunits+'</h3></span>'+
-				'<span title="甜品三选一，材料新鲜，口感极佳！" class="sp-info" href="" target="_blank">'+
-				'<span title="甜品三选一，材料新鲜，口感极佳！" class="sp-Text">甜品三选一，材料新鲜，口感极佳！</span></span>'+
+				'<span title="" class="sp-info" href="" target="_blank">'+
+				'<span title="" class="sp-Text">每日限购：'+item.timegoodsnum+item.timegoodsunit+'</span></span>'+
 					'<div class="sp-priceTit">'+
 						'<span class="sp-tag"><strong>¥'+item.timegoodsorgprice+'</strong> <span class="stores-jia">原价<DEL>'+item.timegoodsprice+'</DEL></span> </span>'+
 					'</div>'+
@@ -631,16 +554,16 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.givegoodsid+'&type=mz" target="_blank">'+
+				'<a class="pro-a-box" href="maizengXD.html?goodsid='+item.givegoodsid+'&type=mz" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.givegoodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.givegoodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">买赠</li></div></span>'+
 				'<span title="【'+item.givegoodsname+'】'+item.givegoodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.givegoodsname+'】'+item.givegoodsunits+'</h3></span>'+
 				'<span title="'+item.givegoodsdetail+'" class="sp-info" href="" target="_blank">'+
-				'<span title="'+item.givegoodsdetail+'" class="sp-Text">'+item.givegoodsdetail+'</span></span>'+
+				'<span title="'+item.givegoodsdetail+'" class="sp-Text">每日限购：'+item.givegoodsnum+item.givegoodsunit+'。</span></span>'+
 					'<div class="sp-priceTit">'+
-						'<span class="sp-tag"><strong>¥'+item.givegoodsprice+'</strong></span>'+
+						'<span class="sp-tag"><strong>¥'+item.givegoodsprice+'</strong><span>'+item.givegoodsdetail+'</span></span>'+
 					'</div>'+
 				'</a>'+
 				'</div>';
@@ -698,9 +621,10 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root[0],function(i,item){
 				var goods = '<div class="sp-dataBox">'+
-				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
+				'<a class="pro-a-box" onclick="dogoodsxdpage(\''+item.goodsclassparent+'\',\''+
+						item.goodsclassname+'\',\''+item.goodsid+'\')" href="javascript:void(0)" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">品牌</li></div></span>'+
 				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.goodsname+'】'+item.goodsunits+'</h3></span>'+
@@ -722,6 +646,11 @@ $(function(){
 		}
 	});
 });
+function dogoodsxdpage(parent,classname,goodsid){
+	window.localStore.setItem("goodsclassparent",parent);
+	window.localStore.setItem("goodsclassname",classname);
+	window.location.href= "goodsXD.html?goodsid="+goodsid+"&type=sp"
+}
 </script>
 				<!--sp-contentBox-->
 				<!-------------------------------4F------------------------------------->
@@ -769,7 +698,7 @@ $(function(){
 				var goods = '<div class="sp-dataBox">'+
 				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">裸价</li></div></span>'+
 				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.goodsname+'】'+item.goodsunits+'</h3></span>'+
@@ -838,7 +767,7 @@ $(function(){
 				var goods = '<div class="sp-dataBox">'+
 				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">粮油米面</li></div></span>'+
 				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.goodsname+'】'+item.goodsunits+'</h3></span>'+
@@ -917,7 +846,7 @@ $(function(){
 				var goods = '<div class="sp-dataBox">'+
 				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">调味酱汁</li></div></span>'+
 				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.goodsname+'】'+item.goodsunits+'</h3></span>'+
@@ -986,7 +915,7 @@ $(function(){
 				var goods = '<div class="sp-dataBox">'+
 				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">南北干货</li></div></span>'+
 				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.goodsname+'】'+item.goodsunits+'</h3></span>'+
@@ -1055,7 +984,7 @@ $(function(){
 				var goods = '<div class="sp-dataBox">'+
 				'<a class="pro-a-box" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
 				'<span class="spImg" href="" target="_blank">'+					//商品详情
-					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" data-url="">'+
+					'<img class="scrollLoading" onerror="" alt="" src="'+item.goodsimage+'" width="250px" height="250px" data-url="">'+
 					'<div class="pro-label"><li class="discount">餐厨用品</li></div></span>'+
 				'<span title="【'+item.goodsname+'】'+item.goodsunits+'" class="sp-info" href="" target="_blank">'+
 						'<h3>【'+item.goodsname+'】'+item.goodsunits+'</h3></span>'+

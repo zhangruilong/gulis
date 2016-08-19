@@ -93,10 +93,10 @@ public class GivegoodsviewAction extends BaseActionDao {
 			List<Givegoodsview> mzgoodss = selAll(queryinfo);
 			if(mzgoodss.size()==1){
 				Givegoodsview gg = mzgoodss.get(0);
-				List<Orderd> orderds = selAll(Orderd.class, "select od.orderdcode,od.orderdtype,od.orderdunits,sum(od.orderdnum) as orderdclass from orderm om "+
+				List<Orderd> orderds = selAll(Orderd.class, "select od.orderdcode,od.orderdtype,od.orderdnum,od.orderdunits,sum(od.orderdnum) as orderdclass from orderm om "+
 						"left join orderd od on od.orderdorderm = om.ordermid where om.ordermcustomer = '"+request.getParameter("customerid")+
 						"' and od.orderdtype = '买赠' and orderdcode='"+gg.getGivegoodscode()+"' and om.ordermtime >= '"+DateUtils.getDate()+
-						" 00:00:00' and om.ordermtime <= '"+DateUtils.getDate()+" 23:59:59'  group by od.orderdcode,od.orderdtype,od.orderdunits");
+						" 00:00:00' and om.ordermtime <= '"+DateUtils.getDate()+" 23:59:59'  group by od.orderdcode,od.orderdtype,od.orderdunits,od.orderdnum");
 				Integer odNum = gg.getGivegoodsnum();
 				if(orderds.size() > 0){
 					for (Orderd od : orderds) {
