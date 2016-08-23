@@ -12,6 +12,7 @@ import com.server.pojo.Ccustomer;
 import com.server.pojo.Ccustomerview;
 import com.server.pojo.Customer;
 import com.server.pojo.Goodsclass;
+import com.server.pojo.Goodsview;
 import com.server.poco.GoodsclassPoco;
 import com.system.tools.CommonConst;
 import com.system.tools.base.BaseActionDao;
@@ -127,11 +128,23 @@ public class GoodsclassAction extends BaseActionDao {
 			Ccustomerview cus = cusli.get(0);
 			sql += "from goodsview g where g.pricesclass = '"+cus.getCustomertype()+"' "+
 					"and g.priceslevel = "+cus.getCustomerlevel()+" and g.goodsstatue = '上架' and (";
+			String sql2 = "select g.goodsbrand as goodsclassname from goodsview g "+
+					"where g.goodsbrand is not null "+
+					"and g.goodsstatue = '上架' "+
+					"and g.pricesclass='"+cus.getCustomertype()+"' "+
+					"and g.priceslevel="+cus.getCustomerlevel() +
+					" and g.goodsbrand in (select gs.goodsclassname from goodsclass gs) "+
+					"and (";
 			for (Ccustomerview ccitem : cusli) {
 				sql += "g.goodscompany='"+ccitem.getCcustomercompany()+"' or ";
+				sql2 += "g.goodscompany ='"+ccitem.getCcustomercompany()+"' or ";
 			}
+			sql2 = sql2.substring(0, sql2.length()-3) +") group by g.goodsbrand";
 			sql = sql.substring(0,sql.length()-3) + ") group by g.goodsclassname,g.goodsclassparent";
-			Pageinfo pageinfo = new Pageinfo(0, selAll(Goodsclass.class, sql));
+			List<Object> objli = new ArrayList<Object>();
+			objli.add(selAll(Goodsclass.class, sql));
+			objli.add(selAll(Goodsview.class, sql2));
+			Pageinfo pageinfo = new Pageinfo(0, objli);
 			result = CommonConst.GSON.toJson(pageinfo);
 		}
 		responsePW(response, result);

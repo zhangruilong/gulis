@@ -284,44 +284,23 @@
 var goodsclassparent = window.localStorage.getItem("goodsclassparent");
 var goodsclassname = window.localStorage.getItem("goodsclassname");
 $(function(){
-	ljzuddpage();
+	mzpage();
 });
-//裸价专区条件查询
-function ljcond(classname){
-	window.localStorage.setItem('goodsclassname',classname);
-	goodsclassname=classname;
-	ljzuddpage();
-}
-//裸价专区
-function ljzuddpage(){
-	$(".sp-dataBox").remove();
+//买赠页
+function mzpage(){
 	$.ajax({
-		url:'GoodsviewAction.do?method=ljgvgoods',
+		url:'GivegoodsviewAction.do?method=cusGiveG',
 		type:"post",
 		data:{
 			customerid:customer.customerid,
 			customertype:customer.customertype,
-			customerlevel:customer.customerlevel,
-			goodsclassparent:goodsclassparent,
-			goodsclassname:goodsclassname
+			customerlevel:customer.customerlevel
 			},
 		success:function(resp){
 			var data = eval('('+resp+')');
 			if(data.msg=='操作成功'){
-				$("dl[name='populargroup'] dd").remove();
-				var goodsnum = '';
-				$.each(data.root[1],function(i,item){
-					if(goodsclassparent != 'G14630381061319232'){					//如果是裸价商品就不显示商品数量
-						goodsnum = item.goodsid;
-					}
-					if(i==0){
-						$("dl[name='populargroup']").append('<DD class="selected"><A name="'+item.goodsclassname+'" onclick="ljcond(\''+item.goodsclassname+'\');" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+goodsnum+'</A></DD>');
-					} else {
-						$("dl[name='populargroup']").append('<DD><A name="'+item.goodsclassname+'" onclick="ljcond(\''+item.goodsclassname+'\');" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+goodsnum+'</A></DD>');
-					}
-				});
-				$("dl[name='populargroup'] dd a[name='"+goodsclassname+"']").parent().addClass('selected').siblings().removeClass('selected');
-				$.each(data.root[0],function(i,item){
+				$("dl[name='populargroup']").append('<DD  class="selected"><A onclick="" href="javascript:void(0)">买赠商品&nbsp; '+data.root.length+'</A></DD>');
+				$.each(data.root,function(i,item){
 					if(i % 3 == 2){
 						var goods = '<DIV class="sp-dataBox tailThree">';
 					} else {
@@ -329,19 +308,19 @@ function ljzuddpage(){
 					}
 					
 					goods += '<A class="pro-a-box" '+
-							'href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" '+
-							'target="_blank"><SPAN class="spImg" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-							'<IMG class="scrollLoading" alt="" src="'+item.goodsimage+'">'+
+							'href="maizengXD.html?goodsid='+item.givegoodsid+'&type=mz" '+
+							'target="_blank"><SPAN class="spImg" href="maizengXD.html?goodsid='+item.givegoodsid+'&type=mz" target="_blank">'+
+							'<IMG class="scrollLoading" alt="" src="'+item.givegoodsimage+'">'+
 	
 								'<DIV class="pro-label">'+
-									'<LI class="discount">'+item.goodsclassname+'</LI>'+
+									'<LI class="discount">'+item.givegoodsclass+'</LI>'+
 								'</DIV></SPAN><SPAN class="sp-info">'+
-								'<H3 title="【'+item.goodsname+'】'+item.goodsunits+'">【'+item.goodsname+'】'+item.goodsunits+'</H3>'+
+								'<H3 title="【'+item.givegoodsname+'】'+item.givegoodsunits+'">【'+item.givegoodsname+'】'+item.givegoodsunits+'</H3>'+
 						'</SPAN><SPAN title="'+item.companydetail+'" class="sp-Text" '+
 							'id="title14"></SPAN>'+
 							'<DIV class="sp-priceTit">'+
 								'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
-									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.pricesprice+'</STRONG>'+
+									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.givegoodsprice+'</STRONG>'+
 								'</SPAN>'+
 							'</DIV>'+
 							'</A>'+

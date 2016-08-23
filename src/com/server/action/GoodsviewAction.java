@@ -215,8 +215,8 @@ public class GoodsviewAction extends BaseActionDao {
 		String customerid = request.getParameter("customerid");
 		String customertype = request.getParameter("customertype");
 		String customerlevel = request.getParameter("customerlevel");
-		String parent = request.getParameter("parent");
-		String goodsclass = request.getParameter("goodsclass");
+		String goodsclassparent = request.getParameter("goodsclassparent");
+		String goodsclassname = request.getParameter("goodsclassname");
 		//查询该客户的供应商关系表
 		Queryinfo Ccustomerqueryinfo = getQueryinfo();
 		Ccustomerqueryinfo.setType(Ccustomer.class);
@@ -228,23 +228,35 @@ public class GoodsviewAction extends BaseActionDao {
 				wheresql += "goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
 			}
 			wheresql = wheresql.substring(0, wheresql.length()-3) +")";
-			
-			
-			String sql2 = "select count(g.goodsclassname) goodsid,g.goodsclassname from goodsview g "+
-					"where g.goodsclassparent='"+parent+"' "+
-					"and g.pricesclass='"+customertype+"' "+
-					"and g.priceslevel="+customerlevel+
-					" and g.goodsstatue='上架' "+
-					"and (";
+			String sql2;
+			String sql2aft;
+			if(goodsclassparent.equals("G14630381061319233")){
+				sql2 = "select count(g.goodsbrand) goodsid,g.goodsbrand as goodsclassname from goodsview g "+
+						"where g.goodsbrand is not null "+
+						"and g.goodsstatue = '上架' "+
+						"and g.pricesclass='"+customertype+"' "+
+						"and g.priceslevel="+customerlevel +
+						" and g.goodsbrand in (select gs.goodsclassname from goodsclass gs) "+
+						"and (";
+				sql2aft = " group by g.goodsbrand";
+			} else {
+				sql2 = "select count(g.goodsclassname) goodsid,g.goodsclassname from goodsview g "+
+						"where g.goodsclassparent='"+goodsclassparent+"' "+
+						"and g.pricesclass='"+customertype+"' "+
+						"and g.priceslevel="+customerlevel+
+						" and g.goodsstatue='上架' "+
+						"and (";
+				sql2aft = " group by g.goodsclassname ";
+			}
 			for(Ccustomer mCcustomer:Ccustomercuss){
 				sql2 += "g.goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
 			}
 			sql2 = sql2.substring(0, sql2.length()-3) +")";
-			List<Goodsview> goclList = selAll(Goodsview.class, sql2+" group by g.goodsclassname ");
-			if(CommonUtil.isEmpty(goodsclass) && goclList.size()>0){
-				goodsclass = goclList.get(0).getGoodsclassname();
+			List<Goodsview> goclList = selAll(Goodsview.class, sql2+sql2aft);
+			if(CommonUtil.isEmpty(goodsclassname) && goclList.size()>0){
+				goodsclassname = goclList.get(0).getGoodsclassname();
 			}
-			wheresql += " and goodsclassname='"+goodsclass+"'";
+			wheresql += " and (goodsclassname='"+goodsclassname+"' or goodsbrand='"+goodsclassname+"' or goodstype='"+goodsclassname+"') ";
 			Queryinfo queryinfo = getQueryinfo(request);
 			queryinfo.setType(Goodsview.class);
 			queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));

@@ -439,17 +439,13 @@ $(function() {
 			},
 			success:function(resp){
 				var goodsJSON = JSON.parse(resp).root[0];
-				var href1 = '';
-				var href2 = '';
 				if(goodsclassparent == 'G14630381061319233'){
 					goodsclassparent='品牌专区';
-					href1 = 'gflshow.html?smzq=pingpaizhuanqu';
-					href2 = 'gflshow.html?smzq=pingpaizhuanqu&qucon='+escape(goodsclassname);
 				}
+				//window.localStorage.setItem('goodsparentname',goodsJSON.goodsclassdetail);
 				$('.contentBody div[name="cb-nowposi"]').html('<a href="homepage.html">首页</a> » '+
-						'<a href="javascript:void(0)" categoryid="1002" id="g-parent">'+goodsclassparent+'</a> » '+
-						'<a href="javascript:void(0)" categoryid="10021057" id="g-children">'+goodsclassname+'</a>');
-				$('.contentBody div[name="cb-nowposi"] a:eq(1)').attr('href','');
+						'<a href="gflshow.html" categoryid="1002" id="g-parent">'+goodsJSON.goodsclassdetail+'</a> » '+
+						'<a href="gflshow.html" categoryid="10021057" id="g-children">'+goodsclassname+'</a>');
 				$("#span-gdata").text(JSON.stringify(goodsJSON));
 				$(".deal-sj-tit").html(goodsJSON.goodsname + '<span class="prs_Unit">('+ goodsJSON.goodsunits + ')</span>');
 				$("#yufu").text("￥" + goodsJSON.pricesprice + "/" + goodsJSON.pricesunit);
