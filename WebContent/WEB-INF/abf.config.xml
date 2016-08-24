@@ -58,4 +58,5 @@
 	<bean id="GoodsviewAction" class="com.server.action.GoodsviewAction" />
 	<bean id="GivegoodsviewAction" class="com.server.action.GivegoodsviewAction" />
 	<bean id="TimegoodsviewAction" class="com.server.action.TimegoodsviewAction" />
+	<bean id="CollectviewAction" class="com.server.action.CollectviewAction" />
 </beans>

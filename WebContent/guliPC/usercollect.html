@@ -13,11 +13,7 @@
         <link rel="stylesheet" href="css/color.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-         <!--[if lt IE 7]>
-            <p class="browsehappy">您使用的<strong>过时的</strong> 浏览器。 请 <a href="http://browsehappy.com/">升级您的浏览器</a>以提高您的浏览体验！</p>
-        <![endif]-->
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     </head>
     <body>
     <div id="ContainerBox"> 
@@ -55,7 +51,7 @@
                          <!--资料内容-->
                         <div class="U_dataCont" id="test">
                            <h2>我的商品订单</h2>
-                           <table width="100%" border="0" class="table u-dataTab" >
+                           <table width="100%" border="0" class="table u-dataTab" id="ucg-data" >
                            	  <tr>
                               	<th class="cart-check"><input type="checkbox">全选</th>
                               	<th style="width:23%">商品</th>
@@ -63,7 +59,7 @@
                                 <th>状态</th>
                                 <th>操作</th>
                               </tr>
-                              <tr class="">
+                              <!-- <tr>
                               	<td><input type="checkbox"></td>
                                 <td>
                                 	
@@ -78,9 +74,8 @@
                                 	<a href="#" class="yellow">加入购物车</a>
                                     <a href="#">取消收藏</a>
                                 </td>
-                              </tr>
+                              </tr> -->
                             </table>
-
                             <div class="paging">
                                 <span>当前共：<q>1</q>/1</span>
                                 <input type="button" class="button" value="下一页" alt="hoverBut" />
@@ -97,37 +92,190 @@
       <!--主体结束-->
     </div><!--ContainerBox END-->
     
-    </body>
-    	<!--框架js-->
-    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-        
-        <!--功能js-->
-        
-        <SCRIPT type=text/javascript src="js/jquery.dragndrop.min.js"></SCRIPT><!--弹窗js-->
-		<SCRIPT type=text/javascript src="js/jquery.msgbox.min.js"></SCRIPT><!--弹窗js-->
-        <SCRIPT type=text/javascript>  
-			$(function(){   
-			
-				$("#test input").click(function(){
+<script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
+$(function(){
+	$.ajax({
+		url:"CollectviewAction.do?method=selAll",
+		type:"post",
+		data:{
+			wheresql:"collectcustomer='"+customer.customerid+"' and pricesclass='"+
+					customer.customertype+"' and priceslevel='"+customer.customerlevel+
+					"' "
+		},
+		success:function(resp){
+			var jsonResp = JSON.parse(resp);
+			var data = jsonResp.root;
+			if(typeof(data) != 'undefined' && data.length > 0){
+				$.each(data,function(i,item){
+					var jsonitem = JSON.stringify(item);
+					$("#ucg-data").append('<tr>'+
+                  	'<td><input type="checkbox"></td>'+
+                    '<td>'+
+                    	'<div class="dd-goodsImg">'+
+           	    			'<img src="images/xximg.jpg"  alt=""/>'+
+                		'</div>'+
+          				'灵山大佛+君乐酒店，提供免费wi'+
+                    '</td>'+
+                    '<td>￥68</td>'+
+                    '<td>销售中</td>'+
+                    '<td>'+
+                    	'<a href="#" class="yellow">加入购物车</a>'+
+                        '<a href="#">取消收藏</a>'+
+                    '</td>'+
+                  '</tr>');
+				})
+			} else {
+				$("#ucg-data tr").remove();
+				$("#ucg-data").append('<tr><td style="color: red;font-size: 1.5em;">没有收藏商品</td></tr>');
+			}
+		},
+		error : function(resp2){
+			var respText2 = eval('('+resp2+')');
+			alert(respText2.msg);
+		}
+	});
+})
+	//下单
+	function xiadan(){
+		$("#cwn_a_xiadan").text("确定");
+		$("#cwn_a_bianji").text("取消");
+		$("#cwn_a_xiadan").attr("onclick","collectDoCart()");
+		$("#cwn_a_bianji").attr("onclick","cancel()");
+		$.each($("li"),function(i,item){
+			$(item).prepend("<input type='checkbox' value='"+$(item).attr("name")+"' >");
+		})
+	}
+	//取消
+	function cancel(){
+		$("li input").remove();
+		$(".wapper-nav").html('<a onclick="javascript:window.history.go(-1)" class="goback"></a>'+
+				'我的收藏<a id="cwn_a_xiadan" onclick="xiadan()">下单</a><a id="cwn_a_bianji" onclick="editToDel()">编辑</a>');
+	}
+	//加入购物车
+	function collectDoCart(){
+		var goods = JSON.parse('[]');
+		$.each($("[type='checkbox']"),function(i,item){
+			if(item.checked){
+				goods.push(JSON.parse($(item).next().text()));
+			}
+		})
+		if(parseInt(goods.length) >0){
+			$.each(goods,function(i,item){
+				if (window.localStorage.getItem("sdishes") == null || window.localStorage.getItem("sdishes") == "[]") {				//判断有没有购物车
+					//没有购物车
+					window.localStorage.setItem("sdishes", "[]");						//创建一个购物车
+					var sdishes = JSON.parse(window.localStorage.getItem("sdishes")); 	//将缓存中的sdishes(字符串)转换为json对象
+					//新增订单
+					var mdishes = new Object();
+					mdishes.goodsid = item.goodsid;
+					mdishes.goodsdetail = 'danpin';
+					mdishes.goodscompany = item.goodscompany;
+					mdishes.companyshop = item.companyshop;
+					mdishes.companydetail = item.companydetail;
+					mdishes.goodsclassname = item.goodsclass;
+					mdishes.goodscode = item.goodscode;
+					mdishes.pricesprice = item.pricesprice;
+					mdishes.pricesunit = item.pricesunit;
+					mdishes.goodsname = item.goodsname;
+					mdishes.goodsimage = item.goodsimage;
+					mdishes.orderdtype = '商品';
+					mdishes.timegoodsnum = item.goodsnum;
+					mdishes.goodsunits = item.goodsunits;
+					mdishes.orderdetnum = 1;
+					sdishes.push(mdishes); 											//往json对象中添加一个新的元素(订单)
+					window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
 					
-					var index = $("#test input").index($(this));
-					eval($("#test textarea").eq(index).val());
-				});
-			
-			});   
-  
-		</SCRIPT>
-
+					window.localStorage.setItem("totalnum", 1); 					//设置缓存中的种类数量等于一 
+					window.localStorage.setItem("totalmoney", item.pricesprice);	//总金额等于商品价
+					var cartnum = parseInt(window.localStorage.getItem("cartnum"));
+					window.localStorage.setItem("cartnum",cartnum+1);
+				} else {
+					//有购物车
+					var sdishes = JSON.parse(window.localStorage.getItem("sdishes"));	//将缓存中的sdishes(字符串)转换为json对象
+					var tnum = parseInt(window.localStorage.getItem("totalnum"));		//取出商品的总类数
+					$.each(sdishes,function(j,item1) {								//遍历购物车中的商品
+						//i是增量,item是迭代出来的元素.i从0开始
+						if( item1.goodsid == item.goodsid){
+							//如果商品id相同
+							return false;
+						} else if(j == (tnum-1)){
+							//如果最后一次进入时goodsid不相同
+							//新增订单
+							var mdishes = new Object();
+							mdishes.goodsid = item.goodsid;
+							mdishes.goodsdetail = 'danpin';
+							mdishes.goodscompany = item.goodscompany;
+							mdishes.companyshop = item.companyshop;
+							mdishes.companydetail = item.companydetail;
+							mdishes.goodsclassname = item.goodsclass;
+							mdishes.goodscode = item.goodscode;
+							mdishes.pricesprice = item.pricesprice;
+							mdishes.pricesunit = item.pricesunit;
+							mdishes.goodsname = item.goodsname;
+							mdishes.goodsimage = item.goodsimage;
+							mdishes.orderdtype = '商品';
+							mdishes.timegoodsnum = item.goodsnum;
+							mdishes.goodsunits = item.goodsunits;
+							mdishes.orderdetnum = 1;
+							sdishes.push(mdishes); 												//往json对象中添加一个新的元素(订单)
+							window.localStorage.setItem("sdishes", JSON.stringify(sdishes));
+							window.localStorage.setItem("totalnum", tnum + 1);					//商品种类数加一
+							var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); //从缓存中取出总金额
+							var newtmoney = (tmoney+parseFloat(item.pricesprice)).toFixed(2);
+							window.localStorage.setItem("totalmoney",newtmoney);	
+							var cartnum = parseInt(window.localStorage.getItem("cartnum"));
+							window.localStorage.setItem("cartnum",cartnum+1);
+						}	
+					})
+				}
+			})
+			window.location.href = "cart.jsp";
+		} else {
+			cancel();
+		}
+	}
+	//修改
+	function editToDel(){
+		$("#cwn_a_xiadan").text("删除");
+		$("#cwn_a_bianji").text("取消");
+		$("#cwn_a_xiadan").attr("onclick","delCollects()");
+		$("#cwn_a_bianji").attr("onclick","cancel()");
+		$.each($("li"),function(i,item){
+			$(item).prepend("<input style='background-color:whit;' type='checkbox' value='"+$(item).attr("name")+"' name='collectids'>");
+		})
+	}
+	//删除收藏
+	function delCollects(){
+		var collectids = '[';
+		$.each($("[type='checkbox']"),function(i,item){
+			if(item.checked){
+				collectids += '{"collectcustomer":"'+customer.customerid+'","collectgoods":"'+$(item).val()+'"},';
+			}
+		});
+		collectids = collectids.substr(0,collectids.length -1) + "]";
+		if(collectids.length > 2){
+			$.ajax({
+				url:"CollectAction.do?method=delAllByGoodsid",
+				type:"post",
+				data:{
+					json:collectids
+				},
+				success:function(resp){
+					var respText = eval('('+resp+')');
+					alert(respText.msg);
+					window.location.reload();
+				},
+				error : function(resp2){
+					var respText2 = eval('('+resp2+')');
+					alert(respText2.msg);
+				}
+			});
+		} else {
+			cancel();
+		}
+	}
+</script>
+    </body>
         
 </html>

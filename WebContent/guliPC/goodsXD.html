@@ -6,7 +6,6 @@
 <title>谷粒网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-<link rel="stylesheet" href="css/global.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/color.css">
 <link rel="stylesheet" href="css/normalize.css">
@@ -21,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="css/Evaluation.css">
 <link rel="stylesheet" href="css/share_style0_16.css">
 <link rel="stylesheet" href="css/share_popup.css">
+<link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 	<div class="ContainerBox"
@@ -41,84 +41,34 @@
 						</div>
 						<div class="menu">
 							<ul class="tlrtext">
-								<li><span class="topwelcome"> <q>您好， 欢迎来到谷粒！</q>
-								</span></li>
-								<li><a
-									href="javascript:void(0)">用户中心<i
-										class="triangleIco"></i></a>
-									<ul class="topMenu-text">
-										<!--  <li><a href="/user/userBasicinfoPage.html"
-									id="user_accountinfo">谷粒信息</a></li>-->
-										<!-- <li><a
-											href="javascript:void(0)"
-											id="topbar_userinfo">个人资料</a></li>
-										<li><a
-											href="javascript:void(0)"
-											id="user_accountinfo">基本信息</a></li>
-										<li><a
-											href="javascript:void(0)"
-											id="topbar_bindwzk">我的谷粒卡</a></li>
-										<li><a
-											href="javascript:void(0)"
-											id="topbar_collect">我的收藏</a></li>
-										<li><a
-											href="javascript:void(0)"
-											id="topbar_jifen">我的积分</a></li>
-										<li><a
-											href="javascript:void(0)">我的评价</a></li> -->
-										<li><a href="javascript:void(0)"
-											id="topbar_order">我的订单</a></li>
-									</ul></li>
-
-								<li style="display: none;"><a
-									href="javascript:void(0)"
-									id="shopping_card_button"><i class="triangleIco"></i> 购物车 <q
-										id="shoppingCart"></q> 件</a>
-									<ul>
-										<div class="top-cart" id="headerShoppingCart">
-											<div class="cartNoGoods">
-												<i class="TopCartIco"></i>再去逛逛吧，还什么都没有
-											</div>
-										</div>
-										<!--top-cart-->
-									</ul></li>
-
-								<li><a
-									href="javascript:void(0)">联系客服<i
-										class="triangleIco"></i></a>
-									<ul class="topMenu-text">
-										<li><a id="topbar_tuikuan" target="_blank"
-											href="javascript:void(0)">申请退款</a></li>
-										<li><a id="topbar_bangdingshouji" target="_blank"
-											href="javascript:void(0)">换绑手机号</a></li>
-										<li><a id="topbar_tuanjuan" target="_blank"
-											href="javascript:void(0)">查看谷粒券</a></li>
-									</ul></li>
-								<!-- 
-						<li><a href="/apply/applyWZCardInitPage.html"  >谷粒卡申请</a>
-						   <ul class="topMenu-text"></ul>
-						</li>
-						 -->
-								<li><a
-									href="javascript:void(0)">我是商家<i
-										class="triangleIco"></i></a>
-									<ul class="topMenu-text">
-										<li><a id="topbar_question" target="_blank"
-											href="javascript:void(0)">合作中心</a></li>
-									</ul></li>
-								<li><a href="javascript:void(0)" target="_blank">谷粒国际<i
-										class="triangleIco"></i></a></li>
-								<li><a
-									href="javascript:void(0)">更多<i
-										class="triangleIco"></i></a>
-									<ul class="topMenu-text">
-										<!-- <li><a id="topbar_email_order" href="javascript:alert('暂未开通,敬请期待')">邮件订阅</a></li> -->
-										<li><a href="javascript:void(0)" id="topbar_collect_net"
-											rel="sidebar" title="谷粒">收藏本站</a></li>
-										<li><a id="topbar_question" target="_blank"
-											href="javascript:void(0)">常见问题</a></li>
-									</ul></li>
-							</ul>
+									<li><span class="topwelcome"><Q>您好， 欢迎来到谷粒网！</Q></span></li>
+									<li><a
+										href="javascript:void(0)">用户中心<i
+											class="triangleIco"></i></a>
+										<ul class="topMenu-text">
+											<li><a href="myshop.html">我的店铺</a></li>
+											<li><a href="myorder.html">我的订单</a></li>
+											<li><a href="usercollect.html">我的收藏</a></li>
+											<li><a href="javascript:void(0)">我的谷币</a></li>
+											<li><a href="javascript:void(0)">收货地址</a></li>
+											<li><a href="javascript:void(0)">我的供货商</a></li>
+										</ul></li>
+									<li style="display: none;"><a id="shopping_card_button"
+										href="#"><i
+											class="triangleIco"></i> 购物车 <Q id="shoppingCart">0</Q> 件</a>
+										<ul>
+											<div class="top-cart" id="headerShoppingCart"></div>
+										</ul></li>
+									<li><a id="more_button"
+										href="#">更多</a>
+										<ul class="topMenu-text">
+											<li><a title="谷粒网" id="topbar_collect_net"
+												href="javascript:void(0)" rel="sidebar">收藏本站</a></li>
+											<li><a id="topbar_question"
+												href="#"
+												target="_blank">常见问题</a></li>
+										</ul></li>
+								</ul>
 						</div>
 					</div>
 				</div>
@@ -366,11 +316,8 @@
 									<input type="button"
 									class="button" id="to_shopping" value="加入购物车" alt="snapBut">
 									<span hidden="true" id="span-gdata"></span>
-									<a href="javascript:void(0);" title="收藏" id="add_collect_info"
-									name="add_collect_info" class="big-link2"
-									data-reveal-id="J-favorite-dialog" data-animation="fade"> <i
-										class="collection"></i>收藏(0)
-								</a>
+									<input type="checkbox" id="currentgipc" name="" class="chk_1" >
+ 	            		<label for="currentgipc" onclick="checkedgoods();"><span>收藏</span></label>
 							</span> 
 							 <span class="media-fx">
 									<div class="bdsharebuttonbox bdshare-button-style0-16"
@@ -458,6 +405,8 @@ $(function() {
 				$(".buy_statistics").html('<label>经销商</label> <span class="goods-date" style="color:black">'+goodsJSON.companyshop+'</span>');
 				$(".scrollLoading").attr("src", goodsJSON.goodsimage);
 				$(".order-num-s").val(getcurrennum(goodsJSON.goodsid,goodsJSON.goodsclassname));
+				$("#currentgipc").attr('name',goodsJSON.goodsid);
+				$("#currentgipc").attr('checked',goodsJSON.goodsdetail);
 				$(".item-plus").click(function() {
 					var num = parseInt($(".order-num-s").val());
 					$(".order-num-s").val(num + 1);
@@ -483,7 +432,41 @@ $(function() {
 			}
 		});
 });
-
+//收藏商品
+function checkedgoods(){
+	var goodsid = $("#currentgipc").attr('name');
+	if(typeof(customer.customerid) == 'undefined' || !customer.customerid){
+		alert("必须先登录才能进行此操作。");
+		window.location.href = 'login.html';
+		return;
+	}
+	var url = 'CollectAction.do?method=';
+	if($("#currentgipc").is(':checked')){
+		url +='delAllByGoodsid';
+	}else{
+		url +='insAllByGoodsid';
+	}
+	var json = '[{"collectgoods":"' + goodsid + 
+		'","collectcustomer":"' + customer.customerid + '"}]';
+	$.ajax({
+		url : url,
+		data : {
+			json : json
+		},
+		success : function(resp) {
+			var data = eval('('+resp+')'); 
+			if(data.msg=='操作失败'){
+				location.reload();
+			} else {
+				alert(data.msg+"！");
+			}
+		},
+		error : function(resp) {
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+}
 //得到商品数量
 function getcurrennum(dishesid,goodsclassname){
 	//订单

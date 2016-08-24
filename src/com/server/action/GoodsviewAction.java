@@ -94,9 +94,21 @@ public class GoodsviewAction extends BaseActionDao {
 				for (Goodsview gv : gvli) {
 					gv.setGoodsclassdetail(gc.getGoodsclassname());				//用Goodsview中的Goodsclassdetail储存父类的名称
 				}
+				Queryinfo collectqueryinfo = getQueryinfo();
+				collectqueryinfo.setType(Collect.class);
+				collectqueryinfo.setWheresql("collectcustomer='"+cusid+"'");
+				ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
+				for(Goodsview mGoodsview:gvli){
+					for(Collect mCollect:cussCollect){
+						if(mGoodsview.getGoodsid().equals(mCollect.getCollectgoods())){
+							mGoodsview.setGoodsdetail("checked");
+						}
+					}
+				}
 				Pageinfo pageinfo = new Pageinfo(0, gvli);
 				result = CommonConst.GSON.toJson(pageinfo);
 			}
+			
 		}
 		responsePW(response, result);
 	}

@@ -1,4 +1,9 @@
 // JavaScript Document
+//商品分类
+function dogoodsxdpage(parent,classname){
+	window.localStorage.setItem("goodsclassparent",parent);
+	window.localStorage.setItem("goodsclassname",classname);
+}
 //把null或undefined转换成字符串
 function typeNullFoString(str){
 	if("undefined" == typeof(str) || !str){

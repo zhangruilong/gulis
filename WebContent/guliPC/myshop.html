@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="css/order.css"/>
 <link rel="stylesheet" type="text/css" href="css/details.css"/>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-
+<script src="js/base.js"></script>
 </head>
 
 <body>
@@ -30,52 +30,37 @@
     <div class="top">
                     <div class="toplineleft">
                         <a href="#"><img src="images/wjxt.jpg" width="12" height="11">收藏我们</a>
-                        <span>中国消费增值示范企业</span>
                     </div>
                     <div class="menu">
                         <ul class="tlrtext">
-                        <li><span class="topwelcome" id="index_login_button" style="color:#666666">欢迎来到五洲汇！</span></li>
-                          <li><a  href="login.html" id="index_login_button">登陆</a><span>|</span></li>
-                          
-                          <li><a href="register.html"  id="index_register_button">注册</a><span>|</span></li>
-                          
-                          <li >
-                          <a class="hide"><span style="color:#666666;">用户中心</span>
-                          </a><span>|</span>
-                            <ul >
-                                <li><a href="#" id="user_accountinfo">基本信息</a></li>
-                                <li><a href="#" id="topbar_userinfo">个人资料</a></li>
-                                <li><a href="#" id="topbar_receive_address">收货地址</a></li>
-                                <li><a href="#" id="topbar_collect">我的收藏</a></li>
-                                <li><a href="#" id="topbar_jifen">我的积分</a></li>
-                                <li><a href="#" id="topbar_comment">我的评价</a></li>
-                                <li><a href="#" id="topbar_order">我的订单</a></li>
-                            </ul>
-                          </li>
-                           
-                            <li><a id="shopping_card_button" class="hide"><span >
-                            <img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
-                             购物车 <font style="color:#d71600;">0</font> 件</a><span>|</span></li>
-                             
-                             <li><a class="hide"><span style="color:#666666;">联系客服</span>
-                             </a><span>|</span>
-                                <ul >
-                                    <li><a href="#" id="topbar_tuikuan">申请退款</a></li>
-                                    <li><a href="#" id="topbar_tuihuo">申请退换货</a></li>
-                                    <li><a href="#" id="topbar_tuanjuan">查看团劵</a></li>
-                                    <li><a href="#" id="topbar_bangdingshouji">换绑手机</a></li>
-                                </ul>
-                            </li>
-                            
-                             <li><a class="hide" style="border:0px;" id="more_button"><span style="color:#666666;">更多</span>
-                             </a><span>|</span>
-                                <ul >
-                                    <li><a href="#" id="topbar_email_order">邮件订阅</a></li>
-                                    <li><a href="#" id="topbar_collect_net">收藏本站</a></li>
-                                    <li><a href="#" id="topbar_question">常见问题</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+									<li><span class="topwelcome"><Q>您好， 欢迎来到谷粒网！</Q></span></li>
+									<li><a
+										href="javascript:void(0)">用户中心<i
+											class="triangleIco"></i></a>
+										<ul class="topMenu-text">
+											<li><a href="myshop.html">我的店铺</a></li>
+											<li><a href="myorder.html">我的订单</a></li>
+											<li><a href="usercollect.html">我的收藏</a></li>
+											<li><a href="javascript:void(0)">我的谷币</a></li>
+											<li><a href="useraddress.html">收货地址</a></li>
+											<li><a href="javascript:void(0)">我的供货商</a></li>
+										</ul></li>
+									<li style="display: none;"><a id="shopping_card_button"
+										href="#"><i
+											class="triangleIco"></i> 购物车 <Q id="shoppingCart">0</Q> 件</a>
+										<ul>
+											<div class="top-cart" id="headerShoppingCart"></div>
+										</ul></li>
+									<li><a id="more_button"
+										href="#">更多</a>
+										<ul class="topMenu-text">
+											<li><a title="谷粒网" id="topbar_collect_net"
+												href="javascript:void(0)" rel="sidebar">收藏本站</a></li>
+											<li><a id="topbar_question"
+												href="#"
+												target="_blank">常见问题</a></li>
+										</ul></li>
+								</ul>
                     </div>
                 </div>
             </div>
@@ -101,9 +86,9 @@
     <div class="top">
                     <div class="navleft" id="index_navgation">
                      <span><a href="#" id="index_button">全部商品分类</a></span>
-                        <span><a href="index.html" id="index_button">首页</a></span>
+                        <span><a href="homepage.html">首页</a></span>
                        
-                        <span><a href="food.html" id="food_button">美食</a></span>
+                        <span><A href="gflshow.html?smzq=miaoshazhuanqu">秒杀专区</A></span>
                         <span><a href="food.html" >娱乐</a></span>
                         <span><a href="food.html" >酒店</a></span>
                         

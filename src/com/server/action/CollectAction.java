@@ -13,6 +13,7 @@ import com.system.tools.base.BaseActionDao;
 import com.system.tools.pojo.Fileinfo;
 import com.system.tools.pojo.Queryinfo;
 import com.system.tools.util.CommonUtil;
+import com.system.tools.util.DateUtils;
 import com.system.tools.util.FileUtil;
 import com.system.tools.pojo.Pageinfo;
 
@@ -110,6 +111,26 @@ public class CollectAction extends BaseActionDao {
 		queryinfo.setOrder(CollectPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//新增
+	public void insAllByGoodsid(HttpServletRequest request, HttpServletResponse response){
+		json2cuss(request);
+		for(Collect temp:cuss){
+			if(getTotal(CollectPoco.TABLE, "collectgoods='"+temp.getCollectgoods()+"' and collectcustomer='"+temp.getCollectcustomer()+"'")==0){
+				temp.setCreatetime(DateUtils.getDateTime());
+				temp.setCollectid(CommonUtil.getNewId());
+				result = insSingle(temp);
+			};
+		}
+		responsePW(response, result);
+	}
+	//删除
+	public void delAllByGoodsid(HttpServletRequest request, HttpServletResponse response){
+		json2cuss(request);
+		for(Collect temp:cuss){
+			result = delSingle(temp);
+		}
 		responsePW(response, result);
 	}
 }
