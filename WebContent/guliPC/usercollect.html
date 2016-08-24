@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>谷粒网</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/color.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+         <!--[if lt IE 7]>
+            <p class="browsehappy">您使用的<strong>过时的</strong> 浏览器。 请 <a href="http://browsehappy.com/">升级您的浏览器</a>以提高您的浏览体验！</p>
+        <![endif]-->
+    </head>
+    <body>
+    <div id="ContainerBox"> 
+      <!--主体开始-->
+      <div id="Container" class="contentBody">
+		<div class="userCenter">
+        	<aside>
+            	<div class="user-leftMenu">
+                	<div class="user-portrait">
+                        <div class="Uhead"><img src="images/icon/UserIco.png" style="margin-top:15px;"  alt=""/></div>
+                        <p>UserName</p>
+                        <span>余额：<q>0</q></span>
+                        <span>积分：<q>0</q></span>
+                	</div><!--user-portrait-->
+                
+                	<dl class="Umenu-area">
+                    	<dt>我的账户</dt>
+                        <dd><a href="#">基本信息</a></dd>
+                        <dd><a href="#">个人资料</a></dd>
+                        <dd><a href="#">绑定银行卡号</a></dd>
+                        <dd><a href="#">绑定五洲卡</a></dd>
+                        <dd><a href="#">邮件订阅</a></dd>
+                        
+                        <dt>我的订单</dt>
+                        <dd><a href="#">我的订单</a></dd>
+                        <dd><a href="#">我的积分</a></dd>
+                        <dd><a href="#">我的评价</a></dd>
+                    </dl>
+                </div><!--user-leftMenu-->
+                
+                <div class="user-rightArea">
+                
+                	<div class="U-r-connter">
+                		<header><i class="user-TopIco"></i>我的收藏</header>
+                         <!--资料内容-->
+                        <div class="U_dataCont" id="test">
+                           <h2>我的商品订单</h2>
+                           <table width="100%" border="0" class="table u-dataTab" >
+                           	  <tr>
+                              	<th class="cart-check"><input type="checkbox">全选</th>
+                              	<th style="width:23%">商品</th>
+                                <th>金额</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                              </tr>
+                              <tr class="">
+                              	<td><input type="checkbox"></td>
+                                <td>
+                                	
+                                	<div class="dd-goodsImg">
+                       	    			<img src="images/xximg.jpg"  alt=""/>
+                            		</div>
+                      				灵山大佛+君乐酒店，提供免费wi
+                                </td>
+                                <td>￥68</td>
+                                <td>销售中</td>
+                                <td>
+                                	<a href="#" class="yellow">加入购物车</a>
+                                    <a href="#">取消收藏</a>
+                                </td>
+                              </tr>
+                            </table>
+
+                            <div class="paging">
+                                <span>当前共：<q>1</q>/1</span>
+                                <input type="button" class="button" value="下一页" alt="hoverBut" />
+                            </div><!--paging-->
+                    
+                        </div><!--U_dataCont-->
+                    </div><!--U-r-connter-->
+                </div><!--user-rightArea-->
+                
+            </aside> 
+          <div class="clearD"></div><!--clearD--> 
+		</div><!--userCenter END-->
+      </div><!--Container END--> 
+      <!--主体结束-->
+    </div><!--ContainerBox END-->
+    
+    </body>
+    	<!--框架js-->
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+        
+        <!--功能js-->
+        
+        <SCRIPT type=text/javascript src="js/jquery.dragndrop.min.js"></SCRIPT><!--弹窗js-->
+		<SCRIPT type=text/javascript src="js/jquery.msgbox.min.js"></SCRIPT><!--弹窗js-->
+        <SCRIPT type=text/javascript>  
+			$(function(){   
+			
+				$("#test input").click(function(){
+					
+					var index = $("#test input").index($(this));
+					eval($("#test textarea").eq(index).val());
+				});
+			
+			});   
+  
+		</SCRIPT>
+
+        
+</html>

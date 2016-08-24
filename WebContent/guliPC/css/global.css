@@ -33,10 +33,7 @@ h1 {
 	font-size: 2em;
 	margin: 0.67em 0;
 }
-h2 {
-	font-size: 1.4em;
-	margin: 0.83em 0;
-}
+h2 {font-size: 1.5em;margin: 0.83em 0;}
 h3 {
 	font-size: 1.17em;
 	margin: 0.5em 0;
@@ -53,11 +50,7 @@ h6 {
 	font-size: 0.67em;
 	margin: 2.33em 0;
 }
-h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
-	line-height: 30px;
-	font-family: 'Microsoft Yahei';
-}
+h1, h2, h3, h4, h5, h6{ font-weight:normal; line-height:normal; font-family: 'Microsoft Yahei';}
 .now-pay b, del, .asideBox strong {
 	font-family: 'Microsoft Yahei';
 }
@@ -4283,33 +4276,17 @@ f1 {
 	background: #CBCBCB;
 	position: relative;
 }
-.Umenu-area {
-	text-align: center;
-}
-.Umenu-area dt {
-	font-size: 1.2em;
-	font-weight: 400;
-	line-height: 2em;
-	height: 2em;
-	border-top: 1px solid #eee;
-	font-family: "微软雅黑";
-	color: #333;
-	text-align: left;
-	padding-left: 30%;
-}
-.Umenu-area dd a {
-	display: block;
-	text-align: left;
-	padding-left: 35%;
-	height: 1.5em;
-	line-height: 1.5em;
-	font-size: 1.1em;
-	background-position: 0 -127px;
-}
+.Umenu-area{ text-align:center;}
+.Umenu-area dt{ font-size:1.5em; font-weight:bold; line-height:2em; padding-top:1em;}
+.Umenu-area dt{ border-top:1px solid #ccc;}
+.Umenu-area dd a{ display:block; text-align:left; padding-left:35%;}
+.Umenu-area dd{ margin-bottom:1em;}}
 .user-rightArea {
 	border-left: 1px solid #eee;
 	height: auto;
 }
+.U-r-connter,.U_dataCont{ padding:2%; min-height:650px;}
+.U-r-connter header{ font-size:1.3em; line-height:2em; font-weight:bold; vertical-align:top;}
 .U-r-connter {
 	padding: 2%;
 	float: left;
@@ -4323,8 +4300,7 @@ f1 {
 	border-bottom: 2px solid #ff4900;
 }
 .U-r-connter header{ height: 30px; line-height: 30px;}
-.U-r-connter
-.U_dataCont table {
+.U-r-connter .U_dataCont table {
 	border-collapse: collapse;
 	margin-top: 1em;
 }
@@ -4340,9 +4316,7 @@ f1 {
 	color: #666;
 	line-height: 3em;
 }
-.U_dataCont h2 {
-	font-size: 1.2em;
-}
+
 .U_dataCont dt label {
 	width: 35%;
 	display: block;

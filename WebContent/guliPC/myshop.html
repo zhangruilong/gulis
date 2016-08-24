@@ -3,9 +3,9 @@
 <head>
 
 <meta charset="utf-8">
+<title>谷粒网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-<title>谷粒网</title>
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 <link rel="stylesheet" type="text/css" href="css/top1.css"/>
 <link rel="stylesheet" type="text/css" href="css/news.css"/>
@@ -17,19 +17,16 @@
 <link rel="stylesheet" type="text/css" href="css/order.css"/>
 <link rel="stylesheet" type="text/css" href="css/details.css"/>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="js/base.js"></script>
-<script type="text/javascript">
-var odmmy = getQueryString('odmmy');
-var odmid = getQueryString('odmid');
-</script>
 
 </head>
 
 <body>
     <div class="all">
+    
+     <!--引入头部-->
         <div class="toptop">
-            
-                               <div class="topline">
+                
+                                <div class="topline">
     <div class="top">
                     <div class="toplineleft">
                         <a href="#"><img src="images/wjxt.jpg" width="12" height="11">收藏我们</a>
@@ -37,7 +34,10 @@ var odmid = getQueryString('odmid');
                     </div>
                     <div class="menu">
                         <ul class="tlrtext">
-                        <li><span class="topwelcome" id="index_login_button" style="color:#666666">欢迎来到谷粒网！</span></li>
+                        <li><span class="topwelcome" id="index_login_button" style="color:#666666">欢迎来到五洲汇！</span></li>
+                          <li><a  href="login.html" id="index_login_button">登陆</a><span>|</span></li>
+                          
+                          <li><a href="register.html"  id="index_register_button">注册</a><span>|</span></li>
                           
                           <li >
                           <a class="hide"><span style="color:#666666;">用户中心</span>
@@ -53,7 +53,8 @@ var odmid = getQueryString('odmid');
                             </ul>
                           </li>
                            
-                            <li><a id="shopping_card_button" class="hide"><span ><img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
+                            <li><a id="shopping_card_button" class="hide"><span >
+                            <img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
                              购物车 <font style="color:#d71600;">0</font> 件</a><span>|</span></li>
                              
                              <li><a class="hide"><span style="color:#666666;">联系客服</span>
@@ -68,7 +69,7 @@ var odmid = getQueryString('odmid');
                             
                              <li><a class="hide" style="border:0px;" id="more_button"><span style="color:#666666;">更多</span>
                              </a><span>|</span>
-                                <ul>
+                                <ul >
                                     <li><a href="#" id="topbar_email_order">邮件订阅</a></li>
                                     <li><a href="#" id="topbar_collect_net">收藏本站</a></li>
                                     <li><a href="#" id="topbar_question">常见问题</a></li>
@@ -100,70 +101,130 @@ var odmid = getQueryString('odmid');
     <div class="top">
                     <div class="navleft" id="index_navgation">
                      <span><a href="#" id="index_button">全部商品分类</a></span>
-                        <span><a href="msgshow.html" >秒杀专区</a></span>
+                        <span><a href="index.html" id="index_button">首页</a></span>
                        
-                        <span><a href="mzgshow.html" >买赠专区</a></span>
-                        <span><a onclick="dogoodsxdpage('G14630381061319233','');" href="gflshow.html" >品牌专区</a></span>
-                        <span><a onclick="dogoodsxdpage('G14630381061319232','');" href="gflshow.html" >裸价专区</a></span>
+                        <span><a href="food.html" id="food_button">美食</a></span>
+                        <span><a href="food.html" >娱乐</a></span>
+                        <span><a href="food.html" >酒店</a></span>
                         
-                        <span><a onclick="dogoodsxdpage('43','');" href="gflshow.html" >粮油米面</a></span>
-                        <span><a onclick="dogoodsxdpage('42','');" href="gflshow.html" >调味酱汁</a></span>
-                        <span><a onclick="dogoodsxdpage('41','');" href="gflshow.html" >南北干货</a></span>
-                        <span><a onclick="dogoodsxdpage('39','');" href="gflshow.html" >餐厨用品</a></span>
+                        <span><a href="food.html" >生活</a></span>
+                        <span><a href="food.html" >购物</a></span>
+                        <span><a href="sjdp.html" >五洲卡</a></span>
+                        <span><a href="sjdp.html" >银行卡</a></span>
                     </div>
                     
                 </div>
            </div>
-           
         </div>
+        
         <div class="center">
-            <div class="buyblock">
-        <div class="buybleft">
-            <div class="cardblline2">
-                <div class="cardbl2left">购买步骤：</div>
-                <div class="cardbl2right">
-                    <img src="images/gmcg.png" width="713" height="35">
-                   
+            <div class="infcon">
+              <div class="infconblock">
+              
+               <!--引入左侧-->
+                <div class="infconleft">
+                <div class="infconltitle">
+                        <img src="images/hytx.png" width="66" height="66"><br>
+                        <span>用户的名称写这里</span><br><span>余额：<a>0 </a>积分：<a>0 </a></span>
+                    </div>
+                  <div class="infconlcon"><ul>
+                        <li class="infconlctitle2">我的账户</li>
+                        <li class="infconlclist"><a href="#" id="user_basicinfo">基本信息</a></li>
+                        <li class="infconlclist"><a href="#" id="user_personal_info">个人资料</a></li>
+                        <li class="infconlclist"><a href="#" id="receive_address">绑定银行卡号</a></li>
+                        <li class="infconlclist"><a href="#" id="receive_card">绑定五洲卡</a></li>
+                        <li class="infconlclist"><a href="#" id="email_order">邮件订阅</a></li>
+                        
+                        <li class="infconlctitle2">我的订单</li>
+                        <li class="infconlclist"><a href="#" id="user_order">我的订单</a></li>
+                        <li class="infconlclist"><a href="#" id="user_collect">我的收藏</a></li>
+                        <li class="infconlclist"><a href="#" id="user_point">我的积分</a></li>
+                        <li class="infconlclist"><a href="#" id="user_evaluate">我的评价</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                    
+                     <!--引入右侧-->
+                <div class="infconright" id="userinfo_right_container">
+                     <div><span>店铺名称:</span><input name="customershop" placeholder="请输入店铺名称"></div>
+                     <div><span>联系人:</span><input name="customername" placeholder="请输入联系人"></div>
+                     <div><span>联系电话:</span><input name="customerphone" placeholder="请输入联系电话"></div>
+                     <div><span>店铺地址:</span><input name="customeraddress" placeholder="请输入店铺地址"></div>
+                     <div><input onclick="doedit()" type="button"></div>
                 </div>
-            </div>
-            <div class="cardblline3">
-                <div class="cardbll3text1"><img src="images/ddcgicon.png" width="28" height="23">
-                <div>下单成功</div>
-                <span name="pok-odcode">订单号：99889898</span>
-                <span><div>预付金额：</div><a name="pok-odprc">180元</a></span>
+                
+                  
                 </div>
-                <!-- <div class="cardbll3text2">稍后将以短信方式，验证码发送到您手机！</div> -->
+               
+               </div>
             </div>
-            <div class="buyblline3">
-               <input type="button" name="button" value="" onclick="javascript:window.location.href='myorder.html'"/>
-               <input type="button" name="button" value="" style="background:url(images/jxgwan.png) no-repeat;" onclick="javascript:window.location.href='homepage.html'"/>
-            </div>
-            
-            
-            
-            <!--<div class="payxybline2"><a href="#">返回修改订单&nbsp;&nbsp;&nbsp;</a></div>-->
-            
-            
-            
         </div>
         
-    </div>
-        </div>
-        <div class="bottom" id="pay_bottom_container"></div>
-        
-    </div>
-    
+    <script type="text/javascript" src="js/jquery.simplemodal.js"></script>
     <script type="text/javascript" src="js/jquery.plusslider.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    
     <script type="text/javascript" src="js/js.js"></script>
-    <script type="text/javascript" src="js/pay.js"></script>
 <script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function(){
-	$('.cardbll3text1 [name="pok-odcode"]').text('订单号：'+odmid);
-	$('.cardbll3text1 [name="pok-odprc"]').text(odmmy+'元');
+	$.ajax({
+		url:"CustomerAction.do?method=selAll",
+		type:"post",
+		data:{
+			wheresql:"customerid='"+customer.customerid+"'"
+		},
+		success:function(resp){
+			var data = JSON.parse(resp);
+			$("#userinfo_right_container input:eq(0)").val(data.root[0].customershop);
+			$("#userinfo_right_container input:eq(1)").val(data.root[0].customername);
+			$("#userinfo_right_container input:eq(2)").val(data.root[0].customerphone);
+			$("#userinfo_right_container input:eq(3)").val(data.root[0].customeraddress);
+		},
+		error : function(resp2){
+			var respText2 = eval('('+resp2+')');
+			alert(respText2.msg);
+		}
+	});
 });
+//保存修改
+function doedit(){
+	var count = 0;
+	var alt;
+	var strjson = '[{"customerid":"'+customer.customerid+'",';
+	$("#userinfo_right_container :text").each(function(i,item){
+		strjson += '"'+$(item).attr("name")+'":"'+$(item).val()+'",';
+		if($(item).val() == null || $(item).val() == ''){
+			count++;
+			alt=$(item).attr("placeholder");
+			return false;
+		}
+	});
+	strjson = strjson.substr(0, strjson.length - 1);
+	strjson += "}]";
+	if(count > 0){
+		alert(alt);
+		return;
+	}
+	$.ajax({
+		url:"CustomerAction.do?method=updAll",
+		type:"post",
+		data:{
+			json:strjson
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		},
+		error : function(resp2){
+			var respText2 = eval('('+resp2+')');
+			alert(respText2.msg);
+		}
+	});
+}
 </script>
 </body>
 </html>
+
+
+
 
