@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>谷粒网</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/color.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/information.css"/>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+    <div id="ContainerBox"> 
+      <!--主体开始-->
+      <div id="Container" class="contentBody">
+		<div class="userCenter">
+        	<aside>
+            	<div class="user-leftMenu">
+                	<div class="user-portrait">
+                        <div class="Uhead"><img src="images/UserIco.png" style="margin-top:15px;"  alt=""/></div>
+                        <p>UserName</p>
+                        <!-- <span>余额：<q>0</q></span>
+                        <span>积分：<q>0</q></span> -->
+                	</div><!--user-portrait-->
+                
+                	<dl class="Umenu-area">
+                    	<dt>我的账户</dt>
+                        <dd><a href="usershop.html">我的店铺</a></dd>
+                        <dd><a href="usercollect.html">我的收藏</a></dd>
+                        <dd><a href="javascript:void(0)">我的谷币</a></dd>
+                        <dd><a href="useraddress.html">收货地址</a></dd>
+                        <dd><a href="bindingcom.html">我的供货商</a></dd>
+                        
+                        <dt>我的订单</dt>
+                        <dd><a href="userorder.html">我的订单</a></dd>
+                    </dl>
+                </div><!--user-leftMenu-->
+                
+                <div class="user-rightArea">
+                
+                	<div class="U-r-connter">
+                		<header><i class="user-TopIco"></i>我的店铺</header>
+                         <!--资料内容-->
+                        <!--引入右侧-->
+                <div class="infconright" id="userinfo_right_container">
+                     <div><span>店铺名称:</span><input type="text" name="customershop" placeholder="请输入店铺名称"></div>
+                     <div><span>联系人:</span><input type="text" name="customername" placeholder="请输入联系人"></div>
+                     <div><span>联系电话:</span><input type="text" name="customerphone" placeholder="请输入联系电话"></div>
+                     <div><span>店铺地址:</span><input type="text" name="customeraddress" placeholder="请输入店铺地址"></div>
+                     <div><input onclick="doedit()" type="button"></div>
+                </div>
+                    </div><!--U-r-connter-->
+                </div><!--user-rightArea-->
+                
+            </aside> 
+          <div class="clearD"></div><!--clearD--> 
+		</div><!--userCenter END-->
+      </div><!--Container END--> 
+      <!--主体结束-->
+    </div><!--ContainerBox END-->
+    
+<script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
+$(function(){
+	$.ajax({
+		url:"CustomerAction.do?method=selAll",
+		type:"post",
+		data:{
+			wheresql:"customerid='"+customer.customerid+"'"
+		},
+		success:function(resp){
+			var data = JSON.parse(resp);
+			$("#userinfo_right_container input:eq(0)").val(data.root[0].customershop);
+			$("#userinfo_right_container input:eq(1)").val(data.root[0].customername);
+			$("#userinfo_right_container input:eq(2)").val(data.root[0].customerphone);
+			$("#userinfo_right_container input:eq(3)").val(data.root[0].customeraddress);
+		},
+		error : function(resp2){
+			var respText2 = eval('('+resp2+')');
+			alert(respText2.msg);
+		}
+	});
+});
+//保存修改
+function doedit(){
+	var count = 0;
+	var alt;
+	var strjson = '[{"customerid":"'+customer.customerid+'",';
+	$("#userinfo_right_container :text").each(function(i,item){
+		strjson += '"'+$(item).attr("name")+'":"'+$(item).val()+'",';
+		if($(item).val() == null || $(item).val() == ''){
+			count++;
+			alt=$(item).attr("placeholder");
+			return false;
+		}
+	});
+	strjson = strjson.substr(0, strjson.length - 1);
+	strjson += "}]";
+	if(count > 0){
+		alert(alt);
+		return;
+	}
+	$.ajax({
+		url:"CustomerAction.do?method=updAll",
+		type:"post",
+		data:{
+			json:strjson
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		},
+		error : function(resp2){
+			var respText2 = eval('('+resp2+')');
+			alert(respText2.msg);
+		}
+	});
+}
+</script>
+    </body>
+        
+</html>
