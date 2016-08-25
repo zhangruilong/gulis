@@ -3803,9 +3803,10 @@ f1 {
 .myCartTab th {
 	width: 10%;
 }
-.myCartTab .cart-check, .U_dataCont .cart-check {
+.myCartTab .cart-check {
 	width: 4%;
 }
+.U_dataCont .cart-check {width: 6%;}
 .myCartTab .Cartdd_table01 {
 	width: 5%;
 }

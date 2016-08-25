@@ -310,7 +310,7 @@ public class BaseActionDao extends BaseDao {
 		String wheresql = request.getParameter("wheresql");
 		String query = request.getParameter("query");
 		String order = request.getParameter("order");
-		Queryinfo queryinfo = new Queryinfo(null, start, end, wheresql, query, null);
+		Queryinfo queryinfo = new Queryinfo(null, start, end, wheresql, query, order);
 		return queryinfo;
 	}
 	/**

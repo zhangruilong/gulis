@@ -23,7 +23,7 @@
         	<aside>
             	<div class="user-leftMenu">
                 	<div class="user-portrait">
-                        <div class="Uhead"><img src="images/icon/UserIco.png" style="margin-top:15px;"  alt=""/></div>
+                        <div class="Uhead"><img src="images/UserIco.png" style="margin-top:15px;"  alt=""/></div>
                         <p>UserName</p>
                         <span>余额：<q>0</q></span>
                         <span>积分：<q>0</q></span>
@@ -31,16 +31,14 @@
                 
                 	<dl class="Umenu-area">
                     	<dt>我的账户</dt>
-                        <dd><a href="#">基本信息</a></dd>
-                        <dd><a href="#">个人资料</a></dd>
-                        <dd><a href="#">绑定银行卡号</a></dd>
-                        <dd><a href="#">绑定五洲卡</a></dd>
-                        <dd><a href="#">邮件订阅</a></dd>
+                        <dd><a href="myshop.html">我的店铺</a></dd>
+                        <dd><a href="usercollect.html">我的收藏</a></dd>
+                        <dd><a href="javascript:void(0)">我的谷币</a></dd>
+                        <dd><a href="useraddress.html">收货地址</a></dd>
+                        <dd><a href="javascript:void(0)">我的供货商</a></dd>
                         
                         <dt>我的订单</dt>
-                        <dd><a href="#">我的订单</a></dd>
-                        <dd><a href="#">我的积分</a></dd>
-                        <dd><a href="#">我的评价</a></dd>
+                        <dd><a href="myorder.html">我的订单</a></dd>
                     </dl>
                 </div><!--user-leftMenu-->
                 
@@ -50,12 +48,12 @@
                 		<header><i class="user-TopIco"></i>我的收藏</header>
                          <!--资料内容-->
                         <div class="U_dataCont" id="test">
-                           <h2>我的商品订单</h2>
+                           <h2>我收藏的商品</h2>
                            <table width="100%" border="0" class="table u-dataTab" id="ucg-data" >
                            	  <tr>
-                              	<th class="cart-check"><input type="checkbox">全选</th>
+                              	<th class="cart-check"><input type="checkbox" onchange="allsele(this)">全选</th>
                               	<th style="width:23%">商品</th>
-                                <th>金额</th>
+                                <th>单价</th>
                                 <th>状态</th>
                                 <th>操作</th>
                               </tr>
@@ -77,8 +75,7 @@
                               </tr> -->
                             </table>
                             <div class="paging">
-                                <span>当前共：<q>1</q>/1</span>
-                                <input type="button" class="button" value="下一页" alt="hoverBut" />
+                                <input onclick="collectDoCart()" type="button" class="button" value="加入购物车" alt="hoverBut" />
                             </div><!--paging-->
                     
                         </div><!--U_dataCont-->
@@ -110,24 +107,22 @@ $(function(){
 				$.each(data,function(i,item){
 					var jsonitem = JSON.stringify(item);
 					$("#ucg-data").append('<tr>'+
-                  	'<td><input type="checkbox"></td>'+
+                  	'<td><input type="checkbox"><span hidden="true">'+jsonitem+'</span></td>'+
                     '<td>'+
                     	'<div class="dd-goodsImg">'+
-           	    			'<img src="images/xximg.jpg"  alt=""/>'+
-                		'</div>'+
-          				'灵山大佛+君乐酒店，提供免费wi'+
+           	    			'<img src="'+item.goodsimage+'"  alt=""/>'+
+                		'</div>'+item.goodsname+'<br>（'+item.goodsunits+'）'+
                     '</td>'+
-                    '<td>￥68</td>'+
+                    '<td>'+item.pricesprice+'/'+item.pricesunit+'</td>'+
                     '<td>销售中</td>'+
                     '<td>'+
-                    	'<a href="#" class="yellow">加入购物车</a>'+
-                        '<a href="#">取消收藏</a>'+
+                        '<a onclick="delCollects(this,\''+item.goodsid+'\')" href="javascript:void(0)">取消收藏</a>'+
                     '</td>'+
                   '</tr>');
 				})
 			} else {
 				$("#ucg-data tr").remove();
-				$("#ucg-data").append('<tr><td style="color: red;font-size: 1.5em;">没有收藏商品</td></tr>');
+				$("#ucg-data").append('<tr><td style="color: red;font-size: 1.5em;">没有收藏的商品。</td></tr>');
 			}
 		},
 		error : function(resp2){
@@ -136,30 +131,19 @@ $(function(){
 		}
 	});
 })
-	//下单
-	function xiadan(){
-		$("#cwn_a_xiadan").text("确定");
-		$("#cwn_a_bianji").text("取消");
-		$("#cwn_a_xiadan").attr("onclick","collectDoCart()");
-		$("#cwn_a_bianji").attr("onclick","cancel()");
-		$.each($("li"),function(i,item){
-			$(item).prepend("<input type='checkbox' value='"+$(item).attr("name")+"' >");
-		})
-	}
-	//取消
-	function cancel(){
-		$("li input").remove();
-		$(".wapper-nav").html('<a onclick="javascript:window.history.go(-1)" class="goback"></a>'+
-				'我的收藏<a id="cwn_a_xiadan" onclick="xiadan()">下单</a><a id="cwn_a_bianji" onclick="editToDel()">编辑</a>');
-	}
+//全选
+function allsele(obj){
+	$(':checkbox:gt(0)').prop('checked',obj.checked);
+}
 	//加入购物车
 	function collectDoCart(){
-		var goods = JSON.parse('[]');
-		$.each($("[type='checkbox']"),function(i,item){
+		var goods = new Array();
+		$.each($(":checkbox:gt(0)"),function(i,item){
 			if(item.checked){
 				goods.push(JSON.parse($(item).next().text()));
 			}
-		})
+		});
+		//alert($(":checkbox:gt(0)").length);
 		if(parseInt(goods.length) >0){
 			$.each(goods,function(i,item){
 				if (window.localStorage.getItem("sdishes") == null || window.localStorage.getItem("sdishes") == "[]") {				//判断有没有购物车
@@ -230,50 +214,27 @@ $(function(){
 					})
 				}
 			})
-			window.location.href = "cart.jsp";
-		} else {
-			cancel();
+			window.location.href = "cart.html";
 		}
-	}
-	//修改
-	function editToDel(){
-		$("#cwn_a_xiadan").text("删除");
-		$("#cwn_a_bianji").text("取消");
-		$("#cwn_a_xiadan").attr("onclick","delCollects()");
-		$("#cwn_a_bianji").attr("onclick","cancel()");
-		$.each($("li"),function(i,item){
-			$(item).prepend("<input style='background-color:whit;' type='checkbox' value='"+$(item).attr("name")+"' name='collectids'>");
-		})
 	}
 	//删除收藏
-	function delCollects(){
-		var collectids = '[';
-		$.each($("[type='checkbox']"),function(i,item){
-			if(item.checked){
-				collectids += '{"collectcustomer":"'+customer.customerid+'","collectgoods":"'+$(item).val()+'"},';
+	function delCollects(obj,goodsid){
+		$.ajax({
+			url:"CollectAction.do?method=delAllByGoodsid",
+			type:"post",
+			data:{
+				json:'[{"collectcustomer":"'+customer.customerid+'","collectgoods":"'+goodsid+'"}]'
+			},
+			success:function(resp){
+				var respText = eval('('+resp+')');
+				alert(respText.msg);
+				$(obj).parent().parent().remove();
+			},
+			error : function(resp2){
+				var respText2 = eval('('+resp2+')');
+				alert(respText2.msg);
 			}
 		});
-		collectids = collectids.substr(0,collectids.length -1) + "]";
-		if(collectids.length > 2){
-			$.ajax({
-				url:"CollectAction.do?method=delAllByGoodsid",
-				type:"post",
-				data:{
-					json:collectids
-				},
-				success:function(resp){
-					var respText = eval('('+resp+')');
-					alert(respText.msg);
-					window.location.reload();
-				},
-				error : function(resp2){
-					var respText2 = eval('('+resp2+')');
-					alert(respText2.msg);
-				}
-			});
-		} else {
-			cancel();
-		}
 	}
 </script>
     </body>

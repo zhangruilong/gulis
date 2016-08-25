@@ -7,24 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 
-<!-- CSS -->
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/color.css">
-<link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/main.css">
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<script src="js/base.js"></script>
-</head>
-<body>
-<div id="ContainerBox"> 
-  <!--主体开始-->
-  <div id="Container" class="contentBody">
-  	<div class="userCenter">
-    <aside>
-    	<div class="user-leftMenu">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/color.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+    <div id="ContainerBox"> 
+      <!--主体开始-->
+      <div id="Container" class="contentBody">
+		<div class="userCenter">
+        	<aside>
+            	<div class="user-leftMenu">
                 	<div class="user-portrait">
-                        <div class="Uhead"><img src="images/icon/UserIco.png" style="margin-top:15px;"  alt=""/></div>
+                        <div class="Uhead"><img src="images/UserIco.png" style="margin-top:15px;"  alt=""/></div>
                         <p>UserName</p>
                         <span>余额：<q>0</q></span>
                         <span>积分：<q>0</q></span>
@@ -32,238 +31,116 @@
                 
                 	<dl class="Umenu-area">
                     	<dt>我的账户</dt>
-                        <dd><a href="#">基本信息</a></dd>
-                        <dd><a href="#">个人资料</a></dd>
-                        <dd><a href="#">绑定银行卡号</a></dd>
-                        <dd><a href="#">绑定五洲卡</a></dd>
-                        <dd><a href="#">邮件订阅</a></dd>
+                        <dd><a href="myshop.html">我的店铺</a></dd>
+                        <dd><a href="usercollect.html">我的收藏</a></dd>
+                        <dd><a href="javascript:void(0)">我的谷币</a></dd>
+                        <dd><a href="useraddress.html">收货地址</a></dd>
+                        <dd><a href="javascript:void(0)">我的供货商</a></dd>
                         
                         <dt>我的订单</dt>
-                        <dd><a href="#">我的订单</a></dd>
-                        <dd><a href="#">我的积分</a></dd>
-                        <dd><a href="#">我的评价</a></dd>
+                        <dd><a href="myorder.html">我的订单</a></dd>
                     </dl>
                 </div><!--user-leftMenu-->
-    
-      <div class="user-rightArea">
-        <div class="U-r-connter">
-          <header><i class="user-TopIco"></i>我的评论</header>
-          <!--资料内容-->
-          <ul class="merchant-sell">
-            <div class="switchTab">
-              <div class="title cf">
-                <ul class="title-list fr cf ">
-                  <li class="on">未评论</li>
-                  <li>已评论</li>
-                </ul>
-              </div>
-              <div class="product-wrap"> 
-                <!--切换区域1 已评论-->
-                <div class="productTab show">
-                  <ul class="cf">
-                     <div class="myComments-y"> 
-                    	<dl>
-                        	<dt>
-                            	<div class="alreadyComm-h">
-                                	<span>
-                                       <input type="checkbox" />2014-7-5
-                                       <span>订单号：G2121400145421</span>
-                                    </span>
-                                    
-                                    <span class="operation">
-                                    	<i class="com-operation del-p" title="删除"></i>
-                                    	<i class="com-operation share-p" title="分享"></i>
-                                    </span>
-                                    
-                                </div><!--alreadyComm-h-->
-                                
-                                <div class="alreadyComm-c">
-                                	<div class="dd-goodsImg">
-                                       <img src="images/xximg.jpg"  alt=""/>
-                                     </div>
-                                     <div class="alreadyComm-text">
-                                     	<h2>灵山大佛鼋头渚免费畅玩</h2>
-                                     	<p>获取积分：<q>1</q>分</p>
-                                        <p></p>
-                                     </div>
-                                     <a href="#" onclick="anli_sort()" class="myComm-p-but yellow ">评价</a> 
-                                </div><!--alreadyComm-c-->
-                                
-                                <div class="myComments-show sort_c1">
-                                	<h2>为本商品评分</h2>
-                                	<div class="gradecon" id="Addnewskill_119">
-                                        <ul class="rev_pro clearfix">
-                                        	<li>
-                                                <span class="revtit">综合评分</span>
-                                                <div class="revinp">
-                                                    <span class="level">
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_hollow" cjmark=""></i>
-                                                    </span>
-                                                    <span class="revgrade">评价</span>
-                                                </div>
-                                            </li> 
-                                            <li>
-                                                <span class="revtit">商家态度</span>
-                                                <div class="revinp">
-                                                    <span class="level">
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_hollow" cjmark=""></i>
-                                                    </span>
-                                                    <span class="revgrade">评价</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <span class="revtit">商家服务</span>
-                                                <div class="revinp">
-                                                    <span class="level">
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_hollow" cjmark=""></i>
-                                                    </span>
-                                                    <span class="revgrade">评价</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <span class="revtit">商家环境</span>
-                                                <div class="revinp">
-                                                    <span class="level">
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_solid" cjmark=""></i>
-                                                        <i class="level_hollow" cjmark=""></i>
-                                                    </span>
-                                                    <span class="revgrade">评价</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div><!--gradecon-->
-                                    
-                                    <div class="myComments-text">
-                                    	<textarea class="area area01" placeholder="请理性评论，你的评论是我们改进的动力！"></textarea>
-                                    </div><!--myComments-text-->
-                                    
-                                    <div class="submit">
-                                    	<a href="#" class="yellow">提交评分</a>
-                                    </div><!--submit-->
-                                    
-                                </div><!--myComments-show-->
-                                
-                                 <div class="clearD"></div>
-                            </dt>
-                            
-                            <dt>
-                            	<div class="alreadyComm-h">
-                                	<span>
-                                       <input type="checkbox" />2014-7-5
-                                       <span>订单号：G2121400145421</span>
-                                    </span>
-                                    
-                                    <span class="operation">
-                                    	<i class="com-operation del-p" title="删除"></i>
-                                    	<i class="com-operation share-p" title="分享"></i>
-                                    </span>
-                                    
-                                </div><!--alreadyComm-h-->
-                                
-                                <div class="alreadyComm-c">
-                                	<div class="dd-goodsImg">
-                                       <img src="images/xximg.jpg"  alt=""/>
-                                     </div>
-                                     <div class="alreadyComm-text">
-                                     	<h2>灵山大佛鼋头渚免费畅玩</h2>
-                                     	<p>获取积分：<q>1</q>分</p>
-                                        <p></p>
-                                     </div>
-                                     
-                                </div><!--alreadyComm-c-->
-                                 <div class="clearD"></div>
-                            </dt>
-                            
-                        </dl>
-                        
-                        <div class="paging">
-                            <span>当前共：<q>1</q>/1</span>
-							<input type="button" class="button" value="下一页" alt="hoverBut" />
-                        </div><!--paging-->
-                        
-                    </div><!--myComments-y-->
-                  </ul>
-                </div><!--productTab--> 
                 
-                <!--切换区域2 未评论-->
-                <div class="productTab">
-                  <ul class="cf">
-                    <!--内容编辑区域-->
-                    <div class="myComments-y"> 
-                    	<dl>
-                        	<dt>
-                                
-                                <div class="alreadyComm-c">
+                <div class="user-rightArea">
+                
+                	<div class="U-r-connter">
+                		<header><i class="user-TopIco"></i>我的地址</header>
+                         <!--资料内容-->
+                        <div class="U_dataCont" id="test">
+                           <h2>收货地址</h2>
+                           <table width="100%" border="0" class="table u-dataTab" id="uas-data" >
+                           	  <tr>
+                              	<th style="width:23%">联系人</th>
+                                <th>联系电话</th>
+                                <th>详细地址</th>
+                                <th>操作</th>
+                              </tr>
+                              <!-- <tr>
+                              	<td><input type="checkbox"></td>
+                                <td>
+                                	
                                 	<div class="dd-goodsImg">
-                                       <img src="images/xximg.jpg"  alt=""/>
-                                     </div>
-                                     <div class="alreadyComm-text">
-                                     	<h2>灵山大佛鼋头渚免费畅玩</h2>
-                                     	<p>获取积分：<q>1</q>分</p>
-                                        <p></p>
-                                     </div>
-                                     
-                                </div><!--alreadyComm-c-->
-                                 <div class="clearD"></div>
-                            </dt>
-                            
-                            <dt>
-                                
-                                <div class="alreadyComm-c">
-                                	<div class="dd-goodsImg">
-                                       <img src="images/xximg.jpg"  alt=""/>
-                                     </div>
-                                     <div class="alreadyComm-text">
-                                     	<h2>灵山大佛鼋头渚免费畅玩</h2>
-                                     	<p>获取积分：<q>1</q>分</p>
-                                        <p></p>
-                                     </div>
-                                     
-                                </div><!--alreadyComm-c-->
-                                 <div class="clearD"></div>
-                            </dt>
-                            
-                        </dl>
-                        
-                        <div class="paging">
-                        	
-                            <span>当前共：<q>1</q>/1</span>
-							<input type="button" class="button" value="下一页" alt="hoverBut" />
-                        </div><!--paging-->
-                        
-                    </div><!--myComments-y-->
+                       	    			<img src="images/xximg.jpg"  alt=""/>
+                            		</div>
+                      				灵山大佛+君乐酒店，提供免费wi
+                                </td>
+                                <td>￥68</td>
+                                <td>销售中</td>
+                                <td>
+                                	<a href="#" class="yellow">加入购物车</a>
+                                    <a href="#">取消收藏</a>
+                                </td>
+                              </tr> -->
+                            </table>
+                            <div class="paging">
+                                <input onclick="javascript:location.href='addaddress.html'" type="button" class="button" value="新增地址" alt="hoverBut" />
+                            </div><!--paging-->
                     
-                  </ul>
-                </div><!--productTab-->
+                        </div><!--U_dataCont-->
+                    </div><!--U-r-connter-->
+                </div><!--user-rightArea-->
                 
-              </div><!--product-wrap-->
-            </div><!--switchTab-->
-          </ul>
-        </div><!--U-r-connter--> 
-      </div><!--user-rightArea--> 
-      
-    </aside>
-    <div class="clearD"></div><!--clearD--> 
-    </div><!--userCenter END-->
-  </div><!--Container END--> 
-  <!--主体结束--> 
-</div><!--ContainerBox END-->
-
-</body>
-
+            </aside> 
+          <div class="clearD"></div><!--clearD--> 
+		</div><!--userCenter END-->
+      </div><!--Container END--> 
+      <!--主体结束-->
+    </div><!--ContainerBox END-->
+    
+<script type="text/javascript">
+var customer = JSON.parse(window.localStorage.getItem("customer"));
+$(function(){
+	$.ajax({
+		url:"AddressAction.do?method=selAll",
+		type:"post",
+		data:{
+			wheresql:"addresscustomer='"+customer.customerid+"'",
+			order:"addressture desc"
+		},
+		success:function(resp){
+			var data = JSON.parse(resp).root;
+			if(typeof(data) != 'undefined' && data.length > 0){
+				$.each(data,function(i,item){
+					var isDF = item.addressture == '1'?'[默认] ':'';
+					$("#uas-data").append('<tr>'+
+		                       '<td>'+item.addressconnect+'</td>'+
+		                       '<td>'+item.addressphone+'</td>'+
+		                       '<td>'+item.addressaddress+isDF+'</td>'+
+		                       '<td><a onclick="delAddress(this,\''+item.addressid+'\')" href="javascript:void(0)">删除</a></td>'+
+		                     '</tr>');
+				});
+			} else {
+				$("#uas-data tr").remove();
+				$("#uas-data").append('<tr><td style="color: red;font-size: 1.5em;">还没有收货地址哦。</td></tr>');
+			}
+		},
+		error : function(resp2){
+			var respText2 = eval('('+resp2+')');
+			alert(respText2.msg);
+		}
+	});
+});
+//删除地址
+function delAddress(obj,addid){
+	$.ajax({
+		url:"AddressAction.do?method=delAll",
+		type:"post",
+		data:{
+			json:'[{"addressid":"'+addid+'"}]'
+		},
+		success:function(resp){
+			var respText = eval('('+resp+')');
+			alert(respText.msg);
+			$(obj).parent().parent().remove();
+		},
+		error : function(resp2){
+			var respText2 = eval('('+resp2+')');
+			alert(respText2.msg);
+		}
+	});
+}
+</script>
+    </body>
+        
 </html>

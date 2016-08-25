@@ -21,7 +21,7 @@
 .infconlcon ul li a:hover{color:#ffffff;background:url(../images/dianicon2.png) no-repeat #ff4900;background-position:29% 50%;}
 .infconright{font-size:1.2em; float:right;width:800px;height:auto;display:inline;margin: 25px 0px 0px 0px;}
 .infconright div{float:left;width:60%;height:38px;margin-bottom:31px;display:inline;}
-.infconright div input{float:right;width:270px;color:#989898;font-size:14px;height:36px;line-height:36px;border:1px solid #cccccc;}
+.infconright div input[type="text"]{float:right;width:270px;color:#989898;font-size:14px;height:36px;line-height:36px;border:1px solid #cccccc;}
 .infconright div span{float:left;width:90px;height:38px;line-height:38px;text-align:right;color:#989898;font-size:14px;margin-right:13px;display:inline;}
 .infconright div input[type="button"]{margin:0 auto; width:123px;height:37px;background:url(../images/bcan.png) no-repeat;border:0px;cursor: pointer;}
 .infconrtitle{float:left;height:40px;line-height:40px;border-bottom:1px dashed #e3e3e3;padding-left:36px;margin-bottom:10px;width:764px;display:inline;color:#454545;font-weight:bold;font-size:14px;}

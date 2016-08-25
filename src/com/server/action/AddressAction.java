@@ -97,7 +97,7 @@ public class AddressAction extends BaseActionDao {
 		Queryinfo queryinfo = getQueryinfo(request);
 		queryinfo.setType(Address.class);
 		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(AddressPoco.ORDER);
+		if(CommonUtil.isEmpty(queryinfo.getOrder())) queryinfo.setOrder(AddressPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
 		responsePW(response, result);
@@ -110,6 +110,17 @@ public class AddressAction extends BaseActionDao {
 		queryinfo.setOrder(AddressPoco.ORDER);
 		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
 		result = CommonConst.GSON.toJson(pageinfo);
+		responsePW(response, result);
+	}
+	//新增收货地址
+	public void insertCusAdd(HttpServletRequest request, HttpServletResponse response){
+		json2cuss(request);
+		Address temp = cuss.get(0);
+		temp.setAddressid(CommonUtil.getNewId());
+		result = insSingle(temp);
+		if(CommonConst.SUCCESS.equals(result) && temp.getAddressture() == 1){
+			updSingle(AddressPoco.TABLE, "addressture=0", "addressid!='"+temp.getAddressid()+"' and addresscustomer='"+temp.getAddresscustomer()+"'");
+		}
 		responsePW(response, result);
 	}
 }
