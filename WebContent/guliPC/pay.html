@@ -229,7 +229,7 @@ $(function(){
 			var data = JSON.parse(resp);
 			$.each(data.root,function(i,item){
 				$('div[name="pay-address"]').append('<div style="width:100%" class="cardblb4line2">'+
-              '<input type="radio"/>'+
+              '<input type="radio" name="userselAddress"/>'+
               '<span>联系人： </span><span name="pay-addcontact">'+item.addressconnect+'</span><span class="pay-addphone">'+item.addressphone+'</span>'+
               '<span>地址： </span><span name="pay-addaddress">'+item.addressaddress+'</span>'+
               '</div>');
