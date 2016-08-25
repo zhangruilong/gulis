@@ -220,9 +220,9 @@ $(window).scroll(
 					jQuery(".UpTop").css({
 						"top" : sTop + "px"
 					});
-					// var rTop =
-					// $(window).height()-s-jQuery(".rightSide").height()-20;
-					// jQuery(".rightSide").css({"top": rTop+"px"});
+					var rTop =
+					$(window).height()-s-jQuery(".rightSide").height()-20;
+					jQuery(".rightSide").css({"top": rTop+"px"});
 				}
 			} else {
 				$(".goTopBtn").css("display", "none");
