@@ -457,8 +457,8 @@ function checkedgoods(){
 			var data = eval('('+resp+')'); 
 			if(data.msg=='操作失败'){
 				location.reload();
-			} else {
-				alert(data.msg+"！");
+			} else if(data.msg=='操作成功'){
+				alert("收藏成功,您可以在我的收藏中查看收藏的商品。");
 			}
 		},
 		error : function(resp) {

@@ -39,7 +39,6 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
             			<ul>
 	               	  	<li><a href="homepage.html" id="index_button">首页</a></li>
 	                    <li><a href="gulisq.html">谷粒商圈</a></li>
-	                    <li><a href="javascript:void(0)" target="_blank">谷粒卡</a></li>
 					</ul>
               </div><!--wzh-head-->
             </div><!--wzh-top-head-->
@@ -59,7 +58,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                    		<form id="submitForm" name="submitForm" method="post" action="#">
 		                    <ul class="select">
 		                        <li class="select-list">
-		                            <dl id="select1">
+		                            <!-- <dl id="select1">
 		                                <dt>热门分类：</dt>
 		                                <input type="hidden" id="category" name="category" value="" />
 		                                <input type="hidden" name="wzsqid" value="FF8867F8B453D990E040A8C097817178" />
@@ -88,7 +87,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
 												<a href="#" onclick="javascript:getForm('1003','category')">
 												方便食品&nbsp;5</a>
 											</dd>
-										</dl>
+										</dl> -->
 		                        </li>
 		                        
 	                    	</ul>
@@ -105,7 +104,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
           					</div>
 <script type="text/javascript">
 $(function(){
-	var data = { wheresql:"cityparentname='"+customer.customercity+"'",customerid:customer.customerid };
+	var data = { wheresql:"createtime like '%"+customer.customerxian+"%'",customerid:customer.customerid };
 	$.ajax({
 		url:"CompanyviewAction.do?method=bdCityCom",
 		type:"post",
