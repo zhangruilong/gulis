@@ -182,4 +182,37 @@ public class CustomerAction extends BaseActionDao {
 		}
 		responsePW(response, result);
 	}
+	//修改密码
+	@SuppressWarnings("unchecked")
+	public void editpwd(HttpServletRequest request, HttpServletResponse response){
+		String customerphone = request.getParameter("customerphone");
+		String customerpsw = request.getParameter("customerpsw");
+		String newpwd = request.getParameter("newpwd");
+		String customerid = request.getParameter("customerid");
+		List<Customer> cusli = selAll(Customer.class,"select * from customer c where c.customerpsw='"+customerpsw+"' and c.customerphone='"+customerphone+"'");
+		if(cusli.size()==1){
+			Customer cus = cusli.get(0);
+			if(customerid.equals(cus.getCustomerid())){
+				cus.setCustomerpsw(newpwd);
+				result = updSingle(cus,CustomerPoco.KEYCOLUMN);
+				if(result.equals(CommonConst.SUCCESS)){
+					request.getSession().removeAttribute("cusid");
+				}
+			} else {
+				result = "{'success':false,'code':400,'msg':'密码或账号不正确!'}";
+			}
+		} else {
+			result = "{'success':false,'code':400,'msg':'密码或账号不正确!'}";
+		}
+		responsePW(response, result);
+	}
 }
+
+
+
+
+
+
+
+
+

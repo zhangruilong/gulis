@@ -37,7 +37,7 @@
                         <dd><a href="javascript:void(0)">我的谷币</a></dd>
                         <dd><a href="useraddress.html">收货地址</a></dd>
                         <dd><a href="bindingcom.html">我的供货商</a></dd>
-                        <dd><a href="userpwd.html">我的密码</a></dd>
+                        
                         <dt>我的订单</dt>
                         <dd><a href="userorder.html">我的订单</a></dd>
                     </dl>
@@ -50,11 +50,11 @@
                          <!--资料内容-->
                         <!--引入右侧-->
                 <div class="infconright" id="userinfo_right_container">
-                     <div><span>店铺名称:</span><input type="text" name="customershop" placeholder="请输入店铺名称"></div>
-                     <div><span>联系人:</span><input type="text" name="customername" placeholder="请输入联系人"></div>
                      <div><span>联系电话:</span><input type="text" name="customerphone" placeholder="请输入联系电话"></div>
-                     <div><span>店铺地址:</span><input type="text" name="customeraddress" placeholder="请输入店铺地址"></div>
-                     <div><input onclick="doedit()" type="button"></div>
+                     <div><span>旧密码:</span><input type="password" name="customerpsw" placeholder="请输入旧密码"></div>
+                     <div><span>新密码:</span><input type="password" name="newpwd" placeholder="请输入新密码"></div>
+                     <div><span>重复密码:</span><input type="password" name="repwd" placeholder="请再次输入密码"></div>
+                     <div><input onclick="editpwd()" type="button"></div>
                 </div>
                     </div><!--U-r-connter-->
                 </div><!--user-rightArea-->
@@ -68,58 +68,45 @@
     
 <script type="text/javascript">
 var customer = JSON.parse(window.localStorage.getItem("customer"));
-$(function(){
-	$.ajax({
-		url:"CustomerAction.do?method=selAll",
-		type:"post",
-		data:{
-			wheresql:"customerid='"+customer.customerid+"'"
-		},
-		success:function(resp){
-			var data = JSON.parse(resp);
-			$("#userinfo_right_container input:eq(0)").val(data.root[0].customershop);
-			$("#userinfo_right_container input:eq(1)").val(data.root[0].customername);
-			$("#userinfo_right_container input:eq(2)").val(data.root[0].customerphone);
-			$("#userinfo_right_container input:eq(3)").val(data.root[0].customeraddress);
-		},
-		error : function(resp2){
-			var respText2 = eval('('+resp2+')');
-			alert(respText2.msg);
-		}
-	});
-});
-//保存修改
-function doedit(){
+function editpwd(){
+	var newpwd = $('input[name="newpwd"]').val();
+	var repwd = $('input[name="repwd"]').val();
+	var customerphone = $('input[name="customerphone"]').val();
+	var customerpsw = $('input[name="customerpsw"]').val();
 	var count = 0;
-	var alt;
-	var strjson = '[{"customerid":"'+customer.customerid+'",';
-	$("#userinfo_right_container :text").each(function(i,item){
-		strjson += '"'+$(item).attr("name")+'":"'+$(item).val()+'",';
-		if($(item).val() == null || $(item).val() == ''){
+	$("input[type!='button']").each(function(i,item){
+		if(!item.value){
+			alert(item.placeholder);
 			count++;
-			alt=$(item).attr("placeholder");
-			return false;
 		}
 	});
-	strjson = strjson.substr(0, strjson.length - 1);
-	strjson += "}]";
-	if(count > 0){
-		alert(alt);
+	if(count != 0){
+		return;
+	}
+	if(newpwd != repwd){
+		alert("两次输入的密码不一致。");
 		return;
 	}
 	$.ajax({
-		url:"CustomerAction.do?method=updAll",
+		url:"CustomerAction.do?method=editpwd",
 		type:"post",
 		data:{
-			json:strjson
+			customerid:customer.customerid,
+			customerphone:customerphone,
+			customerpsw:customerpsw,
+			newpwd:newpwd
 		},
 		success:function(resp){
 			var data = eval('('+resp+')');
-			alert(data.msg);
+			if(data.msg=='操作成功'){
+				alert("操作成功！");
+				window.location.href="login.html";
+			} else {
+				alert(data.msg);
+			}
 		},
-		error : function(resp2){
-			var respText2 = eval('('+resp2+')');
-			alert(respText2.msg);
+		error:function(resp){
+			var data = eval('('+resp+')');
 		}
 	});
 }
@@ -127,3 +114,12 @@ function doedit(){
     </body>
         
 </html>
+
+
+
+
+
+
+
+
+
