@@ -15,6 +15,9 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 	var customer = JSON.parse(window.localStorage.getItem("customer"));
+	if(!window.localStorage.getItem("customer")){
+		cusLogout();
+	}
 function cusLogout(){
 	$.ajax({
 		url:"CustomerAction.do?method=cusLogout",
@@ -29,9 +32,7 @@ function cusLogout(){
 		}
 	});
 }
-	if(!window.localStorage.getItem("customer")){
-		cusLogout();
-	}
+
 </script>
 
 </head>
@@ -96,9 +97,8 @@ function cusLogout(){
 									x-webkit-speech="x-webkit-speech">
 
 								<div class="search-button">
-									<a href="javascript:void(0)"
-										target="ifm"><button class="btn-search" type="button"
-											value="搜索">搜索</button></a>
+									<button class="btn-search" type="button" onclick="doseach()"
+											value="搜索">搜索</button>
 								</div>
 							</div>
 						<!--保证-->

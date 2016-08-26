@@ -82,18 +82,16 @@
 							src="" title="谷粒"></a>
 					</div>
 					<!--搜索栏-->
-					<form action="" method="get">
-						<div class="search">
-							<input type="text" x-webkit-speech="x-webkit-speech"
-								autocomplete="off" placeholder="请输入商品名称、地址等" class="search-text"
-								id="w" name="w" value="">
-							<div class="search-button">
-								<a href="" target="ifm">
-									<button class="btn-search" type="button" value="搜索">搜索</button>
-								</a>
+					<div class="search">
+								<input name="w" class="search-text" id="w" type="text"
+									placeholder="请输入'商品名称' 或 '品牌'等" value="" autocomplete="off"
+									x-webkit-speech="x-webkit-speech">
+
+								<div class="search-button">
+									<button class="btn-search" type="button" onclick="doseach()"
+											value="搜索">搜索</button>
+								</div>
 							</div>
-						</div>
-					</form>
 					<!--保证-->
 					<div class="ensure">
 						<a href="" class="wzhImg refund"></a> <a href=""

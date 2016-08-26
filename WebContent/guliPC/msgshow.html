@@ -72,19 +72,16 @@
 							title="谷粒网" src="images/wzh-logo.png"></A>
 					</DIV>
 					<!--搜索栏-->
-					<FORM action="/s/" method="get">
-						<DIV class="search">
-							<INPUT name="w" class="search-text" id="w" type="text"
-								placeholder="请输入商品名称、地址等" value="" autocomplete="off"
-								x-webkit-speech="x-webkit-speech">
+					<div class="search">
+								<input name="w" class="search-text" id="w" type="text"
+									placeholder="请输入'商品名称' 或 '品牌'等" value="" autocomplete="off"
+									x-webkit-speech="x-webkit-speech">
 
-							<DIV class="search-button">
-								<A href="#"
-									target="ifm"><BUTTON class="btn-search" type="submit"
-										value="搜索">搜索</BUTTON> </A>
-							</DIV>
-						</DIV>
-					</FORM>
+								<div class="search-button">
+									<button class="btn-search" type="button" onclick="doseach()"
+											value="搜索">搜索</button>
+								</div>
+							</div>
 					<!--保证-->
 					<!-- <DIV class="ensure">
 						<A class="wzhImg refund"

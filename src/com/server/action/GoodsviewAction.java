@@ -334,4 +334,46 @@ public class GoodsviewAction extends BaseActionDao {
 		}
 		responsePW(response, result);
 	}
+	//条件查询
+	@SuppressWarnings("unchecked")
+	public void queryg(HttpServletRequest request, HttpServletResponse response){
+		String customerid = request.getParameter("customerid");
+		String querydis = request.getParameter("querydis");
+		List<Customer> cusli = selAll(Customer.class,"select * from customer c where c.customerid='"+customerid+"'");
+		if(cusli.size() ==1){
+			//查询该客户的供应商关系表
+			Queryinfo Ccustomerqueryinfo = getQueryinfo();
+			Ccustomerqueryinfo.setType(Ccustomer.class);
+			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
+			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
+			if(Ccustomercuss.size()!=0){
+				String sql = "select * from goodsview g where (goodsname like '%"+querydis+"%' or goodsbrand like '%"+querydis+
+						"%') and goodsstatue ='上架' and pricesclass='"+cusli.get(0).getCustomertype()+"' and priceslevel='"+cusli.get(0).getCustomerlevel()+"' and (";
+				for(Ccustomer mCcustomer:Ccustomercuss){
+					sql += "goodscompany ='"+mCcustomer.getCcustomercompany()+"' or ";
+				}
+				sql = sql.substring(0, sql.length()-3) +")";
+				cuss = (ArrayList<Goodsview>) selAll(Goodsview.class, sql);
+				result = CommonConst.GSON.toJson(new Pageinfo(cuss));
+			}
+		}
+		responsePW(response, result);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

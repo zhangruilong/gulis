@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -224,17 +224,6 @@
 						<ul class="select">
 							<li class="select-list">
 								<dl name="populargroup">
-									<dt>热门分类：</dt>
-
-									<!-- <dd class="select-all selected">
-										<a id="AllCategory"
-											onclick="querycondition(null,this)"
-											href="javascript:void(0)">全部</a>
-									</dd> -->
-									<!-- <dd>
-										<a onclick="javascript:getForm('10021057','蛋糕','category')"
-											href="javascript:void(0)">蛋糕&nbsp; 5</a>
-									</dd> -->
 								</dl>
 							</li>
 						</ul>
@@ -251,36 +240,31 @@
 			</div> -->
 			<!--sp-Title-->
 			<div id="leftSubject">
+
+				<!--sp-dataBox-->
+				<div class="clearD"></div>
+				<!--clearD-->
+			</div>
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript">
-var goodsclassparent = window.localStorage.getItem("goodsclassparent");
-var goodsclassname = window.localStorage.getItem("goodsclassname");
+var searchdishes = getQueryString("searchdishes");
 $(function(){
-	ljzuddpage();
+	queryg();
 });
-//裸价专区条件查询
-function ljcond(classname){
-	window.localStorage.setItem('goodsclassname',classname);
-	goodsclassname=classname;
-	ljzuddpage();
-}
-//裸价专区
-function ljzuddpage(){
+//条件查询商品
+function queryg(){
 	$(".sp-dataBox").remove();
 	$.ajax({
-		url:'GoodsviewAction.do?method=ljgvgoods',
+		url:'GoodsviewAction.do?method=queryg',
 		type:"post",
 		data:{
 			customerid:customer.customerid,
-			customertype:customer.customertype,
-			customerlevel:customer.customerlevel,
-			goodsclassparent:goodsclassparent,
-			goodsclassname:goodsclassname
+			querydis:searchdishes
 			},
 		success:function(resp){
 			var data = eval('('+resp+')');
 			if(data.msg=='操作成功'){
-				$("dl[name='populargroup'] dd").remove();
+				/* $("dl[name='populargroup'] dd").remove();
 				var goodsnum = '';
 				$.each(data.root[1],function(i,item){
 					if(goodsclassparent != 'G14630381061319232'){					//如果是裸价商品就不显示商品数量
@@ -292,34 +276,38 @@ function ljzuddpage(){
 						$("dl[name='populargroup']").append('<dd><a name="'+item.goodsclassname+'" onclick="ljcond(\''+item.goodsclassname+'\');" href="javascript:void(0);">'+item.goodsclassname+'&nbsp; '+goodsnum+'</a></dd>');
 					}
 				});
-				$("dl[name='populargroup'] dd a[name='"+goodsclassname+"']").parent().addClass('selected').siblings().removeClass('selected');
-				$.each(data.root[0],function(i,item){
-					if(i % 3 == 2){
-						var goods = '<div class="sp-dataBox tailThree">';
-					} else {
-						var goods = '<div class="sp-dataBox">';
-					}
-					
-					goods += '<a class="pro-a-box" '+
-							'href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" '+
-							'target="_blank"><span class="spImg" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
-							'<img class="scrollLoading" alt="" src="'+item.goodsimage+'">'+
-	
-								'<div class="pro-label">'+
-									'<li class="discount">'+item.goodsclassname+'</li>'+
-								'</div></span><span class="sp-info">'+
-								'<H3 title="【'+item.goodsname+'】'+item.goodsunits+'">【'+item.goodsname+'】'+item.goodsunits+'</H3>'+
-						'</span><span title="'+item.companydetail+'" class="sp-Text" '+
-							'id="title14"></span>'+
-							'<div class="sp-priceTit">'+
-								'<span class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
-									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.pricesprice+'</STRONG>'+
-								'</span>'+
-							'</div>'+
-							'</a>'+
-					'</div>';
-					$("#leftSubject").append(goods);
-				});
+				$("dl[name='populargroup'] dd a[name='"+goodsclassname+"']").parent().addClass('selected').siblings().removeClass('selected'); */
+				if(data.root.length){
+					$.each(data.root,function(i,item){
+						if(i % 3 == 2){
+							var goods = '<div class="sp-dataBox tailThree">';
+						} else {
+							var goods = '<div class="sp-dataBox">';
+						}
+						
+						goods += '<a class="pro-a-box" '+
+								'href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" '+
+								'target="_blank"><span class="spImg" href="goodsXD.html?goodsid='+item.goodsid+'&type=sp" target="_blank">'+
+								'<img class="scrollLoading" alt="" src="'+item.goodsimage+'">'+
+		
+									'<div class="pro-label">'+
+										'<li class="discount">'+item.goodsclassname+'</li>'+
+									'</div></span><span class="sp-info">'+
+									'<H3 title="【'+item.goodsname+'】'+item.goodsunits+'">【'+item.goodsname+'】'+item.goodsunits+'</H3>'+
+							'</span><span title="'+item.companydetail+'" class="sp-Text" '+
+								'id="title14"></span>'+
+								'<div class="sp-priceTit">'+
+									'<span class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
+										'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.pricesprice+'</STRONG>'+
+									'</span>'+
+								'</div>'+
+								'</a>'+
+						'</div>';
+						$("#leftSubject").append(goods);
+					});
+				} else {
+					$("#leftSubject").append('<div style="text-align: center;font-size: 20px;color: red;">没有找到您想要的商品哦。</div>');
+				}
 			}
 		},
 		error:function(resp){
@@ -329,12 +317,6 @@ function ljzuddpage(){
 	});
 }
 </script>
-				<!--sp-dataBox-->
-				<div class="clearD"></div>
-				<!--clearD-->
-				
-			</div>
-			
 			<!--leftSubject END-->
 			<div id="rightSide">
 				<div class="asideBox">
@@ -569,7 +551,6 @@ function ljzuddpage(){
 			<!--rightSide END-->
 		</div>
 	<!--footer-->
-	<!--页脚开始-->
 	<!--页脚开始-->
 		<div class="bottom" id="food_bottom_container"></div>
 	<div id="footBot">
