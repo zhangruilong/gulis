@@ -182,6 +182,12 @@ public class CustomerAction extends BaseActionDao {
 		}
 		responsePW(response, result);
 	}
+	//注销
+	public void cusLogout(HttpServletRequest request, HttpServletResponse response){
+		request.getSession().invalidate();
+		/*result = CommonConst.SUCCESS;
+		responsePW(response, result);*/
+	}
 	//修改密码
 	@SuppressWarnings("unchecked")
 	public void editpwd(HttpServletRequest request, HttpServletResponse response){

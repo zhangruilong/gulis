@@ -475,9 +475,10 @@ function doCart() {
 		var tnum = parseInt(window.localStorage.getItem("totalnum")); 										//取出商品的总类数
 		$.each(sdishes,function(i, item) { 																	//遍历购物车中的商品
 							if (item.goodsid == goodsid && item.goodsclassname == goodsclassname) {			//如果有这个商品
-								//var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); 		//从缓存中取出总金额 
-								var newtmoney = (parseFloat(price)* num).toFixed(2);
-								window.localStorage.setItem("totalmoney", newtmoney);
+								var tmoney = parseFloat(window.localStorage.getItem("totalmoney")); 		//从缓存中取出总金额 
+								var oldmoney = parseFloat(item.pricesprice) * item.orderdetnum;	//得到旧的金额
+								var newtmoney = parseFloat(price)* num;							//得到新的金额
+								window.localStorage.setItem("totalmoney", parseFloat(tmoney - oldmoney +newtmoney).toFixed(2));
 								var cartnum = parseInt(window.localStorage.getItem("cartnum"));
 								window.localStorage.setItem("cartnum",(cartnum - item.orderdetnum) + num);
 								item.orderdetnum = num;														//把商品数量修改为新的数量

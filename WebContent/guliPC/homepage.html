@@ -15,8 +15,22 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 	var customer = JSON.parse(window.localStorage.getItem("customer"));
+function cusLogout(){
+	$.ajax({
+		url:"CustomerAction.do?method=cusLogout",
+		type:"post",
+		data:{},
+		success:function(resp){
+			alert(resp);
+			window.location.href = "login.html";
+		},
+		error:function(resp){
+			alert("注销失败!");
+		}
+	});
+}
 	if(!window.localStorage.getItem("customer")){
-		window.location.href = "login.html";
+		cusLogout();
 	}
 </script>
 
@@ -60,7 +74,7 @@
 											<li><a title="谷粒网" id="topbar_collect_net"
 												href="javascript:void(0)" rel="sidebar">收藏本站</a></li>
 											<li><a id="topbar_question"
-												href="#"
+												href="javascript:void(0)"
 												target="_blank">常见问题</a></li>
 										</ul></li>
 								</ul>
@@ -72,14 +86,13 @@
 					<div class="headCont">
 						<!--LOGO-->
 						<div class="TopLogo">
-							<a href="#"><img
+							<a href="javascript:void(0)"><img
 								title="" src=""></a>
 						</div>
 						<!--搜索栏-->
-						<FORM action="/s/" method="get">
 							<div class="search">
 								<input name="w" class="search-text" id="w" type="text"
-									placeholder="请输入商品名称、地址等" value="" autocomplete="off"
+									placeholder="请输入'商品名称' 或 '品牌'等" value="" autocomplete="off"
 									x-webkit-speech="x-webkit-speech">
 
 								<div class="search-button">
@@ -88,7 +101,6 @@
 											value="搜索">搜索</button></a>
 								</div>
 							</div>
-						</FORM>
 						<!--保证-->
 						<!-- <div class="ensure">
 							<a class="wzhImg refund"
