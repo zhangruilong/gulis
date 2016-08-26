@@ -40,20 +40,19 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                           <a class="hide"><span style="color:#666666;">用户中心</span>
                           </a><span>|</span>
                             <ul >
-                                <li><a href="#" id="user_accountinfo">基本信息</a></li>
-                                <li><a href="#" id="topbar_userinfo">个人资料</a></li>
-                                <li><a href="#" id="topbar_receive_address">收货地址</a></li>
-                                <li><a href="#" id="topbar_collect">我的收藏</a></li>
-                                <li><a href="#" id="topbar_jifen">我的积分</a></li>
-                                <li><a href="#" id="topbar_comment">我的评价</a></li>
-                                <li><a href="#" id="topbar_order">我的订单</a></li>
+                                <li><a href="usershop.html">我的店铺</a></li>
+								<li><a href="userorder.html">我的订单</a></li>
+								<li><a href="usercollect.html">我的收藏</a></li>
+								<li><a href="javascript:void(0)">我的谷币</a></li>
+								<li><a href="useraddress.html">收货地址</a></li>
+								<li><a href="bindingcom.html">我的供货商</a></li>
                             </ul>
                           </li>
                            
                             <li><a id="shopping_card_button" class="hide"><span ><img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
                              购物车 <font style="color:#d71600;">0</font> 件</a><span>|</span></li>
                              
-                             <li><a class="hide"><span style="color:#666666;">联系客服</span>
+                             <!-- <li><a class="hide"><span style="color:#666666;">联系客服</span>
                              </a><span>|</span>
                                 <ul >
                                     <li><a href="#" id="topbar_tuikuan">申请退款</a></li>
@@ -61,12 +60,11 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                                     <li><a href="#" id="topbar_tuanjuan">查看团劵</a></li>
                                     <li><a href="#" id="topbar_bangdingshouji">换绑手机</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             
                              <li><a class="hide" style="border:0px;" id="more_button"><span style="color:#666666;">更多</span>
                              </a><span>|</span>
                                 <ul >
-                                    <li><a href="#" id="topbar_email_order">邮件订阅</a></li>
                                     <li><a href="#" id="topbar_collect_net">收藏本站</a></li>
                                     <li><a href="#" id="topbar_question">常见问题</a></li>
                                 </ul>
