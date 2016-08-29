@@ -1,4 +1,12 @@
 // JavaScript Document
+//在搜索框中按下回车键
+function seachkeydow(){
+	var event = window.event || arguments.callee.caller.arguments[0];
+	if(event.keyCode == 13){
+		doseach();
+		event.returnValue = false;	//为了防止浏览器捕捉到用户按下回车键而进行其他操作
+	}
+}
 //到搜索页
 function doseach(){
 	var condi = $('#w').val();
