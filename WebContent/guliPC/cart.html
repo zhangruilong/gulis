@@ -42,7 +42,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                           <li >
                           <a class="hide"><span style="color:#666666;">用户中心</span>
                           </a><span>|</span>
-                            <ul >
+                            <ul>
                                 <li><a href="usershop.html">我的店铺</a></li>
 								<li><a href="userorder.html">我的订单</a></li>
 								<li><a href="usercollect.html">我的收藏</a></li>
@@ -53,8 +53,8 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                             </ul>
                           </li>
                            
-                            <li><a id="shopping_card_button" class="hide"><span ><img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
-                             购物车 <font id="totalnum" style="color:#d71600;">0</font> 件</a><span>|</span></li>
+                            <!-- <li><a id="shopping_card_button" class="hide"><span ><img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
+                             购物车 <font id="totalnum" style="color:#d71600;">0</font> 件</a><span>|</span></li> -->
                              
                              <!-- <li><a class="hide"><span style="color:#666666;">联系客服</span>
                              </a><span>|</span>
@@ -129,7 +129,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
             
             <div class="cardblxm">
                 <div class="buyblxmline1">
-                    <div class="buyblxml1text2b"><input type="checkbox" value="" id="all_checkbox" /><span>全选</span></div>
+                    <div class="buyblxml1text2b">&nbsp;</div>
                     <div class="buyblxml1text1b">商品名称</div>
                     <div class="buyblxml1text2b">状态</div>
                     <div class="buyblxml1text2b">数量</div>
@@ -238,12 +238,12 @@ $(function(){
 	showgszmoney();															//显示商品种类和总金额
 	$.each(sdishes,function(i,item){
 		$('.buyblxmline1').after('<div class="buyblxmline2">'+
-                    '<div class="buyblxml1text4bb"><input type="checkbox" name="CheckboxGroup1" value="" id="checkbox2" /></div>'+
-                    '<div class="buyblxml1text1bb"><img src="'+item.goodsimage+'" width="63" height="39"><span>'+item.goodsname+'</span></div>'+
+                    '<div class="buyblxml1text4bb"><img src="'+item.goodsimage+'" width="60" height="60"></div>'+ 
+                    '<div class="buyblxml1text1bb">'+item.goodsname+'</div>'+
                     '<div class="buyblxml1text2bb">可购买</div>'+
                     '<div class="buyblxml1text2bb" name="'+item.goodsid+'">'+
                     	'<img onclick="subnum(this,'+item.pricesprice+',\''+item.goodsclassname+'\')" src="images/jhicon.jpg" width="13" height="13" class="recue">'+
-                    	'<input type="text" name="textfield" class="amount_input" id="input_two" value="'+item.orderdetnum+'"/>'+
+                    	'<input type="text" name="textfield" class="amount_input" readonly="readonly" id="input_two" value="'+item.orderdetnum+'"/>'+
                     	'<img onclick="addnum(this,'+item.pricesprice+',\''+item.goodscode+'\',\''+item.goodsclassname+'\')" name="'+item.todayxg+'" src="images/jhicon.png" width="13" height="13" style="margin-left:0px;margin-top:46px;width:13px;height:13px;" class="add">'+
                     '</div>'+
                     '<div class="buyblxml1text3bb">¥'+item.pricesprice+'</div>'+

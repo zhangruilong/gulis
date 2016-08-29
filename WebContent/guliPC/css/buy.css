@@ -21,9 +21,9 @@
 .buyblxml1text3a{float:left;width:18%;height:100px;text-align:center;font-size:14px;color:#B81202;font-weight:bold;}
 
 .buyblxmline2{float:left;width:100%;line-height:100px;border-bottom:1px solid #eaeaea;color:#666666;font-family:Arial, Helvetica, sans-serif}
-.buyblxmline2 img{float:left;width:auto;margin-right:6px;margin-left:20px;display:inline;margin-top:30px;}
+.buyblxmline2 img{float:right;width:auto;margin-right:6px;margin-left:20px;display:inline;margin-top:30px;}
 
-.buyblxml1text1bba img{float:left;width:auto;margin-right:6px;margin-left:30px;display:inline;margin-top:30px;}
+.buyblxml1text1bba img{float:left;width:auto;margin-right:6px;margin-left:50px;display:inline;margin-top:18px;}
 
 
 .buyblxmline2 span{float:left;width:102px;line-height:18px;text-align:left;margin-top:15px;display:inline;}
@@ -86,10 +86,10 @@
 
 .cardblxm{float:left;width:1060px;height:auto;border:1px solid #d7d5d6;}
 
-.buyblxml1text1b{float:left;width:22%;text-align:center;}
+.buyblxml1text1b{float:left;width:13%;text-align:center;}
 .buyblxml1text2b{float:left;width:12%;text-align:center;}
 
-.buyblxml1text1ba{float:left;width:27%;text-align:center;}
+.buyblxml1text1ba{float:left;width:13%;text-align:center;}
 .buyblxml1text2ba{float:left;width:17%;text-align:center;}
 .buyblxml1text3ba{float:left;width:15%;text-align:center;}
 .buyblxml1text2ba input{float:left;width:auto;margin:14px 5px 0px 45px;display:inline;}
@@ -99,10 +99,10 @@
 .buyblxml1text2b span{float:left;width:auto;}
 .buyblxml1text3b{float:left;width:10%;text-align:center;}
 
-.buyblxml1text1bb{float:left;width:22%;height:100px;text-align:center;}
+.buyblxml1text1bb{float:left;width:13%;height:100px;text-align:center;}
 .buyblxml1text2bb{float:left;width:12%;height:100px;text-align:center;}
 
-.buyblxml1text1bba{float:left;width:27%;height:100px;text-align:center;}
+.buyblxml1text1bba{float:left;width:13%;height:100px;text-align:center;}
 .buyblxml1text2bba{float:left;width:17%;height:100px;text-align:center;}
 .buyblxml1text3bba{float:left;width:15%;height:100px;text-align:center;font-size:14px;}
 
@@ -119,9 +119,9 @@
 
 
 
-.buyblxml1text1bb img{float:left;width:auto;margin-right:12px;margin-left:20px;display:inline;margin-top:30px;}
+.buyblxml1text1bb img{float:left;width:auto;margin-right:12px;margin-left:50px;display:inline;margin-top:18px;}
 .buyblxml1text1bb span{float:left;width:130px;line-height:18px;text-align:left;margin-top:15px;display:inline;}
-.buyblxml1text3bb img{float:left;width:auto;margin-right:12px;margin-left:55px;display:inline;margin-top:40px;cursor: pointer;}
+.buyblxml1text3bb img{float:left;width:auto;margin-right:12px;margin-left:45px;display:inline;margin-top:40px;cursor: pointer;}
 
 .buyblxml1text2bb input{float:left;width:60px;height:28px;border:1px solid #cccccc;margin-right:6px;margin-top:36px;display:inline;text-align: center;}
 .buyblxml1text4bb{float:left;width:12%;height:100px;text-align:center;}

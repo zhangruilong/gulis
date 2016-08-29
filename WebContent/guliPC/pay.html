@@ -48,8 +48,8 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
 								<li><a href="userpwd.html">修改密码</a></li>
                             </ul>
                           </li>
-                            <li><a id="shopping_card_button" class="hide"><span ><img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
-                             购物车 <font style="color:#d71600;">0</font> 件</a><span>|</span></li>
+                            <!-- <li><a id="shopping_card_button" class="hide"><span ><img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
+                             购物车 <font style="color:#d71600;">0</font> 件</a><span>|</span></li> -->
                              
                              <!-- <li><a class="hide"><span style="color:#666666;">联系客服</span>
                              </a><span>|</span>
@@ -123,7 +123,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                 
                 <div class="cardblxm">
                 <div class="buyblxmline1" name="pay-TBheader">
-                    
+                    <div class="buyblxml1text1ba">&nbsp;</div>
                     <div class="buyblxml1text1ba">商品名称</div>
                     
                     <div class="buyblxml1text2ba">数量</div>
@@ -203,10 +203,8 @@ $(function(){
 	showgszmoney();															//显示商品种类和总金额
 	$.each(sdishes,function(i,item){
 		$(".buyblxmline1[name='pay-TBheader']").after('<div class="buyblxmline2">'+
-                '<div class="buyblxml1text1bba">'+
-                	'<img src="'+item.goodsimage+'" width="63" height="39">'+
-                	'<span>'+item.goodsname+'</span>'+
-                '</div>'+
+				'<div class="buyblxml1text1bba"><img src="'+item.goodsimage+'" width="60" height="60"></div>'+
+                '<div class="buyblxml1text1bba">'+item.goodsname+'</div>'+
                 '<div class="buyblxml1text2bba">'+item.orderdetnum+'</div>'+
                 '<div class="buyblxml1text3bba">'+item.pricesunit+'</div>'+
                 '<div class="buyblxml1text3bba">¥'+item.pricesprice+'</div>'+

@@ -151,15 +151,15 @@ body{font-size:12px;}
 	display:block; 
 	text-align:center; 
 	text-decoration:none; 
-	width:auto; 
+	width: 75px; 
 	height:35px; 
-	padding:0px 20px 0px 10px;
+	padding:0;
 	color:#666; 
 	line-height:35px; 
 	font-size:12px;
 	background:url(../images/icon/jtbb.jpg) no-repeat none top right;
 	}
-.menu ul li span{float:left;color:#bbbbbb;}
+.menu ul li span{float:none;color:#bbbbbb;}
 .topwelcome{
 	float:left;
 	display:block; 
@@ -173,7 +173,7 @@ body{font-size:12px;}
 	font-size:12px;
 	background-color:none;
 	}
-.menu ul li ul {display: none;}
+.menu ul li ul {display: none;background-color: white;}
 .menu ul li:hover a {color:#666; }
 .menu ul li a:hover {background:url(../images/icon/jtbb2.jpg) no-repeat top right;}/*鼠标移动上方向键*/
 .menu ul li:hover ul {
@@ -181,7 +181,7 @@ body{font-size:12px;}
 	position:absolute; 
 	top:37px; 
 	left:0; 
-	width:78px;
+	width:75px;
 	border-left:1px solid #eeecec;border-right:1px solid #eeecec;border-bottom:1px solid #eeecec;
 	}
 .menu ul li:hover ul li a {
