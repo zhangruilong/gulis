@@ -97,65 +97,79 @@
 							<span class="wzh-mainNav-tit">全部商品分类
 								<div class="whz-mainNav-hd-cont">
 									<ul>
-										<li><a href="#">美食</a>
+										<li><a onclick="dogoodsxdpage('G14630381061319233','');" href="gflshow.html">品牌专区</a>
 											<div class="wzh-mainNav-three">
-												<H4>美食</H4>
-												<ul>
-													<li><a
-														href="#">蛋糕</a></li>
-													<li><a
-														href="#">甜点饮品</a></li>
-													<li><a
-														href="#">其他美食</a></li>
-													<li><a
-														href="#">家常菜</a></li>
-													<li><a
-														href="#">小吃快餐</a></li>
-													<li><a
-														href="#">韩国料理</a></li>
+												<H4>品牌专区</H4>
+												<ul name="dhl-ppzq">
+													
 												</ul>
 											</div></li>
-										<li><a href="#">娱乐</a>
+										<li><a onclick="dogoodsxdpage('G14630381061319232','');" href="gflshow.html">裸价专区</a>
 											<div class="wzh-mainNav-three">
-												<H4>娱乐</H4>
-												<ul></ul>
+												<H4>裸价专区</H4>
+												<ul name="dhl-ljzq"><li><a onclick="dogoodsxdpage('G14630381061319232','');" href="gflshow.html">裸价商品</a></li></ul>
 											</div></li>
-										<li><a href="#">酒店</a>
+										<li><a onclick="dogoodsxdpage('43','');" href="gflshow.html">粮油米面</a>
 											<div class="wzh-mainNav-three">
-												<H4>酒店</H4>
-												<ul></ul>
+												<H4>粮油米面</H4>
+												<ul name="dhl-lymm"></ul>
 											</div></li>
-										<li><a href="#">生活</a>
+										<li><a onclick="dogoodsxdpage('42','');" href="gflshow.html">调味酱汁</a>
 											<div class="wzh-mainNav-three">
-												<H4>生活</H4>
-												<ul>
-													<li><a
-														href="#">其他生活</a></li>
-													<li><a
-														href="#">体检保健</a></li>
-													<li><a
-														href="#">培训课程</a></li>
+												<H4>调味酱汁</H4>
+												<ul name="dhl-twjz">
 												</ul>
 											</div></li>
-										<li><a href="#">丽人</a>
+										<li><a onclick="dogoodsxdpage('41','');" href="gflshow.html">南北干货</a>
 											<div class="wzh-mainNav-three">
-												<H4>丽人</H4>
-												<ul>
-													<li><a
-														href="#">美容美体</a></li>
-													<li><a
-														href="#">美甲</a></li>
+												<H4>南北干货</H4>
+												<ul name="dhl-nbgh">
 												</ul>
 											</div></li>
-										<li><a href="#">旅游</a>
+										<li><a onclick="dogoodsxdpage('38','');" href="gflshow.html">休闲食品</a>
 											<div class="wzh-mainNav-three">
-												<H4>旅游</H4>
-												<ul></ul>
+												<H4>休闲食品</H4>
+												<ul name="dhl-xxsp">
+													<li><a onclick="dogoodsxdpage('38','');" href="gflshow.html">方便食品</a></li>
+												</ul>
 											</div></li>
 									</ul>
 								</div>
 							</span>
 						</div>
+<script type="text/javascript">
+$.ajax({
+	url:"GoodsclassAction.do?method=selPCHomeGC",
+	type:"post",
+	data:{
+		cusid:customer.customerid
+	},
+	success:function(resp){
+		var data = eval('('+resp+')');
+		$.each(data.root[1],function(i,item){
+			$('.wzh-mainNav-three ul[name="dhl-ppzq"]').append('<li><a onclick="dogoodsxdpage(\'G14630381061319233\',\''+item.goodsclassname+
+					'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
+		});
+		$.each(data.root[0],function(i,item){
+			if(item.goodsclassparent == '42'){
+				$('.wzh-mainNav-three ul[name="dhl-twjz"]').append('<li><a onclick="dogoodsxdpage(\'42\',\''+item.goodsclassname+
+						'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
+			} else if(item.goodsclassparent == '43'){
+				$('.wzh-mainNav-three ul[name="dhl-lymm"]').append('<li><a onclick="dogoodsxdpage(\'43\',\''+item.goodsclassname+
+						'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
+			} else if(item.goodsclassparent == '41'){
+				$('.wzh-mainNav-three ul[name="dhl-nbgh"]').append('<li><a onclick="dogoodsxdpage(\'41\',\''+item.goodsclassname+
+						'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
+			}
+		});
+	},
+	error:function(resp){
+		var data = eval("("+resp+")");
+		alert(data.msg);
+		//window.location.href = "login.html";
+	}
+});
+</script>
 						<ul class="whz-mainNav-menu">
 							<li><a href="homepage.html">首页</a></li>
 							<li><a href="msgshow.html">秒杀专区</a></li>

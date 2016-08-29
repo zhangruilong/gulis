@@ -35,7 +35,6 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                     <div class="menu">
                         <ul class="tlrtext">
                         <li><span class="topwelcome" id="index_login_button" style="color:#666666">欢迎来到谷粒网！</span></li>
-                          
                           <li >
                           <a class="hide"><span style="color:#666666;">用户中心</span>
                           </a><span>|</span>
@@ -49,7 +48,6 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
 								<li><a href="userpwd.html">修改密码</a></li>
                             </ul>
                           </li>
-                           
                             <li><a id="shopping_card_button" class="hide"><span ><img src="images/gouwuche.jpg" width="14" height="12" style="margin:13px 6px 0px 0px;width:12px;height:12px;"></span>
                              购物车 <font style="color:#d71600;">0</font> 件</a><span>|</span></li>
                              
@@ -74,8 +72,6 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                     </div>
                 </div>
             </div>
-            
-            
             <div class="logoline">
     <div class="top">
                     <div class="logoblock">
@@ -84,8 +80,8 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                     </div>
                     <div class="logosousuo">
                         <div class="nrssk">
-                            <span><input class="nrsskinput1" type="text" name="textfield" id="w" /></span>
-                            <span><input class="nrsskinput2" type="text" name="textfield" id="index_search_button" onclick="doseach()" value="搜索"/></span>
+                            <span><input class="nrsskinput1" type="text" name="textfield" id="w" placeholder="请输入'商品名称' 或 '品牌'等"/></span>
+                            <span><input class="nrsskinput2" type="button" name="textfield" id="index_search_button" onclick="doseach()" value="搜索"/></span>
                         </div>
                     </div>
                     <div class="zxfwblock"><img src="images/tuiguo.jpg" width="148" height="57"></div>
@@ -95,7 +91,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
            <div class="navline">
     <div class="top">
                     <div class="navleft" id="index_navgation">
-                     <span><a href="#" id="index_button">全部商品分类</a></span>
+                     <span><a href="homepage.html" id="index_button">首页</a></span>
                         <span><a href="msgshow.html" >秒杀专区</a></span>
                        
                         <span><a href="mzgshow.html" >买赠专区</a></span>
@@ -158,7 +154,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
                 </div> -->
                 <div class="buyblxmline3">
                 <div class="buybltjddltext2">
-                    <div class="buybltjddltline1">将发送谷粒网券密码至手机号：</div>
+                    <!-- <div class="buybltjddltline1">将发送谷粒网券密码至手机号：</div> -->
                     <!-- <div class="buybltjddltline2"><span>换号了？ </span> <span>绑定新手机号</span></div> -->
                 </div>
                 <div class="buyblxml3right"><span>已选</span><span class="buyblxml3text1">2</span><span>件商品</span><span class="buyblxml3text2">&nbsp;&nbsp;应付总额：</span><span class="buyblxml3text3">¥167.9</span>

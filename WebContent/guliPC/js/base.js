@@ -1,7 +1,10 @@
 // JavaScript Document
 //到搜索页
 function doseach(){
-	window.location.href="querygoods.html?searchdishes="+$('#w').val();
+	var condi = $('#w').val();
+	if(typeof(condi) != 'undefined' && condi){
+		window.location.href="querygoods.html?searchdishes="+$('#w').val();
+	}
 }
 //商品分类
 function dogoodsxdpage(parent,classname){
