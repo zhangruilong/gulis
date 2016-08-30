@@ -961,36 +961,36 @@ $(function(){
 				if(item.type == '商品'){
 					liObj = '<li>'+
 									'<div class="fxqbrlleftImg">'+
-										'<a href="javascript:void(0)"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
+										'<a href="goodsXD.html?goodsid='+item.goodsview.goodsid+'"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
 											'src="'+item.goodsview.goodsimage+'">'+
 										'</a>'+
 									'</div>'+
 									'<div class="asideTwxt-sp">'+
-										'<a title="'+item.goodsview.goodsname+'" href="javascript:void(0)" target="_blank"> '+item.goodsview.goodsname+'('+item.goodsview.goodsunits+')</a>'+
+										'<a title="'+item.goodsview.goodsname+'" href="goodsXD.html?goodsid='+item.goodsview.goodsid+'" target="_blank"> '+item.goodsview.goodsname+'('+item.goodsview.goodsunits+')</a>'+
 										'<span>价格：<span style="color:red;float:none;">¥'+item.goodsview.pricesprice+'/'+item.goodsview.pricesunit+'</span></span>'+
 									'</div>'+
 								'</li>';
 				} else if(item.type == '秒杀'){
 					liObj = '<li>'+
 									'<div class="fxqbrlleftImg">'+
-										'<a href="javascript:void(0)"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
+										'<a href="miaoshaXD.html?goodsid='+item.tgview.timegoodsid+'"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
 											'src="'+item.tgview.timegoodsimage+'">'+
 										'</a>'+
 									'</div>'+
 									'<div class="asideTwxt-sp">'+
-										'<a title="'+item.tgview.timegoodsname+'" href="javascript:void(0)" target="_blank"> '+item.tgview.timegoodsname+'('+item.tgview.timegoodsunits+')</a>'+
+										'<a title="'+item.tgview.timegoodsname+'" href="miaoshaXD.html?goodsid='+item.tgview.timegoodsid+'" target="_blank"> '+item.tgview.timegoodsname+'('+item.tgview.timegoodsunits+')</a>'+
 										'<span>价格：<span style="color:red;float:none;">¥'+item.tgview.timegoodsorgprice+'/'+item.tgview.timegoodsunit+'</span></span>'+
 									'</div>'+
 								'</li>';
 				} else if(item.type == '买赠'){
 					liObj = '<li>'+
 									'<div class="fxqbrlleftImg">'+
-										'<a href="javascript:void(0)"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
+										'<a href="maizengXD.html?goodsid='+item.ggview.givegoodsid+'"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
 											'src="'+item.ggview.givegoodsimage+'">'+
 										'</a>'+
 									'</div>'+
 									'<div class="asideTwxt-sp">'+
-										'<a title="'+item.ggview.givegoodsname+'" href="javascript:void(0)" target="_blank"> '+item.ggview.givegoodsname+
+										'<a title="'+item.ggview.givegoodsname+'" href="maizengXD.html?goodsid='+item.ggview.givegoodsid+'" target="_blank"> '+item.ggview.givegoodsname+
 										'('+item.ggview.givegoodsunits+')</a>'+
 										'<span>'+item.ggview.givegoodsdetail+'</span>'+
 										'<span>价格：<span style="color:red;float:none;">¥'+item.ggview.givegoodsprice+'/'+item.ggview.givegoodsunit+'</span></span>'+
