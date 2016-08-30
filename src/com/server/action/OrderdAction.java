@@ -15,6 +15,7 @@ import com.server.pojo.Customer;
 import com.server.pojo.Givegoodsview;
 import com.server.pojo.GoodsVo;
 import com.server.pojo.Goodsview;
+import com.server.pojo.HotOrderdSumVO;
 import com.server.pojo.Orderd;
 import com.server.pojo.SdishesVO;
 import com.server.pojo.Timegoods;
@@ -342,5 +343,59 @@ public class OrderdAction extends BaseActionDao {
 		}
 		infoMap.put("svoList", svoList);
 		return infoMap;
+	}
+	//热销商品
+	@SuppressWarnings("unchecked")
+	public void hotgoodssel(HttpServletRequest request, HttpServletResponse response){
+		String customerid = request.getParameter("customerid");
+		List<Customer> cusLi = selAll(Customer.class, "select * from customer where customerid='"+customerid+"'");
+		if(cusLi.size() == 1){
+			Customer cus = cusLi.get(0);
+			String sql = "select * from (select A.*, ROWNUM RN from ( "+
+					"select sum(od.orderdnum) odgoodsnum,od.orderdcode,od.orderdtype,od.orderdunits "+
+					"from orderd od left join orderm om on om.ordermid = od.orderdorderm  "+
+					"left join company cp on om.ordermcompany = cp.companyid left join city ct on ct.cityid = cp.companycity "+
+					"where om.ordermtime like '"+DateUtils.getYear()+"-"+DateUtils.getMonth()+"%' and ct.cityname = '"+cus.getCustomerxian()+
+					"' group by od.orderdcode,od.orderdtype,od.orderdunits order by odgoodsnum desc "+
+					") A where ROWNUM  <= (1*10) ) where RN > ((1-1)*10)";
+			List<HotOrderdSumVO> hos = (ArrayList<HotOrderdSumVO>) selAll(HotOrderdSumVO.class, sql);
+			ArrayList<GoodsVo> gvoList = new ArrayList<GoodsVo>();
+			for (HotOrderdSumVO item : hos) {
+				GoodsVo gvo = new GoodsVo();
+				if(item.getOrderdtype().equals("商品")){
+					List<Goodsview> tgviewList = selAll(Goodsview.class,"select * from goodsview gv where gv.goodscode = '"+item.getOrderdcode()+
+							"' and gv.goodsunits = '"+item.getOrderdunits()+
+							"' and gv.pricesclass = '"+cus.getCustomertype()+
+							"' and gv.priceslevel = "+cus.getCustomerlevel()+
+							" and gv.goodsstatue = '上架'");
+					if(tgviewList.size() > 0){
+						gvo.setType(item.getOrderdtype());
+						gvo.setGoodsview(tgviewList.get(0));
+						gvoList.add(gvo);
+					}
+				} else if(item.getOrderdtype().equals("秒杀")){
+					List<Timegoodsview> tgviewList = selAll(Timegoodsview.class,"select * from timegoodsview tv where tv.timegoodscode = '"+
+							item.getOrderdcode()+"' and tv.timegoodsunits = '"+item.getOrderdunits()+
+							"' and tv.timegoodsstatue = '启用' and tv.timegoodsscope like '%"+cus.getCustomertype()+"%'");
+					if(tgviewList.size() >0){
+						gvo.setType(item.getOrderdtype());
+						gvo.setTgview(tgviewList.get(0));
+						gvoList.add(gvo);
+					}
+				} else if(item.getOrderdtype().equals("买赠")){
+					List<Givegoodsview> ggviewList = selAll(Givegoodsview.class,"select * from givegoodsview gv where gv.givegoodscode = '"+
+							item.getOrderdcode()+"' and gv.givegoodsunits = '"+item.getOrderdunits()+
+							"' and gv.givegoodsstatue = '启用' and gv.givegoodsscope like '%"+cus.getCustomertype()+"%'");
+					if(ggviewList.size() >0){
+						gvo.setType(item.getOrderdtype());
+						gvo.setGgview(ggviewList.get(0));
+						gvoList.add(gvo);
+					}
+				}
+			}
+			Pageinfo pageinfo = new Pageinfo(gvoList);
+			result = CommonConst.GSON.toJson(pageinfo);
+		}
+		responsePW(response, result);
 	}
 }

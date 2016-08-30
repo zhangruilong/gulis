@@ -6,12 +6,12 @@
 <title>谷粒网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-<liNK href="css/global.css" rel="stylesheet">
-<liNK href="css/layout.css" rel="stylesheet">
-<liNK href="css/color.css" rel="stylesheet">
-<liNK href="css/normalize.css" rel="stylesheet">
-<liNK href="css/main.css" rel="stylesheet">
-<liNK href="css/wzhWeb.css" rel="stylesheet">
+<link href="css/global.css" rel="stylesheet">
+<link href="css/layout.css" rel="stylesheet">
+<link href="css/color.css" rel="stylesheet">
+<link href="css/normalize.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/wzhWeb.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 	var customer = JSON.parse(window.localStorage.getItem("customer"));
@@ -24,7 +24,6 @@ function cusLogout(){
 		type:"post",
 		data:{},
 		success:function(resp){
-			alert(resp);
 			window.location.href = "login.html";
 		},
 		error:function(resp){
@@ -77,6 +76,8 @@ function cusLogout(){
 											<li><a id="topbar_question"
 												href="javascript:void(0)"
 												target="_blank">常见问题</a></li>
+											<li><a title="注销" id="topbar_collect_net" onclick="cusLogout()"
+												href="javascript:void(0)" rel="sidebar">注销</a></li>
 										</ul></li>
 								</ul>
 							</div>
@@ -87,8 +88,7 @@ function cusLogout(){
 					<div class="headCont">
 						<!--LOGO-->
 						<div class="TopLogo">
-							<a href="javascript:void(0)"><img
-								title="" src=""></a>
+							<a href="javascript:void(0)"><img title="" src=""></a>
 						</div>
 						<!--搜索栏-->
 							<div class="search">
@@ -256,7 +256,7 @@ $.ajax({
 		$.each(data.root[1],function(i,item){
 			count4++;
 			$('.mainMenu-z dt[name="MM-ppzq-t"]').append('<a onclick="dogoodsxdpage(\'G14630381061319233\',\''+item.goodsclassname+'\');" href="gflshow.html">'+item.goodsclassname+'</a>');
-			if(count1 <8){
+			if(count1 <7){
 				$('.mainMenu-l ul li ol span[name="MM-ppzq"]').append('<a onclick="dogoodsxdpage(\'G14630381061319233\',\''+item.goodsclassname+'\');" href="gflshow.html">'+item.goodsclassname+'</a> ');
 			}
 		});
@@ -264,8 +264,10 @@ $.ajax({
 			if(item.goodsclassparent == '42'){
 				count1++;
 				$('.mainMenu-z dt[name="MM-twjz-t"]').append('<a onclick="dogoodsxdpage(\'42\',\''+item.goodsclassname+'\');" href="gflshow.html">'+item.goodsclassname+'</a>');
-				if(count1 <8){
+				if(count1 <7){
 					$('.mainMenu-l ul li ol span[name="MM-twjz"]').append('<a onclick="dogoodsxdpage(\'42\',\''+item.goodsclassname+'\');" href="gflshow.html">'+item.goodsclassname+'</a> ');
+				} else if(count1 == 8){
+					
 				}
 			} else if(item.goodsclassparent == '43'){
 				count2++;
@@ -924,8 +926,8 @@ $(function(){
 
 			<div class="rightSide" id="pin2">
 				<div class="asideBox">
-					<h2>谷粒网特惠商户</h2>
-					<ul>
+					<h2>谷粒网热销商品</h2>
+					<ul id="hotg-div-ul">
 						<li>
 							<div class="fxqbrlleftImg">
 								<a
@@ -941,162 +943,58 @@ $(function(){
 									target="_blank"> 珑安百货</a><span>进店消费人次：4446次</span>
 							</div>
 						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/4f029223-d5a9-4216-a91f-8f8dad2117d5_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="新区木槿花餐饮店"
-									href="javascript:void(0)"
-									target="_blank"> 新区木槿花餐饮店</a><span>进店消费人次：6次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/dfd911c8-74e5-4b5a-8584-ffa3ce6c08d7_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="鑫源记"
-									href="javascript:void(0)"
-									target="_blank"> 鑫源记</a><span>进店消费人次：13次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/a80264b3-f1eb-40ae-a7ad-07c3b6b00287_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="惠山区钱桥惠来阀门经营部"
-									href="javascript:void(0)"
-									target="_blank"> 惠山区钱桥惠来阀门经营部</a><span>进店消费人次：0次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/738b63f4-1a36-4748-a010-36618b824020_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="钱桥丰延百货商行（瑞丰地毯百货）"
-									href="javascript:void(0)"
-									target="_blank"> 百货商行</a><span>进店消费人次：35次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/3b717f62-acdf-4d53-8dc4-ee66afd85791_95x72.jpg"">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="惠山区钱桥锦曦建材经营部"
-									href="javascript:void(0)"
-									target="_blank"> 锦曦建材经营部</a><span>进店消费人次：0次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/41726774-820d-418b-9b82-421e16128e1a_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="哥伦布烟酒店"
-									href="javascript:void(0)"
-									target="_blank"> 烟酒店</a><span>进店消费人次：225次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/43c9da60-259c-4f42-b362-69d3c93a154b_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="无锡市钱桥伟龙装潢材料经营部"
-									href="javascript:void(0)"
-									target="_blank"> 无锡市钱桥伟龙装潢材料经营部</a><span>进店消费人次：0次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/3477e439-1add-4abb-ae40-da61f9344b7f_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="惠山区钱桥小金汽车配件商行"
-									href="javascript:void(0)"
-									target="_blank"> 惠山区钱桥小金汽车配件商行</a><span>进店消费人次：1次</span>
-							</div>
-						</li>
-						<li>
-							<div class="fxqbrlleftImg">
-								<a
-									href="javascript:void(0)"><img
-									class="scrollLoading"
-									onerror="" alt=""
-									src="images/homepageImg/95415e15-1a8d-4514-a138-eab2724e7f54_95x72.jpg">
-								</a>
-							</div>
-							<div class="asideTwxt-sp">
-								<a title="食诺客(新区)"
-									href="javascript:void(0)"
-									target="_blank"> 食诺客(新区)</a><span>进店消费人次：2677次</span>
-							</div>
-						</li>
 					</ul>
 				</div>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:"OrderdAction.do?method=hotgoodssel",
+		type:"post",
+		data:{
+			customerid:customer.customerid
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			$("#hotg-div-ul").html("");								//清空li
+			$.each(data.root,function(i,item){
+				if(item.type == '商品'){
+					var liObj = '<li>'+
+									'<div class="fxqbrlleftImg">'+
+										'<a href="javascript:void(0)"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
+											'src="'+item.goodsview.goodsimage+'">'+
+										'</a>'+
+									'</div>'+
+									'<div class="asideTwxt-sp">'+
+										'<a title="'+item.goodsview.goodsname+'" href="javascript:void(0)" '+
+											'target="_blank"> '+item.goodsview.goodsname+'</a><span>规格：'+item.goodsview.goodsunits+'</span>'+
+									'</div>'+
+								'</li>';
+				} else if(item.type == '秒杀'){
+					return;
+					var liObj = '<li onclick="purchaseMiaosha(\''+item.tgview.timegoodscode+'\')">'+
+		         	'<span class="fl"><img src="../'+item.tgview.timegoodsimage+
+		         	'" alt="" onerror="javascript:this.src=\'images/default.jpg\'"/></span> '+
+		         	'<h1>'+item.tgview.timegoodsname+'<br><span>('+item.tgview.timegoodsunits+')</span></h1>'+
+		           '  <div class="block"> </div></li>';
+				} else {
+					return;
+					var liObj = '<li onclick="purchaseGiveGoods(\''+item.ggview.givegoodscode+'\')">'+
+		         	'<span class="fl"><img src="../'+item.ggview.givegoodsimage+
+		         	'" alt="" onerror="javascript:this.src=\'images/default.jpg\'"/></span> '+
+		         	'<h1>'+item.ggview.givegoodsname+'<br><span>('+item.ggview.givegoodsunits+')</span></h1>'+
+		           '  <div class="block"> </div></li>';
+				}
+				$("#hotg-div-ul").append(liObj);
+			});
+		},
+		error:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+});
+</script>
 			</div>
-			<!-- <div class="rightSide" id="pin2">
-            <div class="foodxqbright" >
-	            <div class="fxqbrtitle" id="zuiJinliuLan" >
-                    <div class="fxqbrtph">最近浏览</div>
-	            </div>
-            </div>
-          <div class="clearD"></div>
-        </div> 
-         -->
-			<!-- <div class="rightSide" id="pin2">
-        	
-	        <div class="asideBox">
-	        	<h2>今日特选</h2>
-	        	<ul>
-               	</ul>
-                
-            </div>
-         </div> -->
 			<!--  rightSide END-->
 		</div>
 		<!--Container END-->
