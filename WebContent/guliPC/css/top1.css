@@ -6,10 +6,10 @@
 .logoline{float:left;width:100%;height:80px;margin:9px 0px 9px 0px;display:inline;}
 .logoline2{float:left;width:100%;height:68px;margin:29px 0px 0px 0px;display:inline;}
 .logoblock{float:left;width:auto;height:80px;}
-.logoicon{float:left;width:193px;cursor: pointer;}
+.logoicon{float:left;width:190px;cursor: pointer;margin-top: 24px;}
 .logoicon2{float:left;width:450px;}
 .logoicon2 img{float:left;cursor: pointer;}
-.logoicon img{float:left;width:234px;height:80px;}
+.logoicon img{float:left;width:200px;height:36px;}
 .qhcs{float:left;width:70px;height:42px;margin-top:26px;margin-left:22px;display:inline;}
 .qhcsline1{float:left;width:100%;height:26px;line-height:26px;text-align:left;color:#747474;font-weight:bold;font-size:14px;}
 .qhcsline2{float:left;width:100%;text-align:left;color:#b81202;font-weight:bold;}

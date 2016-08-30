@@ -88,7 +88,7 @@ function cusLogout(){
 					<div class="headCont">
 						<!--LOGO-->
 						<div class="TopLogo">
-							<a href="javascript:void(0)"><img title="" src=""></a>
+							<img title="谷粒网" src="images/logo.png">
 						</div>
 						<!--搜索栏-->
 							<div class="search">
@@ -966,8 +966,7 @@ $(function(){
 										'</a>'+
 									'</div>'+
 									'<div class="asideTwxt-sp">'+
-										'<a title="'+item.goodsview.goodsname+'" href="javascript:void(0)" target="_blank"> '+item.goodsview.goodsname+'</a>'+
-										'<span>规格：'+item.goodsview.goodsunits+'</span>'+
+										'<a title="'+item.goodsview.goodsname+'" href="javascript:void(0)" target="_blank"> '+item.goodsview.goodsname+'('+item.goodsview.goodsunits+')</a>'+
 										'<span>价格：<span style="color:red;float:none;">¥'+item.goodsview.pricesprice+'/'+item.goodsview.pricesunit+'</span></span>'+
 									'</div>'+
 								'</li>';
@@ -979,8 +978,7 @@ $(function(){
 										'</a>'+
 									'</div>'+
 									'<div class="asideTwxt-sp">'+
-										'<a title="'+item.tgview.timegoodsname+'" href="javascript:void(0)" target="_blank"> '+item.tgview.timegoodsname+'</a>'+
-										'<span>规格：'+item.tgview.timegoodsunits+'</span>'+
+										'<a title="'+item.tgview.timegoodsname+'" href="javascript:void(0)" target="_blank"> '+item.tgview.timegoodsname+'('+item.tgview.timegoodsunits+')</a>'+
 										'<span>价格：<span style="color:red;float:none;">¥'+item.tgview.timegoodsorgprice+'/'+item.tgview.timegoodsunit+'</span></span>'+
 									'</div>'+
 								'</li>';
@@ -993,8 +991,8 @@ $(function(){
 									'</div>'+
 									'<div class="asideTwxt-sp">'+
 										'<a title="'+item.ggview.givegoodsname+'" href="javascript:void(0)" target="_blank"> '+item.ggview.givegoodsname+
-										'('+item.ggview.givegoodsdetail+')</a>'+
-										'<span>规格：'+item.ggview.givegoodsunits+'</span>'+
+										'('+item.ggview.givegoodsunits+')</a>'+
+										'<span>'+item.ggview.givegoodsdetail+'</span>'+
 										'<span>价格：<span style="color:red;float:none;">¥'+item.ggview.givegoodsprice+'/'+item.ggview.givegoodsunit+'</span></span>'+
 									'</div>'+
 								'</li>';
