@@ -93,7 +93,7 @@ function cusLogout(){
 						<!--搜索栏-->
 							<div class="search">
 								<input name="w" class="search-text" id="w" type="text" onkeydown="seachkeydow()"
-									placeholder="请输入'商品名称' 或 '品牌'等" value="" autocomplete="off"
+									placeholder="请输入要搜索的词" value="" autocomplete="off"
 									x-webkit-speech="x-webkit-speech">
 
 								<div class="search-button">
@@ -957,32 +957,47 @@ $(function(){
 			var data = eval('('+resp+')');
 			$("#hotg-div-ul").html("");								//清空li
 			$.each(data.root,function(i,item){
+				var liObj = '';
 				if(item.type == '商品'){
-					var liObj = '<li>'+
+					liObj = '<li>'+
 									'<div class="fxqbrlleftImg">'+
 										'<a href="javascript:void(0)"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
 											'src="'+item.goodsview.goodsimage+'">'+
 										'</a>'+
 									'</div>'+
 									'<div class="asideTwxt-sp">'+
-										'<a title="'+item.goodsview.goodsname+'" href="javascript:void(0)" '+
-											'target="_blank"> '+item.goodsview.goodsname+'</a><span>规格：'+item.goodsview.goodsunits+'</span>'+
+										'<a title="'+item.goodsview.goodsname+'" href="javascript:void(0)" target="_blank"> '+item.goodsview.goodsname+'</a>'+
+										'<span>规格：'+item.goodsview.goodsunits+'</span>'+
+										'<span>价格：<span style="color:red;float:none;">¥'+item.goodsview.pricesprice+'/'+item.goodsview.pricesunit+'</span></span>'+
 									'</div>'+
 								'</li>';
 				} else if(item.type == '秒杀'){
-					return;
-					var liObj = '<li onclick="purchaseMiaosha(\''+item.tgview.timegoodscode+'\')">'+
-		         	'<span class="fl"><img src="../'+item.tgview.timegoodsimage+
-		         	'" alt="" onerror="javascript:this.src=\'images/default.jpg\'"/></span> '+
-		         	'<h1>'+item.tgview.timegoodsname+'<br><span>('+item.tgview.timegoodsunits+')</span></h1>'+
-		           '  <div class="block"> </div></li>';
-				} else {
-					return;
-					var liObj = '<li onclick="purchaseGiveGoods(\''+item.ggview.givegoodscode+'\')">'+
-		         	'<span class="fl"><img src="../'+item.ggview.givegoodsimage+
-		         	'" alt="" onerror="javascript:this.src=\'images/default.jpg\'"/></span> '+
-		         	'<h1>'+item.ggview.givegoodsname+'<br><span>('+item.ggview.givegoodsunits+')</span></h1>'+
-		           '  <div class="block"> </div></li>';
+					liObj = '<li>'+
+									'<div class="fxqbrlleftImg">'+
+										'<a href="javascript:void(0)"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
+											'src="'+item.tgview.timegoodsimage+'">'+
+										'</a>'+
+									'</div>'+
+									'<div class="asideTwxt-sp">'+
+										'<a title="'+item.tgview.timegoodsname+'" href="javascript:void(0)" target="_blank"> '+item.tgview.timegoodsname+'</a>'+
+										'<span>规格：'+item.tgview.timegoodsunits+'</span>'+
+										'<span>价格：<span style="color:red;float:none;">¥'+item.tgview.timegoodsorgprice+'/'+item.tgview.timegoodsunit+'</span></span>'+
+									'</div>'+
+								'</li>';
+				} else if(item.type == '买赠'){
+					liObj = '<li>'+
+									'<div class="fxqbrlleftImg">'+
+										'<a href="javascript:void(0)"><img class="scrollLoading" onerror="" alt="" width="80" height="80" '+
+											'src="'+item.ggview.givegoodsimage+'">'+
+										'</a>'+
+									'</div>'+
+									'<div class="asideTwxt-sp">'+
+										'<a title="'+item.ggview.givegoodsname+'" href="javascript:void(0)" target="_blank"> '+item.ggview.givegoodsname+
+										'('+item.ggview.givegoodsdetail+')</a>'+
+										'<span>规格：'+item.ggview.givegoodsunits+'</span>'+
+										'<span>价格：<span style="color:red;float:none;">¥'+item.ggview.givegoodsprice+'/'+item.ggview.givegoodsunit+'</span></span>'+
+									'</div>'+
+								'</li>';
 				}
 				$("#hotg-div-ul").append(liObj);
 			});

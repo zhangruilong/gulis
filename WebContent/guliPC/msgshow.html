@@ -26,7 +26,7 @@
 				<DIV class="topline">
 					<DIV class="top">
 						<DIV class="toplineleft">
-							<SPAN class="wzh-won">谷粒网</SPAN>
+							<span class="wzh-won">谷粒网</span>
 						</DIV>
 						<DIV class="menu">
 							<ul class="tlrtext">
@@ -69,12 +69,12 @@
 					<!--LOGO-->
 					<DIV class="TopLogo">
 						<A href="#"><IMG
-							title="谷粒网" src="images/wzh-logo.png"></A>
+							title="谷粒网" src="images/logo.png"></A>
 					</DIV>
 					<!--搜索栏-->
 					<div class="search">
 								<input name="w" class="search-text" id="w" type="text" onkeydown="seachkeydow()"
-									placeholder="请输入'商品名称' 或 '品牌'等" value="" autocomplete="off"
+									placeholder="请输入要搜索的词" value="" autocomplete="off"
 									x-webkit-speech="x-webkit-speech">
 
 								<div class="search-button">
@@ -295,20 +295,20 @@ function mspage(){
 					
 					goods += '<A class="pro-a-box" '+
 							'href="miaoshaXD.html?goodsid='+item.timegoodsid+'&type=ms" '+
-							'><SPAN class="spImg" href="miaoshaXD.html?goodsid='+item.timegoodsid+'&type=ms">'+
+							'><span class="spImg" href="miaoshaXD.html?goodsid='+item.timegoodsid+'&type=ms">'+
 							'<IMG class="scrollLoading" alt="" src="'+item.timegoodsimage+'">'+
 	
 								'<DIV class="pro-label">'+
 									'<LI class="discount">'+item.timegoodsclass+'</LI>'+
-								'</DIV></SPAN><SPAN class="sp-info">'+
+								'</DIV></span><span class="sp-info">'+
 								'<H3 title="【'+item.timegoodsname+'】'+item.timegoodsunits+'">【'+item.timegoodsname+'】'+item.timegoodsunits+'</H3>'+
-						'</SPAN><SPAN title="'+item.companydetail+'" class="sp-Text" '+
-							'id="title14"></SPAN>'+
+						'</span><span title="'+item.companydetail+'" class="sp-Text" '+
+							'id="title14"></span>'+
 							'<DIV class="sp-priceTit">'+
-								'<SPAN class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
+								'<span class="sp-tag"><STRONG>¥</STRONG> <STRONG '+
 									'id="memberPrice14" style="color: rgb(255, 73, 0);">'+item.timegoodsorgprice+'</STRONG>'+
-									'<SPAN class="stores-jia">原价<DEL id="originalPrice14">'+item.timegoodsprice+'</DEL></SPAN>'+
-								'</SPAN>'+
+									'<span class="stores-jia">原价<DEL id="originalPrice14">'+item.timegoodsprice+'</DEL></span>'+
+								'</span>'+
 							'</DIV>'+
 							'</A>'+
 					'</DIV>';
@@ -331,9 +331,9 @@ function mspage(){
 			
 			<!--leftSubject END-->
 			<DIV id="rightSide">
-				<DIV class="asideBox">
+				<DIV class="asideBox" id="hotg-msgd">
 					<DIV class="fxqbrtitle">
-						<DIV class="fxqbrtph">美食排行榜</DIV>
+						<DIV class="fxqbrtph">热销商品</DIV>
 					</DIV>
 					<DIV style="display: none;">
 						<INPUT name="checkboxType" id="check0" type="checkbox">
@@ -343,214 +343,16 @@ function mspage(){
 							<A onclick="window.open(this.href,'_blank');return   false"
 								href="javascript:void(0)"><IMG
 								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
+								onerror="">
 							</A>
 						</DIV>
 						<DIV class="asideTwxt-sp">
-							<A title="仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。"
+							<A title="仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。" 
 								onclick="window.open(this.href,'_blank');return   false"
 								href="javascript:void(0)">仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。</A>
 							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment20">32.00</Q>
-								</SPAN> <SPAN>已售：<Q>2</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check1" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="单人套餐，不限时段通用，免费WiFi！" id="titleType1"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment21">19.80</Q>
-								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check2" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="仅售29元，价值35元的曲奇饼干一份，可叠加使用提供免费wifi。" id="titleType2"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment22">29.00</Q>
-								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check3" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="仅售15元，价值16元的黄焖鸡米饭一份，可叠加使用，提供免费wifi。" id="titleType3"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment23">15.00</Q>
-								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check4" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="仅售40.5元，价值50元的双人超值套餐一份，提供免费wifi。" id="titleType4"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment24">40.50</Q>
-								</SPAN> <SPAN>已售：<Q>1</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check5" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="冻柠茶单人套餐，不限时段通用，免费WiFi！" id="titleType5"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment25">17.00</Q>
-								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check6" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="仅售200元，价值260元的进口西洋参片30克" id="titleType6"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment26">200.00</Q>
-								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check7" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="仅售40元，价值48元的双人套餐一份，可叠加使用，提供免费wifi。" id="titleType7"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment27">40.00</Q>
-								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check8" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="仅售160元，价值248元的瓦尔堡小麦黑啤一桶，可叠加使用。" id="titleType8"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment28">160.00</Q>
-								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
-							</DIV>
-						</DIV>
-					</DIV>
-					<DIV style="display: none;">
-						<INPUT name="checkboxType" id="check9" type="checkbox">
-					</DIV>
-					<DIV class="fxqbrline">
-						<DIV class="fxqbrlleftImg">
-							<A onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><IMG
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</A>
-						</DIV>
-						<DIV class="asideTwxt-sp">
-							<A title="单人套餐，不限时段通用，免费WiFi！" id="titleType9"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></A>
-
-							<DIV class="yufu">
-								<SPAN>现价：<Q>¥</Q><Q id="payment29">32.00</Q>
-								</SPAN> <SPAN>已售：<Q>0</Q></SPAN>
+								<span>现价：<Q>¥</Q><Q id="payment20">32.00</Q>
+								</span> <span>已售：<Q>2</Q></span>
 							</DIV>
 						</DIV>
 					</DIV>
@@ -561,6 +363,91 @@ function mspage(){
 				<!--clearD-->
 			</DIV>
 			<!--rightSide END-->
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:"OrderdAction.do?method=hotgoodssel",
+		type:"post",
+		data:{
+			customerid:customer.customerid
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			$("#hotg-msgd div:gt(1)").html("");								//清空li
+			$.each(data.root,function(i,item){
+				var liObj = '';
+				if(item.type == '商品'){
+					liObj = '<DIV style="display: none;">'+
+									'<INPUT name="checkboxType" id="check0" type="checkbox">'+
+								'</DIV>'+
+								'<DIV class="fxqbrline">'+
+									'<DIV class="fxqbrlleftImg">'+
+										'<A target="_blank"href="javascript:void(0)">'+
+										'<IMG width="95" height="72" class="scrollLoading" src="'+item.goodsview.goodsimage+'" onerror="">'+
+										'</A>'+
+									'</DIV>'+
+									'<DIV class="asideTwxt-sp">'+
+										'<A title="'+item.goodsview.goodsname+'" '+
+											'target="_blank" '+
+											'href="javascript:void(0)">'+item.goodsview.goodsname+'('+item.goodsview.goodsunits+')</A>'+
+										'<DIV class="yufu">'+
+											'<span>售价：<Q>¥</Q><Q>'+item.goodsview.pricesprice+'/'+item.goodsview.pricesunit+'</Q>'+
+											'</span>'+
+										'</DIV>'+
+									'</DIV>'+
+								'</DIV>';
+				} else if(item.type == '秒杀'){
+					liObj = '<DIV style="display: none;">'+
+									'<INPUT name="checkboxType" id="check0" type="checkbox">'+
+								'</DIV>'+
+								'<DIV class="fxqbrline">'+
+									'<DIV class="fxqbrlleftImg">'+
+										'<A target="_blank"href="javascript:void(0)">'+
+										'<IMG width="95" height="72" class="scrollLoading" src="'+item.tgview.timegoodsimage+'" onerror="">'+
+										'</A>'+
+									'</DIV>'+
+									'<DIV class="asideTwxt-sp">'+
+										'<A title="'+item.tgview.timegoodsname+'" '+
+											'target="_blank" '+
+											'href="javascript:void(0)">'+item.tgview.timegoodsname+'('+item.tgview.timegoodsunits+')</A>'+
+										'<DIV class="yufu">'+
+											'<span>售价：<Q>¥</Q><Q>'+item.tgview.timegoodsorgprice+'/'+item.tgview.timegoodsunit+'</Q>'+
+											'</span>'+
+										'</DIV>'+
+									'</DIV>'+
+								'</DIV>';
+				} else if(item.type == '买赠'){
+					liObj = '<DIV style="display: none;">'+
+									'<INPUT name="checkboxType" id="check0" type="checkbox">'+
+								'</DIV>'+
+								'<DIV class="fxqbrline">'+
+									'<DIV class="fxqbrlleftImg">'+
+										'<A target="_blank"href="javascript:void(0)">'+
+										'<IMG width="95" height="72" class="scrollLoading" src="'+item.ggview.givegoodsimage+'" onerror="">'+
+										'</A>'+
+									'</DIV>'+
+									'<DIV class="asideTwxt-sp">'+
+										'<A title="'+item.ggview.givegoodsname+'" '+
+											'target="_blank" '+
+											'href="javascript:void(0)">'+item.ggview.givegoodsname+'('+item.ggview.givegoodsunits+')</A>'+
+										'<DIV class="yufu">'+
+											'<span>'+item.ggview.givegoodsdetail+'</span>'+
+											'<span>售价：<Q>¥</Q><Q>'+item.ggview.givegoodsprice+'/'+item.ggview.givegoodsunit+'</Q>'+
+											'</span>'+
+										'</DIV>'+
+									'</DIV>'+
+								'</DIV>';
+				}
+				$("#hotg-msgd").append(liObj);
+			});
+		},
+		error:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+});
+</script>
 		</DIV>
 	<!--footer-->
 	<!--页脚开始-->
