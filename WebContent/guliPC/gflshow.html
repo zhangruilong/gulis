@@ -73,7 +73,7 @@
 					<!--搜索栏-->
 					<div class="search">
 								<input name="w" class="search-text" id="w" type="text" onkeydown="seachkeydow()"
-									placeholder="请输入'商品名称' 或 '品牌'等" value="" autocomplete="off" 
+									placeholder="请输入要搜索的词" value="" autocomplete="off" 
 									x-webkit-speech="x-webkit-speech">
 
 								<div class="search-button">
@@ -350,9 +350,9 @@ function ljzuddpage(){
 			
 			<!--leftSubject END-->
 			<div id="rightSide">
-				<div class="asideBox">
+				<div class="asideBox" id="hotg-msgd">
 					<div class="fxqbrtitle">
-						<div class="fxqbrtph">美食排行榜</div>
+						<div class="fxqbrtph">热销商品</div>
 					</div>
 					<div style="display: none;">
 						<input name="checkboxType" id="check0" type="checkbox">
@@ -362,214 +362,16 @@ function ljzuddpage(){
 							<a onclick="window.open(this.href,'_blank');return   false"
 								href="javascript:void(0)"><img
 								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
+								onerror="">
 							</a>
 						</div>
 						<div class="asideTwxt-sp">
-							<a title="仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。"
+							<a title="仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。" 
 								onclick="window.open(this.href,'_blank');return   false"
 								href="javascript:void(0)">仅售32元，价值39元的起司蛋糕一个，约7英寸，圆形，可叠加使用，提供免费wifi。</a>
 							<div class="yufu">
 								<span>现价：<q>¥</q><q id="payment20">32.00</q>
 								</span> <span>已售：<q>2</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check1" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="单人套餐，不限时段通用，免费WiFi！" id="titleType1"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment21">19.80</q>
-								</span> <span>已售：<q>1</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check2" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="仅售29元，价值35元的曲奇饼干一份，可叠加使用提供免费wifi。" id="titleType2"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment22">29.00</q>
-								</span> <span>已售：<q>1</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check3" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="仅售15元，价值16元的黄焖鸡米饭一份，可叠加使用，提供免费wifi。" id="titleType3"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment23">15.00</q>
-								</span> <span>已售：<q>1</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check4" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="仅售40.5元，价值50元的双人超值套餐一份，提供免费wifi。" id="titleType4"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment24">40.50</q>
-								</span> <span>已售：<q>1</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check5" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="冻柠茶单人套餐，不限时段通用，免费WiFi！" id="titleType5"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment25">17.00</q>
-								</span> <span>已售：<q>0</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check6" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="仅售200元，价值260元的进口西洋参片30克" id="titleType6"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment26">200.00</q>
-								</span> <span>已售：<q>0</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check7" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="仅售40元，价值48元的双人套餐一份，可叠加使用，提供免费wifi。" id="titleType7"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment27">40.00</q>
-								</span> <span>已售：<q>0</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check8" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="仅售160元，价值248元的瓦尔堡小麦黑啤一桶，可叠加使用。" id="titleType8"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment28">160.00</q>
-								</span> <span>已售：<q>0</q></span>
-							</div>
-						</div>
-					</div>
-					<div style="display: none;">
-						<input name="checkboxType" id="check9" type="checkbox">
-					</div>
-					<div class="fxqbrline">
-						<div class="fxqbrlleftImg">
-							<a onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"><img
-								width="95" height="72" class="scrollLoading"
-								onerror="this.src='/images/default-loading.gif'">
-							</a>
-						</div>
-						<div class="asideTwxt-sp">
-							<a title="单人套餐，不限时段通用，免费WiFi！" id="titleType9"
-								onclick="window.open(this.href,'_blank');return   false"
-								href="javascript:void(0)"></a>
-
-							<div class="yufu">
-								<span>现价：<q>¥</q><q id="payment29">32.00</q>
-								</span> <span>已售：<q>0</q></span>
 							</div>
 						</div>
 					</div>
@@ -580,6 +382,91 @@ function ljzuddpage(){
 				<!--clearD-->
 			</div>
 			<!--rightSide END-->
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:"OrderdAction.do?method=hotgoodssel",
+		type:"post",
+		data:{
+			customerid:customer.customerid
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			$("#hotg-msgd div:gt(1)").html("");								//清空li
+			$.each(data.root,function(i,item){
+				var liObj = '';
+				if(item.type == '商品'){
+					liObj = '<div style="display: none;">'+
+									'<input name="checkboxType" id="check0" type="checkbox">'+
+								'</div>'+
+								'<div class="fxqbrline">'+
+									'<div class="fxqbrlleftImg">'+
+										'<a target="_blank"href="goodsXD.html?goodsid='+item.goodsview.goodsid+'">'+
+										'<img width="95" height="72" class="scrollLoading" src="'+item.goodsview.goodsimage+'" onerror="">'+
+										'</a>'+
+									'</div>'+
+									'<div class="asideTwxt-sp">'+
+										'<a title="'+item.goodsview.goodsname+'" '+
+											'target="_blank" '+
+											'href="goodsXD.html?goodsid='+item.goodsview.goodsid+'">'+item.goodsview.goodsname+'('+item.goodsview.goodsunits+')</a>'+
+										'<div class="yufu">'+
+											'<span>售价：<q>¥</q><q>'+item.goodsview.pricesprice+'/'+item.goodsview.pricesunit+'</q>'+
+											'</span>'+
+										'</div>'+
+									'</div>'+
+								'</div>';
+				} else if(item.type == '秒杀'){
+					liObj = '<div style="display: none;">'+
+									'<input name="checkboxType" id="check0" type="checkbox">'+
+								'</div>'+
+								'<div class="fxqbrline">'+
+									'<div class="fxqbrlleftImg">'+
+										'<a target="_blank"href="miaoshaXD.html?goodsid='+item.tgview.timegoodsid+'">'+
+										'<img width="95" height="72" class="scrollLoading" src="'+item.tgview.timegoodsimage+'" onerror="">'+
+										'</a>'+
+									'</div>'+
+									'<div class="asideTwxt-sp">'+
+										'<a title="'+item.tgview.timegoodsname+'" '+
+											'target="_blank" '+
+											'href="miaoshaXD.html?goodsid='+item.tgview.timegoodsid+'">'+item.tgview.timegoodsname+'('+item.tgview.timegoodsunits+')</a>'+
+										'<div class="yufu">'+
+											'<span>售价：<q>¥</q><q>'+item.tgview.timegoodsorgprice+'/'+item.tgview.timegoodsunit+'</q>'+
+											'</span>'+
+										'</div>'+
+									'</div>'+
+								'</div>';
+				} else if(item.type == '买赠'){
+					liObj = '<div style="display: none;">'+
+									'<input name="checkboxType" id="check0" type="checkbox">'+
+								'</div>'+
+								'<div class="fxqbrline">'+
+									'<div class="fxqbrlleftImg">'+
+										'<a target="_blank"href="maizengXD.html?goodsid='+item.ggview.givegoodsid+'">'+
+										'<img width="95" height="72" class="scrollLoading" src="'+item.ggview.givegoodsimage+'" onerror="">'+
+										'</a>'+
+									'</div>'+
+									'<div class="asideTwxt-sp">'+
+										'<a title="'+item.ggview.givegoodsname+'" '+
+											'target="_blank" '+
+											'href="maizengXD.html?goodsid='+item.ggview.givegoodsid+'">'+item.ggview.givegoodsname+'('+item.ggview.givegoodsunits+')</a>'+
+										'<div class="yufu">'+
+											'<span>'+item.ggview.givegoodsdetail+'</span>'+
+											'<span>售价：<q>¥</q><q>'+item.ggview.givegoodsprice+'/'+item.ggview.givegoodsunit+'</q>'+
+											'</span>'+
+										'</div>'+
+									'</div>'+
+								'</div>';
+				}
+				$("#hotg-msgd").append(liObj);
+			});
+		},
+		error:function(resp){
+			var data = eval('('+resp+')');
+			alert(data.msg);
+		}
+	});
+});
+</script>
 		</div>
 	<!--footer-->
 	<!--页脚开始-->
