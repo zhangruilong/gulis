@@ -40,7 +40,7 @@
         <div id="con_one_1" class="hover">
         
               <input id="username" type="text" placeholder="手机号" />
-              <input id="password" type="password" placeholder="密码" />
+              <input id="password" type="password" placeholder="密码" onkeydown="pswkd()"/>
               <div class="form-field">
                   <input type="checkbox" />记住我的登陆
                   <input type="checkbox" />下次自动登陆
@@ -67,6 +67,14 @@ Copyright©2016  谷粒网 版权所有
 </div>
 
 <script type="text/javascript">
+//在密码框按下回车
+function pswkd(){
+	var event = window.event || arguments.callee.caller.arguments[0];
+	if(event.keyCode == 13){
+		uslog();
+		event.returnValue == false;			//为了防止浏览器捕捉到用户按下回车键而进行其他操作
+	}
+}
 //登录
 function uslog(){
 	if(!$("#username").val()){

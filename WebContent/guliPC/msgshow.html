@@ -365,7 +365,8 @@ $(function(){
 		url:"OrderdAction.do?method=hotgoodssel",
 		type:"post",
 		data:{
-			customerid:customer.customerid
+			customerid:customer.customerid,
+			orderdtype:'秒杀'
 		},
 		success:function(resp){
 			var data = eval('('+resp+')');

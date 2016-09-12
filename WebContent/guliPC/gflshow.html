@@ -82,13 +82,13 @@
 								</div>
 							</div>
 					<!--保证-->
-					<!-- <div class="ensure">
+					<div class="ensure">
 						<a class="wzhImg refund"
 							href="#"></a><a
 							class="wzhImg guo"
 							href="#"></a><a
 							class="wzhImg ka" href="#"></a>
-					</div> -->
+					</div>
 					<!--主导航菜单-->
 
 					<div class="whz-mainNav wzh-container">
@@ -142,6 +142,7 @@ $.ajax({
 	type:"post",
 	data:{
 		cusid:customer.customerid
+		
 	},
 	success:function(resp){
 		var data = eval('('+resp+')');
@@ -388,7 +389,8 @@ $(function(){
 		url:"OrderdAction.do?method=hotgoodssel",
 		type:"post",
 		data:{
-			customerid:customer.customerid
+			customerid:customer.customerid,
+			orderdtype:'商品'
 		},
 		success:function(resp){
 			var data = eval('('+resp+')');

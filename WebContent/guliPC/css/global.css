@@ -746,15 +746,13 @@ order-price {
 .wzhImg {
 	background: url("../images/whz-imgBg.png") no-repeat;
 }
-.refund {
+/* .refund {
 	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.guo {
+} */
+
+/* .ka {
 	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.ka {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
+} */
 .collection {
 	background: url("../images/whz-imgBg.png") no-repeat;
 }
@@ -877,15 +875,13 @@ order-price {
 	background-position: -216px -132px
 }
 /*保证*/
-.refund {
+/* .refund {
 	background-position: 1px 0
 }
-.guo {
-	background-position: -43px 0
-}
+
 .ka {
 	background-position: -92px 0
-}
+} */
 /*16px Ico*/
 .collection, .share, .sina, .tencent, .del-p, .share-p, .phoneIco, .lo-user, .lo-warningIco, .lo-successfulIco, .star-dow, .directionR-ico, .delete, .appIoc, .in-screen, .UnderIco, .close, .editor {
 	width: 16px;
@@ -1104,6 +1100,8 @@ width200px;
 	display: block;
 	float: right;
 	margin-left: 1em;
+	background: url("../images/whz-imgBg.png") no-repeat;
+	background-position: -43px 0;
 }
 .logoimg {
 	width: 200px;
@@ -2633,6 +2631,7 @@ deal-full a:hover {
 	height: 320px;
 	display: block;
 	position: relative;
+	background-color: #ccc;
 }
 .wzk-apply {
 	position: absolute;

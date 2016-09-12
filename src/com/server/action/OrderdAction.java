@@ -348,6 +348,7 @@ public class OrderdAction extends BaseActionDao {
 	@SuppressWarnings("unchecked")
 	public void hotgoodssel(HttpServletRequest request, HttpServletResponse response){
 		String customerid = request.getParameter("customerid");
+		String orderdtype = request.getParameter("orderdtype") == null?"":request.getParameter("orderdtype");
 		List<Customer> cusLi = selAll(Customer.class, "select * from customer where customerid='"+customerid+"'");
 		if(cusLi.size() == 1){
 			Customer cus = cusLi.get(0);
@@ -356,7 +357,7 @@ public class OrderdAction extends BaseActionDao {
 					"from orderd od left join orderm om on om.ordermid = od.orderdorderm  "+
 					"left join company cp on om.ordermcompany = cp.companyid left join city ct on ct.cityid = cp.companycity "+
 					"where om.ordermtime like '"+DateUtils.getYear()+"-"+DateUtils.getMonth()+"%' and ct.cityname = '"+cus.getCustomerxian()+
-					"' group by od.orderdcode,od.orderdtype,od.orderdunits order by odgoodsnum desc "+
+					"' and od.orderdtype like '%"+orderdtype+"%' group by od.orderdcode,od.orderdtype,od.orderdunits order by odgoodsnum desc "+
 					") A where ROWNUM  <= (1*10) ) where RN > ((1-1)*10)";
 			List<HotOrderdSumVO> hos = (ArrayList<HotOrderdSumVO>) selAll(HotOrderdSumVO.class, sql);
 			ArrayList<GoodsVo> gvoList = new ArrayList<GoodsVo>();
