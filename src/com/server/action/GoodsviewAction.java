@@ -94,7 +94,7 @@ public class GoodsviewAction extends BaseActionDao {
 				for (Goodsview gv : gvli) {
 					gv.setGoodsclassdetail(gc.getGoodsclassname());				//用Goodsview中的Goodsclassdetail储存父类的名称
 				}
-				Queryinfo collectqueryinfo = getQueryinfo();
+				Queryinfo collectqueryinfo = getQueryinfo(Collect.class, null, null, null);
 				collectqueryinfo.setType(Collect.class);
 				collectqueryinfo.setWheresql("collectcustomer='"+cusid+"'");
 				ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);

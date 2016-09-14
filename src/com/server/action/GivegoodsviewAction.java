@@ -117,8 +117,7 @@ public class GivegoodsviewAction extends BaseActionDao {
 		String wheresql = null;
 		List<Customer> cusli = selAll(Customer.class, "select * from customer where customerid='"+customerid+"'");			//根据客户id查询客户
 		if(cusli.size() ==1){
-			Queryinfo Ccustomerqueryinfo = getQueryinfo();
-			Ccustomerqueryinfo.setType(Ccustomer.class);
+			Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
 			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);						//查询客户的客户关系
 			if(Ccustomercuss.size()!=0){																		//如果有客户关系
@@ -149,8 +148,7 @@ public class GivegoodsviewAction extends BaseActionDao {
 		String wheresql = null;
 		if(CommonUtil.isEmpty(companyid)){
 			//如果不是业务员补单
-			Queryinfo Ccustomerqueryinfo = getQueryinfo();
-			Ccustomerqueryinfo.setType(Ccustomer.class);
+			Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
 			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
 			if(Ccustomercuss.size()!=0){
