@@ -274,6 +274,11 @@ function nextpage(){
 			var respText = eval('('+resp+')');
 			if(respText.msg == '您购买的：'){
 				var jsds = respText.root;										//sdishes的json
+				if(respText.root.length==0){
+					alert("购物车中没有商品.");
+					window.location.href = "homepage.html";
+					return;
+				}
 				window.localStorage.setItem("sdishes",JSON.stringify(jsds));
 				var newcartnum = 0;
 				var totalmoney = 0.00;

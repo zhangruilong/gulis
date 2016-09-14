@@ -8,6 +8,7 @@ function cartNum(){
 		$("#totalnum").hide();
 		$("#totalnum").text(0);
 	}else{
+		$("#totalnum").show();
 		$("#totalnum").text(window.localStorage.getItem("cartnum"));
 		$("#totalnum").parent().css('background','url("images/shoppingcar-full.png") no-repeat');
 	}

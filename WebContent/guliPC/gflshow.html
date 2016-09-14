@@ -82,13 +82,11 @@
 								</div>
 							</div>
 					<!--保证-->
-					<div class="ensure">
-						<a class="wzhImg refund"
-							href="#"></a><a
-							class="wzhImg guo"
-							href="#"></a><a
-							class="wzhImg ka" href="#"></a>
-					</div>
+						<div class="ensure">
+							<!-- <a class="wzhImg refund" href="#"></a> -->
+							<a class="wzhImg guo" href="cart.html"><span id="totalnum" style="display: none;"></span></a>
+							<!-- <a class="wzhImg ka" href="#"></a> -->
+						</div>
 					<!--主导航菜单-->
 
 					<div class="whz-mainNav wzh-container">
@@ -137,37 +135,40 @@
 							</span>
 						</div>
 <script type="text/javascript">
-$.ajax({
-	url:"GoodsclassAction.do?method=selPCHomeGC",
-	type:"post",
-	data:{
-		cusid:customer.customerid
-		
-	},
-	success:function(resp){
-		var data = eval('('+resp+')');
-		$.each(data.root[1],function(i,item){
-			$('.wzh-mainNav-three ul[name="dhl-ppzq"]').append('<li><a onclick="dogoodsxdpage(\'G14630381061319233\',\''+item.goodsclassname+
-					'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
-		});
-		$.each(data.root[0],function(i,item){
-			if(item.goodsclassparent == '42'){
-				$('.wzh-mainNav-three ul[name="dhl-twjz"]').append('<li><a onclick="dogoodsxdpage(\'42\',\''+item.goodsclassname+
+$(function(){
+	cartNum();													//初始化购物车上的商品数量
+	$.ajax({
+		url:"GoodsclassAction.do?method=selPCHomeGC",
+		type:"post",
+		data:{
+			cusid:customer.customerid
+			
+		},
+		success:function(resp){
+			var data = eval('('+resp+')');
+			$.each(data.root[1],function(i,item){
+				$('.wzh-mainNav-three ul[name="dhl-ppzq"]').append('<li><a onclick="dogoodsxdpage(\'G14630381061319233\',\''+item.goodsclassname+
 						'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
-			} else if(item.goodsclassparent == '43'){
-				$('.wzh-mainNav-three ul[name="dhl-lymm"]').append('<li><a onclick="dogoodsxdpage(\'43\',\''+item.goodsclassname+
-						'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
-			} else if(item.goodsclassparent == '41'){
-				$('.wzh-mainNav-three ul[name="dhl-nbgh"]').append('<li><a onclick="dogoodsxdpage(\'41\',\''+item.goodsclassname+
-						'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
-			}
-		});
-	},
-	error:function(resp){
-		var data = eval("("+resp+")");
-		alert(data.msg);
-		//window.location.href = "login.html";
-	}
+			});
+			$.each(data.root[0],function(i,item){
+				if(item.goodsclassparent == '42'){
+					$('.wzh-mainNav-three ul[name="dhl-twjz"]').append('<li><a onclick="dogoodsxdpage(\'42\',\''+item.goodsclassname+
+							'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
+				} else if(item.goodsclassparent == '43'){
+					$('.wzh-mainNav-three ul[name="dhl-lymm"]').append('<li><a onclick="dogoodsxdpage(\'43\',\''+item.goodsclassname+
+							'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
+				} else if(item.goodsclassparent == '41'){
+					$('.wzh-mainNav-three ul[name="dhl-nbgh"]').append('<li><a onclick="dogoodsxdpage(\'41\',\''+item.goodsclassname+
+							'\');" href="gflshow.html">'+item.goodsclassname+'</a></li>');
+				}
+			});
+		},
+		error:function(resp){
+			var data = eval("("+resp+")");
+			alert(data.msg);
+			//window.location.href = "login.html";
+		}
+	});
 });
 </script>
 						<ul class="whz-mainNav-menu">

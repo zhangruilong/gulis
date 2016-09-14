@@ -239,6 +239,11 @@ $(function(){
 function buy(){
 	$("#buyall").attr('onclick','');											//禁用按钮
 	var scompany = JSON.parse(window.localStorage.getItem("scompany"));
+	if(scompany==0){
+		alert("购物车中没有商品.");
+		window.location.href = "homepage.html";
+		return;
+	}
 	var ordermconnect = $('div[name="pay-address"] input:checked').nextAll('[name="pay-addcontact"]').text();
 	var ordermphone = $('div[name="pay-address"] input:checked').nextAll('.pay-addphone').text();
 	var ordermaddress = $('div[name="pay-address"] input:checked').nextAll('[name="pay-addaddress"]').text();
