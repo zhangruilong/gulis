@@ -18,6 +18,7 @@
 	if(!window.localStorage.getItem("customer")){
 		cusLogout();
 	}
+//注销
 function cusLogout(){
 	$.ajax({
 		url:"CustomerAction.do?method=cusLogout",
@@ -62,7 +63,7 @@ function cusLogout(){
 											<li><a href="bindingcom.html">我的供货商</a></li>
 											<li><a href="userpwd.html">修改密码</a></li>
 										</ul></li>
-									<li style="display: none;"><a id="shopping_card_button" href="#"><i class="triangleIco"></i> 购物车 <Q id="shoppingCart">0</Q> 件</a>
+									<li style="display: none;"><a id="shopping_card_button" href="#"><i class="triangleIco"></i> 购物车 <Q id="shoppingCart">1111</Q> 件</a>
 										<ul>
 											<div class="top-cart" id="headerShoppingCart"></div>
 										</ul></li>
@@ -102,7 +103,7 @@ function cusLogout(){
 						<!--保证-->
 						<div class="ensure">
 							<!-- <a class="wzhImg refund" href="#"></a> -->
-							<a class="wzhImg guo" href="#"><span>88</span></a>
+							<a class="wzhImg guo" href="#"><span id="totalnum"></span></a>
 							<!-- <a class="wzhImg ka" href="#"></a> -->
 						</div>
 					</div>
@@ -117,7 +118,7 @@ function cusLogout(){
 								<ul>
 									<li>
 										<ol>
-											<i class="wzhImg m-meishi"></i>
+											<i class="wzhImg hm-ppzq"></i>
 											<a onclick="dogoodsxdpage('G14630381061319233','');" href="gflshow.html">
 												<strong>品牌专区</strong>
 											</a>
@@ -136,7 +137,7 @@ function cusLogout(){
 									</li>
 									<li>
 										<ol>
-											<i class="wzhImg m-yule"></i>
+											<i class="wzhImg hm-ljzq"></i>
 											<a onclick="dogoodsxdpage('G14630381061319232','');" href="gflshow.html">
 												<strong>裸价专区</strong>
 											</a>
@@ -157,7 +158,7 @@ function cusLogout(){
 									</li>
 									<li>
 										<ol>
-											<i class="wzhImg m-jiudian"></i>
+											<i class="wzhImg hm-lymm"></i>
 											<a onclick="dogoodsxdpage('43','');" href="gflshow.html">
 												<strong>粮油米面</strong>
 											</a>
@@ -176,7 +177,7 @@ function cusLogout(){
 									</li>
 									<li>
 										<ol>
-											<i class="wzhImg m-fuwu"></i>
+											<i class="wzhImg hm-twjz"></i>
 											<a onclick="dogoodsxdpage('42','');" href="gflshow.html">
 												<strong>调味酱汁</strong>
 											</a>
@@ -195,7 +196,7 @@ function cusLogout(){
 									</li>
 									<li>
 										<ol>
-											<i class="wzhImg m-liren"></i>
+											<i class="wzhImg hm-nbgh"></i>
 											<a onclick="dogoodsxdpage('41','');" href="gflshow.html">
 												<strong>南北干货</strong>
 											</a>
@@ -214,7 +215,7 @@ function cusLogout(){
 									</li>
 									<li>
 										<ol>
-											<i class="wzhImg m-lvyou"></i>
+											<i class="wzhImg hm-fbsp"></i>
 											<a onclick="dogoodsxdpage('38','');" href="gflshow.html">
 												<strong>方便食品</strong>
 											</a>
@@ -348,9 +349,9 @@ $.ajax({
 				<!--site-middle-->
 
 				<div class="site-r-wzk">
-					<span class="site-wzkImg"><span class="wzk-apply">
-							<!--<a href="/apply/applyWZCardInitPage.html">立即申请->></a> -->
-					</span> </span>
+					<span class="site-lbrImg"><!--<span class="wzk-apply">
+							<a href="/apply/applyWZCardInitPage.html">立即申请->></a>
+					</span> --></span>
 					<div class="wzh-app">
 						<h2>谷粒网移动应用</h2>
 						<a href="javascript:void(0);" target="_blank"><span><i
@@ -368,7 +369,7 @@ $.ajax({
 
 				<div class="sp-Title" id="menuF1">
 					<h2>
-						<span class="sp-floor f1"><i class="wzhImg m-meishi"></i></span>秒杀专区
+						<span class="sp-floor f1"><i class="wzhImg hm-ppzq"></i></span>秒杀专区
 
 						<ul class="sp-tit-categories">
 							<!-- <li><a
@@ -439,7 +440,7 @@ $(function(){
 
 				<div class="sp-Title" id="menuF3">
 					<h2>
-						<i class="wzhImg m-yule"></i>买赠专区
+						<span class="sp-floor f3"><i class="wzhImg hm-ppzq"></i></span>买赠专区
 						<ul class="sp-tit-categories">
 							<li><a href="mzgshow.html"
 								target="_blank">更多&gt;</a></li>
@@ -504,7 +505,7 @@ $(function(){
 
 				<div class="sp-Title" id="menuF2">
 					<h2>
-						<i class="wzhImg m-jiudian"></i>品牌专区
+						<span class="sp-floor f2"><i class="wzhImg hm-ppzq"></i></span>品牌专区
 						<ul class="sp-tit-categories">
 							<li><a onclick="dogoodsxdpage('G14630381061319233','');" href="gflshow.html
 								target="_blank">更多&gt;</a></li>
@@ -572,7 +573,7 @@ $(function(){
 
 				<div class="sp-Title" id="menuF5">
 					<h2>
-						<i class="wzhImg m-fuwu"></i>裸价专区
+						<span class="sp-floor f5"><i class="wzhImg hm-ljzq"></i></span>裸价专区
 						<ul class="sp-tit-categories">
 							<!-- <li><a
 								onclick="javascript:this.href=encodeURI('/life.html?w=其他生活&amp;categoryId=10051114');"
@@ -651,7 +652,7 @@ $(function(){
 
 				<div class="sp-Title" id="menuF4">
 					<h2>
-						<i class="wzhImg m-liren"></i>粮油米面
+						<span class="sp-floor f4"><i class="wzhImg hm-lymm"></i></span>粮油米面
 						<ul class="sp-tit-categories">
 							<li><a onclick="dogoodsxdpage('43','');" href="gflshow.html" target="_blank">更多&gt;</a></li>
 						</ul>
@@ -718,7 +719,7 @@ $(function(){
 
 				<div class="sp-Title" id="menuF6">
 					<h2>
-						<i class="wzhImg m-lvyou"></i>调味酱汁
+						<span class="sp-floor f6"><i class="wzhImg hm-twjz"></i></span>调味酱汁
 						<ul class="sp-tit-categories">
 							<li><a onclick="dogoodsxdpage('42','');" href="gflshow.html" target="_blank">更多&gt;</a></li>
 						</ul>
@@ -785,7 +786,7 @@ $(function(){
 
 				<div class="sp-Title" id="menuF7">
 					<h2>
-						<i class="wzhImg m-lvyou"></i>南北干货
+						<span class="sp-floor f7"><i class="wzhImg hm-nbgh"></i></span>南北干货
 						<ul class="sp-tit-categories">
 							<li><a onclick="dogoodsxdpage('41','');" href="gflshow.html" target="_blank">更多&gt;</a></li>
 						</ul>
@@ -852,7 +853,7 @@ $(function(){
 
 				<div class="sp-Title" id="">
 					<h2>
-						<i class="wzhImg m-lvyou"></i>餐厨用品
+						<span class="sp-floor f1"><i class="wzhImg hm-ppzq"></i></span>餐厨用品
 						<ul class="sp-tit-categories">
 							<li><a onclick="dogoodsxdpage('39','');" href="gflshow.html" target="_blank">更多&gt;</a></li>
 						</ul>
@@ -1040,25 +1041,25 @@ $(function(){
         <ul>
             
             <li class="nav_floor1">
-            	<a href="homepage.html#menuF1" class="l-menu-f1 current" data-scroll-nav="0"><i class="leftNavIco m-meishi-g"></i>秒杀专区</a>
+            	<a href="homepage.html#menuF1" class="l-menu-f1 current" data-scroll-nav="0"><i class="hm-ppzq"></i>秒杀专区</a>
             </li>
             <li class="nav_floor3">
-            	<a href="homepage.html#menuF3" class="l-menu-f3" data-scroll-nav="2"><i class="leftNavIco m-yule-g"></i>买赠专区</a>
+            	<a href="homepage.html#menuF3" class="l-menu-f3" data-scroll-nav="2"><i class="hm-ppzq"></i>买赠专区</a>
             </li>
              <li class="nav_floor2">
-            	<a href="homepage.html#menuF2" class="l-menu-f2" data-scroll-nav="1"><i class="leftNavIco m-jiudian-g"></i>品牌专区</a>
+            	<a href="homepage.html#menuF2" class="l-menu-f2" data-scroll-nav="1"><i class="hm-ppzq"></i>品牌专区</a>
             </li>
             <li class="nav_floor5">
-            	<a href="homepage.html#menuF5" class="l-menu-f5" data-scroll-nav="4"><i class="leftNavIco m-fuwu-g"></i>裸价专区</a>
+            	<a href="homepage.html#menuF5" class="l-menu-f5" data-scroll-nav="4"><i class="hm-ljzq"></i>裸价专区</a>
             </li>
             <li class="nav_floor4">
-            	<a href="homepage.html#menuF4" class="l-menu-f4" data-scroll-nav="3"><i class="leftNavIco m-liren-g"></i>粮油米面</a>
+            	<a href="homepage.html#menuF4" class="l-menu-f4" data-scroll-nav="3"><i class="hm-lymm"></i>粮油米面</a>
             </li>
             <li class="nav_floor6">
-            	<a href="homepage.html#menuF6" class="l-menu-f6" data-scroll-nav="5"><i class="leftNavIco m-lvyou-g"></i>调味酱汁</a>
+            	<a href="homepage.html#menuF6" class="l-menu-f6" data-scroll-nav="5"><i class="hm-twjz"></i>调味酱汁</a>
             </li>
-            <li class="nav_floor6">
-            	<a href="homepage.html#menuF7" class="l-menu-f7" data-scroll-nav="7"><i class="leftNavIco m-nbgh-g"></i>南北干货</a>
+            <li class="nav_floor7">
+            	<a href="homepage.html#menuF7" class="l-menu-f7" data-scroll-nav="7"><i class="hm-nbgh"></i>南北干货</a>
             </li>
         </ul>
     </div><!--site-left-menu-->
@@ -1093,11 +1094,14 @@ $(function(){
 
 	<script src="js/jquery.min.js"></script>
 
-	<script src="js/wzhwebui.min.js"></script>
+	<script src="js/guliwebui.min.js"></script>
 
 </body>
 <!--框架js-->
 <script type="text/javascript">
+$(function(){
+	cartNum();			//购物车上的数量
+});
 jQuery(".site-left-menu").find("a").click(function() {
 	jQuery("#isClick").val(1);
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 

@@ -1,4 +1,17 @@
 // JavaScript Document
+//购物车数量
+function cartNum(){
+	//购物车图标上的数量
+	if(!window.localStorage.getItem("cartnum")){
+		window.localStorage.setItem("cartnum",0);
+	}else if(window.localStorage.getItem("cartnum")==0){
+		$("#totalnum").hide();
+		$("#totalnum").text(0);
+	}else{
+		$("#totalnum").text(window.localStorage.getItem("cartnum"));
+		$("#totalnum").parent().css('background','url("images/shoppingcar-full.png") no-repeat');
+	}
+}
 //在搜索框中按下回车键
 function seachkeydow(){
 	var event = window.event || arguments.callee.caller.arguments[0];

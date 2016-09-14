@@ -743,102 +743,11 @@ order-price {
 /* =========================
 			图标管理
 ============================ */
-.wzhImg {
-	background: url("../images/whz-imgBg.png") no-repeat;
+.wzhImg, .refund, .ka, .collection, .share, .sina, .tencent, .deal-combo i, .cartIoc, .delete, .prompt-exc, .sorryIco, .TopCartIco, .appIoc, .user-TopIco, .com-operation, .phoneIco, .lo-user, .lo-warningIco, .lo-successfulIco, .star-dow, .whz-headLogo, .in-screen, .whk-logo-p, .mem-card, .directionR-ico, .leftNavIco, .UnderIco, .gwcwkleft, .editor {
+	background: url(../images/whz-imgBg.png) no-repeat;
 }
-/* .refund {
-	background: url("../images/whz-imgBg.png") no-repeat;
-} */
-
-/* .ka {
-	background: url("../images/whz-imgBg.png") no-repeat;
-} */
-.collection {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.share {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.sina {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.tencent {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.deal-combo i {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.cartIoc {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.delete {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.prompt-exc {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.sorryIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.TopCartIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.appIoc {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.user-TopIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.com-operation {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.phoneIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.lo-user {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.lo-warningIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.lo-successfulIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.star-dow {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.whz-headLogo {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.in-screen {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.whk-logo-p {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.mem-card {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.directionR-ico {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.leftNavIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.UnderIco {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.gwcwkleft {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.editor {
-	background: url("../images/whz-imgBg.png") no-repeat;
-}
-.close-reveal-modal {
-	background: url("../images/whz-img-sp.png") no-repeat;
-}
-.Umenu-area dd a {
-	background: url("../images/whz-img-sp.png") no-repeat;
+.close-reveal-modal, .Umenu-area dd a {
+	background: url(../images/whz-img-sp.png) no-repeat;
 }
 /*导航*/
 .m-meishi, .m-jiudian, .m-yule, .m-liren, .m-fuwu, .m-lvyou, .m-hotgoods {
@@ -849,24 +758,35 @@ order-price {
 	overflow: hidden;
 	margin-right: 6px;
 	margin-top: 3px;
-}/*38px*/
-.m-meishi {
-	background-position: -36px -132px
 }
-.m-jiudian {
-	background-position: 0px -132px
+.hm-ppzq, .hm-ljzq, .hm-lymm, .hm-twjz, .hm-nbgh, .hm-fbsp {
+	width: 36px;
+	height: 36px;
+	display: block;
+	float: left;
+	overflow: hidden;
+	margin-right: 6px;
+	margin-top: 3px;
 }
-.m-yule {
-	background-position: -72px -132px
+
+/*38px*/
+.hm-ppzq {
+	background: url("../images/homepageImg/hp-ppzq.png");
 }
-.m-liren {
-	background-position: -144px -132px
+.hm-ljzq {
+	background: url("../images/homepageImg/hp-ljzq.png");
 }
-.m-fuwu {
-	background-position: -108px -132px
+.hm-lymm {
+	background: url("../images/homepageImg/hp-lymm.png");
 }
-.m-lvyou {
-	background-position: -180px -132px
+.hm-twjz {
+	background: url("../images/homepageImg/hp-twjz.png");
+}
+.hm-nbgh {
+	background: url("../images/homepageImg/hp-nbgh.png");
+}
+.hm-fbsp {
+	background: url("../images/homepageImg/hp-fbsp.png");
 }
 .m-miaoshac {
 	background-position: -252px -132px
@@ -1100,9 +1020,24 @@ width200px;
 	display: block;
 	float: right;
 	margin-left: 1em;
-	background: url("../images/whz-imgBg.png") no-repeat;
-	background-position: -43px 0;
+	background: url("../images/shoppingcar-empty.png") no-repeat;
 }
+
+.ensure a span{
+	float: right;
+	right:-32%; 
+	top:-10%; 
+	width:14px; 
+	height:14px;
+	line-height:14px; 
+	text-align:center;  
+	border-radius:50px; 
+	background-color:#F00; 
+	color:#fff; font-size:.3em; 
+	font-style:normal; 
+	border:red solid 1px
+}
+.home-search-wrapper .gwc em{ }
 .logoimg {
 	width: 200px;
 	height: 60px;
@@ -1315,7 +1250,8 @@ width200px;
 	color: #fff;
 }
 .nav_floor1 .current .m-meishi-g, .nav_floor1:hover .m-meishi-g {
-	background-position: -259px -76px;
+	/* background-position: -259px -76px; */
+	background-color: white;
 }
 .nav_floor2 .l-menu-f2:hover, .nav_floor2 .current {
 	background: #D4595E;
@@ -1347,6 +1283,10 @@ width200px;
 }
 .nav_floor6 .l-menu-f6:hover, .nav_floor6 .current {
 	background: #268BB9;
+	color: #fff;
+}
+.nav_floor7 .l-menu-f7:hover, .nav_floor7 .current {
+	background: #32ED10;
 	color: #fff;
 }
 .nav_floor6 .current .m-lvyou-g, .nav_floor6:hover .m-lvyou-g {
@@ -2625,15 +2565,15 @@ deal-full a:hover {
 .site-middle {
 	float: left;
 }
-.site-wzkImg {
+.site-lbrImg {
 	width: 212px;
-	background: url(../images/site-wzk.jpg) no-repeat;
+	background: url(../images/hp-guanggao.png) no-repeat;
 	height: 320px;
 	display: block;
 	position: relative;
 	background-color: #ccc;
 }
-.wzk-apply {
+/* .wzk-apply {
 	position: absolute;
 	bottom: 1em;
 	margin-left: 35%;
@@ -2644,7 +2584,7 @@ deal-full a:hover {
 }
 .wzk-apply a {
 	color: #fff;
-}
+} */
 .wzk-apply:hover {
 	padding-left: 3%;
 	animation: 1s ease-in 0s normal forwards 1 fadeInRight;
@@ -2809,7 +2749,7 @@ deal-full a:hover {
 	margin: 0;
 }
 .sp-Title .m-meishi {
-	background-position: -283px -132px
+	background: url("../images/homepageImg/hp-ppzq.png");
 }
 .sp-Title .m-jiudian {
 	background-position: -255px -132px
@@ -4194,7 +4134,8 @@ f1 {
 	width: 130px;
 	height: 200px;
 	display: block;
-	background-position: -434px -403px;
+	background: url("../images/hp-guanggao.png");
+	background-size: 130px 200px;
 	margin-bottom: 5px;
 }
 .site-qrCode .close {

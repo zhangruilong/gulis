@@ -18,11 +18,21 @@ body{font-size:12px;background-color:#f5f5f5;}
 .zhucecbleftltext2 a:hover{color:#005aa1;text-decoration:underline;}
 .zhucecbleftltext3 a{color:#005aa1;text-decoration:none;}
 .zhucecbleftltext3 a:hover{color:#005aa1;text-decoration:underline;}
-.zhucecbleftlinput input{float:left;width:270px;color:#989898;font-size:14px;height:36px;line-height:36px;border:1px solid #cccccc;}
+.zhucecbleftlinput input{float:left;width:270px;color:#989898;font-size:14px;height:36px;line-height:36px;border:1px solid #cccccc;
+padding: 0px 0px 0px 39px;}
+/* .zhucecbleftlinput input[name='customershop']{background: url(../images/loginAndRegImg/shopid.png) no-repeat left center;}
+.zhucecbleftlinput input[name='customername']{background: url(../images/loginAndRegImg/name.png) no-repeat left center;}
+.zhucecbleftlinput input[name='customerphone']{background: url(../images/loginAndRegImg/phone.png) no-repeat left center;}
+.zhucecbleftlinput input[name='customercity']{background: url(../images/loginAndRegImg/city.png) no-repeat left center;}
+.zhucecbleftlinput input[name='customerxian']{background: url(../images/loginAndRegImg/district.png) no-repeat left center;}
+.zhucecbleftlinput input[name='customeraddress']{background: url(../images/loginAndRegImg/address.png) no-repeat left center;}
+.zhucecbleftlinput input[name='customerpsw']{background: url(../images/loginAndRegImg/set passwod.png) no-repeat left center;}
+.zhucecbleftlinput input[name='recustomerpsw']{background: url(../images/loginAndRegImg/confirm password.png) no-repeat left center;} */
 .zhucecbleftlinput2 input{float:left;width:13px;height:13px;margin-top:13px;display:inline;}
 .zhucecbleftlinput3 input{float:left;width:232px;height:37px;background:url(../images/tyban.jpg) no-repeat;border:0px;cursor: pointer;}
 .zhucecbright{float:right;width:180px;height:180px;margin-right:67px;height:auto;display:inline;}
-.zhucebot{float:left;width:100%;text-align:center;height:auto;line-height:25px;color:#9a9a9a;margin:15px 0px 30px 0px;display:inline;font-family:Arial, Helvetica, sans-serif;cursor: pointer;}
+.zhucebot{float:left;width:100%;text-align:center;height:auto;line-height:25px;color:#9a9a9a;margin:15px 0px 30px 0px;display:inline;
+font-family:Arial, Helvetica, sans-serif;cursor: pointer;}
 
 
 .dengluleft{float:left;width:363px;height:300px;margin:30px 0px 0px 70px;display:inline;}
