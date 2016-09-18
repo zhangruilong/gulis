@@ -148,7 +148,7 @@
 $(function(){
 	cartNum();													//初始化购物车上的商品数量
 	$.ajax({
-		url:"GoodsclassAction.do?method=selPCHomeGC",
+		url:"AbfGoodsclassAction.do?method=selPCHomeGC",
 		type:"post",
 		data:{
 			cusid:customer.customerid
@@ -393,7 +393,7 @@ var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function() {
 	
 		$.ajax({
-			url:"TimegoodsviewAction.do?method=msGoodsxd",
+			url:"AbfTimegoodsviewAction.do?method=msGoodsxd",
 			type:"post",
 			data:{
 				customerid:customer.customerid,

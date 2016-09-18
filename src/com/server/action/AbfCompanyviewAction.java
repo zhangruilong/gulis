@@ -23,10 +23,7 @@ import com.system.tools.pojo.Pageinfo;
  * 经销商 逻辑层
  *@author ZhangRuiLong
  */
-public class CompanyviewAction extends BaseActionDao {
-	public String result = CommonConst.FAILURE;
-	public ArrayList<Companyview> cuss = null;
-	public Type TYPE = new TypeToken<ArrayList<Companyview>>() {}.getType();
+public class AbfCompanyviewAction extends CompanyviewAction {
 	
 	/**
     * 模糊查询语句
@@ -42,35 +39,6 @@ public class CompanyviewAction extends BaseActionDao {
     	}
 		return querysql.substring(0, querysql.length() - 4);
 	};
-	//导出
-	public void expAll(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Companyview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(CompanyviewPoco.ORDER);
-		cuss = (ArrayList<Companyview>) selAll(queryinfo);
-		FileUtil.expExcel(response,cuss,CompanyviewPoco.CHINESENAME,CompanyviewPoco.NAME);
-	}
-	//查询所有
-	public void selAll(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Companyview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(CompanyviewPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
-	//分页查询
-	public void selQuery(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Companyview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(CompanyviewPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
 	//查询我的供应商
 	@SuppressWarnings("unchecked")
 	public void bdCityCom(HttpServletRequest request, HttpServletResponse response){

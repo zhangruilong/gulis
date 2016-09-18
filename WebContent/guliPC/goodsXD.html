@@ -148,7 +148,7 @@
 $(function(){
 	cartNum();													//初始化购物车上的商品数量
 	$.ajax({
-		url:"GoodsclassAction.do?method=selPCHomeGC",
+		url:"AbfGoodsclassAction.do?method=selPCHomeGC",
 		type:"post",
 		data:{
 			cusid:customer.customerid
@@ -397,7 +397,7 @@ var goodsclassparent = window.localStorage.getItem("goodsclassparent");
 var goodsclassname = window.localStorage.getItem("goodsclassname");
 $(function() {
 		$.ajax({
-			url:"GoodsviewAction.do?method=goodsxd",
+			url:"AbfGoodsviewAction.do?method=goodsxd",
 			type:"post",
 			data:{
 				customerid:customer.customerid,
@@ -460,7 +460,7 @@ function checkedgoods(){
 		window.location.href = 'login.html';
 		return;
 	}
-	var url = 'CollectAction.do?method=';
+	var url = 'AbfCollectAction.do?method=';
 	if($("#currentgipc").is(':checked')){
 		url +='delAllByGoodsid';
 	}else{

@@ -21,7 +21,7 @@
 //注销
 function cusLogout(){
 	$.ajax({
-		url:"CustomerAction.do?method=cusLogout",
+		url:"AbfCustomerAction.do?method=cusLogout",
 		type:"post",
 		data:{},
 		success:function(resp){
@@ -239,7 +239,7 @@ function cusLogout(){
 							<!--leftMenu-->
 <script type="text/javascript">
 $.ajax({
-	url:"GoodsclassAction.do?method=selPCHomeGC",
+	url:"AbfGoodsclassAction.do?method=selPCHomeGC",
 	type:"post",
 	data:{
 		cusid:customer.customerid
@@ -400,7 +400,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"TimegoodsviewAction.do?method=homMSGoods",
+		url:"AbfTimegoodsviewAction.do?method=homMSGoods",
 		type:"post",
 		data:{
 			limit:"6",
@@ -465,7 +465,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"GivegoodsviewAction.do?method=homMZGoods",
+		url:"AbfGivegoodsviewAction.do?method=homMZGoods",
 		type:"post",
 		data:{
 			limit:"6",
@@ -530,7 +530,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"GoodsviewAction.do?method=queryHomePagePPZQG",
+		url:"AbfGoodsviewAction.do?method=queryHomePagePPZQG",
 		type:"post",
 		data:{
 			limit:"6",
@@ -598,7 +598,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"GoodsviewAction.do?method=selljgv",
+		url:"AbfGoodsviewAction.do?method=selljgv",
 		type:"post",
 		data:{
 			limit:"6",
@@ -667,7 +667,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"GoodsviewAction.do?method=selljgv",
+		url:"AbfGoodsviewAction.do?method=selljgv",
 		type:"post",
 		data:{
 			limit:"6",
@@ -743,7 +743,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"GoodsviewAction.do?method=selljgv",
+		url:"AbfGoodsviewAction.do?method=selljgv",
 		type:"post",
 		data:{
 			limit:"6",
@@ -810,7 +810,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"GoodsviewAction.do?method=selljgv",
+		url:"AbfGoodsviewAction.do?method=selljgv",
 		type:"post",
 		data:{
 			limit:"6",
@@ -877,7 +877,7 @@ $(function(){
 		return;
 	}
 	$.ajax({
-		url:"GoodsviewAction.do?method=selljgv",
+		url:"AbfGoodsviewAction.do?method=selljgv",
 		type:"post",
 		data:{
 			limit:"6",
@@ -945,7 +945,7 @@ $(function(){
 <script type="text/javascript">
 $(function(){
 	$.ajax({
-		url:"OrderdAction.do?method=hotgoodssel",
+		url:"AbfOrderdAction.do?method=hotgoodssel",
 		type:"post",
 		data:{
 			customerid:customer.customerid

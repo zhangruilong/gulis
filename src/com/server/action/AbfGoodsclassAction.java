@@ -26,10 +26,7 @@ import com.system.tools.pojo.Pageinfo;
  * 大小类 逻辑层
  *@author ZhangRuiLong
  */
-public class GoodsclassAction extends BaseActionDao {
-	public String result = CommonConst.FAILURE;
-	public ArrayList<Goodsclass> cuss = null;
-	public Type TYPE = new TypeToken<ArrayList<Goodsclass>>() {}.getType();
+public class AbfGoodsclassAction extends GoodsclassAction {
 	
 	/**
     * 模糊查询语句
@@ -50,73 +47,6 @@ public class GoodsclassAction extends BaseActionDao {
 		String json = request.getParameter("json");
 		System.out.println("json : " + json);
 		if(CommonUtil.isNotEmpty(json)) cuss = CommonConst.GSON.fromJson(json, TYPE);
-	}
-	//新增
-	public void insAll(HttpServletRequest request, HttpServletResponse response){
-		json2cuss(request);
-		for(Goodsclass temp:cuss){
-			if(CommonUtil.isNull(temp.getGoodsclassid()))
-				temp.setGoodsclassid(CommonUtil.getNewId());
-			result = insSingle(temp);
-		}
-		responsePW(response, result);
-	}
-	//删除
-	public void delAll(HttpServletRequest request, HttpServletResponse response){
-		json2cuss(request);
-		for(Goodsclass temp:cuss){
-			result = delSingle(temp,GoodsclassPoco.KEYCOLUMN);
-		}
-		responsePW(response, result);
-	}
-	//修改
-	public void updAll(HttpServletRequest request, HttpServletResponse response){
-		json2cuss(request);
-		for(Goodsclass temp:cuss){
-			result = updSingle(temp,GoodsclassPoco.KEYCOLUMN);
-		}
-		responsePW(response, result);
-	}
-	//导出
-	public void expAll(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Goodsclass.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(GoodsclassPoco.ORDER);
-		cuss = (ArrayList<Goodsclass>) selAll(queryinfo);
-		FileUtil.expExcel(response,cuss,GoodsclassPoco.CHINESENAME,GoodsclassPoco.NAME);
-	}
-	//导入
-	public void impAll(HttpServletRequest request, HttpServletResponse response){
-		Fileinfo fileinfo = FileUtil.upload(request,0,null,GoodsclassPoco.NAME,"impAll");
-		String json = FileUtil.impExcel(fileinfo.getPath(),GoodsclassPoco.FIELDNAME); 
-		if(CommonUtil.isNotEmpty(json)) cuss = CommonConst.GSON.fromJson(json, TYPE);
-		for(Goodsclass temp:cuss){
-			if(CommonUtil.isNull(temp.getGoodsclassid()))
-				temp.setGoodsclassid(CommonUtil.getNewId());
-			result = insSingle(temp);
-		}
-		responsePW(response, result);
-	}
-	//查询所有
-	public void selAll(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Goodsclass.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(GoodsclassPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
-	//分页查询
-	public void selQuery(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Goodsclass.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(GoodsclassPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
 	}
 	//查询主页左边的goodsclass
 	@SuppressWarnings("unchecked")

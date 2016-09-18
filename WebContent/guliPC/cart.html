@@ -264,7 +264,7 @@ function nextpage(){
 	//整理购物车数据
 	$("#shopping_card_submit_order_button").attr('onclick','');											//禁用按钮
 	$.ajax({
-		url:"OrderdAction.do?method=sortingSdiData",
+		url:"AbfOrderdAction.do?method=sortingSdiData",
 		type:"post",
 		data:{
 			json:window.localStorage.getItem("sdishes"),

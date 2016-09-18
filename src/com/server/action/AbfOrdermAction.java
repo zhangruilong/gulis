@@ -26,10 +26,7 @@ import com.system.tools.pojo.Pageinfo;
  * 订单 逻辑层
  *@author ZhangRuiLong
  */
-public class OrdermAction extends BaseActionDao {
-	public String result = CommonConst.FAILURE;
-	public ArrayList<Orderm> cuss = null;
-	public Type TYPE = new TypeToken<ArrayList<Orderm>>() {}.getType();
+public class AbfOrdermAction extends OrdermAction {
 	
 	/**
     * 模糊查询语句
@@ -50,73 +47,6 @@ public class OrdermAction extends BaseActionDao {
 		String json = request.getParameter("json");
 		System.out.println("json : " + json);
 		if(CommonUtil.isNotEmpty(json)) cuss = CommonConst.GSON.fromJson(json, TYPE);
-	}
-	//新增
-	public void insAll(HttpServletRequest request, HttpServletResponse response){
-		json2cuss(request);
-		for(Orderm temp:cuss){
-			if(CommonUtil.isNull(temp.getOrdermid()))
-				temp.setOrdermid(CommonUtil.getNewId());
-			result = insSingle(temp);
-		}
-		responsePW(response, result);
-	}
-	//删除
-	public void delAll(HttpServletRequest request, HttpServletResponse response){
-		json2cuss(request);
-		for(Orderm temp:cuss){
-			result = delSingle(temp,OrdermPoco.KEYCOLUMN);
-		}
-		responsePW(response, result);
-	}
-	//修改
-	public void updAll(HttpServletRequest request, HttpServletResponse response){
-		json2cuss(request);
-		for(Orderm temp:cuss){
-			result = updSingle(temp,OrdermPoco.KEYCOLUMN);
-		}
-		responsePW(response, result);
-	}
-	//导出
-	public void expAll(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Orderm.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(OrdermPoco.ORDER);
-		cuss = (ArrayList<Orderm>) selAll(queryinfo);
-		FileUtil.expExcel(response,cuss,OrdermPoco.CHINESENAME,OrdermPoco.NAME);
-	}
-	//导入
-	public void impAll(HttpServletRequest request, HttpServletResponse response){
-		Fileinfo fileinfo = FileUtil.upload(request,0,null,OrdermPoco.NAME,"impAll");
-		String json = FileUtil.impExcel(fileinfo.getPath(),OrdermPoco.FIELDNAME); 
-		if(CommonUtil.isNotEmpty(json)) cuss = CommonConst.GSON.fromJson(json, TYPE);
-		for(Orderm temp:cuss){
-			if(CommonUtil.isNull(temp.getOrdermid()))
-				temp.setOrdermid(CommonUtil.getNewId());
-			result = insSingle(temp);
-		}
-		responsePW(response, result);
-	}
-	//查询所有
-	public void selAll(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Orderm.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(OrdermPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
-	//分页查询
-	public void selQuery(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Orderm.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(OrdermPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
 	}
 	//新增
 	public void addOrder(HttpServletRequest request, HttpServletResponse response){

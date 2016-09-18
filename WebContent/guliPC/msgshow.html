@@ -138,7 +138,7 @@
 $(function(){
 	cartNum();													//初始化购物车上的商品数量
 	$.ajax({
-		url:"GoodsclassAction.do?method=selPCHomeGC",
+		url:"AbfGoodsclassAction.do?method=selPCHomeGC",
 		type:"post",
 		data:{
 			cusid:customer.customerid
@@ -272,7 +272,7 @@ $(function(){
 //秒杀页
 function mspage(){
 	$.ajax({
-		url:'TimegoodsviewAction.do?method=cusTimeG',
+		url:'AbfTimegoodsviewAction.do?method=cusTimeG',
 		type:"post",
 		data:{
 			customerid:customer.customerid,
@@ -363,7 +363,7 @@ function mspage(){
 <script type="text/javascript">
 $(function(){
 	$.ajax({
-		url:"OrderdAction.do?method=hotgoodssel",
+		url:"AbfOrderdAction.do?method=hotgoodssel",
 		type:"post",
 		data:{
 			customerid:customer.customerid,

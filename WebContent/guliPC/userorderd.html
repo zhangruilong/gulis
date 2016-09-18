@@ -83,7 +83,7 @@ var ordermid = getQueryString("omid");
 var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function(){
 	$.ajax({
-		url:"OrderdAction.do?method=selAll",
+		url:"AbfOrderdAction.do?method=selAll",
 		type:"post",
 		data:{
 			wheresql:"orderdorderm='"+ordermid+"'"
@@ -117,7 +117,7 @@ $(function(){
 function regoumai(){
 	var orderds = $("#orderd_data").text();
 	$.ajax({
-		url:"OrderdAction.do?method=queryREgoumaiGoods",
+		url:"AbfOrderdAction.do?method=queryREgoumaiGoods",
 		type:"post",
 		data:{
 			json:orderds,

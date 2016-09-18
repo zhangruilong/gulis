@@ -138,7 +138,7 @@
 $(function(){
 	cartNum();													//初始化购物车上的商品数量
 	$.ajax({
-		url:"GoodsclassAction.do?method=selPCHomeGC",
+		url:"AbfGoodsclassAction.do?method=selPCHomeGC",
 		type:"post",
 		data:{
 			cusid:customer.customerid
@@ -283,7 +283,7 @@ function ljcond(classname){
 function ljzuddpage(){
 	$(".sp-dataBox").remove();
 	$.ajax({
-		url:'GoodsviewAction.do?method=ljgvgoods',
+		url:'AbfGoodsviewAction.do?method=ljgvgoods',
 		type:"post",
 		data:{
 			customerid:customer.customerid,
@@ -387,7 +387,7 @@ function ljzuddpage(){
 <script type="text/javascript">
 $(function(){
 	$.ajax({
-		url:"OrderdAction.do?method=hotgoodssel",
+		url:"AbfOrderdAction.do?method=hotgoodssel",
 		type:"post",
 		data:{
 			customerid:customer.customerid,

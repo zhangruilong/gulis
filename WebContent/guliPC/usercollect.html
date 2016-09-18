@@ -93,7 +93,7 @@
 var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function(){
 	$.ajax({
-		url:"CollectviewAction.do?method=selAll",
+		url:"AbfCollectviewAction.do?method=selAll",
 		type:"post",
 		data:{
 			wheresql:"collectcustomer='"+customer.customerid+"' and pricesclass='"+
@@ -220,7 +220,7 @@ function allsele(obj){
 	//删除收藏
 	function delCollects(obj,goodsid){
 		$.ajax({
-			url:"CollectAction.do?method=delAllByGoodsid",
+			url:"AbfCollectAction.do?method=delAllByGoodsid",
 			type:"post",
 			data:{
 				json:'[{"collectcustomer":"'+customer.customerid+'","collectgoods":"'+goodsid+'"}]'

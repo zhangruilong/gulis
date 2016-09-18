@@ -70,7 +70,7 @@
 var customer = JSON.parse(window.localStorage.getItem("customer"));
 $(function(){
 	$.ajax({
-		url:"CustomerAction.do?method=selAll",
+		url:"AbfCustomerAction.do?method=selAll",
 		type:"post",
 		data:{
 			wheresql:"customerid='"+customer.customerid+"'"
@@ -108,7 +108,7 @@ function doedit(){
 		return;
 	}
 	$.ajax({
-		url:"CustomerAction.do?method=updAll",
+		url:"AbfCustomerAction.do?method=updAll",
 		type:"post",
 		data:{
 			json:strjson

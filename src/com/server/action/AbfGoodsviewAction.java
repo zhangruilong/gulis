@@ -27,10 +27,7 @@ import com.system.tools.pojo.Pageinfo;
  * goodsview 逻辑层
  *@author ZhangRuiLong
  */
-public class GoodsviewAction extends BaseActionDao {
-	public String result = CommonConst.FAILURE;
-	public ArrayList<Goodsview> cuss = null;
-	public Type TYPE = new TypeToken<ArrayList<Goodsview>>() {}.getType();
+public class AbfGoodsviewAction extends GoodsviewAction {
 	
 	/**
     * 模糊查询语句
@@ -46,35 +43,6 @@ public class GoodsviewAction extends BaseActionDao {
     	}
 		return querysql.substring(0, querysql.length() - 4);
 	};
-	//导出
-	public void expAll(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Goodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(GoodsviewPoco.ORDER);
-		cuss = (ArrayList<Goodsview>) selAll(queryinfo);
-		FileUtil.expExcel(response,cuss,GoodsviewPoco.CHINESENAME,GoodsviewPoco.NAME);
-	}
-	//查询所有
-	public void selAll(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Goodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(GoodsviewPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
-	//分页查询
-	public void selQuery(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Goodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(GoodsviewPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
 	//商品下单
 	@SuppressWarnings("unchecked")
 	public void goodsxd(HttpServletRequest request, HttpServletResponse response){
@@ -95,7 +63,6 @@ public class GoodsviewAction extends BaseActionDao {
 					gv.setGoodsclassdetail(gc.getGoodsclassname());				//用Goodsview中的Goodsclassdetail储存父类的名称
 				}
 				Queryinfo collectqueryinfo = getQueryinfo(Collect.class, null, null, null);
-				collectqueryinfo.setType(Collect.class);
 				collectqueryinfo.setWheresql("collectcustomer='"+cusid+"'");
 				ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
 				for(Goodsview mGoodsview:gvli){
@@ -136,8 +103,7 @@ public class GoodsviewAction extends BaseActionDao {
 		queryinfo.setWheresql(wheresql);
 		queryinfo.setOrder(GoodsviewPoco.ORDER);
 		cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
-		Queryinfo collectqueryinfo = getQueryinfo();
-		collectqueryinfo.setType(Collect.class);
+		Queryinfo collectqueryinfo = getQueryinfo(Collect.class, null, null, null);
 		collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
 		ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
 		for(Goodsview mGoodsview:cuss){
@@ -160,8 +126,7 @@ public class GoodsviewAction extends BaseActionDao {
 		String goodsbrand = request.getParameter("goodsbrand");
 		String limit = request.getParameter("limit");
 		//查询该客户的供应商关系表
-		Queryinfo Ccustomerqueryinfo = getQueryinfo();
-		Ccustomerqueryinfo.setType(Ccustomer.class);
+		Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
 		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
 		if(Ccustomercuss.size()!=0){
@@ -199,8 +164,7 @@ public class GoodsviewAction extends BaseActionDao {
 				cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
 			}
 			//检查是否已经收藏了这个商品
-			Queryinfo collectqueryinfo = getQueryinfo();
-			collectqueryinfo.setType(Collect.class);
+			Queryinfo collectqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 			collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
 			ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
 			for(Goodsview mGoodsview:cuss){
@@ -226,8 +190,7 @@ public class GoodsviewAction extends BaseActionDao {
 		String customerlevel = request.getParameter("customerlevel");
 		String goodsclassparent = request.getParameter("parent");
 		//查询该客户的供应商关系表
-		Queryinfo Ccustomerqueryinfo = getQueryinfo();
-		Ccustomerqueryinfo.setType(Ccustomer.class);
+		Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
 		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
 		if(Ccustomercuss.size()!=0){
@@ -243,8 +206,7 @@ public class GoodsviewAction extends BaseActionDao {
 			queryinfo.setOrder(GoodsviewPoco.ORDER);
 			cuss = (ArrayList<Goodsview>) selQuery(queryinfo);
 			//检查是否已经收藏了这个商品
-			Queryinfo collectqueryinfo = getQueryinfo();
-			collectqueryinfo.setType(Collect.class);
+			Queryinfo collectqueryinfo = getQueryinfo(Collect.class, null, null, null);
 			collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
 			ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
 			for(Goodsview mGoodsview:cuss){
@@ -269,8 +231,7 @@ public class GoodsviewAction extends BaseActionDao {
 		String goodsclassparent = request.getParameter("goodsclassparent");
 		String goodsclassname = request.getParameter("goodsclassname");
 		//查询该客户的供应商关系表
-		Queryinfo Ccustomerqueryinfo = getQueryinfo();
-		Ccustomerqueryinfo.setType(Ccustomer.class);
+		Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
 		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);
 		if(Ccustomercuss.size()!=0){
@@ -315,8 +276,7 @@ public class GoodsviewAction extends BaseActionDao {
 			queryinfo.setOrder(GoodsviewPoco.ORDER);
 			cuss = (ArrayList<Goodsview>) selAll(queryinfo);
 			//检查是否已经收藏了这个商品
-			Queryinfo collectqueryinfo = getQueryinfo();
-			collectqueryinfo.setType(Collect.class);
+			Queryinfo collectqueryinfo = getQueryinfo(Collect.class, null, null, null);
 			collectqueryinfo.setWheresql("collectcustomer='"+customerid+"'");
 			ArrayList<Collect> cussCollect = (ArrayList<Collect>) selAll(collectqueryinfo);
 			for(Goodsview mGoodsview:cuss){
@@ -342,7 +302,7 @@ public class GoodsviewAction extends BaseActionDao {
 		List<Customer> cusli = selAll(Customer.class,"select * from customer c where c.customerid='"+customerid+"'");
 		if(cusli.size() ==1){
 			//查询该客户的供应商关系表
-			Queryinfo Ccustomerqueryinfo = getQueryinfo();
+			Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 			Ccustomerqueryinfo.setType(Ccustomer.class);
 			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"'");
 			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);

@@ -27,10 +27,7 @@ import com.system.tools.util.FileUtil;
  * 秒杀商品 逻辑层
  *@author ZhangRuiLong
  */
-public class TimegoodsviewAction extends BaseActionDao {
-	public String result = CommonConst.FAILURE;
-	public ArrayList<Timegoodsview> cuss = null;
-	public Type TYPE = new TypeToken<ArrayList<Timegoodsview>>() {}.getType();
+public class AbfTimegoodsviewAction extends TimegoodsviewAction {
 	
 	/**
     * 模糊查询语句
@@ -46,35 +43,6 @@ public class TimegoodsviewAction extends BaseActionDao {
     	}
 		return querysql.substring(0, querysql.length() - 4);
 	};
-	//导出
-	public void expAll(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Timegoodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(TimegoodsviewPoco.ORDER);
-		cuss = (ArrayList<Timegoodsview>) selAll(queryinfo);
-		FileUtil.expExcel(response,cuss,TimegoodsviewPoco.CHINESENAME,TimegoodsviewPoco.NAME);
-	}
-	//查询所有
-	public void selAll(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Timegoodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(TimegoodsviewPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(0, selAll(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
-	//分页查询
-	public void selQuery(HttpServletRequest request, HttpServletResponse response){
-		Queryinfo queryinfo = getQueryinfo(request);
-		queryinfo.setType(Timegoodsview.class);
-		queryinfo.setQuery(getQuerysql(queryinfo.getQuery()));
-		queryinfo.setOrder(TimegoodsviewPoco.ORDER);
-		Pageinfo pageinfo = new Pageinfo(getTotal(queryinfo), selQuery(queryinfo));
-		result = CommonConst.GSON.toJson(pageinfo);
-		responsePW(response, result);
-	}
 	//秒杀商品下单
 	@SuppressWarnings("unchecked")
 	public void msGoodsxd(HttpServletRequest request, HttpServletResponse response){
@@ -115,8 +83,7 @@ public class TimegoodsviewAction extends BaseActionDao {
 		String wheresql = null;
 		List<Customer> cusli = selAll(Customer.class, "select * from customer where customerid='"+customerid+"'");			//根据客户id查询客户
 		if(cusli.size() ==1){
-			Queryinfo Ccustomerqueryinfo = getQueryinfo();
-			Ccustomerqueryinfo.setType(Ccustomer.class);
+			Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 			Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
 			ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);						//查询客户的客户关系
 			if(Ccustomercuss.size()!=0){																		//如果有客户关系
@@ -143,7 +110,7 @@ public class TimegoodsviewAction extends BaseActionDao {
 		String customerid = request.getParameter("customerid");
 		String customertype = request.getParameter("customertype");
 		String wheresql = null;
-		Queryinfo Ccustomerqueryinfo = getQueryinfo();
+		Queryinfo Ccustomerqueryinfo = getQueryinfo(Ccustomer.class, null, null, null);
 		Ccustomerqueryinfo.setType(Ccustomer.class);
 		Ccustomerqueryinfo.setWheresql("Ccustomercustomer='"+customerid+"' ");
 		ArrayList<Ccustomer> Ccustomercuss = (ArrayList<Ccustomer>) selAll(Ccustomerqueryinfo);

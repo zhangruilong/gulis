@@ -212,7 +212,7 @@ $(function(){
             '</div>');
 	});
 	$.ajax({
-		url:"AddressAction.do?method=selAll",
+		url:"AbfAddressAction.do?method=selAll",
 		type:"post",
 		data:{
 			wheresql:"addresscustomer='"+customer.customerid+"'",
@@ -294,7 +294,7 @@ function buy(){
 function saveOrder(ordermjson,orderdetjson){
 	var odjs = eval('('+ordermjson+')');
 	$.ajax({
-		url : 'OrdermAction.do?method=addOrder',
+		url : 'AbfOrdermAction.do?method=addOrder',
 		type:"post",
 		data : {
 			json : ordermjson,
@@ -326,7 +326,7 @@ function sortingData(){
 	}
 	$("#pay_next_button").attr('onclick','');											//禁用按钮
 	$.ajax({
-		url:"OrderdAction.do?method=sortingSdiData",
+		url:"AbfOrderdAction.do?method=sortingSdiData",
 		type:"post",
 		data:{
 			json:window.localStorage.getItem("sdishes"),
