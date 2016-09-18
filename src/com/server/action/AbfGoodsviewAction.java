@@ -1,27 +1,22 @@
 package com.server.action;
 
-import java.lang.reflect.Type;
-import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.server.poco.GoodsviewPoco;
 import com.server.pojo.Ccustomer;
 import com.server.pojo.Collect;
 import com.server.pojo.Customer;
 import com.server.pojo.Goods;
 import com.server.pojo.Goodsclass;
 import com.server.pojo.Goodsview;
-import com.server.poco.GoodsviewPoco;
 import com.system.tools.CommonConst;
-import com.system.tools.base.BaseActionDao;
-import com.system.tools.pojo.Fileinfo;
+import com.system.tools.pojo.Pageinfo;
 import com.system.tools.pojo.Queryinfo;
 import com.system.tools.util.CommonUtil;
-import com.system.tools.util.FileUtil;
-import com.system.tools.pojo.Pageinfo;
 
 /**
  * goodsview 逻辑层
@@ -80,6 +75,7 @@ public class AbfGoodsviewAction extends GoodsviewAction {
 		responsePW(response, result);
 	}
 	//查询
+	@SuppressWarnings("unchecked")
 	public void mselAll(HttpServletRequest request, HttpServletResponse response){
 		String companyid = request.getParameter("companyid");
 		String customerid = request.getParameter("customerid");

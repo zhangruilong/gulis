@@ -1,27 +1,21 @@
 package com.server.action;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.reflect.TypeToken;
-import com.server.poco.GoodsviewPoco;
 import com.server.poco.TimegoodsviewPoco;
 import com.server.pojo.Ccustomer;
 import com.server.pojo.Customer;
-import com.server.pojo.Goodsview;
 import com.server.pojo.Orderd;
 import com.server.pojo.Timegoodsview;
 import com.system.tools.CommonConst;
-import com.system.tools.base.BaseActionDao;
 import com.system.tools.pojo.Pageinfo;
 import com.system.tools.pojo.Queryinfo;
 import com.system.tools.util.CommonUtil;
 import com.system.tools.util.DateUtils;
-import com.system.tools.util.FileUtil;
 
 /**
  * 秒杀商品 逻辑层
