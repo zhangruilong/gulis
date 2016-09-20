@@ -759,7 +759,7 @@ order-price {
 	margin-right: 6px;
 	margin-top: 3px;
 }
-.hm-ppzq, .hm-ljzq, .hm-lymm, .hm-twjz, .hm-nbgh, .hm-fbsp {
+.hm-ppzq, .hm-ljzq, .hm-lymm, .hm-twjz, .hm-nbgh, .hm-fbsp, .hm-ms, .hm-mz {
 	width: 36px;
 	height: 36px;
 	display: block;
@@ -770,6 +770,12 @@ order-price {
 }
 
 /*38px*/
+.hm-ms {
+	background: url("../images/homepageImg/hp-ms.png");
+}
+.hm-mz {
+	background: url("../images/homepageImg/hp-mz.png");
+}
 .hm-ppzq {
 	background: url("../images/homepageImg/hp-ppzq.png");
 }
